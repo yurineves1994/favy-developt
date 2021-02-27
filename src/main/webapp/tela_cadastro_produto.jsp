@@ -16,7 +16,6 @@
                 margin: 0 auto;
                 width: 800px;
             }
-
             .campo-left {
                 display: flex;
                 justify-content: left;
@@ -151,7 +150,7 @@
     <body>
         <section>
             <div class="container">
-                <form action="#">
+                <form action="CadastrarProduto" method="POST">
                     <fieldset>
                         <legend>Cadastrar Produto</legend>
                         <div class="campo-left">
@@ -208,6 +207,7 @@
 
             </div>
         </section>
+
     </body>
 
 </html>

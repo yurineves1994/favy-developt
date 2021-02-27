@@ -10,7 +10,7 @@
     <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Listar Produto</title>
         <style>
             table {
                 width: 700px;
@@ -43,11 +43,8 @@
                 justify-content: space-between;
                 margin: 20px;
             }
-
-            .botoes-laterais {
-                border: 1px solid black;
-                width: 50px;
-                height: 50px;
+            i{
+                margin-left: 4px;
             }
 
             .logo {
@@ -110,7 +107,7 @@
                     <div class="campo-center">
                         <label for="pesquisa">Pesquisar:</label>
                         <input type="search" id="pesquisa" name="pesquisa">
-                        <i class="fas fa-search"></i>
+                        <a href="#"> <i class="fa fa-search fa-1x"></i></a>
                     </div>
                     <div class="campo-tabela">
                         <table>
@@ -129,56 +126,54 @@
                                     <td>Campo 01</td>
                                     <td>Campo 02</td>
                                     <td>Campo 03</td>
-                                    <td>Campo 04</td>
-                                    <td>Campo 05</td>
-                                    <td>Campo 06</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Inativar</a></td>
+                                    <td><a href="#">Visualizar</a></td>
                                 </tr>
                                 <tr>
                                     <td>Campo 01</td>
                                     <td>Campo 02</td>
                                     <td>Campo 03</td>
-                                    <td>Campo 04</td>
-                                    <td>Campo 05</td>
-                                    <td>Campo 06</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Inativar</a></td>
+                                    <td><a href="#">Visualizar</a></td>
                                 </tr>
                                 <tr>
                                     <td>Campo 01</td>
                                     <td>Campo 02</td>
                                     <td>Campo 03</td>
-                                    <td>Campo 04</td>
-                                    <td>Campo 05</td>
-                                    <td>Campo 06</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Inativar</a></td>
+                                    <td><a href="#">Visualizar</a></td>
                                 </tr>
                                 <tr>
                                     <td>Campo 01</td>
                                     <td>Campo 02</td>
                                     <td>Campo 03</td>
-                                    <td>Campo 04</td>
-                                    <td>Campo 05</td>
-                                    <td>Campo 06</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Inativar</a></td>
+                                    <td><a href="#">Visualizar</a></td>
                                 </tr>
                                 <tr>
                                     <td>Campo 01</td>
                                     <td>Campo 02</td>
                                     <td>Campo 03</td>
-                                    <td>Campo 04</td>
-                                    <td>Campo 05</td>
-                                    <td>Campo 06</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Inativar</a></td>
+                                    <td><a href="#">Visualizar</a></td>
                                 </tr>
                                 <tr>
                                     <td>Campo 01</td>
                                     <td>Campo 02</td>
                                     <td>Campo 03</td>
-                                    <td>Campo 04</td>
-                                    <td>Campo 05</td>
-                                    <td>Campo 06</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Inativar</a></td>
+                                    <td><a href="#">Visualizar</a></td>
                                 </tr>
                             </tbody>
                         </table>
                         <a href="#">
-                            <div class="botoes-laterais">
-
-                            </div>
+                            <i class="fa fa-circle fa-3x"></i>
                         </a>
                     </div>
                 </form>
