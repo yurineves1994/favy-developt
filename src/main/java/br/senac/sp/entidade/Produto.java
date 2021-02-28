@@ -2,36 +2,54 @@ package br.senac.sp.entidade;
 
 public class Produto {
 
-    private Integer id_produto;
+    private Integer codProduto;
     private String nomeProduto;
-    private String nomeProdutoExtenso;
-    private Long qtd_estrela;
-    private Long precoProduto;
-    private String status;
-    private boolean ativado;
+    private String descricao;
+    private String marcaProduto;
+    private String categoriaProduto;
+    private String statusProduto;
+    private long precoProduto;
+    private long qtdProduto;
+    private int qtdEstrela;
+    private String imagemProduto;
 
     // Construtores
     public Produto() {
     }
 
-    public Produto(Integer id_produto, String nomeProduto, String nomeProdutoExtenso, Long precoProduto, Long qtd_estrela, String status, boolean ativado) {
-        this.id_produto = id_produto;
+    public Produto(Integer codProduto, String nomeProduto, String descricao, String marcaProduto, String categoriaProduto, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, String imagemProduto) {
+        this.codProduto = codProduto;
         this.nomeProduto = nomeProduto;
-        this.nomeProdutoExtenso = nomeProdutoExtenso;
+        this.descricao = descricao;
+        this.marcaProduto = marcaProduto;
+        this.categoriaProduto = categoriaProduto;
+        this.statusProduto = statusProduto;
         this.precoProduto = precoProduto;
-        this.qtd_estrela = qtd_estrela;
-        this.status = status;
-        this.ativado = ativado;
+        this.qtdProduto = qtdProduto;
+        this.qtdEstrela = qtdEstrela;
+        this.imagemProduto = imagemProduto;
+    }
+    
+    public Produto(String nomeProduto, String descricao, String marcaProduto, String categoriaProduto, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, String imagemProduto) {
+        this.nomeProduto = nomeProduto;
+        this.descricao = descricao;
+        this.marcaProduto = marcaProduto;
+        this.categoriaProduto = categoriaProduto;
+        this.statusProduto = statusProduto;
+        this.precoProduto = precoProduto;
+        this.qtdProduto = qtdProduto;
+        this.qtdEstrela = qtdEstrela;
+        this.imagemProduto = imagemProduto;
     }
 
     
     // Getters e Setters
-    public Integer getId_produto() {
-        return id_produto;
+    public Integer getCodProduto() {
+        return codProduto;
     }
 
-    public void setId_produto(Integer id_produto) {
-        this.id_produto = id_produto;
+    public void setCodProduto(Integer codProduto) {
+        this.codProduto = codProduto;
     }
 
     public String getNomeProduto() {
@@ -42,45 +60,69 @@ public class Produto {
         this.nomeProduto = nomeProduto;
     }
 
-    public String getNomeProdutoExtenso() {
-        return nomeProdutoExtenso;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setNomeProdutoExtenso(String nomeProdutoExtenso) {
-        this.nomeProdutoExtenso = nomeProdutoExtenso;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public Long getPrecoProduto() {
+    public String getMarcaProduto() {
+        return marcaProduto;
+    }
+
+    public void setMarcaProduto(String marcaProduto) {
+        this.marcaProduto = marcaProduto;
+    }
+
+    public String getCategoriaProduto() {
+        return categoriaProduto;
+    }
+
+    public void setCategoriaProduto(String categoriaProduto) {
+        this.categoriaProduto = categoriaProduto;
+    }
+
+    public String getStatusProduto() {
+        return statusProduto;
+    }
+
+    public void setStatusProduto(String statusProduto) {
+        this.statusProduto = statusProduto;
+    }
+
+    public long getPrecoProduto() {
         return precoProduto;
     }
 
-    public void setPrecoProduto(Long precoProduto) {
+    public void setPrecoProduto(long precoProduto) {
         this.precoProduto = precoProduto;
     }
 
-    public Long getQtd_estrela() {
-        return qtd_estrela;
+    public long getQtdProduto() {
+        return qtdProduto;
     }
 
-    public void setQtd_estrela(Long qtd_estrela) {
-        this.qtd_estrela = qtd_estrela;
+    public void setQtdProduto(long qtdProduto) {
+        this.qtdProduto = qtdProduto;
     }
 
-    public String getStatus() {
-        return status;
+    public int getQtdEstrela() {
+        return qtdEstrela;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setQtdEstrela(int qtdEstrela) {
+        this.qtdEstrela = qtdEstrela;
     }
 
-    public boolean isAtivado() {
-        return ativado;
+    public String getImagemProduto() {
+        return imagemProduto;
     }
 
-    public void setAtivado(boolean ativado) {
-        this.ativado = ativado;
+    public void setImagemProduto(String imagemProduto) {
+        this.imagemProduto = imagemProduto;
     }
-    
+
 
 }

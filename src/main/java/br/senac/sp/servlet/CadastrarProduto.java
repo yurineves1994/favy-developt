@@ -1,6 +1,7 @@
 package br.senac.sp.servlet;
 
 import br.senac.sp.entidade.Produto;
+import br.senac.sp.dao.ProdutosDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -16,16 +17,19 @@ public class CadastrarProduto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String nomeProduto = request.getParameter("nomeProduto");
-        String nomeProdutoExtenso = request.getParameter("nomeProdutoExtenso"); 
-        Long qtd_estrela = Long.parseLong(request.getParameter("qtd_estrela"));
-        String status = request.getParameter("status");
-        String categoria = request.getParameter("categoria");
+        String nomeProduto = request.getParameter("nome_produto");
         String descricao = request.getParameter("descricao");
+        String marcaProduto = request.getParameter("marca_produto");
+        String categoriaProduto = request.getParameter("categoria_produto");
+        String statusProduto = request.getParameter("status_produto");
+        long precoProduto = Long.parseLong(request.getParameter("preco_produto"));
+        long qtdProduto = Long.parseLong(request.getParameter("qtd_produto"));
+        int qtdEstrela = Integer.parseInt(request.getParameter("qtd_estrela"));
+        String imagemProduto = request.getParameter("imagem_produto");
 
-        Produto produtos = new Produto(nomeProduto, nomeProdutoExtenso, qtd_estrela, status ,categoria, descricao);
+        Produto produtos = new Produto(nomeProduto, descricao, marcaProduto, categoriaProduto, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto);
         try {
-            ProdutoDAO.addProduto(produtos);
+            ProdutosDAO.addProduto(produtos);
             response.sendRedirect("sucesso.jsp");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
