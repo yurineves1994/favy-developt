@@ -19,15 +19,13 @@ public class CadastrarProduto extends HttpServlet {
 
         String nomeProduto = request.getParameter("nome_produto");
         String descricao = request.getParameter("descricao");
-        String marcaProduto = request.getParameter("marca_produto");
-        String categoriaProduto = request.getParameter("categoria_produto");
         String statusProduto = request.getParameter("status_produto");
         long precoProduto = Long.parseLong(request.getParameter("preco_produto"));
         long qtdProduto = Long.parseLong(request.getParameter("qtd_produto"));
         int qtdEstrela = Integer.parseInt(request.getParameter("qtd_estrela"));
         String imagemProduto = request.getParameter("imagem_produto");
 
-        Produto produtos = new Produto(nomeProduto, descricao, marcaProduto, categoriaProduto, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto);
+        Produto produtos = new Produto(nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto);
         try {
             ProdutosDAO.addProduto(produtos);
             response.sendRedirect("sucesso.jsp");

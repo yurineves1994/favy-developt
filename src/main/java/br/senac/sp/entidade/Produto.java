@@ -5,8 +5,6 @@ public class Produto {
     private Integer codProduto;
     private String nomeProduto;
     private String descricao;
-    private String marcaProduto;
-    private String categoriaProduto;
     private String statusProduto;
     private long precoProduto;
     private long qtdProduto;
@@ -17,12 +15,10 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Integer codProduto, String nomeProduto, String descricao, String marcaProduto, String categoriaProduto, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, String imagemProduto) {
+    public Produto(Integer codProduto, String nomeProduto, String descricao, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, String imagemProduto) {
         this.codProduto = codProduto;
         this.nomeProduto = nomeProduto;
         this.descricao = descricao;
-        this.marcaProduto = marcaProduto;
-        this.categoriaProduto = categoriaProduto;
         this.statusProduto = statusProduto;
         this.precoProduto = precoProduto;
         this.qtdProduto = qtdProduto;
@@ -30,11 +26,9 @@ public class Produto {
         this.imagemProduto = imagemProduto;
     }
     
-    public Produto(String nomeProduto, String descricao, String marcaProduto, String categoriaProduto, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, String imagemProduto) {
+    public Produto(String nomeProduto, String descricao, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, String imagemProduto) {
         this.nomeProduto = nomeProduto;
         this.descricao = descricao;
-        this.marcaProduto = marcaProduto;
-        this.categoriaProduto = categoriaProduto;
         this.statusProduto = statusProduto;
         this.precoProduto = precoProduto;
         this.qtdProduto = qtdProduto;
@@ -66,22 +60,6 @@ public class Produto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getMarcaProduto() {
-        return marcaProduto;
-    }
-
-    public void setMarcaProduto(String marcaProduto) {
-        this.marcaProduto = marcaProduto;
-    }
-
-    public String getCategoriaProduto() {
-        return categoriaProduto;
-    }
-
-    public void setCategoriaProduto(String categoriaProduto) {
-        this.categoriaProduto = categoriaProduto;
     }
 
     public String getStatusProduto() {
