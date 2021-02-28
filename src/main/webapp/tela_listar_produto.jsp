@@ -122,54 +122,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Campo 01</td>
-                                    <td>Campo 02</td>
-                                    <td>Campo 03</td>
-                                    <td><a href="#">Editar</a></td>
-                                    <td><a href="#">Inativar</a></td>
-                                    <td><a href="#">Visualizar</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Campo 01</td>
-                                    <td>Campo 02</td>
-                                    <td>Campo 03</td>
-                                    <td><a href="#">Editar</a></td>
-                                    <td><a href="#">Inativar</a></td>
-                                    <td><a href="#">Visualizar</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Campo 01</td>
-                                    <td>Campo 02</td>
-                                    <td>Campo 03</td>
-                                    <td><a href="#">Editar</a></td>
-                                    <td><a href="#">Inativar</a></td>
-                                    <td><a href="#">Visualizar</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Campo 01</td>
-                                    <td>Campo 02</td>
-                                    <td>Campo 03</td>
-                                    <td><a href="#">Editar</a></td>
-                                    <td><a href="#">Inativar</a></td>
-                                    <td><a href="#">Visualizar</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Campo 01</td>
-                                    <td>Campo 02</td>
-                                    <td>Campo 03</td>
-                                    <td><a href="#">Editar</a></td>
-                                    <td><a href="#">Inativar</a></td>
-                                    <td><a href="#">Visualizar</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Campo 01</td>
-                                    <td>Campo 02</td>
-                                    <td>Campo 03</td>
-                                    <td><a href="#">Editar</a></td>
-                                    <td><a href="#">Inativar</a></td>
-                                    <td><a href="#">Visualizar</a></td>
-                                </tr>
+                                <c:forEach items="${listaProdutos}" var="produto">
+                                    <tr style="text-align: center">
+                                        <td>${produto.id_produto}</td>
+                                        <td>${produto.nomeProduto}</td>
+                                        <td>${produto.statusProduto}</td>
+                                        <td><a href="EditarProduto?id_produto=${produto.id_produto}"</td>
+                                        <td><a href="AtivarProduto?id_produto=${produto.id_produto}"</td>
+                                        <td><a href="VisualizarProduto?id_produto=${produto.id_produto}"</td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                         <a href="#">
