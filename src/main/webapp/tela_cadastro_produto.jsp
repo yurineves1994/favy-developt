@@ -155,21 +155,21 @@
                         <legend>Cadastrar Produto</legend>
                         <div class="campo-left">
                             <label for="nome">Nome:</label>
-                            <input type="text" id="nome" name="nome">
+                            <input type="text" id="nomeProduto" name="nomeProduto">
                         </div>
                         <div class="campo-left">
-                            <label for="nome">Nome Extenso:</label>
-                            <textarea name="nome_extenso" id="nome_extenso" cols="40" rows="3"></textarea>
+                            <label for="nome">Descrição:</label>
+                            <textarea name="nomeProdutoExtenso" id="nomeProdutoExtenso" cols="45" rows="3"></textarea>
                         </div>
                         <div class="campo-left">
-                            <label for="qtdestrela">Quantidada Estrela:</label>
-                            <input type="number" id="qtdestrela" name="qtdestrela">
+                            <label for="qtd_estrela">Quantidada Estrela:</label>
+                            <input type="number" id="qtd_estrela" name="qtd_estrela">
                         </div>
                         <div class="campo-left">
-                            <label for="status">Quantidada Estrela:</label>
+                            <label for="status">Status</label>
                             <select name="status" id="status">
-                                <option value="Disponivel">Disponivel</option>
-                                <option value="Indisponivel">Indisponivel</option>
+                                <option value="disponivel">Disponivel</option>
+                                <option value="indisponivel">Indisponivel</option>
                             </select>
                         </div>
                         <div class="campo-left">
