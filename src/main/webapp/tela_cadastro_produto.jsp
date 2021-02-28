@@ -154,37 +154,40 @@
                     <fieldset>
                         <legend>Cadastrar Produto</legend>
                         <div class="campo-left">
-                            <label for="nome">Nome:</label>
-                            <input type="text" id="nomeProduto" name="nomeProduto">
+                            <label for="nome_produto">Nome:</label>
+                            <input type="text" id="nome_produto" name="nome_produto">
                         </div>
                         <div class="campo-left">
-                            <label for="nome">Descrição:</label>
-                            <textarea name="nomeProdutoExtenso" id="nomeProdutoExtenso" cols="45" rows="3"></textarea>
+                            <label for="descricao">Descrição:</label>
+                            <textarea name="descricao" id="descricao" cols="45" rows="3"></textarea>
                         </div>
                         <div class="campo-left">
                             <label for="qtd_estrela">Quantidada Estrela:</label>
                             <input type="number" id="qtd_estrela" name="qtd_estrela">
                         </div>
                         <div class="campo-left">
-                            <label for="status">Status</label>
-                            <select name="status" id="status">
-                                <option value="disponivel">Disponivel</option>
-                                <option value="indisponivel">Indisponivel</option>
+                            <label for="qtd_produto">Quantidada:</label>
+                            <input type="number" id="qtd_produto" name="qtd_produto">
+                        </div>
+                        <div class="campo-left">
+                            <label for="status_produto">Status</label>
+                            <select name="status_produto" id="status_produto">
+                                <option value="d">Ativo</option>
+                                <option value="i">Inativo</option>
                             </select>
                         </div>
                         <div class="campo-left">
-                            <label for="preco">Preço:</label>
-                            <input type="number" id="preco" name="preco">
+                            <label for="preco_produto">Preço:</label>
+                            <input type="number" id="preco_produto" name="preco_produto">
                         </div>
-                        <div class="campo-center">
+<!--                        <div class="campo-center">
                             <label for="url-imagem">Caminho Imagem:</label>
-                            <input type="url" id="url-imagem" name="url-imagem">
+                            <input type="text" id="url-imagem" name="lupinha">
                             <input type="file" id="lupinha" name="lupinha" class="fa fa-search fa-1x">
                         </div>
                         <div class="campo-center">
                             <input type="checkbox" id="check-image" name="check-image">
                             <label for="url-imagem">Imagem da Pagina Principal</label>
-
                         </div>
                         <fieldset>
                             <legend>Adicionar/Remover Imagem</legend>
@@ -197,7 +200,7 @@
                                     <button>Remover Selecionado</button>
                                 </div>
                             </div>
-                        </fieldset>
+                        </fieldset>-->
                     </fieldset>
                     <div class="campo-right">
                         <input type="reset" value="Cancelar">

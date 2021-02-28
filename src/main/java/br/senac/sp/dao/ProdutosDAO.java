@@ -42,17 +42,17 @@ public class ProdutosDAO {
         return listaProdutos;
     }
 
-    public static void addProduto(Produto produto) throws SQLException, ClassNotFoundException {
+    public static void addProduto(Produto produtos) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.obterConexao();
-        String query = "insert into cliente(nome_produto, descricao, status_produto, preco_produto, qtd_produto, qtd_estrela, imagem_produto) values (?,?,?,?,?,?,?)";
+        String query = "insert into produtos(nome_produto, descricao, status_produto, preco_produto, qtd_produto, qtd_estrela, imagem_produto) values (?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, produto.getNomeProduto());
-        ps.setString(2, produto.getDescricao());
-        ps.setString(5, produto.getStatusProduto());
-        ps.setLong(6, produto.getPrecoProduto());
-        ps.setLong(7, produto.getQtdProduto());
-        ps.setInt(8, produto.getQtdEstrela());
-        ps.setString(9, produto.getImagemProduto());
+        ps.setString(1, produtos.getNomeProduto());
+        ps.setString(2, produtos.getDescricao());
+        ps.setString(3, produtos.getStatusProduto());
+        ps.setLong(4, produtos.getPrecoProduto());
+        ps.setLong(5, produtos.getQtdProduto());
+        ps.setInt(6, produtos.getQtdEstrela());
+        ps.setString(7, produtos.getImagemProduto());
         ps.execute();
     }
 }
