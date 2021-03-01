@@ -10,16 +10,30 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            .container {
+                width: 900px;
+                margin: 0 auto;      
+            }
+            body {
+                background-color: aquamarine;
+            }
+            h1{
+                color: white;
+                font-size: 50px;
+                text-align: center;
+            }
+            h3{
+                color: red;
+                font-size: 30px;
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
-        <div class="container">
-            <div class="row justify-content-center mt-5 mb-5">
-                <a href="index.jsp"><img class="col-8" src="img/logo.PNG" alt=""></a>   
+            <div class="container">
+                <h1>OPERAÇÃO FEITA COM SUCESSO</h1>
+                <h3>VERYYY GOOOOD!!</h3>
             </div>
-            <div class="row justify-content-center mt-5 mb-5">
-                <span class="col-12  display-3 text-danger">OPERAÇÃO FEITA COM SUCESSO</span>
-            </div>
-        </div>
-
     </body>
 </html>
