@@ -3,7 +3,7 @@
     Created on : 27/02/2021, 17:27:22
     Author     : yurin
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -113,6 +113,7 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <td>COD produto</td>
                                     <td>Nome do Produto</td>
                                     <td>Qtd Estoque</td>
                                     <td>Status</td>
@@ -124,12 +125,13 @@
                             <tbody>
                                 <c:forEach items="${listaProdutos}" var="produto">
                                     <tr style="text-align: center">
-                                        <td>${produto.id_produto}</td>
+                                        <td>${produto.codProduto}</td>
                                         <td>${produto.nomeProduto}</td>
+                                        <td>${produto.qtdProduto}</td>
                                         <td>${produto.statusProduto}</td>
-                                        <td><a href="EditarProduto?id_produto=${produto.id_produto}"</td>
-                                        <td><a href="AtivarProduto?id_produto=${produto.id_produto}"</td>
-                                        <td><a href="VisualizarProduto?id_produto=${produto.id_produto}"</td>
+                                        <td><a href="EditarProduto?id_produto=${produto.codProduto}"</td>
+                                        <td><a href="AtivarProduto?id_produto=${produto.codProduto}"</td>
+                                        <td><a href="VisualizarProduto?id_produto=${produto.codProduto}"</td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

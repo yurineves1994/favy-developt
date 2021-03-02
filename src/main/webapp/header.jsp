@@ -30,7 +30,7 @@
             </section>
             <nav>
                 <ul id="menu-principal">
-                    <li><a href="#">Menu 1</a></li>
+                    <li><a href="ListarProdutos">Listar Produtos</a></li>
                     <li><a href="#">Menu 2</a></li>
                     <li><a href="#">Menu 3</a></li>
                     <li><a href="#">Menu 4</a></li>

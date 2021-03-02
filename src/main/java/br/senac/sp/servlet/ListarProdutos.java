@@ -20,7 +20,7 @@ public class ListarProdutos extends HttpServlet {
 
         request.setAttribute("listaProdutos", listaProdutos);
 
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("tela_listar_produto.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/tela_listar_produto.jsp");
         requestDispatcher.forward(request, response);
     }
 }
