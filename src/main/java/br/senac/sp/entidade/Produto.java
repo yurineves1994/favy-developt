@@ -36,7 +36,6 @@ public class Produto {
         this.imagemProduto = imagemProduto;
     }
 
-    
     // Getters e Setters
     public Integer getCodProduto() {
         return codProduto;

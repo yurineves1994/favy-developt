@@ -150,7 +150,7 @@
     <body>
         <section>
             <div class="container">
-                <form action="CadastrarProduto" method="POST">
+                <form action="EditarProduto" method="POST">
                     <fieldset>
                         <legend>Alterar Produto: ${produto.codProduto}</legend>
                         <div class="campo-left">

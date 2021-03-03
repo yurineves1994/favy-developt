@@ -129,9 +129,9 @@
                                         <td>${produto.nomeProduto}</td>
                                         <td>${produto.qtdProduto}</td>
                                         <td>${produto.statusProduto}</td>
-                                        <td><a href="EditarProduto?id_produto=${produto.codProduto}"</td>
-                                        <td><a href="AtivarProduto?id_produto=${produto.codProduto}"</td>
-                                        <td><a href="VisualizarProduto?id_produto=${produto.codProduto}"</td>
+                                        <td><a href="EditarProduto?codProduto=${produto.codProduto}">Editar</a></td>
+                                        <td><a href="AtivarProduto?codProduto=${produto.codProduto}">Ativar / Desativar</a></td>
+                                        <td><a href="VisualizarProduto?codProduto=${produto.codProduto}">Visualizar</a></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

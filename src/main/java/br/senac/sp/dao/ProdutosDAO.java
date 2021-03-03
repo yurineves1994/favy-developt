@@ -55,4 +55,55 @@ public class ProdutosDAO {
         ps.setString(7, produtos.getImagemProduto());
         ps.execute();
     }
+    
+     public static void updateProduto(Produto produtos) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.obterConexao();
+        String query = "update produto set nomeProduto=?, precoProduto=?, quantidade=?, categoria=?, descricao=? where id_produto=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, produtos.getNomeProduto());
+        ps.setString(2, produtos.getDescricao());
+        ps.setString(3, produtos.getStatusProduto());
+        ps.setLong(4, produtos.getPrecoProduto());
+        ps.setLong(5, produtos.getQtdProduto());
+        ps.setInt(6, produtos.getQtdEstrela());
+        ps.setString(7, produtos.getImagemProduto());
+        ps.execute();
+    }
+
+    public static void deleteProduto(Integer id_produto) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.obterConexao();
+        String query = "delete from produto where id_produto=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, id_produto);
+        ps.execute();
+    }
+
+    public static Produto obterProduto(Integer codProduto) {
+        Produto produto = null;
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from produtos where cod_produto=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, codProduto);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String nomeProduto = rs.getString("nome_produto");
+                String descricao = rs.getString("descricao");
+                String statusProduto = rs.getString("status_produto");
+                long precoProduto = rs.getLong("preco_produto");
+                long qtdProduto = rs.getLong("qtd_produto");
+                int qtdEstrela = rs.getInt("qtd_estrela");
+                String imagemProduto = rs.getString("imagem_produto");
+                produto = new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+
+        return produto;
+    }
 }
