@@ -180,7 +180,7 @@
                             <label for="preco_produto">Preço:</label>
                             <input type="number" id="preco_produto" name="preco_produto">
                         </div>
-<!--                        <div class="campo-center">
+<!--                    <div class="campo-center">
                             <label for="url-imagem">Caminho Imagem:</label>
                             <input type="text" id="url-imagem" name="lupinha">
                             <input type="file" id="lupinha" name="lupinha" class="fa fa-search fa-1x">
