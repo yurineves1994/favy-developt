@@ -1,0 +1,51 @@
+
+/* Geral */
+*{
+    margin: 0;
+}
+.centraliza_icone{
+    display: inline;
+    position:relative;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Menu Principal */
+.menu_voltar{
+    width: auto;
+    height: 45px;
+    background-color: #10101052;
+}
+
+/* Formatação icone sair */
+.ajusta_icone_menu{
+    width: 55px;
+    height: 45px;
+    float: right;
+}
+.menu_voltar_icon{
+    width: 30px;
+}
+
+
+
+/* Sub Menu */
+.menu_opcoes{
+    width: auto;
+    height: 60px;
+    background-color: #5f5e5e;
+    display: flex;
+}
+/* Formatação icones menu */
+.icone_menu{
+    width: 40px;
+}
+.menu_tabela_produtos {
+    width: 50%;
+}
+.menu_cadastro_produtos{
+    width: 50%;
+    float: right;
+}
