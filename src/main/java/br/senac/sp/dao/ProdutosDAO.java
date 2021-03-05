@@ -54,6 +54,7 @@ public class ProdutosDAO {
         ps.setInt(6, produtos.getQtdEstrela());
         ps.setString(7, produtos.getImagemProduto());
         ps.execute();
+        ps.close();
     }
     
      public static void updateProduto(Produto produtos) throws ClassNotFoundException, SQLException {
@@ -68,6 +69,7 @@ public class ProdutosDAO {
         ps.setInt(6, produtos.getQtdEstrela());
         ps.setString(7, produtos.getImagemProduto());
         ps.execute();
+        ps.close();
     }
 
     public static void deleteProduto(Integer id_produto) throws ClassNotFoundException, SQLException {
@@ -76,6 +78,7 @@ public class ProdutosDAO {
         PreparedStatement ps = con.prepareStatement(query);
         ps.setInt(1, id_produto);
         ps.execute();
+        ps.close();
     }
 
     public static Produto obterProduto(Integer codProduto) {

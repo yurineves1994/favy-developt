@@ -1,9 +1,3 @@
-<%-- 
-    Document   : tela01
-    Created on : 27/02/2021, 17:18:52
-    Author     : yurin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

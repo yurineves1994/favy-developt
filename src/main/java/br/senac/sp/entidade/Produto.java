@@ -35,6 +35,14 @@ public class Produto {
         this.qtdEstrela = qtdEstrela;
         this.imagemProduto = imagemProduto;
     }
+    
+    public boolean isAtivo() {
+        return this.statusProduto.equalsIgnoreCase("d");
+    }
+    
+    public boolean isInativo() {
+        return this.statusProduto.equalsIgnoreCase("i");
+    }
 
     // Getters e Setters
     public Integer getCodProduto() {

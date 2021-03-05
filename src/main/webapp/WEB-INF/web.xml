@@ -16,6 +16,10 @@
         <servlet-name>EditarProduto</servlet-name>
         <servlet-class>br.senac.sp.servlet.EditarProduto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VisualizarProduto</servlet-name>
+        <servlet-class>br.senac.sp.servlet.VisualizarProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>EditarProduto</servlet-name>
         <url-pattern>/EditarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VisualizarProduto</servlet-name>
+        <url-pattern>/VisualizarProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
