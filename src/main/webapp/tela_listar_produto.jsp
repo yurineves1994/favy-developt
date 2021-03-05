@@ -130,7 +130,13 @@
                                         <td>${produto.qtdProduto}</td>
                                         <td>${produto.statusProduto}</td>
                                         <td><a href="EditarProduto?codProduto=${produto.codProduto}">Editar</a></td>
-                                        <td><a href="AtivarProduto?codProduto=${produto.codProduto}">Ativar / Desativar</a></td>
+                                        <td><c:if test="${produto.statusProduto == 'd'}">
+                                                <a href="AtivarProduto?codProduto=${produto.codProduto}">Ativar</a>
+                                            </c:if>
+                                            <c:if test="${produto.statusProduto == 'i'}">  
+                                                <a href="AtivarProduto?codProduto=${produto.codProduto}">Desativar</a>
+                                            </c:if>
+                                        </td>
                                         <td><a href="VisualizarProduto?codProduto=${produto.codProduto}">Visualizar</a></td>
                                     </tr>
                                 </c:forEach>
