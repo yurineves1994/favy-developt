@@ -20,6 +20,14 @@
         <servlet-name>VisualizarProduto</servlet-name>
         <servlet-class>br.senac.sp.servlet.VisualizarProduto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AtivarProduto</servlet-name>
+        <servlet-class>br.senac.sp.servlet.AtivarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DesativarProduto</servlet-name>
+        <servlet-class>br.senac.sp.servlet.DesativarProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>VisualizarProduto</servlet-name>
         <url-pattern>/VisualizarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtivarProduto</servlet-name>
+        <url-pattern>/AtivarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DesativarProduto</servlet-name>
+        <url-pattern>/DesativarProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

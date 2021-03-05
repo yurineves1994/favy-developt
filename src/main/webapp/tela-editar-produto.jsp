@@ -12,6 +12,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
+            #cod_produto {
+                display:none;
+            }
             .container {
                 margin: 0 auto;
                 width: 800px;
@@ -156,6 +159,7 @@
                         <div class="campo-left">
                             <label for="nome_produto">Nome:</label>
                             <input type="text" value="${produto.nomeProduto}" name="nome_produto">
+                            <input type="text" value="${produto.codProduto}" id="cod_produto" name="cod_produto">
                         </div>
                         <div class="campo-left">
                             <label for="descricao">Descrição:</label>

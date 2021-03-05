@@ -149,30 +149,30 @@
                         <legend>Cadastrar Produto</legend>
                         <div class="campo-left">
                             <label for="nome_produto">Nome:</label>
-                            <input type="text" id="nome_produto" name="nome_produto">
+                            <input type="text" name="nome_produto">
                         </div>
                         <div class="campo-left">
                             <label for="descricao">Descrição:</label>
-                            <textarea name="descricao" id="descricao" cols="45" rows="3"></textarea>
+                            <textarea name="descricao" cols="45" rows="3"></textarea>
                         </div>
                         <div class="campo-left">
                             <label for="qtd_estrela">Quantidada Estrela:</label>
-                            <input type="number" id="qtd_estrela" name="qtd_estrela">
+                            <input type="number"  name="qtd_estrela">
                         </div>
                         <div class="campo-left">
                             <label for="qtd_produto">Quantidada:</label>
-                            <input type="number" id="qtd_produto" name="qtd_produto">
+                            <input type="number" name="qtd_produto">
                         </div>
                         <div class="campo-left">
                             <label for="status_produto">Status</label>
-                            <select name="status_produto" id="status_produto">
+                            <select name="status_produto" >
                                 <option value="d">Ativo</option>
                                 <option value="i">Inativo</option>
                             </select>
                         </div>
                         <div class="campo-left">
                             <label for="preco_produto">Preço:</label>
-                            <input type="number" id="preco_produto" name="preco_produto">
+                            <input type="number" name="preco_produto">
                         </div>
 <!--                    <div class="campo-center">
                             <label for="url-imagem">Caminho Imagem:</label>
