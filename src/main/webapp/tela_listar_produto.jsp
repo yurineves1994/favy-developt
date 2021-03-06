@@ -1,0 +1,75 @@
+<%-- Document : tela02 Created on : 27/02/2021, 17:27:22 Author : yurin --%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <%@page contentType="text/html" pageEncoding="UTF-8" %>
+            <!DOCTYPE html>
+            <html>
+            <%@include file="header.jsp" %>
+
+                <head>
+                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                    <title>Listar Produto</title>
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+                        crossorigin="anonymous">
+                        <style>
+                            th{
+                                text-align: center;
+                            }
+                        </style>
+                </head>
+
+                <body>
+                    <script>
+                        var img = document.querySelector(".link_tabelas")
+                        img.setAttribute('src', 'icones/icon-tabela-ativo.png')
+                    </script>
+
+                    <div class="container mt-5 mb-5">
+                        <div class="campo-center">
+                            <label for="pesquisa">Pesquisar:</label>
+                            <input type="search" id="pesquisa" name="pesquisa">
+                            <a href="#"> <i class="fa fa-search fa-1x"></i></a>
+                        </div>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">COD produto</th>
+                                    <th scope="col">Nome do Produto</th>
+                                    <th scope="col">Qtd Estoque</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Editar</th>
+                                    <th scope="col">Inativar/Reativar</th>
+                                    <th scope="col">Visualizar</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <c:forEach items="${listaProdutos}" var="produto">
+                                    <tr style="text-align: center">
+                                        <th scope="row">${produto.codProduto}</td>
+                                        <td>${produto.nomeProduto}</td>
+                                        <td>${produto.qtdProduto}</td>
+                                        <td>${produto.statusProduto}</td>
+                                        <td><a
+                                                href="EditarProduto?codProduto=${produto.codProduto}">Editar</a>
+                                        </td>
+                                        <td>
+                                            <c:if test="${produto.statusProduto == 'i'}">
+                                                <a href="AtivarProduto?codProduto=${produto.codProduto}">Ativar</a>
+                                            </c:if>
+                                            <c:if test="${produto.statusProduto == 'a'}">
+                                                <a
+                                                    href="DesativarProduto?codProduto=${produto.codProduto}">Desativar</a>
+                                            </c:if>
+                                        </td>
+                                        <td>
+                                            <a href="VisualizarProduto?codProduto=${produto.codProduto}">Visualizar</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </body>
+
+            </html>
