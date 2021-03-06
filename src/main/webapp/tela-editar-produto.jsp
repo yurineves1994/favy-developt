@@ -176,7 +176,7 @@
                         <div class="campo-left">
                             <label for="status_produto">Status</label>
                             <select name="status_produto" value="${produto.statusProduto}">
-                                <option value="d">Ativo</option>
+                                <option value="a">Ativo</option>
                                 <option value="i">Inativo</option>
                             </select>
                         </div>

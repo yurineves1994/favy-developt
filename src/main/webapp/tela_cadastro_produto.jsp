@@ -166,7 +166,7 @@
                         <div class="campo-left">
                             <label for="status_produto">Status</label>
                             <select name="status_produto" >
-                                <option value="d">Ativo</option>
+                                <option value="a">Ativo</option>
                                 <option value="i">Inativo</option>
                             </select>
                         </div>
@@ -194,8 +194,8 @@
                                     <button>Remover Selecionado</button>
                                 </div>
                             </div>
-                        </fieldset>-->
-                    </fieldset>
+                        </fieldset>
+-->                  </fieldset>
                     <div class="campo-right">
                         <input type="reset" value="Cancelar">
                         <input type="submit" value="Enviar">
