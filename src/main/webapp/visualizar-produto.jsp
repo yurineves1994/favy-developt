@@ -38,8 +38,9 @@
             <h2>VISUALIZAÇÃO PRODUTO</h2>
             <div class="grupo-partils">
                 <div class="partils">
-                        <h2>${produto.nomeProduto}</h2>
-                        <h4>${produto.precoProduto}</h4>
+                    <h2>${produto.nomeProduto}</h2>
+                    <h4>${produto.precoProduto}</h4>
+                    <img src="data:image/png;base64, ${produto.imagemProduto}" alt="Red dot" />
                 </div>
                 <div class="partils">
                     <p>${produto.descricao}</p>
