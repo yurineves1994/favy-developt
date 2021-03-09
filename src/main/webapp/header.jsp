@@ -30,8 +30,8 @@
             </section>
             <nav>
                 <ul id="menu-principal">
+                    <li><a href="tela_cadastro_produto.jsp">Cadastrar Produtos</a></li>
                     <li><a href="ListarProdutos">Listar Produtos</a></li>
-                    <li><a href="#">Menu 2</a></li>
                     <li><a href="#">Menu 3</a></li>
                     <li><a href="#">Menu 4</a></li>
                     <li><a href="#">Menu 5</a></li>
