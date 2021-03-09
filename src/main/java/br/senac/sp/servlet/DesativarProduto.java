@@ -23,7 +23,7 @@ public class DesativarProduto extends HttpServlet {
         Integer codProduto = Integer.parseInt(request.getParameter("codProduto"));
         try {
             ProdutosDAO.desativarProduto(codProduto);
-            response.sendRedirect("sucesso.jsp");
+            response.sendRedirect("ListarProdutos");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DesativarProduto.class.getName()).log(Level.SEVERE, null, ex);
             response.sendRedirect("tela_falha.jsp");

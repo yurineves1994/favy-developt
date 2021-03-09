@@ -176,7 +176,7 @@
                         </div>
                         <div class="campo-center">
                             <label for="imagem_produto">Caminho Imagem:</label>
-                            <input type="file" name="imagem_produto" class="fa fa-search fa-1x">
+                            <input type="file" name="imagem_produto" id="lupinha" class="fa fa-search fa-1x">
                         </div>
 <!--                    <div class="campo-center">
                             <input type="checkbox" id="check-image" name="check-image">
