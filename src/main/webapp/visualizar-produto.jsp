@@ -40,7 +40,10 @@
                 <div class="partils">
                     <h2>${produto.nomeProduto}</h2>
                     <h4>${produto.precoProduto}</h4>
-                    <img src="data:image/png;base64, ${produto.imagemProduto}" alt="Red dot" />
+                    <img src="data:image/png;base64, ${produto.imagemProduto1}" alt="Red dot" />
+                    <img src="data:image/png;base64, ${produto.imagemProduto2}" alt="Red dot" />
+                    <img src="data:image/png;base64, ${produto.imagemProduto3}" alt="Red dot" />
+                    <img src="data:image/png;base64, ${produto.imagemProduto4}" alt="Red dot" />
                 </div>
                 <div class="partils">
                     <p>${produto.descricao}</p>

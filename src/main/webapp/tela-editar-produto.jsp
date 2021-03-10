@@ -184,12 +184,27 @@
                             <label for="preco_produto">Preço:</label>
                             <input type="number" value="${produto.precoProduto}" name="preco_produto">
                         </div>
-<!--                        <div class="campo-center">
-                            <label for="url-imagem">Caminho Imagem:</label>
-                            <input type="text" id="url-imagem" name="lupinha">
-                            <input type="file" id="lupinha" name="lupinha" class="fa fa-search fa-1x">
+                        <div class="campo-center">
+                            <label for="imagem_produto_1">Caminho Imagem 01:</label>
+                            <img style="width: 200px" src="data:image/png;base64, ${produto.imagemProduto1}" alt="Red dot" />
+                            <input type="file" id="lupinha" name="imagem_produto_1" class="fa fa-search fa-1x">
                         </div>
                         <div class="campo-center">
+                            <label for="imagem_produto_2">Caminho Imagem 02:</label>
+                            <img style="width: 200px" src="data:image/png;base64, ${produto.imagemProduto2}" alt="Red dot" />
+                            <input type="file" id="lupinha" name="imagem_produto_2" class="fa fa-search fa-1x">
+                        </div>
+                        <div class="campo-center">
+                            <label for="imagem_produto_3">Caminho Imagem 03:</label>
+                            <img style="width: 200px" src="data:image/png;base64, ${produto.imagemProduto3}" alt="Red dot" />
+                            <input type="file" id="lupinha" name="imagem_produto_3" class="fa fa-search fa-1x">
+                        </div>
+                        <div class="campo-center">
+                            <label for="imagem_produto_4">Caminho Imagem 04:</label>
+                            <img style="width: 200px" src="data:image/png;base64, ${produto.imagemProduto4}" alt="Red dot" />
+                            <input type="file" id="lupinha" name="imagem_produto_4" class="fa fa-search fa-1x">
+                        </div>
+<!--                        <div class="campo-center">
                             <input type="checkbox" id="check-image" name="check-image">
                             <label for="url-imagem">Imagem da Pagina Principal</label>
                         </div>

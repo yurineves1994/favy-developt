@@ -27,11 +27,19 @@ public class CadastrarProduto extends HttpServlet {
         long qtdProduto = Long.parseLong(request.getParameter("qtd_produto"));
         String statusProduto = request.getParameter("status_produto");
         long precoProduto = Long.parseLong(request.getParameter("preco_produto"));
-        String encodstring = request.getParameter("imagem_produto");
-        File file = new File(getServletContext().getRealPath("/img") + "/" + encodstring);
-        String imagemProduto = encodeFileToBase64Binary(file);
-        System.out.println(imagemProduto);
-        Produto produtos = new Produto(nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto);
+        String encodstring1 = request.getParameter("imagem_produto_1");
+        File file1 = new File(getServletContext().getRealPath("/img") + "/" + encodstring1);
+        String imagemProduto1 = encodeFileToBase64Binary(file1);
+        String encodstring2 = request.getParameter("imagem_produto_2");
+        File file2 = new File(getServletContext().getRealPath("/img") + "/" + encodstring2);
+        String imagemProduto2 = encodeFileToBase64Binary(file2);
+        String encodstring3 = request.getParameter("imagem_produto_3");
+        File file3 = new File(getServletContext().getRealPath("/img") + "/" + encodstring3);
+        String imagemProduto3 = encodeFileToBase64Binary(file3);
+        String encodstring4 = request.getParameter("imagem_produto_4");
+        File file4 = new File(getServletContext().getRealPath("/img") + "/" + encodstring4);
+        String imagemProduto4 = encodeFileToBase64Binary(file4);
+        Produto produtos = new Produto(nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto1, imagemProduto2, imagemProduto3, imagemProduto4);
         try {
             ProdutosDAO.addProduto(produtos);
             response.sendRedirect("sucesso.jsp");

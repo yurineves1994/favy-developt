@@ -175,8 +175,20 @@
                             <input type="number" name="preco_produto">
                         </div>
                         <div class="campo-center">
-                            <label for="imagem_produto">Caminho Imagem:</label>
-                            <input type="file" name="imagem_produto" id="lupinha" class="fa fa-search fa-1x">
+                            <label for="imagem_produto_1">Caminho Imagem 01:</label>
+                            <input type="file" name="imagem_produto_1" id="lupinha" class="fa fa-search fa-1x">
+                        </div>
+                        <div class="campo-center">
+                            <label for="imagem_produto_2">Caminho Imagem 02:</label>
+                            <input type="file" name="imagem_produto_2" id="lupinha" class="fa fa-search fa-1x">
+                        </div>
+                        <div class="campo-center">
+                            <label for="imagem_produto_3">Caminho Imagem 03:</label>
+                            <input type="file" name="imagem_produto_3" id="lupinha" class="fa fa-search fa-1x">
+                        </div>
+                        <div class="campo-center">
+                            <label for="imagem_produto_4">Caminho Imagem 04:</label>
+                            <input type="file" name="imagem_produto_4" id="lupinha" class="fa fa-search fa-1x">
                         </div>
 <!--                    <div class="campo-center">
                             <input type="checkbox" id="check-image" name="check-image">
