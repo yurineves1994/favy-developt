@@ -71,7 +71,7 @@ public class EditarProduto extends HttpServlet {
 
         try {
             ProdutosDAO.updateProduto(produto);
-            response.sendRedirect("sucesso.jsp");
+            response.sendRedirect("ListarProdutos");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);
