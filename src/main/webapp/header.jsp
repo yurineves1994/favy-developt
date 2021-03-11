@@ -8,34 +8,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
     <body>
-        <header>
-            <section id="topo-site">
-                <a href="#">
-                    <img class="logo" src="logo.PNG" alt="lojas100">
-                </a>
-
-                <input id="busca" type="search" for=""></input>
-
-                <div class="carrinho">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <div class="login">
-                    <a href="">Login</a>
-                </div>
-            </section>
-            <nav>
-                <ul id="menu-principal">
-                    <li><a href="tela_cadastro_produto.jsp">Cadastrar Produtos</a></li>
-                    <li><a href="ListarProdutos">Listar Produtos</a></li>
-                    <li><a href="#">Menu 3</a></li>
-                    <li><a href="#">Menu 4</a></li>
-                    <li><a href="#">Menu 5</a></li>
-                    <li><a href="#">Menu 6</a></li>
+        <header>        
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <ul class="navbar-nav mr-auto">
+                    <div class="collapse navbar-collapse">
+                        <li><a class="nav-link" href="tela_cadastro_produto.jsp">Cadastrar Produtos</a></li>
+                        <li><a class="nav-link" href="ListarProdutos">Listar Produtos</a></li>
+                    </div>
                 </ul>
             </nav>
         </header>
