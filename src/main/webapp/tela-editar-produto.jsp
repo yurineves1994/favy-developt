@@ -31,32 +31,32 @@
                     <h1>Alterar Produto - COD: ${produto.codProduto} / Nome: ${produto.nomeProduto}</h1>   
                     <div class="form-group"> 
                         <label for="nome_produto">Nome:</label>
-                        <input class="form-control" type="text" value="${produto.nomeProduto}" name="nome_produto">
+                        <input required class="form-control" type="text" value="${produto.nomeProduto}" name="nome_produto">
                         <input type="text" value="${produto.codProduto}" id="cod_produto" name="cod_produto">
                     </div>
                     <div class="form-group"> 
                         <label for="descricao">Descrição:</label>
-                        <textarea class="form-control" name="descricao" value="${produto.descricao}" cols="45" rows="3"></textarea>
+                        <textarea required class="form-control" name="descricao" value="${produto.descricao}" cols="45" rows="3"></textarea>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-3"> 
                             <label for="qtd_estrela">Quantidada Estrela:</label>
-                            <input class="form-control" type="number" value="${produto.qtdEstrela}" name="qtd_estrela">
+                            <input required class="form-control" type="number" value="${produto.qtdEstrela}" name="qtd_estrela">
                         </div>
                         <div class="form-group col-sm-3"> 
                             <label for="qtd_produto">Quantidada:</label>
-                            <input class="form-control" type="number" value="${produto.qtdProduto}" name="qtd_produto">
+                            <input required class="form-control" type="number" value="${produto.qtdProduto}" name="qtd_produto">
                         </div>
                         <div class="form-group col-sm-3"> 
                             <label for="status_produto">Status</label>
-                            <select class="form-control" name="status_produto" value="${produto.statusProduto}">
+                            <select required class="form-control" name="status_produto" value="${produto.statusProduto}">
                                 <option value="a">Ativo</option>
                                 <option value="i">Inativo</option>
                             </select>
                         </div>
                         <div class="form-group col-sm-3"> 
                             <label for="preco_produto">Preço:</label>
-                            <input class="form-control" type="number" value="${produto.precoProduto}" name="preco_produto">
+                            <input required class="form-control" type="number" value="${produto.precoProduto}" name="preco_produto">
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -80,7 +80,7 @@
                         </div>
                     </div>                 
                     <div>
-                        <button type="reset" class="btn btg-lg btn-dark">Cancelar</button>
+                        <a class="btn btn-dark" href="ListarProdutos">Cancelar</a>
                         <button type="submit" class="btn btg-lg btn-dark">Enviar</button>
                     </div>
                 </form>

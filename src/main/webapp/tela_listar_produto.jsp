@@ -32,13 +32,19 @@
                             <td scope="row">${produto.codProduto}</td>
                             <td>${produto.nomeProduto}</td>
                             <td>${produto.qtdProduto}</td>
-                            <td>${produto.statusProduto}</td>
-                            <td><a href="EditarProduto?codProduto=${produto.codProduto}">Editar</a></td>
                             <td><c:if test="${produto.statusProduto == 'i'}">
-                                    <a href="AtivarProduto?codProduto=${produto.codProduto}">Ativar</a>
+                                    Inativo
                                 </c:if>
                                 <c:if test="${produto.statusProduto == 'a'}">  
-                                    <a href="DesativarProduto?codProduto=${produto.codProduto}">Desativar</a>
+                                    Ativo
+                                </c:if>
+                            </td>
+                            <td><a href="EditarProduto?codProduto=${produto.codProduto}">Editar</a></td>
+                            <td><c:if test="${produto.statusProduto == 'i'}">
+                                    <a href="AtivarProduto?codProduto=${produto.codProduto}">Reativar</a>
+                                </c:if>
+                                <c:if test="${produto.statusProduto == 'a'}">  
+                                    <a href="DesativarProduto?codProduto=${produto.codProduto}">Inativar</a>
                                 </c:if>
                             </td>
                             <td><a href="VisualizarProduto?codProduto=${produto.codProduto}">Visualizar</a></td>

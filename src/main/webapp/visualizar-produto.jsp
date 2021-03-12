@@ -18,30 +18,31 @@
         <title>Visualizar Produto</title>       
     </head>
     <body>
-        <div class="container mt-2">           
-            <div class="row">
-                <div class="col-sm-6">
-
-                    <div class="grupo-partils">
-                        <div class="partils">
-                            <h2>${produto.nomeProduto}</h2>
-                            <h3>R$:${produto.precoProduto}</h3>
-                            <div id="carousel-visualizar">
-                                <div><img width="400" height="300" class="rounded mx-auto d-block" src="data:image/png;base64, ${produto.imagemProduto1}" alt="Red dot" /></div>
-                                <div><img width="400" height="300" class="rounded mx-auto d-block" src="data:image/png;base64, ${produto.imagemProduto2}" alt="Red dot" /></div>
-                                <div><img width="400" height="300" class="rounded mx-auto d-block" src="data:image/png;base64, ${produto.imagemProduto3}" alt="Red dot" /></div>
-                                <div><img width="400" height="300" class="rounded mx-auto d-block" src="data:image/png;base64, ${produto.imagemProduto4}" alt="Red dot" /></div>
-                            </div>
+        <div class="container mt-5">           
+            <div class="row">             
+                <div class="col-sm-6 border">
+                    <div>
+                        <h2>Nome do Produto: ${produto.nomeProduto}</h2>
+                        <h4>Quantidade Estrela: ${produto.qtdEstrela}</h4>                               
+                        <h3>R$:${produto.precoProduto} a vista</h3>
+                        <div id="carousel-visualizar">
+                            <div><img width="400" height="300" class="rounded mx-auto d-block" src="data:image/png;base64, ${produto.imagemProduto1}" alt="Red dot" /></div>
+                            <div><img width="400" height="300" class="rounded mx-auto d-block" src="data:image/png;base64, ${produto.imagemProduto2}" alt="Red dot" /></div>
+                            <div><img width="400" height="300" class="rounded mx-auto d-block" src="data:image/png;base64, ${produto.imagemProduto3}" alt="Red dot" /></div>
+                            <div><img width="400" height="300" class="rounded mx-auto d-block" src="data:image/png;base64, ${produto.imagemProduto4}" alt="Red dot" /></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <h4>Descrição do produto: ${produto.nomeProduto} </h4>
-                    <div class="descricao">
-                        ${produto.descricao}
+                <div class="col-sm-6 border">
+                    <div>
+                        <h4>Descrição do Produto</h4><br>${produto.descricao}
+                        <br>
+                        <br>
+                        <a class="btn btn-danger" href="#">Comprar</a>
                     </div>
                 </div>
             </div>
+
             <div class="float-right">
                 <a class="btn btn-dark" href="ListarProdutos">Voltar</a>
                 <c:if test="${produto.statusProduto == 'i'}">

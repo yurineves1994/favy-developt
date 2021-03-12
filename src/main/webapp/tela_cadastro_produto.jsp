@@ -23,37 +23,37 @@
                     <legend>Cadastrar Produto</legend>
                     <div class="form-group"> 
                         <label for="nome_produto">Nome:</label>
-                        <input class="form-control" type="text" name="nome_produto">
+                        <input minlength="3" required="" class="form-control" type="text" name="nome_produto">
                     </div>
                     <div class="form-group">
                         <label for="descricao">Descrição:</label>
-                        <textarea class="form-control" name="descricao" cols="45" rows="3"></textarea>
+                        <textarea required="" class="form-control" name="descricao" cols="45" rows="3"></textarea>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-3">
                             <label for="qtd_estrela">Quantidada Estrela:</label>
-                            <input class="form-control" type="number"  name="qtd_estrela">
+                            <input required class="form-control" type="number"  name="qtd_estrela">
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="qtd_produto">Quantidada:</label>
-                            <input class="form-control" type="number" name="qtd_produto">
+                            <input required class="form-control" type="number" name="qtd_produto">
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="status_produto">Status</label>
-                            <select class="form-control" name="status_produto" >
+                            <select required="required" class="form-control" name="status_produto" >
                                 <option value="a">Ativo</option>
                                 <option value="i">Inativo</option>
                             </select>
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="preco_produto">Preço:</label>
-                            <input class="form-control" type="number" name="preco_produto">
+                            <input required class="form-control" type="number" name="preco_produto">
                         </div>
                     </div>
                     <div class="grupo-imagem">
                         <div class="form-group">
                             <label for="imagem_produto_1">Caminho Imagem 01:</label>
-                            <input  type="file" name="imagem_produto_1" id="lupinha" class="fa fa-search fa-2x">
+                            <input type="file" name="imagem_produto_1" id="lupinha" class="fa fa-search fa-2x">
                         </div>
                         <div class="form-group">
                             <label for="imagem_produto_2">Caminho Imagem 02:</label>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div>
-                        <button type="reset" class="btn btn-dark">Cancelar</button>
+                        <a class="btn btn-dark" href="ListarProdutos">Cancelar</a>
                         <button type="submit" class="btn btn-dark">Enviar</button>
                     </div>
                 </form>
