@@ -20,6 +20,7 @@
     <body>
 
         <section class="container-fluid">
+            
             <div class="row">
                 <c:forEach items="${listaProdutos}" var="produto">
                     <div class="col-sm-3 mb-2">
