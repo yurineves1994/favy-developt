@@ -13,8 +13,13 @@
         <title>Listar Produto</title>      
     </head>
     <body>
+
         <section class="container-fluid">
-            <table class="table table-borderless mt-5">
+            <form class="form-inline mt-3" action="PesquisarNome" method="GET">
+                <input class="form-control " name="nome_pesquisa" type="search" placeholder="Pesquisar" aria-label="Search">
+                <button class="btn btn-outline-success mr-3" type="submit">Pesquisar</button>
+            </form>
+            <table class="table table-borderless mt-2">
                 <thead class="thead-dark">
                     <tr style="text-align: center">
                         <th scope="col">COD produto</th>

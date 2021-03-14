@@ -21,6 +21,7 @@
                     <div class="collapse navbar-collapse">
                         <li><a class="nav-link" href="tela_cadastro_produto.jsp">Cadastrar Produtos</a></li>
                         <li><a class="nav-link" href="ListarProdutos">Listar Produtos</a></li>
+                        <li><a class="nav-link" href="CardsProdutos">Cards Produtos</a></li>
                     </div>
                 </ul>
             </nav>

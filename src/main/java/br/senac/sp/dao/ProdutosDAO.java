@@ -44,6 +44,38 @@ public class ProdutosDAO {
         }
         return listaProdutos;
     }
+    
+     public static List<Produto> PesquisarProduto(String nomePesquisa) {
+        List<Produto> listaPesquisaProduto = new ArrayList();
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from produtos where nome_produto=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, nomePesquisa);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Integer codProduto = rs.getInt("cod_produto");
+                String nomeProduto = rs.getString("nome_produto");
+                String descricao = rs.getString("descricao");
+                String statusProduto = rs.getString("status_produto");
+                long precoProduto = rs.getLong("preco_produto");
+                long qtdProduto = rs.getLong("qtd_produto");
+                int qtdEstrela = rs.getInt("qtd_estrela");
+                String imagemProduto1 = rs.getString("imagem_produto_1");
+                String imagemProduto2 = rs.getString("imagem_produto_2");
+                String imagemProduto3 = rs.getString("imagem_produto_3");
+                String imagemProduto4 = rs.getString("imagem_produto_4");
+                listaPesquisaProduto.add(new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto1, imagemProduto2, imagemProduto3, imagemProduto4));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return listaPesquisaProduto;
+    }
 
     public static void addProduto(Produto produtos) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.obterConexao();

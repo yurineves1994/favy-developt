@@ -76,7 +76,10 @@
 
             </div>
         </section>
-
+        <script>
+            var teste = document.querySelector("input#lupinha").value;
+            console.log(teste);
+        </script>
     </body>
 
 </html>
