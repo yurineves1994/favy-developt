@@ -16,9 +16,9 @@ public class PesquisarNome extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nomePesquisa = request.getParameter("nome_pesquisa");
-        List<Produto> listaPesquisaProduto = ProdutosDAO.PesquisarProduto(nomePesquisa);
+        List<Produto> listaProdutos = ProdutosDAO.PesquisarProduto(nomePesquisa);
 
-        request.setAttribute("listaPesquisaProduto", listaPesquisaProduto);
+        request.setAttribute("listaProdutos", listaProdutos);
 
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/tela_listar_produto.jsp");
         requestDispatcher.forward(request, response);
