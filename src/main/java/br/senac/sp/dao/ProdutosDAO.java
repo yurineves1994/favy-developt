@@ -49,9 +49,8 @@ public class ProdutosDAO {
         List<Produto> listaPesquisaProduto = new ArrayList();
         try {
             Connection con = ConexaoDB.obterConexao();
-            String query = "select * from produtos where nome_produto=?";
+            String query = "select * from produtos where nome_produto like '%" + nomePesquisa + "%'";
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, nomePesquisa);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Integer codProduto = rs.getInt("cod_produto");
