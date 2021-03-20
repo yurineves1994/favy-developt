@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label for="descricao">Descrição:</label>
-                        <textarea required="" class="form-control" name="descricao" cols="45" rows="3"></textarea>
+                        <input required="" class="form-control" name="descricao" cols="45" rows="3"></input>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-3">

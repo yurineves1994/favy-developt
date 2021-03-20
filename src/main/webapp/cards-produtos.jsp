@@ -9,7 +9,7 @@
 <html>
     <%@include file="header.jsp" %>
     <head>
-        <<meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -19,7 +19,7 @@
     </head>
     <body>
 
-        <section class="container-fluid">
+        <section class="container-fluid mt-4">
             
             <div class="row">
                 <c:forEach items="${listaProdutos}" var="produto">
