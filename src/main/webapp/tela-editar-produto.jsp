@@ -19,9 +19,7 @@
             #lupinha {
                 padding-left: 2px;
                  width: 31px;
-            }
-
-            
+            }          
         </style>
     </head>
     <body>
@@ -36,7 +34,7 @@
                     </div>
                     <div class="form-group"> 
                         <label for="descricao">Descrição:</label>
-                        <input required class="form-control" name="descricao" value="${produto.descricao}" cols="45" rows="3"></input>
+                        <input required class="form-control" name="descricao" value="${produto.descricao}"></input>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-3"> 
