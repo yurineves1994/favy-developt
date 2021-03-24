@@ -27,10 +27,11 @@
                     <!-- Nome produto -->
                     <div class="form-group">
                         <input type="text" value="${produto.codProduto}" id="cod_produto" name="cod_produto" style="visibility:hidden">
-                        <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" value=${produto.nomeProduto} placeholder=" Nome do Produto ">
+                        <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" value="${produto.codProduto} placeholder=" Nome do Produto ">
                     </div>
                     <!-- Descrição -->
                     <div class="form-group">
+                        <label for="descricao">Descrição:</label>
                         <label for="exampleFormControlTextarea1"> Descrição </label>
                         <textarea name="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3">${produto.descricao}</textarea>
                     </div>
