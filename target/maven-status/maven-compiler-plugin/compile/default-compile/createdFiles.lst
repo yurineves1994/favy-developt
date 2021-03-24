@@ -1,7 +1,12 @@
+br\senac\sp\servlet\DesativarProduto.class
 br\senac\sp\db\ConexaoDB.class
 br\senac\sp\servlet\CadastrarProduto.class
 br\senac\sp\servlet\EditarProduto.class
+br\senac\sp\servlet\CardsProdutos.class
+br\senac\sp\servlet\VisualizarProduto.class
 br\senac\sp\entidade\Produto.class
+br\senac\sp\servlet\AtivarProduto.class
 br\senac\sp\servlet\ListarProdutos.class
+br\senac\sp\servlet\PesquisarNome.class
 br\senac\sp\servlet\ServletBD.class
 br\senac\sp\dao\ProdutosDAO.class

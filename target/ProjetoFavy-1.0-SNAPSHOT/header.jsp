@@ -8,36 +8,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="estilos/cabecalho.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
     <body>
-        <header>
-            <!-- Menu -->
-            <div class="menu_voltar">
-                <div class="ajusta_icone_menu">
-                    <a href="#">
-                        <img src="icones/icon-sair.png" alt="sair" class="menu_voltar_icon centraliza_icone">
-                    </a>
-                </div>
-            </div>
-
-            <!-- Sub menu -->
-            <div class="menu_opcoes">
-                <!-- Link Tabelas -->
-                <div class="menu_tabela_produtos">
-                    <a href="#">
-                        <img src="icones/icon-tabela.png" alt="tabela"  class="icone_menu centraliza_icone">
-                    </a>
-                </div>
-                <!-- Cadastro Produto -->
-                <div class="menu_cadastro_produtos">
-                    <a href="#">
-                        <img src="icones/icon-produto.png" alt="produto" class="icone_menu centraliza_icone">
-                    </a>
-                </div>
-            </div>
+        <header>        
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <ul class="navbar-nav mr-auto">
+                    <div class="collapse navbar-collapse">
+                        <li><a class="nav-link" href="tela_cadastro_produto.jsp">Cadastrar Produtos</a></li>
+                        <li><a class="nav-link" href="ListarProdutos">Listar Produtos</a></li>
+                        <li><a class="nav-link" href="CardsProdutos">Cards Produtos</a></li>
+                    </div>
+                </ul>
+            </nav>
         </header>
+
     </body>
 </html>
