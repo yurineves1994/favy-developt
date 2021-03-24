@@ -5,6 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" enctype="multipart/form-data">
         <title>JSP Page</title> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="estilos/estiloCadastroProduto.css">
         <style>
             #lupinha {
                 padding-left: 2px;
@@ -17,39 +19,47 @@
         </style>
     </head>
     <body>
+        <script src="scripts/scriptCadastrarProduto.js"></script>
         <section>
-            <div class="container mt-5">
-                <form action="CadastrarProduto" method="POST">
-                    <legend>Cadastrar Produto</legend>
-                    <div class="form-group"> 
-                        <label for="nome_produto">Nome:</label>
-                        <input minlength="3" required="" class="form-control" type="text" name="nome_produto">
-                    </div>
+            <div class="container mt-4">
+                <!-- enctype="multipart/form-data" -->
+                <form action="CadastrarProduto" method="POST" enctype="multipart/form-data">
+                    <!-- Nome produto -->
                     <div class="form-group">
-                        <label for="descricao">Descrição:</label>
-                        <input required="" class="form-control" name="descricao" cols="45" rows="3"></input>
+                        <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" placeholder=" Nome do Produto ">
                     </div>
-                    <div class="row">
-                        <div class="form-group col-sm-3">
-                            <label for="qtd_estrela">Quantidada Estrela:</label>
-                            <input required class="form-control" type="number"  name="qtd_estrela">
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label for="qtd_produto">Quantidada:</label>
-                            <input required class="form-control" type="number" name="qtd_produto">
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label for="status_produto">Status</label>
-                            <select required="required" class="form-control" name="status_produto" >
-                                <option value="a">Ativo</option>
-                                <option value="i">Inativo</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label for="preco_produto">Preço:</label>
-                            <input required class="form-control" type="number" name="preco_produto">
-                        </div>
+                    <!-- Descrição -->
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1"> Descrição </label>
+                        <textarea name="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
+                    <!-- Quantidade Estrela -->
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"> Qtd Estrelas </label>
+                        <select name="qtd_estrela" class="form-control" id="exampleFormControlSelect1">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                    </div>
+                    <!-- Quantidade -->
+                    <div class="form-group">
+                        <input required name="qtd_produto" type="number" class="form-control" id="exampleFormControlInput1" placeholder=" Qtd Estoque ">
+                    </div>
+                    <!-- Status -->
+                    <div class="form-group">
+                        <select name="status_produto" class="form-control" id="exampleFormControlSelect1">
+                          <option value="a">Ativo</option>
+                          <option value="i">Inativo</option>
+                        </select>
+                    </div>
+                    <!-- Preço -->
+                    <div class="form-group">
+                        <input required name="preco_produto" type="number" class="form-control" id="exampleFormControlInput1" placeholder=" Preço (MAX - 99 / Double)">
+                    </div>
+                      
                     <div class="grupo-imagem">
                         <div class="form-group">
                             <label for="imagem_produto_1">Caminho Imagem 01:</label>
@@ -68,13 +78,16 @@
                             <input  type="file" name="imagem_produto_4" id="lupinha" class="fa fa-search fa-2x">
                         </div>
                     </div>
-                    <div>
-                        <a class="btn btn-dark" href="ListarProdutos">Cancelar</a>
-                        <button type="submit" class="btn btn-dark">Enviar</button>
+                    
+                    <div class="campo-right">
+                        <input type="submit" value="Enviar" class="btn btn-success">
+                        <input type="reset" value="Cancelar" class="btn btn-secondary">
                     </div>
+                    
                 </form>
 
             </div>
+
         </section>
         <script>
             var teste = document.querySelector("input#lupinha").value;
