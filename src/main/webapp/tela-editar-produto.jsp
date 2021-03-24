@@ -25,8 +25,9 @@
                 <!-- enctype="multipart/form-data" -->
                 <form action="EditarProduto" method="POST" enctype="multipart/form-data">
                     <!-- Nome produto -->
+                    <input type="text" value="${produto.codProduto}" id="cod_produto" name="cod_produto" style="visibility:hidden">
                     <div class="form-group">
-                        <input type="text" value="${produto.codProduto}" id="cod_produto" name="cod_produto" style="visibility:hidden">
+                        <label for="qtd_produto">Nome</label>
                         <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" value=${produto.nomeProduto} placeholder=" Nome do Produto ">
                     </div>
                     <!-- Descrição -->
