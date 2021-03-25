@@ -20,9 +20,10 @@
     <body>
         <header>
             <div class="cabecalho">
-                <div class="caixaPesquisa">
-                    <form id="">
-                        <input type="search" placeholder="Search" class="pesquisa">
+                <div class = "caixaPesquisa">
+                    <form id = "" class = "centralizaPesquisa">
+                        <input type = "search" placeholder = "Search" class = "pesquisa">
+                        <input type = "button" class = "botaoPesquisa">
                     </form>
                 </div>
 
