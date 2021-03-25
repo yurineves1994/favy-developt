@@ -25,10 +25,10 @@
                 <!-- enctype="multipart/form-data" -->
                 <form action="EditarProduto" method="POST" enctype="multipart/form-data">
                     <!-- Nome produto -->
-                    <input type="text" value="${produto.codProduto}" id="cod_produto" name="cod_produto" style="visibility:hidden">
                     <div class="form-group">
-                        <label for="qtd_produto">Nome</label>
-                        <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" value=${produto.nomeProduto} placeholder=" Nome do Produto ">
+                        <label for="descricao">Nome</label>
+                        <input type="text" value="${produto.codProduto}" id="cod_produto" name="cod_produto" style="visibility:hidden">
+                        <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" value="${produto.codProduto}">
                     </div>
                     <!-- Descrição -->
                     <div class="form-group">
@@ -48,7 +48,7 @@
                     </div>
                     <!-- Quantidade -->
                     <div class="form-group">
-                        <label for="qtd_produto">Quantidade:</label>
+                        <label for="qtd_produto">Quantidade</label>
                         <input required name="qtd_produto" type="number" class="form-control" id="exampleFormControlInput1" placeholder=" Qtd Estoque " value="${produto.qtdProduto}">
                     </div>
                     <!-- Status -->
@@ -61,7 +61,7 @@
                     </div>
                     <!-- Preço -->
                     <div class="form-group">
-                        <label for="preco_produto">Preço:</label>
+                        <label for="preco_produto">Preço</label>
                         <input required name="preco_produto" type="number" class="form-control" id="exampleFormControlInput1" placeholder=" Preço (MAX - 99 / Double)" value="${produto.precoProduto}">
                     </div>
                       
@@ -94,10 +94,10 @@
                     </div>
                     
                 </form>
-
             </div>
 
         </section>
+        <br>
         <script>
             var teste = document.querySelector("input#lupinha").value;
             console.log(teste);
