@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,9 +14,34 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css">
-        <title>Listar Produto</title>      
+        <link rel="stylesheet" href="estilos/estiloCardsProduto.css">
+        <title>Listar Produto</title>
     </head>
     <body>
+        <header>
+            <div class="cabecalho">
+                <div class="caixaPesquisa">
+                    <form id="">
+                        <input type="search" placeholder="Search" class="pesquisa">
+                    </form>
+                </div>
+
+                <div class="topicos">
+                    <div class="topico">
+                        <h2>CABELOS</h2>
+                    </div>
+                    <div class="topico">
+                        <h2>MAQUIAGEM</h2>
+                    </div>
+                    <div class="topico">
+                        <h2>HIGIENE</h2>
+                    </div >
+                    <div class="topico">
+                        <h2>PERFUMARIA</h2>
+                    </div>
+                </div>
+            </div>
+        </header>
 
         <section class="container-fluid mt-4">
             
