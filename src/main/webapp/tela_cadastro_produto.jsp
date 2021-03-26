@@ -23,7 +23,7 @@
         <section>
             <div class="container mt-4">
                 <!-- enctype="multipart/form-data" -->
-                <form action="CadastrarProduto" method="POST" enctype="multipart/form-data">
+                <form action="CadastrarProduto" method="POST">
                     <!-- Nome produto -->
                     <div class="form-group">
                         <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" placeholder=" Nome do Produto ">

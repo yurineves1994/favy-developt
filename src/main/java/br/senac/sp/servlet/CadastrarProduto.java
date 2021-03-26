@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@MultipartConfig
+//@MultipartConfig
 public class CadastrarProduto extends HttpServlet {
 
     @Override
@@ -41,6 +41,11 @@ public class CadastrarProduto extends HttpServlet {
         String encodstring4 = request.getParameter("imagem_produto_4");
         File file4 = new File(getServletContext().getRealPath("/img") + "/" + encodstring4);
         String imagemProduto4 = encodeFileToBase64Binary(file4);
+        
+        System.out.println("----------"+encodstring1 );
+        System.out.println("----------"+ imagemProduto1 );
+
+        
         Produto produtos = new Produto(nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto1, imagemProduto2, imagemProduto3, imagemProduto4);
         try {
             ProdutosDAO.addProduto(produtos);
