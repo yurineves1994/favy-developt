@@ -15,13 +15,14 @@
 }
 
 .imgtamanho{
-    height: 600px;
+    height: 100%;
+    width: 100%;
 }
 
 /* Menu de opções */
 .cabecalho{
     width: 100%;
-    height: 100px;
+    height: 70px;
     background-color: rgba(0, 255, 255, 0.103);
     position: fixed;
     top: 0;

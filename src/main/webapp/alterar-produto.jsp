@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
+    <%@include file="header-usuario.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" enctype="multipart/form-data">
         <title>JSP Page</title> 
