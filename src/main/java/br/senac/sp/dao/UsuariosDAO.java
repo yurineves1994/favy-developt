@@ -6,7 +6,6 @@
 package br.senac.sp.dao;
 
 import br.senac.sp.db.ConexaoDB;
-import br.senac.sp.entidade.Produto;
 import br.senac.sp.entidade.Usuario;
 import br.senac.sp.servlet.ServletBD;
 import java.sql.Connection;
@@ -144,6 +143,35 @@ public class UsuariosDAO {
                     log(Level.SEVERE, null, ex);
         }
 
+        return usuario;
+    }
+    
+    public static Usuario getAcesso(String emailUsuario) {
+        Usuario usuario = null;
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from Usuario where email_user=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, emailUsuario);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String statusUsuario = rs.getString("status_user");
+                String senhaUsuario = rs.getString("senha_user");
+                usuario = new Usuario();
+                usuario.setEmailUsuario(emailUsuario);
+                usuario.setSenhaUsuario(senhaUsuario);
+                usuario.setStatusUsuario(statusUsuario);
+                usuario.setCodUsuario(rs.getInt("cod_user"));
+                usuario.setNomeUsuario(rs.getString("usuario"));
+                usuario.setCargo(rs.getInt("cargo"));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
         return usuario;
     }
 }

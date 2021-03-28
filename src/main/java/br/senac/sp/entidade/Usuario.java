@@ -5,6 +5,8 @@
  */
 package br.senac.sp.entidade;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 /**
  *
  * @author ardis
@@ -89,6 +91,13 @@ public class Usuario {
         this.Cargo = Cargo;
     }
 
-
+    public static String codificarSenha(String senhaUsuario) {
+        return BCrypt.withDefaults().hashToString(12, senhaUsuario.toCharArray());
+    }
+    
+    public boolean validarSenha(String senhaUsuario) {
+        BCrypt.Result response = BCrypt.verifyer().verify(senhaUsuario.toCharArray(), this.getSenhaUsuario());
+        return response.verified;
+    }
 
 }

@@ -36,6 +36,14 @@
         <servlet-name>CardsProdutos</servlet-name>
         <servlet-class>br.senac.sp.servlet.CardsProdutos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>br.senac.sp.servlet.Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>br.senac.sp.servlet.Logout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
@@ -72,12 +80,20 @@
         <servlet-name>CardsProdutos</servlet-name>
         <url-pattern>/CardsProdutos</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>tela_cadastro_produto.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
