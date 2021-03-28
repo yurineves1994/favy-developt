@@ -33,16 +33,15 @@
                 <!-- Tabelas -->
                 <div class="menu_tabela_produtos">
                     <a href="ListarProdutos" >
-                        <img src="icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas">
+                        <img src="icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Produto">
                     </a>
                 </div>
                 <!-- Cadastro Produto -->
-                    <div class="menu_cadastro_produtos">
-                        <a href="tela_cadastro_produto.jsp">
-                            <img src="icones/icon-produto.png" alt="produto" class="icone_menu centraliza_icone link_produto">
-
-                        </a>
-                    </div>
+                <div class="menu_cadastro_produtos">
+                    <a href="tela_cadastro_produto.jsp">
+                        <img src="icones/icon-produto.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Produto">
+                    </a>
+                </div>
             </div>
         </header>
     </body>
