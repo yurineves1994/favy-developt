@@ -78,6 +78,25 @@
                     </c:forEach>
                 </tbody>
             </table>
+            <%
+                int quantidadePagina = Integer.parseInt(request.getParameter("quantidadePagina"));
+                int numeroPagina = Integer.parseInt(request.getParameter("numeroPagina"));
+            %>
+            <nav>
+                <ul class="pagination justify-content-start">
+                   
+                    <%
+                        if (numeroPagina <= quantidadePagina && (numeroPagina - 1) > 0) {
+                            out.println("<li class='page-item'><a class='page-link' href=ListarProdutos?numeroPagina="+(numeroPagina - 1)+">Anterior</a></li>");
+                        }
+                        out.println("<li class='page-item'><a class='page-link' href=ListarProdutos?numeroPagina="+numeroPagina+">"+numeroPagina+"</a></li>");
+
+                        if (quantidadePagina > numeroPagina) {
+                            out.println("<li class='page-item'><a class='page-link' href=ListarProdutos?numeroPagina="+(numeroPagina + 1)+">Proximo</a></li>");
+                        }
+                    %>
+                </ul>
+            </nav>
         </section>     
         <script src="scripts/scriptListarProduto.js"></script>
     </body>

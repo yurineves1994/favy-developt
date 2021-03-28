@@ -17,7 +17,7 @@ public class CardsProdutos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        List<Produto> listaProdutos = ProdutosDAO.listarProdutos();
+        List<Produto> listaProdutos = ProdutosDAO.listarProdutosCards();
 
         request.setAttribute("listaProdutos", listaProdutos);
 

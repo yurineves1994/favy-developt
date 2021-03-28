@@ -32,7 +32,7 @@
             <div class="menu_opcoes">
                 <!-- Tabelas -->
                 <div class="menu_tabela_produtos">
-                    <a href="ListarProdutos" >
+                    <a href="ListarProdutos?numeroPagina=1" >
                         <img src="icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Produto">
                     </a>
                 </div>
