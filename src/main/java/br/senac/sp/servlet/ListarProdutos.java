@@ -1,4 +1,4 @@
-package br.senac.sp.servlet;
+    package br.senac.sp.servlet;
 
 import br.senac.sp.dao.ProdutosDAO;
 import br.senac.sp.entidade.Produto;

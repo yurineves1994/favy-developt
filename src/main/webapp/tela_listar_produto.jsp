@@ -1,8 +1,3 @@
-<%-- 
-    Document   : tela02
-    Created on : 27/02/2021, 17:27:22
-    Author     : yurin
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

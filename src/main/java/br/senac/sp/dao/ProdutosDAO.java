@@ -47,7 +47,7 @@ public class ProdutosDAO {
     
     public static int quantidadePagina(){
       int quantidadePagina = 1;
-      double totalPessoaPorPagina = 1.0;
+      double totalPessoaPorPagina = 10.0;
       try {
             Connection con = ConexaoDB.obterConexao();
             String query = "select count(1) as totalProduto from produtos";
@@ -78,7 +78,7 @@ public class ProdutosDAO {
     }
     public static List<Produto> listarProdutos(String numeroPagina) {
         List<Produto> listaProdutos = new ArrayList();
-        int totalPorPagina = 1;
+        int totalPorPagina = 10;
 
         int offset = (Integer.parseInt(numeroPagina) * totalPorPagina) - totalPorPagina;
 

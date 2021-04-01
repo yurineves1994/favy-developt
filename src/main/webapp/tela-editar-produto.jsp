@@ -25,7 +25,7 @@
         <script src="scripts/scriptCadastrarProduto.js"></script>
         <section>
             <div class="container mt-5">
-                <form action="EditarProduto" method="POST" enctype="multipart/form-data">
+                <form action="EditarProduto" method="POST">
                     <h1>Alterar Produto - COD: ${produto.codProduto} / Nome: ${produto.nomeProduto}</h1>   
                     <div class="form-group"> 
                         <label for="nome_produto">Nome:</label>
