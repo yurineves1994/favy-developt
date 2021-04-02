@@ -81,7 +81,7 @@ public class UsuariosDAO {
         ps.setString(1, usuario.getNomeUsuario());
         ps.setString(2, usuario.getEmailUsuario());
         ps.setString(3, usuario.getStatusUsuario());
-        ps.setString(4, usuario.getSenhaUsuario());
+        ps.setString(4, usuario.codificarSenha(usuario.getSenhaUsuario()));
         ps.setInt(5, usuario.getCargo());
         ps.execute();
         ps.close();
@@ -150,20 +150,19 @@ public class UsuariosDAO {
         Usuario usuario = null;
         try {
             Connection con = ConexaoDB.obterConexao();
-            String query = "select * from Usuario where email_user=?";
+            String query = "select * from usuario where email_user=?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, emailUsuario);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                String nomeUsuario = rs.getString("usuario");
                 String statusUsuario = rs.getString("status_user");
                 String senhaUsuario = rs.getString("senha_user");
                 usuario = new Usuario();
+                usuario.setNomeUsuario(nomeUsuario);
                 usuario.setEmailUsuario(emailUsuario);
                 usuario.setSenhaUsuario(senhaUsuario);
                 usuario.setStatusUsuario(statusUsuario);
-                usuario.setCodUsuario(rs.getInt("cod_user"));
-                usuario.setNomeUsuario(rs.getString("usuario"));
-                usuario.setCargo(rs.getInt("cargo"));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

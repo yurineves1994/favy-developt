@@ -100,4 +100,11 @@ public class Usuario {
         return response.verified;
     }
 
+    public boolean isAdmin() {
+        return this.Cargo == 1;
+    }
+    
+    public boolean isEstoque() {
+        return this.Cargo == 2;
+    }
 }
