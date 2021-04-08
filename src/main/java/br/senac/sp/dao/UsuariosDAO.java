@@ -22,11 +22,52 @@ import java.util.logging.Logger;
  * @author ardis
  */
 public class UsuariosDAO {
-     public static List<Usuario> listarUsuarios() {
-        List<Usuario> listaUsuarios = new ArrayList();
+    
+    public static int quantidadePagina() {
+        int quantidadePagina = 1;
+        double totalPessoaPorPagina = 10.0;
         try {
             Connection con = ConexaoDB.obterConexao();
-            String query = "select * from usuario";
+            String query = "select count(1) as totalUsuario from usuario";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                double totalProdutos = rs.getDouble("totalUsuario");
+                if (totalProdutos > totalPessoaPorPagina) {
+                    double quantidadePessoaPorPaginaTemp = Float.parseFloat("" + (totalProdutos / totalPessoaPorPagina));
+
+                    if (!(quantidadePessoaPorPaginaTemp % 2 == 0)) {
+                        quantidadePagina = new Double(quantidadePessoaPorPaginaTemp).intValue() + 1;
+                    } else {
+                        quantidadePagina = new Double(quantidadePessoaPorPaginaTemp).intValue();
+                    }
+                } else {
+                    quantidadePagina = 1;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return quantidadePagina;
+    }
+
+    public static List<Usuario> listarUsuarios(String numeroPagina) {
+        List<Usuario> listaUsuarios = new ArrayList();
+        int totalPorPagina = 10;
+        
+        int offset = (Integer.parseInt(numeroPagina) * totalPorPagina) - totalPorPagina;
+
+        if (offset < 0) {
+            offset = 0;
+        }
+        
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from usuario limit " + totalPorPagina + " offset " + offset + ";";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -35,8 +76,8 @@ public class UsuariosDAO {
                 String emailUsuario = rs.getString("email_user");
                 String statusUsuario = rs.getString("status_user");
                 String senhaUsuario = rs.getString("senha_user");
-                int Cargo = rs.getInt("cargo");
-                listaUsuarios.add(new Usuario(codUsuario, nomeUsuario, emailUsuario, statusUsuario, senhaUsuario, Cargo));
+                int cargo = rs.getInt("cargo");
+                listaUsuarios.add(new Usuario(codUsuario, nomeUsuario, emailUsuario, statusUsuario, senhaUsuario, cargo));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

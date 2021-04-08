@@ -17,28 +17,28 @@ public class Usuario {
     private String emailUsuario;
     private String statusUsuario;
     private String senhaUsuario;
-    private int Cargo;
+    private int cargo;
 
 
     // Construtores
     public Usuario() {
     }
 
-    public Usuario(Integer codUsuario,String nomeUsuario,String emailUsuario,String statusUsuario,String senhaUsuario,int Cargo) {
+    public Usuario(Integer codUsuario,String nomeUsuario,String emailUsuario,String statusUsuario,String senhaUsuario,int cargo) {
         this.codUsuario = codUsuario;
         this.nomeUsuario = nomeUsuario;
         this.emailUsuario = emailUsuario;
         this.statusUsuario = statusUsuario;
         this.senhaUsuario = senhaUsuario;
-        this.Cargo = Cargo;
+        this.cargo = cargo;
     }
     
-    public Usuario(String nomeUsuario,String emailUsuario,String statusUsuario,String senhaUsuario,int Cargo) {
+    public Usuario(String nomeUsuario,String emailUsuario,String statusUsuario,String senhaUsuario,int cargo) {
         this.nomeUsuario = nomeUsuario;
         this.emailUsuario = emailUsuario;
         this.statusUsuario = statusUsuario;
         this.senhaUsuario = senhaUsuario;
-        this.Cargo = Cargo;
+        this.cargo = cargo;
     }
     
     // Getters e Setters
@@ -84,11 +84,11 @@ public class Usuario {
     }
 
     public int getCargo() {
-        return Cargo;
+        return cargo;
     }
 
-    public void setCargo(int Cargo) {
-        this.Cargo = Cargo;
+    public void setCargo(int cargo) {
+        this.cargo = cargo;
     }
 
     public static String codificarSenha(String senhaUsuario) {
@@ -101,10 +101,10 @@ public class Usuario {
     }
 
     public boolean isAdmin() {
-        return this.Cargo == 1;
+        return this.cargo == 1;
     }
     
     public boolean isEstoque() {
-        return this.Cargo == 2;
+        return this.cargo == 2;
     }
 }

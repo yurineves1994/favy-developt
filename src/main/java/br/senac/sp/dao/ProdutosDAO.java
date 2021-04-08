@@ -14,11 +14,82 @@ import java.util.logging.Logger;
 
 public class ProdutosDAO {
 
-    public static List<Produto> listarProdutos() {
-        List<Produto> listaProdutos = new ArrayList();
-        try {
+    public static List<Produto> listarProdutosCards() {
+       List<Produto> listaProdutos = new ArrayList();
+       try {
             Connection con = ConexaoDB.obterConexao();
             String query = "select * from produtos";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Integer codProduto = rs.getInt("cod_produto");
+                String nomeProduto = rs.getString("nome_produto");
+                String descricao = rs.getString("descricao");
+                String statusProduto = rs.getString("status_produto");
+                long precoProduto = rs.getLong("preco_produto");
+                long qtdProduto = rs.getLong("qtd_produto");
+                int qtdEstrela = rs.getInt("qtd_estrela");
+                String imagemProduto1 = rs.getString("imagem_produto_1");
+                String imagemProduto2 = rs.getString("imagem_produto_2");
+                String imagemProduto3 = rs.getString("imagem_produto_3");
+                String imagemProduto4 = rs.getString("imagem_produto_4");
+                listaProdutos.add(new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto1, imagemProduto2, imagemProduto3, imagemProduto4));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return listaProdutos;
+    }
+    
+    public static int quantidadePagina(){
+      int quantidadePagina = 1;
+      double totalPessoaPorPagina = 10.0;
+      try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select count(1) as totalProduto from produtos";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+              double totalProdutos = rs.getDouble("totalProduto");
+              if(totalProdutos > totalPessoaPorPagina){                 
+                  double quantidadePessoaPorPaginaTemp = Float.parseFloat("" + (totalProdutos / totalPessoaPorPagina));
+                  
+                  if(!(quantidadePessoaPorPaginaTemp % 2 == 0)){
+                      quantidadePagina = new Double(quantidadePessoaPorPaginaTemp).intValue() + 1;
+                  } else {
+                      quantidadePagina = new Double(quantidadePessoaPorPaginaTemp).intValue();
+                  }
+              } else {
+                  quantidadePagina = 1;
+              }
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return quantidadePagina;
+    }
+    
+    public static List<Produto> listarProdutos(String numeroPagina) {
+        List<Produto> listaProdutos = new ArrayList();
+        int totalPorPagina = 10;
+
+        int offset = (Integer.parseInt(numeroPagina) * totalPorPagina) - totalPorPagina;
+
+        if (offset < 0) {
+            offset = 0;
+        }
+
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from produtos limit " + totalPorPagina + " offset " + offset + ";";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

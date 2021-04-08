@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <filter-class>br.senac.sp.filter.AutorizacaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <url-pattern>/protected/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>CadastrarProduto</servlet-name>
         <servlet-class>br.senac.sp.servlet.CadastrarProduto</servlet-class>
@@ -44,6 +52,26 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>br.senac.sp.servlet.Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarUsuario</servlet-name>
+        <servlet-class>br.senac.sp.servlet.CadastrarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarUsuarios</servlet-name>
+        <servlet-class>br.senac.sp.servlet.ListarUsuarios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtivarUsuario</servlet-name>
+        <servlet-class>br.senac.sp.servlet.AtivarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DesativarUsuario</servlet-name>
+        <servlet-class>br.senac.sp.servlet.DesativarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarUsuario</servlet-name>
+        <servlet-class>br.senac.sp.servlet.EditarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
@@ -87,6 +115,26 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarUsuario</servlet-name>
+        <url-pattern>/CadastrarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarUsuarios</servlet-name>
+        <url-pattern>/ListarUsuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtivarUsuario</servlet-name>
+        <url-pattern>/AtivarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DesativarUsuario</servlet-name>
+        <url-pattern>/DesativarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarUsuario</servlet-name>
+        <url-pattern>/EditarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
