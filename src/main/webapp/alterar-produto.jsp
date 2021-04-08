@@ -103,5 +103,4 @@
             console.log(teste);
         </script>
     </body>
-
 </html>

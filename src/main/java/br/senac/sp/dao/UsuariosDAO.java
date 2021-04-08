@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.senac.sp.dao;
 
 import br.senac.sp.db.ConexaoDB;
-import br.senac.sp.entidade.Produto;
 import br.senac.sp.entidade.Usuario;
 import br.senac.sp.servlet.ServletBD;
 import java.sql.Connection;
@@ -18,16 +12,53 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author ardis
- */
 public class UsuariosDAO {
-     public static List<Usuario> listarUsuarios() {
-        List<Usuario> listaUsuarios = new ArrayList();
+
+    public static int quantidadePagina() {
+        int quantidadePagina = 1;
+        double totalPessoaPorPagina = 10.0;
         try {
             Connection con = ConexaoDB.obterConexao();
-            String query = "select * from usuario";
+            String query = "select count(1) as totalUsuario from usuario";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                double totalProdutos = rs.getDouble("totalUsuario");
+                if (totalProdutos > totalPessoaPorPagina) {
+                    double quantidadePessoaPorPaginaTemp = Float.parseFloat("" + (totalProdutos / totalPessoaPorPagina));
+
+                    if (!(quantidadePessoaPorPaginaTemp % 2 == 0)) {
+                        quantidadePagina = new Double(quantidadePessoaPorPaginaTemp).intValue() + 1;
+                    } else {
+                        quantidadePagina = new Double(quantidadePessoaPorPaginaTemp).intValue();
+                    }
+                } else {
+                    quantidadePagina = 1;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return quantidadePagina;
+    }
+
+    public static List<Usuario> listarUsuarios(String numeroPagina) {
+        List<Usuario> listaUsuarios = new ArrayList();
+        int totalPorPagina = 10;
+        
+        int offset = (Integer.parseInt(numeroPagina) * totalPorPagina) - totalPorPagina;
+
+        if (offset < 0) {
+            offset = 0;
+        }
+        
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from usuario limit " + totalPorPagina + " offset " + offset + ";";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -36,8 +67,8 @@ public class UsuariosDAO {
                 String emailUsuario = rs.getString("email_user");
                 String statusUsuario = rs.getString("status_user");
                 String senhaUsuario = rs.getString("senha_user");
-                int Cargo = rs.getInt("cargo");
-                listaUsuarios.add(new Usuario(codUsuario, nomeUsuario, emailUsuario, statusUsuario, senhaUsuario, Cargo));
+                int cargo = rs.getInt("cargo");
+                listaUsuarios.add(new Usuario(codUsuario, nomeUsuario, emailUsuario, statusUsuario, senhaUsuario, cargo));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -48,8 +79,8 @@ public class UsuariosDAO {
         }
         return listaUsuarios;
     }
-    
-     public static List<Usuario> PesquisarUsuario(String nomePesquisa) {
+
+    public static List<Usuario> PesquisarUsuario(String nomePesquisa) {
         List<Usuario> listaPesquisaUsuario = new ArrayList();
         try {
             Connection con = ConexaoDB.obterConexao();
@@ -62,8 +93,8 @@ public class UsuariosDAO {
                 String emailUsuario = rs.getString("email_user");
                 String statusUsuario = rs.getString("status_user");
                 String senhaUsuario = rs.getString("senha_user");
-                int Cargo = rs.getInt("cargo");
-                listaPesquisaUsuario.add(new Usuario(codUsuario, nomeUsuario, emailUsuario, statusUsuario, senhaUsuario, Cargo));
+                int cargo = rs.getInt("cargo");
+                listaPesquisaUsuario.add(new Usuario(codUsuario, nomeUsuario, emailUsuario, statusUsuario, senhaUsuario, cargo));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -87,8 +118,8 @@ public class UsuariosDAO {
         ps.execute();
         ps.close();
     }
-    
-     public static void updateUsuario(Usuario usuario) throws ClassNotFoundException, SQLException {
+
+    public static void updateUsuario(Usuario usuario) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.obterConexao();
         String query = "update usuario set usuario=?, email_user=?, status_user=?, senha_user=?, cargo=? where cod_user=?";
         PreparedStatement ps = con.prepareStatement(query);
@@ -110,7 +141,7 @@ public class UsuariosDAO {
         ps.execute();
         ps.close();
     }
-    
+
     public static void desativarUsuario(Integer codUsuario) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.obterConexao();
         String query = "update usuario set status_user='i' where cod_user=?";
@@ -133,8 +164,8 @@ public class UsuariosDAO {
                 String emailUsuario = rs.getString("email_user");
                 String statusUsuario = rs.getString("status_user");
                 String senhaUsuario = rs.getString("senha_user");
-                int Cargo = rs.getInt("cargo");
-                usuario = new Usuario(codUsuario, nomeUsuario, emailUsuario, statusUsuario, senhaUsuario, Cargo);
+                int cargo = rs.getInt("cargo");
+                usuario = new Usuario(codUsuario, nomeUsuario, emailUsuario, statusUsuario, senhaUsuario, cargo);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

@@ -11,6 +11,7 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="estilos/estiloListarProdutos.css">
     </head>
+    
     <body>
         <script src="scripts/scriptListarProduto.js"></script>
         <section class="container">
