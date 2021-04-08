@@ -45,14 +45,15 @@
                         <img src="icones/icon-produto.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Produto">
                     </a>
                 </div>
-                
+                        
+                <c:if test="${sessionScope.usuario.estoque}">
                 <!-- Cadastro Cliente -->
                 <div class="menu_cadastro_produtos">
                     <a href="<c:url value="/protected/tela_cadastro_usuario.jsp"/>">
                         <img src="icones/icon-cliente.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Usuário">
                     </a>
                 </div>
-                
+                </c:if>
                 <!-- Tabelas -->
                 <div class="menu_tabela_produtos">
                     <a href="<c:url value="/ListarUsuarios?numeroPagina=1"/>">

@@ -67,7 +67,7 @@ public class UsuariosDAO {
         
         try {
             Connection con = ConexaoDB.obterConexao();
-            String query = "select * from usuario limit " + totalPorPagina + " offset " + offset + ";";
+            String query = "select * from usuario order by cod_user desc limit " + totalPorPagina + " offset " + offset + ";";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
