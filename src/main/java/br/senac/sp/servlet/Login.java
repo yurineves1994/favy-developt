@@ -27,7 +27,7 @@ public class Login extends HttpServlet {
         } else {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("email_user", usuario);
-            response.sendRedirect(request.getContextPath() + "/protected/tela_cadastro_usuario.jsp");
+            response.sendRedirect(request.getContextPath() + "/protected/estoque/tela_cadastro_produto.jsp");
         }
 
     }

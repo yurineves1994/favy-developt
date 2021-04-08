@@ -51,7 +51,7 @@ public class AutorizacaoFilter implements Filter {
         Usuario usuario = (Usuario) sessao.getAttribute("email_user");
         String url = httpRequest.getRequestURI();
         
-        if (url.contains("/*/") && !usuario.isAdmin()) {
+        if (url.contains("*") && !usuario.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/acesso_negado.jsp");
         }
         if (url.contains("/estoque/*") && !usuario.isEstoque()) {

@@ -46,7 +46,7 @@
                     </a>
                 </div>
                 
-                <c:if test="${sessionScope.usuario.estoque}">
+                <c:if test="${sessionScope.email_user.admin}">
                 <!-- Cadastro Cliente -->
                 <div class="menu_cadastro_produtos">
                     <a href="<c:url value="/protected/tela_cadastro_usuario.jsp"/>">

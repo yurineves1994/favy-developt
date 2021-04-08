@@ -22,16 +22,16 @@
             <table class="table mt-1">
                 <thead class="thead-dark">
                     <tr style="text-align: center">
-                        <c:if test="${sessionScope.usuario.estoque}">
+                        <c:if test="${sessionScope.email_user.admin}">
                         <th scope="col" class="tabelaCell">COD produto</th>
                         </c:if>
                         <th scope="col">Nome do Produto</th>
-                        <c:if test="${sessionScope.usuario.estoque}">
+                        <c:if test="${sessionScope.email_user.admin}">
                         <th scope="col" class="tabelaCell">Email</th>
                         </c:if>
                         <th scope="col">Status</th>
                         <th scope="col">Cargo</th>
-                        <c:if test="${sessionScope.usuario.estoque}">
+                        <c:if test="${sessionScope.email_user.admin}">
                         <th scope="col" class="acoes"> Ações </th>
                         </c:if>
                     </tr>
@@ -40,11 +40,11 @@
                 <tbody id="t_dados">
                     <c:forEach items="${listaUsuarios}" var="usuario">
                         <tr style="text-align: center" class="efeitoCor" id="status">
-                            <c:if test="${sessionScope.usuario.estoque}">
+                            <c:if test="${sessionScope.email_user.admin}">
                             <td scope="row" class="tabelaCell">${usuario.codUsuario}</td>
                             </c:if>
                             <td>${usuario.nomeUsuario}</td>
-                            <c:if test="${sessionScope.usuario.estoque}">
+                            <c:if test="${sessionScope.email_user.admin}">
                             <td scope="row" class="tabelaCell">${usuario.emailUsuario}</td>
                             </c:if>
                             <td> 
@@ -61,7 +61,7 @@
                                 <c:if test="${usuario.cargo == 2}">  
                                     Estoquista
                                 </c:if></td>
-                            <c:if test="${sessionScope.usuario.estoque}">
+                            <c:if test="${sessionScope.email_user.admin}">
                             <td class="acoes">
                                 <a href="<c:url value="/EditarUsuario?codUsuario=${usuario.codUsuario}"/>"> 
                                     <!--Editar--> 

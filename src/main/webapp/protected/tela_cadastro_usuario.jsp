@@ -22,13 +22,13 @@
             <div class="container mt-4">
                 <!-- enctype="multipart/form-data" -->
                 <form action="<c:url value="/CadastrarUsuario"/>" method="POST" >
-                    
+
                     <!-- Usuario -->
                     <div class="form-group">
                         <label for="exampleFormControlSelect1"> Nome </label>
                         <input required name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
                     </div>
-                    
+
                     <!-- Status -->
                     <div class="form-group">
                         <label for="exampleFormControlSelect1"> Status </label>
@@ -37,43 +37,52 @@
                             <option value="i"> Inativo </option>
                         </select>
                     </div>
-                    
+
                     <!-- Cargo -->
                     <div class="form-group">
                         <label for="exampleFormControlSelect1"> Cargo </label>
                         <select name="cargo" class="form-control" id="exampleFormControlSelect1">
-                          <option > Estoquista </option>
-                          <option > Admistrador </option>
+                            <option > Estoquista </option>
+                            <option > Admistrador </option>
                         </select>
                     </div>
-                    
+
                     <!-- Email -->
                     <div class="form-group">
                         <label for="exampleFormControlSelect1"> Email </label>
                         <input required name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
                     </div>
-                    
+
                     <!-- Senha -->
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Senha </label>
-                        <input id="senha2" required name="senha" type="password" class="form-control" id="exampleFormControlInput1" placeholder=" ">
+                        <label for="senha1"> Senha </label>
+                        <input id="senha1" required name="senha" type="password" class="form-control" placeholder=" ">
                     </div>
                     <!-- *Senha -->
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Confirme sua senha </label>
-                        <input id="senha2" required type="password" class="form-control" id="exampleFormControlInput1" placeholder=" ">
+                        <label for="senha2"> Confirme sua senha </label>
+                        <input id="senha2" required type="password" class="form-control" placeholder=" ">
                     </div>
-                    
+
                     <div class="campo-right">
                         <input type="submit" value="Enviar" class="btn btn-success">
                         <input type="reset" value="Cancelar" class="btn btn-secondary">
                     </div>
-                    
+
                 </form>
             </div>
         </section>
     </body>
     <script>
-        
+
+        function validaSenha(input) {
+            var bt1 = document.getElementById('senha1').value;
+            var bt2 = document.getElementById('senha2').value;
+
+            if (bt1 != bt2) {
+                input.setCustomValidity("Senhas diferentes!");
+                return false;
+            }
+        }
     </script>
 </html>
