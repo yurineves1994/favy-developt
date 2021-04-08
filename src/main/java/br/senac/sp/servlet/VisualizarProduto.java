@@ -19,7 +19,7 @@ public class VisualizarProduto extends HttpServlet {
 
         request.setAttribute("produto", produto);
 
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/visualizar-produto.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/estoque/visualizar-produto.jsp");
         requestDispatcher.forward(request, response);
 
     }

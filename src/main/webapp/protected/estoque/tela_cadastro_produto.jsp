@@ -1,7 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header-usuario.jsp" %>
+    <%@include file="../header-usuario-estoque.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" enctype="multipart/form-data">
         <title>JSP Page</title> 
@@ -23,7 +24,7 @@
         <section>
             <div class="container mt-4">
                 <!-- enctype="multipart/form-data" -->
-                <form action="CadastrarProduto" method="POST">
+                <form action="<c:url value="/CadastrarProduto"/>" method="POST">
                     <!-- Nome produto -->
                     <div class="form-group">
                         <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" placeholder=" Nome do Produto ">

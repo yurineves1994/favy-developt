@@ -30,7 +30,7 @@ public class EditarProduto extends HttpServlet {
 
         request.setAttribute("produto", produto);
 
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/tela-editar-produto.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/estoque/tela-editar-produto.jsp");
         requestDispatcher.forward(request, response);
     }
 

@@ -1,7 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header-usuario.jsp" %>
+    <%@include file="../../header-usuario.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" enctype="multipart/form-data">
         <title>JSP Page</title> 
@@ -25,7 +26,7 @@
         <script src="scripts/scriptCadastrarProduto.js"></script>
         <section>
             <div class="container mt-5">
-                <form action="EditarProduto" method="POST">
+                <form action="<c:url value="/EditarProduto"/>" method="POST">
                     <h1>Alterar Produto - COD: ${produto.codProduto} / Nome: ${produto.nomeProduto}</h1>   
                     <div class="form-group"> 
                         <label for="nome_produto">Nome:</label>

@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../estilos/cabecalho.css">
+        <link rel="stylesheet" href="../../estilos/cabecalho.css">
 
     </head>
     <body>
@@ -24,7 +24,7 @@
             <div class="menu_voltar">
                 <div class="ajusta_icone_menu">
                     <a href="<c:url value="/CardsProdutos"/>">
-                        <img src="../icones/icon-sair.png" alt="sair" class="menu_voltar_icon centraliza_icone">
+                        <img src="../../icones/icon-sair.png" alt="sair" class="menu_voltar_icon centraliza_icone">
                     </a>
                 </div>
             </div>
@@ -35,28 +35,28 @@
                 <!-- Tabelas -->
                 <div class="menu_tabela_produtos">
                     <a href="<c:url value="/ListarProdutos?numeroPagina=1"/>" >
-                        <img src="../icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Produto">
+                        <img src="../../icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Produto">
                     </a>
                 </div>
                 
                 <!-- Cadastro Produto -->
                 <div class="menu_cadastro_produtos">
                     <a href="<c:url value="/protected/estoque/tela_cadastro_produto.jsp"/>">
-                        <img src="../icones/icon-produto.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Produto">
+                        <img src="../../icones/icon-produto.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Produto">
                     </a>
                 </div>
                 
                 <!-- Cadastro Cliente -->
                 <div class="menu_cadastro_produtos">
                     <a href="<c:url value="/protected/tela_cadastro_usuario.jsp"/>">
-                        <img src="../icones/icon-cliente.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Usuário">
+                        <img src="../../icones/icon-cliente.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Usuário">
                     </a>
                 </div>
                 
                 <!-- Tabelas -->
                 <div class="menu_tabela_produtos">
                     <a href="<c:url value="/ListarUsuarios?numeroPagina=1"/>">
-                        <img src="../icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Usuários">
+                        <img src="../../icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Usuários">
                     </a>
                 </div>
             </div>

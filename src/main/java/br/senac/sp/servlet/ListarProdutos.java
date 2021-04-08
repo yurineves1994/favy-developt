@@ -16,6 +16,9 @@ public class ListarProdutos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String numeroPagina = request.getParameter("numeroPagina");
+        if (numeroPagina == null) {
+            numeroPagina = "1";
+        }
 
         List<Produto> listaProdutos = ProdutosDAO.listarProdutos(numeroPagina);
 
@@ -25,7 +28,7 @@ public class ListarProdutos extends HttpServlet {
         int quantidadePagina = ProdutosDAO.quantidadePagina();
         request.setAttribute("quantidadePagina", quantidadePagina);
 
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/estoque/tela_listar_produto.jsp?quantidadePagina=" + quantidadePagina + "&numeroPagina=" + numeroPagina);
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/estoque/tela_listar_produto.jsp?quantidadePagina=" + quantidadePagina + "&numeroPagina=" + numeroPagina);
         requestDispatcher.forward(request, response);
     }
 }

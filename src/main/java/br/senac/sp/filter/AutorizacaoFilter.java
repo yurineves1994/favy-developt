@@ -54,7 +54,7 @@ public class AutorizacaoFilter implements Filter {
         if (url.contains("/*/") && !usuario.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/acesso_negado.jsp");
         }
-        if (url.contains("/estoque/") && !usuario.isEstoque()) {
+        if (url.contains("/estoque/*") && !usuario.isEstoque()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/acesso_negado.jsp");
         }
     }

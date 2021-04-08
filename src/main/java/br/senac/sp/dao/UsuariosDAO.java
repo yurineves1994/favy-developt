@@ -204,6 +204,8 @@ public class UsuariosDAO {
                 usuario.setEmailUsuario(emailUsuario);
                 usuario.setSenhaUsuario(senhaUsuario);
                 usuario.setStatusUsuario(statusUsuario);
+                usuario.setCodUsuario(rs.getInt("cod_user"));
+                usuario.setCargo(rs.getInt("cargo"));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

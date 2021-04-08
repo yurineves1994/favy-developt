@@ -46,25 +46,25 @@
                             </td>
 
                             <td class="acoes">
-                                <a href="EditarProduto?codProduto=${produto.codProduto}"> 
+                                <a href="<c:url value="/EditarProduto?codProduto=${produto.codProduto}"/>"> 
                                     <!--Editar--> 
                                     <img src="icones/icon-alterar.png" alt="editar" class="iconTabela left" title="Editar Produto">
                                 </a>
 
                                 <c:if test="${produto.statusProduto == 'i'}">
-                                    <a href="AtivarProduto?codProduto=${produto.codProduto}">
+                                    <a href="<c:url value="/AtivarProduto?codProduto=${produto.codProduto}"/>">
                                         <!--Ativar--> 
                                         <img src="icones/icon-ativar.png" alt="ativar" class="iconTabela" title="Reativar Produto" id="ativar">
                                     </a>
                                 </c:if>
                                 <c:if test="${produto.statusProduto == 'a'}">
-                                    <a href="DesativarProduto?codProduto=${produto.codProduto}">
+                                    <a href="<c:url value="/DesativarProduto?codProduto=${produto.codProduto}"/>"> 
                                         <!--Desativar--> 
                                         <img src="icones/icon-desativar.png" alt="desativar" class="iconTabela" title="Desativar Produto">
                                     </a>
                                 </c:if>
 
-                                <a href="VisualizarProduto?codProduto=${produto.codProduto}">
+                                <a href="<c:url value="/VisualizarProduto?codProduto=${produto.codProduto}"/>">
                                     <!--Visualizar--> 
                                     <img src="icones/icon-visualizar.png" alt="visualizar" class="iconTabela right" title="Visualizar ">
                                 </a>

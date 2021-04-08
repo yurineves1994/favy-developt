@@ -7,14 +7,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header-usuario.jsp" %>
+    <%@include file="../header-usuario.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
-        <link rel="stylesheet" href="../estilos/estiloListarProdutos.css">
+        <link rel="stylesheet" href="estilos/estiloListarProdutos.css">
     </head>
     <body>
         <section class="container">
@@ -50,21 +50,21 @@
                                 </c:if>
                                 <c:if test="${usuario.cargo == 2}">  
                                     Estoquista
-                                </c:if></td></td>
+                                </c:if></td>
                             <td class="acoes">
-                                <a href="EditarUsuario?codUsuario=${usuario.codUsuario}"> 
+                                <a href="<c:url value="/EditarUsuario?codUsuario=${usuario.codUsuario}"/>"> 
                                     <!--Editar--> 
                                     <img src="icones/icon-alterar.png" alt="editar" class="iconTabela left" title="Editar Usuario">
                                 </a>
 
                                 <c:if test="${usuario.statusUsuario == 'i'}">
-                                    <a href="AtivarUsuario?codUsuario=${usuario.codUsuario}">
+                                    <a href="<c:url value="/AtivarUsuario?codUsuario=${usuario.codUsuario}"/>">
                                         <!--Ativar--> 
                                         <img src="icones/icon-ativar.png" alt="ativar" class="iconTabela" title="Reativar Usuario" id="ativar">
                                     </a>
                                 </c:if>
                                 <c:if test="${usuario.statusUsuario == 'a'}">
-                                    <a href="DesativarUsuario?codUsuario=${usuario.codUsuario}">
+                                    <a href="<c:url value="/DesativarUsuario?codUsuario=${usuario.codUsuario}"/>">
                                         <!--Desativar--> 
                                         <img src="icones/icon-desativar.png" alt="desativar" class="iconTabela" title="Desativar Usuario">
                                     </a>
