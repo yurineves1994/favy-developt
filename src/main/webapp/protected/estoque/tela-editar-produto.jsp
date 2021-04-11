@@ -27,11 +27,7 @@
         <script src="scripts/scriptCadastrarProduto.js"></script>
         <section>
             <div class="container mt-5">
-<<<<<<< HEAD:src/main/webapp/tela-editar-produto.jsp
-                <form action="EditarProduto" method="POST">
-=======
                 <form action="<c:url value="/EditarProduto"/>" method="POST">
->>>>>>> vilela:src/main/webapp/protected/estoque/tela-editar-produto.jsp
                     <h1>Alterar Produto - COD: ${produto.codProduto} / Nome: ${produto.nomeProduto}</h1>   
                     <div class="form-group"> 
                         <label for="nome_produto">Nome:</label>
