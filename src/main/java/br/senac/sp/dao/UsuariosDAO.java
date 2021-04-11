@@ -122,6 +122,7 @@ public class UsuariosDAO {
         ps.setString(1, usuario.getNomeUsuario());
         ps.setString(2, usuario.getEmailUsuario());
         ps.setString(3, usuario.getStatusUsuario());
+        // Ajustado tela editar
         ps.setString(4, usuario.codificarSenha(usuario.getSenhaUsuario()));
         ps.setInt(5, usuario.getCargo());
         ps.execute();
@@ -135,7 +136,7 @@ public class UsuariosDAO {
         ps.setString(1, usuario.getNomeUsuario());
         ps.setString(2, usuario.getEmailUsuario());
         ps.setString(3, usuario.getStatusUsuario());
-        ps.setString(4, usuario.getSenhaUsuario());
+        ps.setString(4, usuario.codificarSenha(usuario.getSenhaUsuario()));
         ps.setInt(5, usuario.getCargo());
         ps.setInt(6, usuario.getCodUsuario());
         ps.execute();
