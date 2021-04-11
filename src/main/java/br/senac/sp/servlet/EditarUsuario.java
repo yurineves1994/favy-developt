@@ -21,8 +21,7 @@ public class EditarUsuario extends HttpServlet {
         Usuario usuario = UsuariosDAO.obterUsuario(codUsuario);
 
         request.setAttribute("usuario", usuario);
-
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/tela-editar-usuario.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/tela-editar-usuario.jsp");
         requestDispatcher.forward(request, response);
     }
     

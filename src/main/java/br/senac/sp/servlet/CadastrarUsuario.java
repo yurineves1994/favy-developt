@@ -1,4 +1,3 @@
-
 package br.senac.sp.servlet;
 
 import br.senac.sp.dao.UsuariosDAO;
@@ -21,15 +20,15 @@ public class CadastrarUsuario extends HttpServlet {
         String status = request.getParameter("status");
         String cargo = request.getParameter("cargo");
         String email = request.getParameter("email");
-         String senha = request.getParameter("senha");
-               
+        String senha = request.getParameter("senha");
+
         /* 1 = Estoquista  /  2 = Admistrador */
-        int carg = cargo.equals("Estoquista")? 2 : 1;
-        
+        int carg = cargo.equals("Estoquista") ? 2 : 1;
+
         Usuario user = new Usuario(nome, email, status, senha, carg);
-        
+
         try {
-                UsuariosDAO.addUsuario(user);
+            UsuariosDAO.addUsuario(user);
             response.sendRedirect("ListarUsuarios?numeroPagina=1");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -38,6 +37,4 @@ public class CadastrarUsuario extends HttpServlet {
         }
         
     }
-
-
 }

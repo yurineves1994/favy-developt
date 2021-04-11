@@ -95,4 +95,11 @@ public class Usuario {
         return response.verified;
     }
 
+    public boolean isAdmin() {
+        return this.cargo == 1;
+    }
+    
+    public boolean isEstoque() {
+        return this.cargo == 2;
+    }
 }

@@ -27,7 +27,7 @@ public class ListarUsuarios extends HttpServlet {
         int quantidadePagina = ProdutosDAO.quantidadePagina();
         request.setAttribute("quantidadePagina", quantidadePagina);
         
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/tela_listar_usuario.jsp?quantidadePagina=" + quantidadePagina + "&numeroPagina=" + numeroPagina);
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/tela_listar_usuario.jsp?quantidadePagina=" + quantidadePagina + "&numeroPagina=" + numeroPagina);
         requestDispatcher.forward(request, response);
     }
 }

@@ -1,7 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header-usuario.jsp" %>
+    <%@include file="../../header-usuario.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" enctype="multipart/form-data">
         <title>JSP Page</title> 
@@ -23,11 +24,11 @@
         <section>
             <div class="container mt-4">
                 <!-- enctype="multipart/form-data" -->
-                <form action="EditarProduto" method="POST" enctype="multipart/form-data">
+                <form action="<c:url value="/EditarProduto"/>" method="POST" enctype="multipart/form-data">
                     <!-- Nome produto -->
                     <div class="form-group">
                         <input type="text" value="${produto.codProduto}" id="cod_produto" name="cod_produto" style="visibility:hidden">
-                        <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" value="${produto.codProduto} placeholder=" Nome do Produto ">
+                        <input required name="nome_produto" type="text" class="form-control" id="exampleFormControlInput1" value="${produto.codProduto}" placeholder=" Nome do Produto ">
                     </div>
                     <!-- Descrição -->
                     <div class="form-group">

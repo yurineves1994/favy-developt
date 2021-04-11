@@ -13,7 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ProdutosDAO {
-    
     public static List<Produto> listarProdutosCards() {
        List<Produto> listaProdutos = new ArrayList();
        try {
@@ -76,6 +75,7 @@ public class ProdutosDAO {
         }
         return quantidadePagina;
     }
+    
     public static List<Produto> listarProdutos(String numeroPagina) {
         List<Produto> listaProdutos = new ArrayList();
         int totalPorPagina = 10;
@@ -114,7 +114,7 @@ public class ProdutosDAO {
         }
         return listaProdutos;
     }
-
+    
     public static List<Produto> PesquisarProduto(String nomePesquisa) {
         List<Produto> listaPesquisaProduto = new ArrayList();
         try {

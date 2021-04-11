@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.senac.sp.servlet;
 
 import br.senac.sp.dao.UsuariosDAO;
@@ -28,11 +23,11 @@ public class Login extends HttpServlet {
 
         Usuario usuario = UsuariosDAO.getAcesso(emailUsuario);
         if (usuario == null || !usuario.validarSenha(senhaUsuario)) {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            response.sendRedirect(request.getContextPath() + "/login.jsp?erro=UserNotFound");
         } else {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("email_user", usuario);
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            response.sendRedirect(request.getContextPath() + "/protected/estoque/tela_cadastro_produto.jsp");
         }
 
     }

@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header-usuario.jsp" %>
+    <%@include file="../../header-usuario.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listar Produto</title>
@@ -34,7 +34,7 @@
                 <tbody id="t_dados">
                     <c:forEach items="${listaProdutos}" var="produto">
                         <tr style="text-align: center" class="efeitoCor" id="status">
-                            <th scope="row" class="tabelaCell">${produto.codProduto}</td>
+                            <td scope="row" class="tabelaCell">${produto.codProduto}</td>
                             <td>${produto.nomeProduto}</td>
                             <td class="tabelaCell">${produto.qtdProduto}</td>
                             <td>
@@ -47,25 +47,25 @@
                             </td>
 
                             <td class="acoes">
-                                <a href="EditarProduto?codProduto=${produto.codProduto}"> 
+                                <a href="<c:url value="/EditarProduto?codProduto=${produto.codProduto}"/>"> 
                                     <!--Editar--> 
                                     <img src="icones/icon-alterar.png" alt="editar" class="iconTabela left" title="Editar Produto">
                                 </a>
 
                                 <c:if test="${produto.statusProduto == 'i'}">
-                                    <a href="AtivarProduto?codProduto=${produto.codProduto}">
+                                    <a href="<c:url value="/AtivarProduto?codProduto=${produto.codProduto}"/>">
                                         <!--Ativar--> 
                                         <img src="icones/icon-ativar.png" alt="ativar" class="iconTabela" title="Reativar Produto" id="ativar">
                                     </a>
                                 </c:if>
                                 <c:if test="${produto.statusProduto == 'a'}">
-                                    <a href="DesativarProduto?codProduto=${produto.codProduto}">
+                                    <a href="<c:url value="/DesativarProduto?codProduto=${produto.codProduto}"/>"> 
                                         <!--Desativar--> 
                                         <img src="icones/icon-desativar.png" alt="desativar" class="iconTabela" title="Desativar Produto">
                                     </a>
                                 </c:if>
 
-                                <a href="VisualizarProduto?codProduto=${produto.codProduto}">
+                                <a href="<c:url value="/VisualizarProduto?codProduto=${produto.codProduto}"/>">
                                     <!--Visualizar--> 
                                     <img src="icones/icon-visualizar.png" alt="visualizar" class="iconTabela right" title="Visualizar ">
                                 </a>
