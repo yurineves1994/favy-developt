@@ -1,8 +1,3 @@
-<%-- 
-    Document   : tela02
-    Created on : 27/02/2021, 17:27:22
-    Author     : yurin
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,6 +11,7 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="estilos/estiloListarProdutos.css">
     </head>
+    
     <body>
         <script src="scripts/scriptListarProduto.js"></script>
         <section class="container">
@@ -78,6 +74,25 @@
                     </c:forEach>
                 </tbody>
             </table>
+            <%
+                int quantidadePagina = Integer.parseInt(request.getParameter("quantidadePagina"));
+                int numeroPagina = Integer.parseInt(request.getParameter("numeroPagina"));
+            %>
+            <nav>
+                <ul class="pagination justify-content-start">
+                   
+                    <%
+                        if (numeroPagina <= quantidadePagina && (numeroPagina - 1) > 0) {
+                            out.println("<li class='page-item'><a class='page-link' href=ListarProdutos?numeroPagina="+(numeroPagina - 1)+">Anterior</a></li>");
+                        }
+                        out.println("<li class='page-item'><a class='page-link' href=ListarProdutos?numeroPagina="+numeroPagina+">"+numeroPagina+"</a></li>");
+
+                        if (quantidadePagina > numeroPagina) {
+                            out.println("<li class='page-item'><a class='page-link' href=ListarProdutos?numeroPagina="+(numeroPagina + 1)+">Proximo</a></li>");
+                        }
+                    %>
+                </ul>
+            </nav>
         </section>     
         <script src="scripts/scriptListarProduto.js"></script>
     </body>

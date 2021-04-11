@@ -37,7 +37,6 @@ public class EditarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Integer codProduto = Integer.parseInt(request.getParameter("cod_produto"));
         String nomeProduto = request.getParameter("nome_produto");
         String descricao = request.getParameter("descricao");
         int qtdEstrela = Integer.parseInt(request.getParameter("qtd_estrela"));
@@ -56,7 +55,8 @@ public class EditarProduto extends HttpServlet {
         String encodstring4 = request.getParameter("imagem_produto_4");
         File file4 = new File(getServletContext().getRealPath("/img") + "/" + encodstring4);
         String imagemProduto4 = encodeFileToBase64Binary(file4);
-
+        Integer codProduto = Integer.parseInt(request.getParameter("cod_produto"));
+        
         Produto produto = ProdutosDAO.obterProduto(codProduto);
         produto.setNomeProduto(nomeProduto);
         produto.setDescricao(descricao);
@@ -71,7 +71,7 @@ public class EditarProduto extends HttpServlet {
 
         try {
             ProdutosDAO.updateProduto(produto);
-            response.sendRedirect("ListarProdutos");
+            response.sendRedirect("ListarProdutos?numeroPagina=1");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);

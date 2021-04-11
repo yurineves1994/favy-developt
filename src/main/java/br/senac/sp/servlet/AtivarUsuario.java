@@ -1,8 +1,7 @@
 package br.senac.sp.servlet;
 
-import br.senac.sp.dao.ProdutosDAO;
+import br.senac.sp.dao.UsuariosDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,19 +14,18 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author yurin
  */
-public class DesativarProduto extends HttpServlet {
+public class AtivarUsuario extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Integer codProduto = Integer.parseInt(request.getParameter("codProduto"));
+        Integer codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
         try {
-            ProdutosDAO.desativarProduto(codProduto);
-            response.sendRedirect("ListarProdutos?numeroPagina=1");
+            UsuariosDAO.ativarUsuario(codUsuario);
+            response.sendRedirect("ListarUsuarios?numeroPagina=1");
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(DesativarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AtivarProduto.class.getName()).log(Level.SEVERE, null, ex);
             response.sendRedirect("tela_falha.jsp");
         }
     }
-
 }

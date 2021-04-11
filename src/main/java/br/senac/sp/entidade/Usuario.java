@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.senac.sp.entidade;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
@@ -17,28 +12,28 @@ public class Usuario {
     private String emailUsuario;
     private String statusUsuario;
     private String senhaUsuario;
-    private int Cargo;
+    private int cargo;
 
 
     // Construtores
     public Usuario() {
     }
 
-    public Usuario(Integer codUsuario,String nomeUsuario,String emailUsuario,String statusUsuario,String senhaUsuario,int Cargo) {
+    public Usuario(Integer codUsuario,String nomeUsuario,String emailUsuario,String statusUsuario,String senhaUsuario,int cargo) {
         this.codUsuario = codUsuario;
         this.nomeUsuario = nomeUsuario;
         this.emailUsuario = emailUsuario;
         this.statusUsuario = statusUsuario;
         this.senhaUsuario = senhaUsuario;
-        this.Cargo = Cargo;
+        this.cargo = cargo;
     }
     
-    public Usuario(String nomeUsuario,String emailUsuario,String statusUsuario,String senhaUsuario,int Cargo) {
+    public Usuario(String nomeUsuario,String emailUsuario,String statusUsuario,String senhaUsuario,int cargo) {
         this.nomeUsuario = nomeUsuario;
         this.emailUsuario = emailUsuario;
         this.statusUsuario = statusUsuario;
         this.senhaUsuario = senhaUsuario;
-        this.Cargo = Cargo;
+        this.cargo = cargo;
     }
     
     // Getters e Setters
@@ -84,11 +79,11 @@ public class Usuario {
     }
 
     public int getCargo() {
-        return Cargo;
+        return cargo;
     }
 
-    public void setCargo(int Cargo) {
-        this.Cargo = Cargo;
+    public void setCargo(int cargo) {
+        this.cargo = cargo;
     }
 
     public static String codificarSenha(String senhaUsuario) {

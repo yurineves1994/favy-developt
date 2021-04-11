@@ -19,7 +19,6 @@
     </head>
     <body>
         <header>
-
             <div class="menu_voltar">
                 <div class="ajusta_icone_menu">
                     <a href="CardsProdutos">
@@ -30,16 +29,32 @@
 
             <!-- Sub menu -->
             <div class="menu_opcoes">
+                
                 <!-- Tabelas -->
                 <div class="menu_tabela_produtos">
-                    <a href="ListarProdutos" >
+                    <a href="ListarProdutos?numeroPagina=1" >
                         <img src="icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Produto">
                     </a>
                 </div>
+                
                 <!-- Cadastro Produto -->
                 <div class="menu_cadastro_produtos">
                     <a href="tela_cadastro_produto.jsp">
                         <img src="icones/icon-produto.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Produto">
+                    </a>
+                </div>
+                
+                <!-- Cadastro Cliente -->
+                <div class="menu_cadastro_produtos">
+                    <a href="tela_cadastro_usuario.jsp">
+                        <img src="icones/icon-cliente.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Usuário">
+                    </a>
+                </div>
+                
+                <!-- Tabelas -->
+                <div class="menu_tabela_produtos">
+                    <a href="ListarUsuarios?numeroPagina=1">
+                        <img src="icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Usuários">
                     </a>
                 </div>
             </div>
