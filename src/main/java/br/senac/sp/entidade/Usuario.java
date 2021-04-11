@@ -7,7 +7,7 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
  * @author ardis
  */
 public class Usuario {
-     private Integer codUsuario;
+    private Integer codUsuario;
     private String nomeUsuario;
     private String emailUsuario;
     private String statusUsuario;
