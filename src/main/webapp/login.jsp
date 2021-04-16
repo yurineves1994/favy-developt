@@ -20,7 +20,7 @@
                     <div class="card">
                         <h3 class="align-items-center m-2">Faça seu Acesso:</h3>
                         <div class="card-body">
-                            <form action="Login" method="POST">            
+                            <form action="Login" method="POST" class="form-signin">            
                                 <div class="form-group">
                                     <label>Usuário</label>
                                     <input name="email_user" required class="form-control" autofocus="autofocus"/>
