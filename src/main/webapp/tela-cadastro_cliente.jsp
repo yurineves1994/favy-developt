@@ -295,20 +295,18 @@
             });
         });
 
-       
-
         // API de CEP Endereço de Entrega01
         $campoCep01.addEventListener("blur", infoDoEvento => {
-        const cep01 = infoDoEvento.target.value;
-        fetch("https://viacep.com.br/ws/" + cep01 + "/json/")
-                .then((respostaDoServer) => {
-                return respostaDoServer.json();
-                }).then((dadosDoCep) => {
-        $campoRua01.value = dadosDoCep.logradouro;
+            const cep01 = infoDoEvento.target.value;
+            fetch("https://viacep.com.br/ws/" + cep01 + "/json/")
+                    .then((respostaDoServer) => {
+                        return respostaDoServer.json();
+                    }).then((dadosDoCep) => {
+                $campoRua01.value = dadosDoCep.logradouro;
                 $campoBairro01.value = dadosDoCep.bairro;
                 $campoCidade01.value = dadosDoCep.localidade;
                 $campoEstado01.value = dadosDoCep.uf;
-        });
+            });
         }
         );
 
@@ -325,7 +323,6 @@
                 $campoEstado02.value = dadosDoCep.uf;
             });
         });
-
 
     </script>
 </html>
