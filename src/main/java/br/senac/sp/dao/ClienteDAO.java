@@ -73,14 +73,10 @@ public class ClienteDAO {
             while (rs.next()) {
                 Integer codCliente = rs.getInt("cod_cliente");
                 String nomeCliente = rs.getString("nome_cliente");
+                String cpfCliente = rs.getString("cpf_cli");
                 String emailCliente = rs.getString("email_cli");
                 String senhaCliente = rs.getString("senha_cli");
-                String cepCliente = rs.getString("cep_cli");
-                String ruaCliente = rs.getString("rua_cli");
-                String bairroCliente = rs.getString("bairro_cli");
-                String cidadeCliente = rs.getString("cidade_cli");
-                String estadoCliente = rs.getString("estado_cli");
-                listaClientes.add(new Cliente(codCliente,nomeCliente,emailCliente,senhaCliente,cepCliente,ruaCliente,bairroCliente,cidadeCliente,estadoCliente));
+                listaClientes.add(new Cliente(codCliente,nomeCliente,cpfCliente,emailCliente,senhaCliente));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -102,14 +98,10 @@ public class ClienteDAO {
             while (rs.next()) {
                 Integer codCliente = rs.getInt("cod_cliente");
                 String nomeCliente = rs.getString("nome_cliente");
+                String cpfCliente = rs.getString("cpf_cli");
                 String emailCliente = rs.getString("email_cli");
                 String senhaCliente = rs.getString("senha_cli");
-                String cepCliente = rs.getString("cep_cli");
-                String ruaCliente = rs.getString("rua_cli");
-                String bairroCliente = rs.getString("bairro_cli");
-                String cidadeCliente = rs.getString("cidade_cli");
-                String estadoCliente = rs.getString("estado_cli");
-                listaPesquisaCliente.add(new Cliente(codCliente,nomeCliente,emailCliente,senhaCliente,cepCliente,ruaCliente,bairroCliente,cidadeCliente,estadoCliente));
+                listaPesquisaCliente.add(new Cliente(codCliente,nomeCliente,cpfCliente,emailCliente,senhaCliente));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -123,32 +115,24 @@ public class ClienteDAO {
 
     public static void addCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.obterConexao();
-        String query = "insert into cliente(nome_cliente, email_cli, senha_cli, cep_cli, rua_cli, bairro_cli, cidade_cli, estado_cli) values (?,?,?,?,?,?,?,?)";
+        String query = "insert into cliente(nome_cliente, cpfCliente, email_cli, senha_cli) values (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNomeCliente());
-        ps.setString(2, cliente.getEmailCliente());
-        ps.setString(3, cliente.getCepCliente());
+        ps.setString(2, cliente.getCpfCliente());
+        ps.setString(3, cliente.getEmailCliente());
         ps.setString(4, cliente.getSenhaCliente());
-        ps.setString(5, cliente.getRuaCliente());
-        ps.setString(6, cliente.getBairroCliente());
-        ps.setString(7, cliente.getCidadeCliente());
-        ps.setString(8, cliente.getEstadoCliente());
         ps.execute();
         ps.close();
     }
 
     public static void updateCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.obterConexao();
-        String query = "update cliente set nome_cliente=?, email_cli=?, senha_cli=?, cep_cli=?, rua_cli=?, bairro_cli=?, cidade_cli=?, estado_cli=?";
+        String query = "update cliente set nome_cliente=?, cpf_cli=?, email_cli=?, senha_cli=? where cod_cliente=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNomeCliente());
-        ps.setString(2, cliente.getEmailCliente());
-        ps.setString(3, cliente.getCepCliente());
+        ps.setString(2, cliente.getCpfCliente());
+        ps.setString(3, cliente.getEmailCliente());
         ps.setString(4, cliente.getSenhaCliente());
-        ps.setString(5, cliente.getRuaCliente());
-        ps.setString(6, cliente.getBairroCliente());
-        ps.setString(7, cliente.getCidadeCliente());
-        ps.setString(8, cliente.getEstadoCliente());
         ps.execute();
         ps.close();
     }
@@ -163,14 +147,10 @@ public class ClienteDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 String nomeCliente = rs.getString("nome_cliente");
+                String cpfCliente = rs.getString("cpf_cli");
                 String emailCliente = rs.getString("email_cli");
                 String senhaCliente = rs.getString("senha_cli");
-                String cepCliente = rs.getString("cep_cli");
-                String ruaCliente = rs.getString("rua_cli");
-                String bairroCliente = rs.getString("bairro_cli");
-                String cidadeCliente = rs.getString("cidade_cli");
-                String estadoCliente = rs.getString("estado_cli");
-                cliente = new Cliente(codCliente,nomeCliente,emailCliente,senhaCliente,cepCliente,ruaCliente,bairroCliente,cidadeCliente,estadoCliente);
+                cliente = new Cliente(codCliente,nomeCliente,cpfCliente,emailCliente,senhaCliente);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

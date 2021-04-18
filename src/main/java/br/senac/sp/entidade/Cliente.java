@@ -12,28 +12,20 @@ package br.senac.sp.entidade;
 public class Cliente {
     private Integer codCliente;
     private String nomeCliente;
+    private String cpfCliente;
     private String emailCliente;
     private String senhaCliente;
-    private String cepCliente;
-    private String ruaCliente;
-    private String bairroCliente;
-    private String cidadeCliente;
-    private String estadoCliente;
     
     // Construtores
     public Cliente() {
     }
     
-    public Cliente(Integer codCliente,String nomeCliente,String emailCliente,String senhaCliente,String cepCliente,String ruaCliente,String bairroCliente,String cidadeCliente,String estadoCliente) {
+    public Cliente(Integer codCliente,String nomeCliente,String cpfCliente,String emailCliente,String senhaCliente) {
         this.codCliente=codCliente;
         this.nomeCliente=nomeCliente;
+        this.cpfCliente=cpfCliente;
         this.emailCliente=emailCliente;
-        this.senhaCliente=senhaCliente;
-        this.cepCliente=cepCliente;
-        this.ruaCliente=ruaCliente;
-        this.bairroCliente=bairroCliente;
-        this.cidadeCliente=cidadeCliente;
-        this.estadoCliente=estadoCliente;
+        this.senhaCliente=senhaCliente; 
     }
 
     public Integer getCodCliente() {
@@ -52,20 +44,20 @@ public class Cliente {
         this.nomeCliente = nomeCliente;
     }
 
+    public String getCpfCliente() {
+        return cpfCliente;
+    }
+
+    public void setCpfCliente(String cpfCliente) {
+        this.cpfCliente = cpfCliente;
+    }
+
     public String getEmailCliente() {
         return emailCliente;
     }
 
     public void setEmailCliente(String emailCliente) {
         this.emailCliente = emailCliente;
-    }
-
-    public String getCepCliente() {
-        return cepCliente;
-    }
-
-    public void setCepCliente(String cepCliente) {
-        this.cepCliente = cepCliente;
     }
 
     public String getSenhaCliente() {
@@ -76,37 +68,6 @@ public class Cliente {
         this.senhaCliente = senhaCliente;
     }
 
-    public String getRuaCliente() {
-        return ruaCliente;
-    }
-
-    public void setRuaCliente(String ruaCliente) {
-        this.ruaCliente = ruaCliente;
-    }
-
-    public String getBairroCliente() {
-        return bairroCliente;
-    }
-
-    public void setBairroCliente(String bairroCliente) {
-        this.bairroCliente = bairroCliente;
-    }
-
-    public String getCidadeCliente() {
-        return cidadeCliente;
-    }
-
-    public void setCidadeCliente(String cidadeCliente) {
-        this.cidadeCliente = cidadeCliente;
-    }
-
-    public String getEstadoCliente() {
-        return estadoCliente;
-    }
-
-    public void setEstadoCliente(String estadoCliente) {
-        this.estadoCliente = estadoCliente;
-    }
-    
+   
 }
 
