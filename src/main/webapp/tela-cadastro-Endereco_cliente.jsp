@@ -13,20 +13,7 @@
         <title> Cadastro de Usuários </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="estilos/estiloCadastroProduto.css">
-        <style>
-            .endereco-entrega01 {
-                display: flex;
-            }
-            .endereco-entrega02 {
-                display: none;
-            }
-            #botao-add-grupo{
-                display: none;
-            }
-            #botao-excluir-grupo {
-                display: none;
-            }
-        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <section>
@@ -89,7 +76,7 @@
                     </fieldset>
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="checkEndereco" name="eigual">
+                            <input class="form-check-input" type="checkbox" id="checkEndereco" name="eigual" value="sim">
                             <label class="form-check-label" for="checkEndereco">
                                 O endereço de entrega é o mesmo do endereço de faturamento
                             </label>
@@ -223,61 +210,23 @@
         </section>
     </body>
     <script>
-        // dados formulario endereco faturamento
-        const $enderecoFaturamento = document.querySelector('#endereco-faturamento');
-        const $campoCep = document.querySelector('[name="cep"]');
-        const $campoRua = document.querySelector('[name="logradouro"]');
-        const $campoBairro = document.querySelector('[name="bairro"]');
-        const $campoCidade = document.querySelector('[name="localidade"]');
-        const $campoEstado = document.querySelector('[name="uf"]');
-        const $campoCheck = document.querySelector('[name="eigual"]');
-
-        // dados formulario endereço entrega 01
-        const $enderecoEntrega = document.querySelector('.endereco-entrega01');
-        const $campoCep01 = document.querySelector('[name="cepEntrega1"]');
-        const $campoRua01 = document.querySelector('[name="logradouroEntrega1"]');
-        const $campoBairro01 = document.querySelector('[name="bairroEntrega1"]');
-        const $campoCidade01 = document.querySelector('[name="localidadeEntrega1"]');
-        const $campoEstado01 = document.querySelector('[name="ufEntrega1"]');
-
-        // dados formulario endereço entrega 02
-        const $enderecoEntrega2 = document.querySelector('.endereco-entrega02');
-        const $campoCep02 = document.querySelector('[name="cepEntrega2"]');
-        const $campoRua02 = document.querySelector('[name="logradouroEntrega2"]');
-        const $campoBairro02 = document.querySelector('[name="bairroEntrega2"]');
-        const $campoCidade02 = document.querySelector('[name="localidadeEntrega2"]');
-        const $campoEstado02 = document.querySelector('[name="ufEntrega2"]');
-        const $grupoEntrega = document.querySelector('.grupo-endereco-entrega');
-        const $botaoAddGrupo = document.querySelector('#botao-add-grupo');
-        const $botaoExcluirGrupo = document.querySelector('#botao-excluir-grupo');
-
-        //adiciona outros enderecos de entrega
-        $botaoAddGrupo.addEventListener('click', event => {
-            const i = $botaoAddGrupo.style.display;
-            const e = $botaoExcluirGrupo.style.display;
-            const d = $enderecoEntrega2.style.display;
-            $botaoExcluirGrupo.style.display = e == 'none' ? 'flex' : 'none';
-            $enderecoEntrega2.style.display = d == 'none' ? 'flex' : 'none';
-        });
-        $botaoExcluirGrupo.addEventListener('click', event => {
-            const i = $botaoAddGrupo.style.display;
-            const e = $botaoExcluirGrupo.style.display;
-            const d = $enderecoEntrega2.style.display;
-            $botaoExcluirGrupo.style.display = e == 'none' ? 'flex' : 'none';
-            $enderecoEntrega2.style.display = d == 'flex' ? 'none' : 'flex';
+        if($("input[name=eigual]").val() == "sim"){
+            $(".endereco-entrega01").hide();
+            $(".endereco-entrega02").hide();           
+        }
+        $("#botao-add-grupo").click(function(){
+            $(".endereco-entrega02").show();
         });
 
-        // pergunta se o endereço de entrega será diferente do endereço de faturamento
-        $campoCheck.addEventListener('click', event => {
-            const e = $botaoAddGrupo.style.display;
-            const d = $enderecoEntrega.style.display;
-            $enderecoEntrega.style.display = d == 'none' ? 'flex' : 'none';
-            $botaoAddGrupo.style.display = e == 'none' ? 'flex' : 'none';
-            if ($enderecoEntrega2.style.display == 'flex') {
-                $enderecoEntrega2.style.display = 'none';
-            }
-            if ($botaoExcluirGrupo.style.display == 'flex') {
-                $botaoExcluirGrupo.style.display = 'none';
+        $("#botao-excluir-grupo").click(function(){
+            $(".endereco-entrega02").hide();
+        });
+
+        $("input[name=eigual]").click(function(){
+            if($(this).prop("checked") == true){
+                $(".endereco-entrega01").show();
+            } else {
+                $(".endereco-entrega01").hide(); 
             }
         });
 

@@ -14,6 +14,11 @@
         <title>JSP Page</title>
     </head>
     <body> 
+        <c:if test="${param.erro != null}">
+           <div class="alert alert-danger" role="alert">
+            Usuário/Senha inválidos!
+           </div>
+        </c:if>
         <section class="container mt-5">              
             <div class="row justify-content-center align-items-center">
                 <div class="col-4">
@@ -23,11 +28,11 @@
                             <form action="Login" method="POST" class="form-signin">            
                                 <div class="form-group">
                                     <label>Usuário</label>
-                                    <input name="email_user" required class="form-control" autofocus="autofocus"/>
+                                    <input name="email_user" required class="form-control" autofocus="autofocus" required/>
                                 </div>            
                                 <div class="form-group">
                                     <label>Senha</label>
-                                    <input type="password" name="senha_user" required class="form-control"/>
+                                    <input type="password" name="senha_user" required class="form-control" required/>
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -42,4 +47,7 @@
                 </div>
             </div>
         </section>
+        <script>
+            if()
+        </script>
 </html>
