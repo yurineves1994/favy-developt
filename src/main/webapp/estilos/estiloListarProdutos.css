@@ -1,34 +1,55 @@
+body {
+    background-color: rgb(241, 240, 240);
+    margin: 0;
+}
 
+.container {
+    max-width: 1920px;
+    width: 100%;
+}
+.buscar-registro {
+    display: flex;
+    justify-content:flex-start;
+    margin-top: 10px;
+}
+input {
+    background-color: #fff;
+    width: 30%;
+    border-radius: 10px;
+    border-color: transparent;
+    padding: 5px;
+    font-size: 18px;
 
-th{
+}
+button{
+    background-color: #152b4b;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    transition: .5s;
+    border-radius: 0 10px;
+}
+
+.tabela-produtos{
+    border-collapse: initial;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 3em;
+    border-radius: 5px 5px 0 0;
+
+}
+thead {
+    background: #152b4b;
+    color: white;
+}
+tr,td,th {
+    padding: 10px;
     text-align: center;
 }
-.iconTabela{
+
+.iconTabela {
     width: 50px;
     height: 40px;
 }
-.left{
-    float: left;
-}
-.right{
-    float: right;
-}
-
-.efeitoCor:hover{
-    background-color: aliceblue;
-}
-
-/* Monitor */
-@media screen and (max-width: 800px)  {
-    .tabelaCell{
-        display: none;
-    }
-}
-
-/* Celular */
-@media only screen and (max-device-width: 900px) {
-    .acoes{
-        display: none;
-    }
-}
-

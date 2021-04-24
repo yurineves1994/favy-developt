@@ -14,38 +14,93 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
-        <link rel="stylesheet" href="estilos/estiloListarProdutos.css">
+        <style>
+            body {
+                background-color: rgb(241, 240, 240);
+                margin: 0;
+            }
+
+            .container {
+                max-width: 1920px;
+                width: 100%;
+            }
+            .buscar-registro {
+                display: flex;
+                justify-content:flex-start;
+                margin-top: 10px;
+            }
+            input {
+                background-color: #fff;
+                width: 30%;
+                border-radius: 10px;
+                border-color: transparent;
+                padding: 5px;
+                font-size: 18px;
+
+            }
+            button{
+                background-color: #152b4b;
+                text-transform: uppercase;
+                color: #fff;
+                cursor: pointer;
+                transition: .5s;
+                border-radius: 0 10px;
+            }
+
+            .tabela-produtos{
+                border-collapse: initial;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+                margin-top: 3em;
+                border-radius: 5px 5px 0 0;
+
+            }
+            thead {
+                background: #152b4b;
+                color: white;
+            }
+            tr,td,th {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .iconTabela {
+                width: 50px;
+                height: 40px;
+            }
+        </style>
     </head>
     <body>
         <section class="container">
-          
-            <table class="table mt-1">
-                <thead class="thead-dark">
-                    <tr style="text-align: center">
+            <table class="tabela-produtos">
+                <thead>
+                    <tr>
                         <c:if test="${sessionScope.email_user.admin}">
-                        <th scope="col" class="tabelaCell">COD produto</th>
-                        </c:if>
-                        <th scope="col">Nome do Produto</th>
-                        <c:if test="${sessionScope.email_user.admin}">
-                        <th scope="col" class="tabelaCell">Email</th>
-                        </c:if>
-                        <th scope="col">Status</th>
-                        <th scope="col">Cargo</th>
-                        <c:if test="${sessionScope.email_user.admin}">
-                        <th scope="col" class="acoes"> Ações </th>
-                        </c:if>
+                            <th>COD produto</th>
+                            </c:if>
+                        <th>Nome do Produto</th>
+                            <c:if test="${sessionScope.email_user.admin}">
+                            <th>Email</th>
+                            </c:if>
+                        <th>Status</th>
+                        <th>Cargo</th>
+                            <c:if test="${sessionScope.email_user.admin}">
+                            <th> Ações </th>
+                            </c:if>
                     </tr>
                 </thead>
 
-                <tbody id="t_dados">
+                <tbody>
                     <c:forEach items="${listaUsuarios}" var="usuario">
-                        <tr style="text-align: center" class="efeitoCor" id="status">
+                        <tr>
                             <c:if test="${sessionScope.email_user.admin}">
-                            <td scope="row" class="tabelaCell">${usuario.codUsuario}</td>
+                                <td >${usuario.codUsuario}</td>
                             </c:if>
                             <td>${usuario.nomeUsuario}</td>
                             <c:if test="${sessionScope.email_user.admin}">
-                            <td scope="row" class="tabelaCell">${usuario.emailUsuario}</td>
+                                <td >${usuario.emailUsuario}</td>
                             </c:if>
                             <td> 
                                 <c:if test="${usuario.statusUsuario == 'i'}">
@@ -54,33 +109,33 @@
                                 <c:if test="${usuario.statusUsuario == 'a'}">  
                                     Ativo
                                 </c:if></td>
-                            <td scope="row" class="tabelaCell">
+                            <td >
                                 <c:if test="${usuario.cargo == 1}">
                                     Administrador
                                 </c:if>
                                 <c:if test="${usuario.cargo == 2}">  
                                     Estoquista
                                 </c:if></td>
-                            <c:if test="${sessionScope.email_user.admin}">
-                            <td class="acoes">
-                                <a href="<c:url value="/EditarUsuario?codUsuario=${usuario.codUsuario}"/>"> 
-                                    <!--Editar--> 
-                                    <img src="icones/icon-alterar.png" alt="editar" class="iconTabela left" title="Editar Usuario">
-                                </a>
+                                <c:if test="${sessionScope.email_user.admin}">
+                                <td >
+                                    <a href="<c:url value="/EditarUsuario?codUsuario=${usuario.codUsuario}"/>"> 
+                                        <!--Editar--> 
+                                        <img src="icones/icon-alterar.png" alt="editar" class="iconTabela" title="Editar Usuario">
+                                    </a>
 
-                                <c:if test="${usuario.statusUsuario == 'i'}">
-                                    <a href="<c:url value="/AtivarUsuario?codUsuario=${usuario.codUsuario}"/>">
-                                        <!--Ativar--> 
-                                        <img src="icones/icon-ativar.png" alt="ativar" class="iconTabela" title="Reativar Usuario" id="ativar">
-                                    </a>
+                                    <c:if test="${usuario.statusUsuario == 'i'}">
+                                        <a href="<c:url value="/AtivarUsuario?codUsuario=${usuario.codUsuario}"/>">
+                                            <!--Ativar--> 
+                                            <img src="icones/icon-ativar.png" alt="ativar" class="iconTabela" title="Reativar Usuario">
+                                        </a>
+                                    </c:if>
+                                    <c:if test="${usuario.statusUsuario == 'a'}">
+                                        <a href="<c:url value="/DesativarUsuario?codUsuario=${usuario.codUsuario}"/>">
+                                            <!--Desativar--> 
+                                            <img src="icones/icon-desativar.png" alt="desativar" class="iconTabela" title="Desativar Usuario">
+                                        </a>
+                                    </c:if>
                                 </c:if>
-                                <c:if test="${usuario.statusUsuario == 'a'}">
-                                    <a href="<c:url value="/DesativarUsuario?codUsuario=${usuario.codUsuario}"/>">
-                                        <!--Desativar--> 
-                                        <img src="icones/icon-desativar.png" alt="desativar" class="iconTabela" title="Desativar Usuario">
-                                    </a>
-                                </c:if>
-                            </c:if>
                             </td>
                         <tr>
                         </c:forEach>

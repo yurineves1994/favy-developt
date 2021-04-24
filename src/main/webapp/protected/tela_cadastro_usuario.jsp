@@ -14,75 +14,105 @@
         <title> Cadastro de Usuários </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-              crossorigin="anonymous">
-        <link rel="stylesheet" href="../estilos/estiloCadastroProduto.css">
+              crossorigin="anonymous"> 
+        <style>
+            body {
+                background-color: rgb(241, 240, 240);
+                margin: 0;
+            }
+
+            .container {
+                max-width: 1920px;
+                width: 100%;
+            }
+
+            #lupinha {           
+                width: 55px !important;
+                font-size: 50px;
+                padding: 10px;
+                background-color: rgb(241, 240, 240);
+            }
+
+            .grupo-imagem {
+                display: flex;
+                justify-content: space-between;
+            }
+            .grupo-botoes {
+                display: flex;
+
+            }
+
+            .formulario {
+                position: relative;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 3em;
+                padding-bottom: 5em;
+                text-align: center;
+            }
+
+            .formulario input,
+            .formulario select {
+                background-color: #fff;
+                width: 100%;
+                border-radius: 5px;
+                border-color: transparent;
+                padding: 10px 20px;
+                font-size: 18px;
+                margin:10px;
+            }
+
+            .formulario input[type=submit],
+            .formulario input[type=reset] {
+                background-color: #152b4b;
+                text-transform: uppercase;
+                color: #fff;
+                cursor: pointer;
+                transition: .5s;
+            }
+        </style> 
     </head>
     <body>
-        <section>
-            <div class="container mt-4">
-                <!-- enctype="multipart/form-data" -->
-                <form action="<c:url value="/CadastrarUsuario"/>" method="POST" >
+        <section  class="container">
+            <!-- enctype="multipart/form-data" -->
+            <form class="formulario cadastro_usuario" action="<c:url value="/CadastrarUsuario"/>" method="POST" >
+                <!-- Usuario -->         
+                <input required name="nome" type="text" id="exampleFormControlInput1" placeholder="Nome">
+                <!-- Status -->
+                <select name="status" id="status" required>
+                    <option value>Status</option>
+                    <option value="a"> Ativo </option>
+                    <option value="i"> Inativo </option>
+                </select>
+                <!-- Cargo -->
+                <select name="cargo" id="cargo" required>
+                    <option value>Cargo</option>
+                    <option > Estoquista </option>
+                    <option > Admistrador </option>
+                </select>
+                <!-- Email -->           
+                <input required name="email" type="email" id="exampleFormControlInput1" placeholder="Email">
+                <!-- Senha -->     
+                <input id="senha1" required name="senha" type="password" placeholder="Senha">      
+                <!-- *Senha -->    
+                <input id="senha2" required type="password" placeholder="Confirmar Senha">
+                <div class="grupo-botoes">
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Cancelar">
+                    </form>
+                    </section>
+                    </body>
+                    <script>
 
-                    <!-- Usuario -->
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Nome </label>
-                        <input required name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-                    </div>
+                        function validaSenha(input) {
+                            var bt1 = document.getElementById('senha1').value;
+                            var bt2 = document.getElementById('senha2').value;
 
-                    <!-- Status -->
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Status </label>
-                        <select name="status" class="form-control" id="exampleFormControlSelect1">
-                            <option value="a"> Ativo </option>
-                            <option value="i"> Inativo </option>
-                        </select>
-                    </div>
-
-                    <!-- Cargo -->
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Cargo </label>
-                        <select name="cargo" class="form-control" id="exampleFormControlSelect1">
-                            <option > Estoquista </option>
-                            <option > Admistrador </option>
-                        </select>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Email </label>
-                        <input required name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-                    </div>
-
-                    <!-- Senha -->
-                    <div class="form-group">
-                        <label for="senha1"> Senha </label>
-                        <input id="senha1" required name="senha" type="password" class="form-control" placeholder=" ">
-                    </div>
-                    <!-- *Senha -->
-                    <div class="form-group">
-                        <label for="senha2"> Confirme sua senha </label>
-                        <input id="senha2" required type="password" class="form-control" placeholder=" ">
-                    </div>
-
-                    <div class="campo-right">
-                        <input type="submit" value="Enviar" class="btn btn-success">
-                        <input type="reset" value="Cancelar" class="btn btn-secondary">
-                    </div>
-
-                </form>
-            </div>
-        </section>
-    </body>
-    <script>
-
-        function validaSenha(input) {
-            var bt1 = document.getElementById('senha1').value;
-            var bt2 = document.getElementById('senha2').value;
-
-            if (bt1 != bt2) {
-                input.setCustomValidity("Senhas diferentes!");
-                return false;
-            }
-        }
-    </script>
-</html>
+                            if (bt1 != bt2) {
+                                input.setCustomValidity("Senhas diferentes!");
+                                return false;
+                            }
+                        }
+                    </script>
+                    </html>

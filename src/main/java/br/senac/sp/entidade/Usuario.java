@@ -2,10 +2,6 @@ package br.senac.sp.entidade;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
-/**
- *
- * @author ardis
- */
 public class Usuario {
     private Integer codUsuario;
     private String nomeUsuario;

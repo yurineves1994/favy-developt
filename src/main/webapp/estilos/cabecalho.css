@@ -16,7 +16,7 @@
 .menu_voltar{
     width: auto;
     height: 45px;
-    background-color: #10101052;
+    background-color: #6383af;
 }
 
 /* Formatação icone sair */
@@ -34,8 +34,9 @@
 /* Sub Menu */
 .menu_opcoes{
     width: auto;
+    color: white;
     height: 60px;
-    background-color: #5f5e5e;
+    background-color: #3f597d;
     display: flex;
 }
 /* Formatação icones menu */
