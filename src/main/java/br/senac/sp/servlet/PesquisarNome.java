@@ -19,8 +19,20 @@ public class PesquisarNome extends HttpServlet {
         List<Produto> listaProdutos = ProdutosDAO.PesquisarProduto(nomePesquisa);
 
         request.setAttribute("listaProdutos", listaProdutos);
+        String numeroPagina = "1";
+        if (numeroPagina == null) {
+            numeroPagina = "1";
+        }
 
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/tela_listar_produto.jsp");
+        List<Produto> listaProdutoos = ProdutosDAO.listarProdutos(numeroPagina);
+
+        request.setAttribute("numeroPagina", (numeroPagina != null ? numeroPagina : 1));
+        
+        int quantidadePagina = ProdutosDAO.quantidadePagina();
+        request.setAttribute("quantidadePagina", quantidadePagina);
+
+
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/estoque/tela_listar_produto.jsp?quantidadePagina=" + quantidadePagina + "&numeroPagina=" + numeroPagina);
         requestDispatcher.forward(request, response);
     }
 }
