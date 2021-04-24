@@ -5,6 +5,8 @@
  */
 package br.senac.sp.entidade;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 /**
  *
  * @author ardis
@@ -22,6 +24,13 @@ public class Cliente {
     
     public Cliente(Integer codCliente,String nomeCliente,String cpfCliente,String emailCliente,String senhaCliente) {
         this.codCliente=codCliente;
+        this.nomeCliente=nomeCliente;
+        this.cpfCliente=cpfCliente;
+        this.emailCliente=emailCliente;
+        this.senhaCliente=senhaCliente; 
+    }
+
+    public Cliente(String nomeCliente,String cpfCliente,String emailCliente,String senhaCliente) {
         this.nomeCliente=nomeCliente;
         this.cpfCliente=cpfCliente;
         this.emailCliente=emailCliente;
@@ -68,6 +77,17 @@ public class Cliente {
         this.senhaCliente = senhaCliente;
     }
 
-   
+    public static String codificarSenha(String senhaCliente) {
+        return BCrypt.withDefaults().hashToString(12, senhaCliente.toCharArray());
+    }
+    
+    public boolean validarSenha(String senhaCliente) {
+        BCrypt.Result response = BCrypt.verifyer().verify(senhaCliente.toCharArray(), this.getSenhaCliente());
+        return response.verified;
+    }
+    
+    public boolean isCliente() {
+        return this.codCliente > 0;
+    }
 }
 

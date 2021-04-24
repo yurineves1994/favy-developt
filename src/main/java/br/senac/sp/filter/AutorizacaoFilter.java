@@ -5,6 +5,7 @@
  */
 package br.senac.sp.filter;
 
+import br.senac.sp.entidade.Cliente;
 import br.senac.sp.entidade.Usuario;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -43,18 +44,22 @@ public class AutorizacaoFilter implements Filter {
         
         HttpSession sessao = httpRequest.getSession();
         // verificar se usuario esta logado
-        if (sessao.getAttribute("email_user") == null) {
+        if (sessao.getAttribute("email_user") == null && sessao.getAttribute("email_cli") == null) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
         }
         
         // verificar se o usuario logado tem permissao
         Usuario usuario = (Usuario) sessao.getAttribute("email_user");
+        Cliente cliente = (Cliente) sessao.getAttribute("email_cli");
         String url = httpRequest.getRequestURI();
         
         if (url.contains("*") && !usuario.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/acesso_negado.jsp");
         }
         if (url.contains("/estoque/*") && !usuario.isEstoque()) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/acesso_negado.jsp");
+        }
+        if (url.contains("/cliente/*") && !cliente.isCliente()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/acesso_negado.jsp");
         }
     }

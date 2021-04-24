@@ -24,6 +24,8 @@
             <div class="cabecalho">
                 <div class="caixalogo">
                     <h1 class="logo">FAVY</h1>
+                    <a href="login.jsp" >Login Administrativo</a>
+                    <a href="login_cliente.jsp" >Login Cliente</a>
                 </div>
             </div>
 

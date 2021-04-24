@@ -49,6 +49,10 @@
         <servlet-class>br.senac.sp.servlet.Login</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>LoginCliente</servlet-name>
+        <servlet-class>br.senac.sp.servlet.LoginCliente</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>br.senac.sp.servlet.Logout</servlet-class>
     </servlet>
@@ -61,8 +65,16 @@
         <servlet-class>br.senac.sp.servlet.CadastrarUsuario</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CadastrarCliente</servlet-name>
+        <servlet-class>br.senac.sp.servlet.CadastrarCliente</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>DesativarUsuario</servlet-name>
         <servlet-class>br.senac.sp.servlet.DesativarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarCliente</servlet-name>
+        <servlet-class>br.senac.sp.servlet.EditarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditarUsuario</servlet-name>
@@ -113,6 +125,10 @@
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>LoginCliente</servlet-name>
+        <url-pattern>/LoginCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
@@ -125,12 +141,20 @@
         <url-pattern>/CadastrarUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CadastrarCliente</servlet-name>
+        <url-pattern>/CadastrarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>DesativarUsuario</servlet-name>
         <url-pattern>/DesativarUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditarUsuario</servlet-name>
         <url-pattern>/EditarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarCliente</servlet-name>
+        <url-pattern>/EditarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarUsuarios</servlet-name>
@@ -142,6 +166,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>CardsProdutos</welcome-file>
     </welcome-file-list>
 </web-app>

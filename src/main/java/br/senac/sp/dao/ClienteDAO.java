@@ -5,10 +5,8 @@
  */
 package br.senac.sp.dao;
 
-import static br.senac.sp.dao.ClienteDAO.listarClientes;
 import br.senac.sp.db.ConexaoDB;
 import br.senac.sp.entidade.Cliente;
-import br.senac.sp.entidade.Usuario;
 import br.senac.sp.servlet.ServletBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -115,12 +113,12 @@ public class ClienteDAO {
 
     public static void addCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.obterConexao();
-        String query = "insert into cliente(nome_cliente, cpfCliente, email_cli, senha_cli) values (?,?,?,?)";
+        String query = "insert into cliente(nome_cliente, cpf_cli, email_cli, senha_cli) values (?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cliente.getNomeCliente());
         ps.setString(2, cliente.getCpfCliente());
         ps.setString(3, cliente.getEmailCliente());
-        ps.setString(4, cliente.getSenhaCliente());
+        ps.setString(4, cliente.codificarSenha(cliente.getSenhaCliente()));
         ps.execute();
         ps.close();
     }
@@ -132,7 +130,7 @@ public class ClienteDAO {
         ps.setString(1, cliente.getNomeCliente());
         ps.setString(2, cliente.getCpfCliente());
         ps.setString(3, cliente.getEmailCliente());
-        ps.setString(4, cliente.getSenhaCliente());
+        ps.setString(4, cliente.codificarSenha(cliente.getSenhaCliente()));
         ps.execute();
         ps.close();
     }
@@ -163,4 +161,32 @@ public class ClienteDAO {
         return cliente;
     }
     
+    public static Cliente getAcesso(String emailCliente) {
+        Cliente cliente = null;
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from cliente where email_cli=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, emailCliente);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String nomeCliente = rs.getString("nome_cliente");
+                String cpfCliente = rs.getString("cpf_cli");
+                String senhaCliente = rs.getString("senha_cli");
+                cliente = new Cliente();
+                cliente.setNomeCliente(nomeCliente);
+                cliente.setCpfCliente(cpfCliente);
+                cliente.setEmailCliente(emailCliente);
+                cliente.setSenhaCliente(senhaCliente);
+                cliente.setCodCliente(rs.getInt("cod_cliente"));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return cliente;
+    }
 }
