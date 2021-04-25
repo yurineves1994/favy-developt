@@ -37,11 +37,9 @@
 .logo{
     font-size: 40px;
     letter-spacing: 13px;
-    color: aliceblue;
-    
-    text-align: center;
+    color: aliceblue;    
     position:relative;
-    left:50%;
+    left:7%;
     top:50%;
     transform: translate(-50%, -50%);
 }

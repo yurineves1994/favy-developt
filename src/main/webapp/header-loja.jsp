@@ -16,17 +16,18 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css">
-        <link rel="stylesheet" href="estilos/estiloCardsProduto.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="estilos/estiloCardsProduto.css">
     </head>
     <body>
         <header>
             <div class="cabecalho">
-                <div class="caixalogo">
-                    <h1 class="logo">FAVY</h1>
+                <h1 class="logo">FAVY</h1>
+                <div>
                     <a href="login.jsp" >Login Administrativo</a>
                     <a href="login_cliente.jsp" >Login Cliente</a>
                 </div>
+
             </div>
 
             <div class="cabecalhoCarrossel">
@@ -49,7 +50,7 @@
                     </a>
                 </div>
             </div>
-            
+
         </header>
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
