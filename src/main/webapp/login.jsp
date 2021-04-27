@@ -93,7 +93,7 @@
         </c:if>
         <section class="container">              
             <h2>Faça seu Acesso:</h2>
-            <form >            
+            <form action="Login" method="POST">            
                 <div class="input-field">   
                     
                     <input name="email_user" placeholder="Login"  autofocus="autofocus" required/>
