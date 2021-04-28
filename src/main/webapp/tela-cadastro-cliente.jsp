@@ -51,7 +51,7 @@
                         <label for="senha2"> Confirme sua senha </label>
                         <input id="senha2" required type="password" class="form-control" placeholder=" ">
                     </div>
- <fieldset class="row" id="endereco-faturamento">
+                    <fieldset class="row" id="endereco-faturamento">
                         <legend>Endereço Faturamento</legend>
                         <div class="form-group col-sm-2">
                             <label for="cep"> CEP </label>
@@ -104,6 +104,10 @@
                         <div class="form-group col-sm-2">
                             <label for="numero"> NUMERO </label>
                             <input required name="numero" type="number" class="form-control" id="numero" placeholder="">
+                        </div>                  
+                        <div class="form-group col-sm-2">
+                            <label for="complemento"> COMPLEMENTO </label>
+                            <input name="complemento" type="text" class="form-control" id="complemento" placeholder="">
                         </div>                      
                     </fieldset>
                     <div class="form-group">
@@ -169,6 +173,10 @@
                                 <label for="numeroEntrega1"> NUMERO </label>
                                 <input required name="numeroEntrega1" type="number" class="form-control" id="numero" placeholder="">
                             </div>
+                            <div class="form-group col-sm-2">
+                                <label for="complementoEntrega1"> COMPLEMENTO ENTREGA 1</label>
+                                <input name="complementoEntrega1" type="text" class="form-control" id="complementoEntrega1" placeholder="">
+                            </div>                      
                         </div>
                     </fieldset>
                     <fieldset class="endereco-entrega02">
@@ -226,6 +234,10 @@
                                 <label for="numeroEntrega2"> NUMERO </label>
                                 <input required name="numeroEntrega2" type="number" class="form-control" id="numero" placeholder="">
                             </div>
+                            <div class="form-group col-sm-2">
+                                <label for="complementoEntrega2"> COMPLEMENTO ENTREGA 2</label>
+                                <input name="complementoEntrega2" type="text" class="form-control" id="complementoEntrega2" placeholder="">
+                            </div>                      
                         </div>
                     </fieldset>
                     <div>
