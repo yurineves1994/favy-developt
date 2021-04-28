@@ -26,6 +26,21 @@
                 align-items: center;
                 height: 100vh;
             }
+            .barra-alert {
+                position: fixed;
+                top: 0;
+                left:0;
+                color: white;
+                font-size: 20px;
+                font-weight:bolder;
+                line-height: 10px;
+                width: 100%;
+                height: 50px;
+                background: #D0263E;
+            }
+            .barra-alert p{
+                padding: 20px
+            }
             h2{
                 font-size: 30px;
                 color: #fff;
@@ -87,13 +102,13 @@
     </head>
     <body> 
         <c:if test="${param.erro != null}">
-            <div class="alert alert-danger" role="alert">
-                Usuário/Senha inválidos!
+            <div class="barra-alert" role="alert">
+                <p>Usuário/Senha inválidos!</p>
             </div>
         </c:if>
         <section class="container">              
             <h2>Faça seu Acesso:</h2>
-            <form >            
+            <form action="Login" method="POST">            
                 <div class="input-field">   
                     
                     <input name="email_user" placeholder="Login"  autofocus="autofocus" required/>
