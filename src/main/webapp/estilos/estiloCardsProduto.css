@@ -28,18 +28,83 @@
     top: 0;
     left: 0;
     z-index: 5005;
+
+    border-bottom: solid 1px white;
 }
 .caixalogo{
     width: 170px;
     height: 100%;
-    
+
 }
 .logo{
+    float: left;
+
     font-size: 40px;
     letter-spacing: 13px;
-    color: aliceblue;    
+    color: aliceblue;
     position:relative;
     left:7%;
     top:50%;
     transform: translate(-50%, -50%);
+}
+
+
+
+.caixaMenus{
+    float: right;
+    display: flex;
+    justify-content: center;
+    margin-top: 17px;
+    margin-right: 47px;
+}
+.iconMenu{
+    width: 30px;
+    margin-right: 4px;
+}
+.info-icon{
+    color: aliceblue;
+    float: right;
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+.cxalogin:hover .menuItens{
+    display: block;
+
+    text-align: center;
+    margin-top: 3px;
+
+    background-color: white;
+
+    width: 115px;
+    height: 65px;
+    position: absolute;
+    border-radius: 9px;
+}
+
+.menuItens{
+    display: none;
+}
+.linkFunc{
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    margin-left: 0px;
+}
+
+
+.efeito3d{
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
+    transition: 0.2s;
+}
+.efeito3d:hover{
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 10%);
+}
+.cardsConfig{
+    grid-gap: 15px;
+    place-content: center;
+}
+.cardsConfig:hover{
+    grid-gap: 15px;
+    place-content: center;
 }

@@ -3,9 +3,8 @@
     Created on : 26/03/2021, 21:56:39
     Author     : yurin
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,50 +19,190 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
         <style>
-            .cabecalho {
-               background: rgba(51, 35, 35, 0.3);
-               display: flex;
-               justify-content:space-between;
-               padding: 10px;
-               align-items: center;
+            *{
+                margin: 0;
             }
-            .logado {
+
+            .cabecalhoCarrossel{
+                width: 100%;
+                height: 600px;
+                background-color: blanchedalmond;
+                contain: table-row;
+            }
+
+            .carousel{
+                height: 100%;
+                contain: content;
+            }
+
+            .imgtamanho{
+                height: 100%;
+                width: 100%;
+            }
+
+            /* Menu de opções */
+            .cabecalho{
+                width: 100%;
+                height: 70px;
+                background-color: rgba(0, 255, 255, 0.103);
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 5005;
+
+                border-bottom: solid 1px white;
+            }
+            .caixalogo{
+                width: 170px;
+                height: 100%;
+
+            }
+            .logo{
+                float: left;
+
+                font-size: 40px;
+                letter-spacing: 13px;
+                color: aliceblue;
+                position:relative;
+                left:7%;
+                top:50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .caixaMenus{
+                float: right;
                 display: flex;
-                justify-content:space-around;
-                flex-direction:column;
+                justify-content: center;
+                margin-top: 17px;
+                margin-right: 47px;
+            }
+            .iconMenu{
+                width: 30px;
+                margin-right: 4px;
+            }
+            .info-icon{
+                color: aliceblue;
+                float: right;
+                margin-top: 4px;
+                margin-right: 10px;
+            }
+
+            .cxalogin:hover .menuItens{
+                display: block;
+
+                text-align: center;
+                margin-top: 3px;
+
+                background-color: white;
+
+                width: 115px;
+                height: 65px;
+                position: absolute;
+                border-radius: 9px;
+            }
+
+            .menuItens{
+                display: none;
+            }
+            .linkFunc{
+                margin-top: 8px;
+                margin-bottom: 0px;
+                font-size: 14px;
+                margin-left: 0px;
+            }
+
+
+            .efeito3d{
+                box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
+                transition: 0.2s;
+            }
+            .efeito3d:hover{
+                box-shadow: 0 8px 16px 0 rgb(0 0 0 / 10%);
+            }
+            .cardsConfig{
+                grid-gap: 15px;
+                place-content: center;
+            }
+            .cardsConfig:hover{
+                grid-gap: 15px;
+                place-content: center;
             }
             .nome_cliente{
-                font-size: 2em;
-                color: black;
+                font-size: 25px;
+                color: white;
                 text-transform: uppercase;
-
-            }           
-            .cabecalho a {
-                color: black;
-                text-transform: uppercase;
-                text-decoration: none;
+                text-align: center;
+                padding: 0 20px 0px 0;
             }
         </style>
     </head>
     <body>
         <header>
             <div class="cabecalho">
-                <h2>FAVY</h2>
-                <c:choose>
-                    <c:when test="${sessionScope.email_cli.cliente}">
-                        <div class="logado">
-                            <span class="nome_cliente">${sessionScope.email_cli.nomeCliente}</span>                              
-                            <a class="editar_cliente" href="<c:url value="/EditarCliente?codCliente=${sessionScope.email_cli.codCliente}"/>">Editar</a>                             
-                        </div>
-                    </c:when>  
-                    <c:otherwise>
-                        <div>
-                        <a href="login.jsp" >Login Administrativo</a>
-                        <a href="login_cliente.jsp" >Login Cliente</a>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
+                <h1 class="logo">FAVY</h1>
+                <div class="caixaMenus">
+                    <div class="cxalogin"> 
+                        <c:choose>
+                            <c:when test="${sessionScope.email_cli.cliente}">
+                                <span class="info-icon nome_cliente">${sessionScope.email_cli.nomeCliente}</span>
+                                <div class="menuItens" id="menuAparecer">
+                                    <p class="linkFunc">
+                                        <a class="editar_cliente" href="<c:url value="/EditarCliente?codCliente=${sessionScope.email_cli.codCliente}"/>">Editar</a>
+                                    </p>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+
+                                <a href="#">
+                                    <img src="img/icon-login.png" class="iconMenu">
+                                    <p class="info-icon">Entrar</p>
+                                </a>
+
+                                <div class="menuItens" id="menuAparecer">
+                                    <p class="linkFunc">
+                                        <a href="login.jsp" >Administrativo</a>
+                                    </p>
+                                    <p class="linkFunc">
+                                        <a href="login_cliente.jsp" >Cliente</a>
+                                    </p>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+
+                    <div class="cxaComprar">
+                        <img src="img/icon-carrinho.png" class="iconMenu">
+                        <p class="info-icon">Carrinho</p>
+                    </div>
+                    <!--
+                    <a href="login.jsp" >Administrativo</a>
+                    <a href="login_cliente.jsp" >Cliente</a>
+                    -->
+                </div>
+
             </div>
+
+            <div class="cabecalhoCarrossel">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block imgtamanho" src="icones/Banner_001.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block imgtamanho" src="icones/Banner_002.jpg" alt="Second slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
         </header>
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -72,18 +211,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script type="text/javascript">
-//            $('.carouselExampleControls').slick({
-//                dots: true,
-//                infinite: true,
-//                slidesToShow: 1,
-//                slidesToScroll: 1
-//            });
-            $('#idenficador').click(function () {
-                $('.lista-editar').show();
-            });
-
-            $('#idenficador').dblclick(function () {
-                $('.lista-editar').hide();
+            $('.carouselExampleControls').click({
+                dots: true,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1
             });
         </script>
     </body>

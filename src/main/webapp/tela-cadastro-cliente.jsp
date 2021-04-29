@@ -8,10 +8,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header-usuario.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> Cadastro de Usuários </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
               crossorigin="anonymous">
@@ -249,7 +249,7 @@
                     </div>
 
                     <div class="campo-right">
-                        <input type="submit" value="Enviar" class="btn btn-success">
+                        <input id="btn-enviar" type="submit" value="Enviar" class="btn btn-success">
                         <input type="reset" value="Cancelar" class="btn btn-secondary">
                     </div>
                 </form>
@@ -261,27 +261,8 @@
         // campos cliente
         var $nome = document.querySelector('[name="nome"]');
         var $cpf = document.querySelector('[name="cpf"]');
-        var $email = document.querySelector('[name="email"]');    
-        // mascara cpf 
-//        $("input[name=cpf]").keyup(function () {
-//            if ($cpf.value.length == 3 || $cpf.value.length == 7) {
-//                $cpf.value += ".";
-//            }
-//            if($cpf.value.length == 11){
-//                $cpf.value += "-";
-//            }
-//        });
-       
-        //validação senha
-        function validaSenha(input) {
-            var bt1 = document.getElementById('senha1').value;
-            var bt2 = document.getElementById('senha2').value;
-
-            if (bt1 != bt2) {
-                input.setCustomValidity("Senhas diferentes!");
-                return false;
-            }
-        }
+        var $email = document.querySelector('[name="email"]');
+    
         // campos faturamento
         var $campoCep = document.querySelector('[name="cep"]');
         var $campoRua = document.querySelector('[name="logradouro"]');

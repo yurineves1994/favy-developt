@@ -35,9 +35,9 @@
                     </div>
 
                     <!-- Email -->
-                    <div class="form-group">
+                    <div class="form-group" style="display: none;">
                         <label for="email_cliente"> E-mail </label>
-                        <input disabled="" value="${cliente.emailCliente}" required name="email" type="email" class="form-control" id="email_cliente" placeholder="">
+                        <input value="${cliente.emailCliente}" required name="email" type="email" class="form-control" id="email_cliente" placeholder="">
                     </div>
 
                     <!-- Senha -->
