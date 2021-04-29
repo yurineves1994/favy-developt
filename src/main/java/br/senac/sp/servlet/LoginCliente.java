@@ -27,7 +27,7 @@ public class LoginCliente extends HttpServlet {
         } else {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("email_cli", cliente);
-            response.sendRedirect(request.getContextPath() + "/protected/cliente/tela-editar-cliente.jsp");
+            response.sendRedirect(request.getContextPath() + "/CardsProdutos");
         }
 
     }

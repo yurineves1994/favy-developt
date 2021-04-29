@@ -3,11 +3,11 @@
     Created on : 04/04/2021, 15:12:00
     Author     : yurin
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
+<html lang="pt-br">
 <html>
    <%@include file="../header-usuario.jsp" %>
     <head>

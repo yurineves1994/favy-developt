@@ -25,20 +25,20 @@
 
                     <!-- Usuario -->
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Nome </label>
-                        <input required name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <label for="nome_cliente"> Nome </label>
+                        <input required name="nome" type="text" class="form-control" id="nome_cliente" placeholder="">
                     </div>
 
                     <!-- Cpf -->
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Cpf </label>
-                        <input required name="cpf" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <label for="cpf_cliente"> CPF </label>
+                        <input required name="cpf" type="text" class="form-control" id="cpf_cliente" minlength="14" maxlength="14">
                     </div>
 
                     <!-- Email -->
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Email </label>
-                        <input required name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <label for="email_cliente"> E-mail </label>
+                        <input required name="email" type="email" class="form-control" id="email_cliente" placeholder="">
                     </div>
 
                     <!-- Senha -->
@@ -72,6 +72,7 @@
                         <div class="form-group col-sm-2">
                             <label for="uf"> ESTADO </label>                    
                             <select id="uf" name="uf" class="form-control">
+                                <option value=></option>
                                 <option value="AC">AC</option>
                                 <option value="AL">AL</option>
                                 <option value="AP">AP</option>
@@ -105,9 +106,9 @@
                             <label for="numero"> NUMERO </label>
                             <input required name="numero" type="number" class="form-control" id="numero" placeholder="">
                         </div>                  
-                        <div class="form-group col-sm-2">
+                        <div class="form-group col-sm-4">
                             <label for="complemento"> COMPLEMENTO </label>
-                            <input name="complemento" type="text" class="form-control" id="complemento" placeholder="">
+                            <input required name="complemento" type="text" class="form-control" id="complemento" placeholder="">
                         </div>                      
                     </fieldset>
                     <div class="form-group">
@@ -123,23 +124,24 @@
                         <div class="row" class="grupoEnderecoEntrega1">
                             <div class="form-group col-sm-2">
                                 <label for="cepEntrega1"> CEP </label>
-                                <input required name="cepEntrega1" type="number" class="form-control" id="cepEntrega1" placeholder="">
+                                <input name="cepEntrega1" type="number" class="form-control" id="cepEntrega1" placeholder="">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="logradouroEntrega1"> RUA </label>
-                                <input required name="logradouroEntrega1" type="text" class="form-control" id="logradouro" placeholder="">
+                                <input name="logradouroEntrega1" type="text" class="form-control" id="logradouroEntrega1" placeholder="">
                             </div>
                             <div class="form-group col-sm-2">
                                 <label for="bairroEntrega1"> BAIRRO </label>
-                                <input required name="bairroEntrega1" type="text" class="form-control" id="bairro" placeholder="">
+                                <input name="bairroEntrega1" type="text" class="form-control" id="bairroEntrega1" placeholder="">
                             </div>
                             <div class="form-group col-sm-2">
                                 <label for="localidadeEntrega1"> CIDADE </label>
-                                <input required name="localidadeEntrega1" type="text" class="form-control" id="localidade" placeholder="">
+                                <input name="localidadeEntrega1" type="text" class="form-control" id="localidadeEntrega1" placeholder="">
                             </div>
                             <div class="form-group col-sm-2">
                                 <label for="ufEntrega1"> ESTADO </label>                    
-                                <select id="uf" name="ufEntrega1" class="form-control">
+                                <select id="ufEntrega1" name="ufEntrega1" class="form-control">
+                                    <option value=></option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
                                     <option value="AP">AP</option>
@@ -171,9 +173,9 @@
                             </div>        
                             <div class="form-group col-sm-2">
                                 <label for="numeroEntrega1"> NUMERO </label>
-                                <input required name="numeroEntrega1" type="number" class="form-control" id="numero" placeholder="">
+                                <input name="numeroEntrega1" type="number" class="form-control" id="numeroEntrega1" placeholder="">
                             </div>
-                            <div class="form-group col-sm-2">
+                            <div class="form-group col-sm-4">
                                 <label for="complementoEntrega1"> COMPLEMENTO ENTREGA 1</label>
                                 <input name="complementoEntrega1" type="text" class="form-control" id="complementoEntrega1" placeholder="">
                             </div>                      
@@ -184,23 +186,24 @@
                         <div class="row" class="grupoEnderecoEntrega2">
                             <div class="form-group col-sm-2">
                                 <label for="cepEntrega2"> CEP </label>
-                                <input required name="cepEntrega2" type="number" class="form-control" id="cepEntrega2" placeholder="">
+                                <input name="cepEntrega2" type="number" class="form-control" id="cepEntrega2" placeholder="">
                             </div>
                             <div class="form-group col-sm-4">
-                                <label for="logradouro"> RUA </label>
-                                <input required name="logradouroEntrega2" type="text" class="form-control" id="logradouro" placeholder="">
+                                <label for="logradouroEntrega2"> RUA </label>
+                                <input  name="logradouroEntrega2" type="text" class="form-control" id="logradouroEntrega2" placeholder="">
                             </div>
                             <div class="form-group col-sm-2">
-                                <label for="bairro"> BAIRRO </label>
-                                <input required name="bairroEntrega2" type="text" class="form-control" id="bairro" placeholder="">
+                                <label for="bairroEntrega2"> BAIRRO </label>
+                                <input  name="bairroEntrega2" type="text" class="form-control" id="bairroEntrega2" placeholder="">
                             </div>
                             <div class="form-group col-sm-2">
-                                <label for="localidade"> CIDADE </label>
-                                <input required name="localidadeEntrega2" type="text" class="form-control" id="localidade" placeholder="">
+                                <label for="localidadeEntrega2"> CIDADE </label>
+                                <input  name="localidadeEntrega2" type="text" class="form-control" id="localidadeEntrega2" placeholder="">
                             </div>
                             <div class="form-group col-sm-2">
-                                <label for="uf"> ESTADO </label>                    
-                                <select id="uf" name="ufEntrega2" class="form-control">
+                                <label for="ufEntrega2"> ESTADO </label>                    
+                                <select id="ufEntrega2" name="ufEntrega2" class="form-control">
+                                    <option value=></option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
                                     <option value="AP">AP</option>
@@ -232,9 +235,9 @@
                             </div>        
                             <div class="form-group col-sm-2">
                                 <label for="numeroEntrega2"> NUMERO </label>
-                                <input required name="numeroEntrega2" type="number" class="form-control" id="numero" placeholder="">
+                                <input name="numeroEntrega2" type="number" class="form-control" id="numeroEntrega2" placeholder="">
                             </div>
-                            <div class="form-group col-sm-2">
+                            <div class="form-group col-sm-4">
                                 <label for="complementoEntrega2"> COMPLEMENTO ENTREGA 2</label>
                                 <input name="complementoEntrega2" type="text" class="form-control" id="complementoEntrega2" placeholder="">
                             </div>                      
@@ -254,6 +257,21 @@
         </section>
     </body>
     <script>
+
+        // campos cliente
+        var $nome = document.querySelector('[name="nome"]');
+        var $cpf = document.querySelector('[name="cpf"]');
+        var $email = document.querySelector('[name="email"]');    
+        // mascara cpf 
+//        $("input[name=cpf]").keyup(function () {
+//            if ($cpf.value.length == 3 || $cpf.value.length == 7) {
+//                $cpf.value += ".";
+//            }
+//            if($cpf.value.length == 11){
+//                $cpf.value += "-";
+//            }
+//        });
+       
         //validação senha
         function validaSenha(input) {
             var bt1 = document.getElementById('senha1').value;
@@ -271,6 +289,7 @@
         var $campoCidade = document.querySelector('[name="localidade"]');
         var $campoEstado = document.querySelector('[name="uf"]');
         var $campoNumero = document.querySelector('[name="numero"]');
+        var $campoComplemento = document.querySelector('[name="complemento"]');
 
         // campos entrega 01
         var $campoCep01 = document.querySelector('[name="cepEntrega1"]');
@@ -279,6 +298,7 @@
         var $campoCidade01 = document.querySelector('[name="localidadeEntrega1"]');
         var $campoEstado01 = document.querySelector('[name="ufEntrega1"]');
         var $campoNumero01 = document.querySelector('[name="numeroEntrega1"]');
+        var $campoComplemento01 = document.querySelector('[name="complementoEntrega1"]');
 
         // campos entrega 02
         var $campoCep02 = document.querySelector('[name="cepEntrega2"]');
@@ -287,6 +307,7 @@
         var $campoCidade02 = document.querySelector('[name="localidadeEntrega2"]');
         var $campoEstado02 = document.querySelector('[name="ufEntrega2"]');
         var $campoNumero02 = document.querySelector('[name="numeroEntrega2"]');
+        var $campoComplemento02 = document.querySelector('[name="complementoEntrega2"]');
 
         if ($("input[name=eigual]").val() == "sim") {
             $(".endereco-entrega01").hide();
@@ -313,6 +334,7 @@
                 $('[name="localidadeEntrega1"]').val("");
                 $('[name="ufEntrega1"]').val("");
                 $('[name="numeroEntrega1"]').val("");
+                $('[name="complementoEntrega1"]').val("");
             } else {
                 $(".endereco-entrega01").hide();
                 $("#botao-add-grupo").hide();
@@ -323,10 +345,11 @@
                 $campoCidade01.value = $campoCidade.value;
                 $campoEstado01.value = $campoEstado.value;
                 $campoNumero01.value = $campoNumero.value;
+                $campoComplemento01.value = $campoComplemento.value;
             }
         });
-        
-        $campoNumero.addEventListener("blur", function(){
+
+        $campoNumero.addEventListener("blur", function () {
             $campoNumero01.value = $campoNumero.value;
         });
 

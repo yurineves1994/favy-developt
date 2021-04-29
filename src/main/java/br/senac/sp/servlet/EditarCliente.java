@@ -53,7 +53,7 @@ public class EditarCliente extends HttpServlet {
         String numEnt2 = request.getParameter("numero_ent2");
         String complEnt2 = request.getParameter("compl_ent2");
         String email = request.getParameter("email");
-        String senha = request.getParameter("senha1");
+        String senha = request.getParameter("senha");
 
         Cliente cliente = ClienteDAO.obterCliente(codCliente);
         cliente.setNomeCliente(nome);
@@ -84,7 +84,7 @@ public class EditarCliente extends HttpServlet {
         
         try {
             ClienteDAO.updateCliente(cliente);
-            response.sendRedirect("cards-produtos.jsp");
+            response.sendRedirect("/ProjetoFavy/CardsProdutos");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);
