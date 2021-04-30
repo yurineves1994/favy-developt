@@ -19,12 +19,12 @@
         <title>Listar Produto</title>
     </head>
     
-    <body>
+    <body style="background-color: #e7e7e7;">
         <section class="container-fluid mt-4 ">
-            <div class="row">
+            <div class="row cardsConfig">
                 <c:forEach items="${listaProdutos}" var="produto">
                     <c:if test="${produto.statusProduto == 'a'}">
-                        <div class="col-xd-3 mb-2">
+                        <div class="col-sm-3 mb-2 efeito3d">
                             <div class="card" style="width: 18rem;">
                                 <div class="carousel-visualizar">
                                     <c:if test="${produto.imagemProduto1 != null}">

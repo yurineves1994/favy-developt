@@ -257,7 +257,6 @@
         </section>
     </body>
     <script>
-
         // campos cliente
         var $nome = document.querySelector('[name="nome"]');
         var $cpf = document.querySelector('[name="cpf"]');
