@@ -11,6 +11,7 @@
     <%@include file="header-usuario.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>JSP Page</title>
         <style>
             *{
@@ -82,7 +83,9 @@
                 border-bottom: 2px solid #9A27A9;
                 box-shadow: 0 1px 0 0 #9A27A9;
             }
-            .center {
+            .grupo-botoes {
+                position: relative;
+                top: 30px;
                 text-align: center;
             }
             button {
@@ -107,7 +110,28 @@
             }
             a:hover {
                 color: #9A27A9;
-
+            }
+            .div-mostrar-senha{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: absolute;
+            }
+            .mostrar-senha-label{
+                position: absolute;
+                top: -8px;
+                left: 25px;               
+            }  
+            .mostrar-senha-input{
+                width: 13px;
+                padding: 0px;                
+                top: 8px;
+                position: relative
+            }
+            .cadastrar{
+                position: relative;
+                top: 20px;
             }
         </style>
     </head>
@@ -125,14 +149,30 @@
                 </div>            
                 <div class="input-field">
                     <input required type="password" placeholder="Senha" name="senha_cli"  >
-                </div>               
-                <div class="center">
+                    <span class="div-mostrar-senha">
+                        <label class="mostrar-senha-label">Mostrar Senha</label>
+                        <a class="mostrar-senha-input" href="#"><i class="fa fa-eye"></i></a>
+                    </span>
+                </div>  
+
+                <div class="grupo-botoes">
                     <button type="submit">Login</button>
                 </div>
-                <div>           
+                <div class="cadastrar">           
                     <span>Não tem um cadastro? <a href="tela-cadastro-cliente.jsp" >Cadastre-se agora</a></span>
                 </div>
             </form>
         </section>      
     </body>
+    <script>
+        let btn = document.querySelector('.mostrar-senha-input');
+        btn.addEventListener('click', function () {
+            let input = document.querySelector('input[name=senha_cli]');
+            if (input.getAttribute('type') == 'password') {
+                input.setAttribute('type', 'text');
+            } else {
+                input.setAttribute('type', 'password');
+            }
+        });
+    </script>
 </html>

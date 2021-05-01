@@ -90,7 +90,7 @@
                 <div class="menu_voltar">
                     <div class="ajusta_icone_menu">
                         <a href="<c:url value="/CardsProdutos"/>">
-                            <img src="icones/icon-sair.png" alt="sair" class="menu_voltar_icon centraliza_icone">
+                            <img src="img/icon-sair.png" alt="sair" class="menu_voltar_icon centraliza_icone">
                         </a>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                     <!-- Tabelas -->
                     <div class="menu_tabela_produtos">
                         <a href="<c:url value="/ListarProdutos?numeroPagina=1"/>" >
-                            <img src="icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Produto">
+                            <img src="img/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Produto">
                         </a>
                     </div>
 

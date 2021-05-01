@@ -120,7 +120,7 @@
                 box-shadow: 0 8px 16px 0 rgb(0 0 0 / 10%);
             }
             .cardsConfig{
-                grid-gap: 15px;
+                grid-gap: 13px;
                 place-content: center;
             }
             .cardsConfig:hover{
@@ -154,7 +154,7 @@
                             <c:otherwise>
 
                                 <a href="#">
-                                    <img src="img/icon-login.png" class="iconMenu">
+                                    <img src="icones/icon-login.png" class="iconMenu">
                                     <p class="info-icon">Entrar</p>
                                 </a>
 
@@ -171,7 +171,7 @@
                     </div>
 
                     <div class="cxaComprar">
-                        <img src="img/icon-carrinho.png" class="iconMenu">
+                        <img src="icones/icon-carrinho.png" class="iconMenu">
                         <p class="info-icon">Carrinho</p>
                     </div>
                     <!--
