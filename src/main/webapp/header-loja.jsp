@@ -172,7 +172,8 @@
 
                     <div class="cxaComprar">
                         <img src="icones/icon-carrinho.png" class="iconMenu">
-                        <p class="info-icon">Carrinho</p>
+                        <a class="info-icon">Carrinho</a>
+                        <a href="carrinho.jsp" >Cliente</a>
                     </div>
                     <!--
                     <a href="login.jsp" >Administrativo</a>
