@@ -79,7 +79,7 @@
                         <c:forEach items="${sessionScope.listaProdutos}" var="produto">
                         <li class="detalhe">
                             <!-- Quantidade -->
-                            <span>(5)arrumar - ${produto.nomeProduto}</span>
+                            <span>${produto.nomeProduto}</span>
                             <!-- Valor -->
                             <span>R$ ${produto.precoProduto}</span>
                         </li>
@@ -88,7 +88,7 @@
 
                     <div class="caixaTotal">
                         <span class="txtTotal">total</span>
-                        <span class="txtTotal">(calcular) R$ 10.280,99</span>
+                        <span class="txtTotal">R$ ${sessionScope.totalCompra}</span>
                     </div>
 
                     <button class="btnComprar">

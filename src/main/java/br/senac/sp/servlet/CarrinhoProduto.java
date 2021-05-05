@@ -1,4 +1,3 @@
-
 package br.senac.sp.servlet;
 
 import br.senac.sp.dao.ProdutosDAO;
@@ -22,20 +21,31 @@ public class CarrinhoProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String codProduto = request.getParameter("codProduto");
-        int codProduto2 = Integer.parseInt(codProduto); 
-
-        Produto produto = ProdutosDAO.obterProduto(Integer.parseInt(codProduto));
         HttpSession sessao = request.getSession();
+        String codProduto = request.getParameter("codProduto");
+        Produto produto = ProdutosDAO.obterProduto(Integer.parseInt(codProduto));
+
+        double totalCompra = 0;
+        double subTotal = produto.getPrecoProduto();
+
         List<Produto> listaProdutos;
         if (sessao.getAttribute("listaProdutos") == null) {
             listaProdutos = new ArrayList<>();
         } else {
             listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
+        }       
+
+        if (sessao.getAttribute("totalCompra") == null) {
+            totalCompra = subTotal;
+        } else {
+            totalCompra = (double) sessao.getAttribute("totalCompra");
+            totalCompra += subTotal;
         }
+
         if (!listaProdutos.contains(produto)) {
             listaProdutos.add(produto);
         }
         sessao.setAttribute("listaProdutos", listaProdutos);
+        sessao.setAttribute("totalCompra", totalCompra);
     }
 }
