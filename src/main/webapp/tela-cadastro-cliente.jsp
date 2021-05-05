@@ -32,7 +32,7 @@
                     <!-- Cpf -->
                     <div class="form-group">
                         <label for="cpf_cliente"> CPF </label>
-                        <input required name="cpf" type="text" class="form-control" id="cpf_cliente" minlength="14" maxlength="14">
+                        <input required name="cpf" type="text" class="form-control" id="cpf_cliente" minlength="11" maxlength="11">
                     </div>
 
                     <!-- Email -->

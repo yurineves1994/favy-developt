@@ -77,7 +77,7 @@
                 margin-right: 47px;
             }
             .iconMenu{
-                width: 30px;
+                width: 35px;
                 margin-right: 4px;
             }
             .info-icon{
@@ -134,6 +134,12 @@
                 text-align: center;
                 padding: 0 20px 0px 0;
             }
+            .numero_carrinho{
+                position: relative;
+                left: -25px;
+                font-size: 12px;
+                color: white;
+            }
         </style>
     </head>
     <body>
@@ -172,8 +178,7 @@
 
                     <div class="cxaComprar">
                         <img src="icones/icon-carrinho.png" class="iconMenu">
-                        <a class="info-icon">Carrinho</a>
-                        <a href="carrinho.jsp" >Cliente</a>
+                        <a href="carrinho.jsp" class="info-icon">Carrinho</a><span class="numero_carrinho">${sessionScope.listaProdutos.size()}</span>                     
                     </div>
                     <!--
                     <a href="login.jsp" >Administrativo</a>

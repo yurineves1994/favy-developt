@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.senac.sp.servlet;
 
 import br.senac.sp.dao.ProdutosDAO;
@@ -27,6 +23,7 @@ public class CarrinhoProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String codProduto = request.getParameter("codProduto");
+        int codProduto2 = Integer.parseInt(codProduto); 
 
         Produto produto = ProdutosDAO.obterProduto(Integer.parseInt(codProduto));
         HttpSession sessao = request.getSession();

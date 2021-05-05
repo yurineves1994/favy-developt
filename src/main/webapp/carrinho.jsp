@@ -38,6 +38,7 @@
                         
                         <tbody>
                           <c:forEach items="${sessionScope.listaProdutos}" var="produto">
+                           <c:if test="${sessionScope.listaProdutos.contains(produto)}">
                             <tr style="height:100px;">
                               <!-- Produto -->
                               <td style="vertical-align: middle;">
@@ -63,6 +64,7 @@
                                       R$ ${produto.precoProduto}
                               </td>
                             </tr>
+                            </c:if>
                           </c:forEach> 
                         </tbody>
                       </table>

@@ -97,10 +97,12 @@
             slidesToShow: 1,
             slidesToScroll: 1
         });
-
+              
+        
         function adicionarProdutoCarrinho(codProduto) {
             $.get("CarrinhoProduto?codProduto=" + codProduto, function (resposta) {
-                console.log("OK");
+                let numeroCarrinho = 0;
+                numeroCarrinho += 1;
             });
         }
     </script>
