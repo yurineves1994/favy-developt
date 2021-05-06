@@ -26,7 +26,8 @@ public class CarrinhoProduto extends HttpServlet {
 
         double totalCompra = 0;
         double subTotal = produto.getPrecoProduto();
-
+        int qntProduto = 0;
+        
         List<Produto> listaProdutos;
         if (sessao.getAttribute("listaProdutos") == null) {
             listaProdutos = new ArrayList<>();
@@ -44,7 +45,8 @@ public class CarrinhoProduto extends HttpServlet {
         boolean jaExiste = false;
         for (Produto p : listaProdutos) {
             if (p.getCodProduto() == codProduto) {
-                jaExiste = true;               
+                jaExiste = true;
+                qntProduto += 1;
                 break;
             }
         }
@@ -53,6 +55,7 @@ public class CarrinhoProduto extends HttpServlet {
         }
         sessao.setAttribute("listaProdutos", listaProdutos);
         sessao.setAttribute("totalCompra", totalCompra);
+        sessao.setAttribute("qntProduto", qntProduto);
 
     }
 }

@@ -55,7 +55,7 @@
                               <td style="vertical-align: middle;">
                                   <div class="cxa_quantidade">
                                       <span class="material-icons" style="font-size: 1rem; color: black; cursor: pointer;">remove</span>
-                                      <input type="number" class="quantidade" disabled="disabled" value="1" min="0" max="9999">
+                                      <input type="number" class="quantidade" disabled="disabled" value="1" min="0" max="${produto.qtdProduto}">
                                       <span class="material-icons" style="font-size: 1rem; color: black; cursor: pointer;">add</span>
                                   </div>
                               </td>
