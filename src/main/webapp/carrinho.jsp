@@ -87,7 +87,7 @@
                     </ul>
 
                     <div class="caixaTotal">
-                        <span class="txtTotal">total</span>
+                        <span class="txtTotal">Total</span>
                         <span class="txtTotal">R$ ${sessionScope.totalCompra}</span>
                     </div>
 

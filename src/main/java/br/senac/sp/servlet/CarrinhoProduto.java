@@ -3,7 +3,6 @@ package br.senac.sp.servlet;
 import br.senac.sp.dao.ProdutosDAO;
 import br.senac.sp.entidade.Produto;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -22,8 +21,8 @@ public class CarrinhoProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sessao = request.getSession();
-        String codProduto = request.getParameter("codProduto");
-        Produto produto = ProdutosDAO.obterProduto(Integer.parseInt(codProduto));
+        int codProduto = Integer.parseInt(request.getParameter("codProduto"));
+        Produto produto = ProdutosDAO.obterProduto(codProduto);
 
         double totalCompra = 0;
         double subTotal = produto.getPrecoProduto();
@@ -33,7 +32,7 @@ public class CarrinhoProduto extends HttpServlet {
             listaProdutos = new ArrayList<>();
         } else {
             listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
-        }       
+        }
 
         if (sessao.getAttribute("totalCompra") == null) {
             totalCompra = subTotal;
@@ -41,11 +40,19 @@ public class CarrinhoProduto extends HttpServlet {
             totalCompra = (double) sessao.getAttribute("totalCompra");
             totalCompra += subTotal;
         }
-
-        if (!listaProdutos.contains(produto)) {
+      
+        boolean jaExiste = false;
+        for (Produto p : listaProdutos) {
+            if (p.getCodProduto() == codProduto) {
+                jaExiste = true;               
+                break;
+            }
+        }
+        if (!jaExiste) {
             listaProdutos.add(produto);
         }
         sessao.setAttribute("listaProdutos", listaProdutos);
         sessao.setAttribute("totalCompra", totalCompra);
+
     }
 }
