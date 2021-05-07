@@ -89,8 +89,8 @@
             <div class="menu-superior">
                 <div class="menu_voltar">
                     <div class="ajusta_icone_menu">
-                        <a href="<c:url value="/CardsProdutos"/>">
-                            <img src="img/icon-sair.png" alt="sair" class="menu_voltar_icon centraliza_icone">
+                        <a href="<c:url value="/Logout"/>">
+                           <img src="img/icon-sair.png" alt="sair" class="menu_voltar_icon centraliza_icone">
                         </a>
                     </div>
                 </div>

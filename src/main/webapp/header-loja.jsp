@@ -155,6 +155,9 @@
                                     <p class="linkFunc">
                                         <a class="editar_cliente" href="<c:url value="/EditarCliente?codCliente=${sessionScope.email_cli.codCliente}"/>">Editar</a>
                                     </p>
+                                    <p class="linkFunc">
+                                        <a class="editar_cliente" href="<c:url value="/Logout"/>">Logout</a>
+                                    </p>
                                 </div>
                             </c:when>
                             <c:otherwise>

@@ -13,6 +13,7 @@ public class Produto {
     private String imagemProduto2;
     private String imagemProduto3;
     private String imagemProduto4;
+    private int qntCarrinho = 0;
 
     // Construtores
     public Produto() {
@@ -31,7 +32,7 @@ public class Produto {
         this.imagemProduto3 = imagemProduto3;
         this.imagemProduto4 = imagemProduto4;
     }
-    
+
     public Produto(String nomeProduto, String descricao, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, String imagemProduto1, String imagemProduto2, String imagemProduto3, String imagemProduto4) {
         this.nomeProduto = nomeProduto;
         this.descricao = descricao;
@@ -44,7 +45,7 @@ public class Produto {
         this.imagemProduto3 = imagemProduto3;
         this.imagemProduto4 = imagemProduto4;
     }
-    
+
     // Getters e Setters
     public Integer getCodProduto() {
         return codProduto;
@@ -68,6 +69,14 @@ public class Produto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public int getQntCarrinho() {
+        return qntCarrinho;
+    }
+
+    public void setQntCarrinho(int qntCarrinho) {
+        this.qntCarrinho = qntCarrinho;
     }
 
     public String getStatusProduto() {
@@ -133,6 +142,5 @@ public class Produto {
     public void setImagemProduto4(String imagemProduto4) {
         this.imagemProduto4 = imagemProduto4;
     }
-
 
 }

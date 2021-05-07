@@ -9,11 +9,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
-   <%@include file="../../header-usuario.jsp" %>
-    <head>
+   <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title> Editar de Cliente </title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title> Cadastro de Usuários </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+              crossorigin="anonymous">
         <link rel="stylesheet" href="../estilos/estiloCadastroProduto.css">
     </head>
     <body>
@@ -70,8 +72,7 @@
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="uf"> ESTADO </label>                    
-                            <select value="${cliente.ufFat}" id="uf" name="uf" class="form-control">
-                                <option value=></option>
+                            <select value="${cliente.ufFat}" id="uf" name="uf" class="form-control">                               
                                 <option value="AC">AC</option>
                                 <option value="AL">AL</option>
                                 <option value="AP">AP</option>
@@ -114,7 +115,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="checkEndereco" name="eigual" value="sim">
                             <label class="form-check-label" for="checkEndereco">
-                                O endereço de entrega é o mesmo do endereço de faturamento
+                                O endereço de entrega não é o mesmo do endereço de faturamento
                             </label>
                         </div>
                     </div>

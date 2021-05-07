@@ -46,7 +46,7 @@ public class CarrinhoProduto extends HttpServlet {
         for (Produto p : listaProdutos) {
             if (p.getCodProduto() == codProduto) {
                 jaExiste = true;
-                qntProduto += 1;
+                p.setQntCarrinho(p.getQntCarrinho() + 1);
                 break;
             }
         }

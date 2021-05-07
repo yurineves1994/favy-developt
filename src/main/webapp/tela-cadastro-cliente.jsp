@@ -115,7 +115,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="checkEndereco" name="eigual" value="sim">
                             <label class="form-check-label" for="checkEndereco">
-                                O endereço de entrega é o mesmo do endereço de faturamento
+                                O endereço de entrega não é o mesmo do endereço de faturamento
                             </label>
                         </div>
                     </div>
