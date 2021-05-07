@@ -13,7 +13,9 @@ public class Produto {
     private String imagemProduto2;
     private String imagemProduto3;
     private String imagemProduto4;
-    private int qntCarrinho = 0;
+    
+    private int qntCarrinho = 1;
+    //private double subTotal = 0;
 
     // Construtores
     public Produto() {

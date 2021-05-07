@@ -103,6 +103,7 @@
             $.get("CarrinhoProduto?codProduto=" + codProduto, function (resposta) {
                 let numeroCarrinho = 0;
                 numeroCarrinho += 1;
+                document.location.reload(true);
             });
         }
     </script>

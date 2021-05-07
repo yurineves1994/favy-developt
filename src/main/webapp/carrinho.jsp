@@ -54,9 +54,9 @@
                               <!-- Quantidade -->
                               <td style="vertical-align: middle;">
                                   <div class="cxa_quantidade">
-                                      <span class="material-icons" style="font-size: 1rem; color: black; cursor: pointer;">remove</span>
+                                      <span class="material-icons" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(${produto.codProduto}, 1)">remove</span>
                                       <input type="number" class="quantidade" disabled="disabled" value="${produto.qntCarrinho}" min="0" max="${produto.qtdProduto}">
-                                      <span class="material-icons" style="font-size: 1rem; color: black; cursor: pointer;">add</span>
+                                      <span class="material-icons" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(${produto.codProduto}, 2)">add</span>
                                   </div>
                               </td>
                               <!-- Valor -->
@@ -79,7 +79,7 @@
                         <c:forEach items="${sessionScope.listaProdutos}" var="produto">
                         <li class="detalhe">
                             <!-- Quantidade -->
-                            <span>${produto.nomeProduto}</span>
+                            <span>${produto.qntCarrinho} - ${produto.nomeProduto}</span>
                             <!-- Valor -->
                             <span>R$ ${produto.precoProduto}</span>
                         </li>
@@ -99,15 +99,29 @@
             </c:if>
             
             <h1> TEM NADA AQUI </h1>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
+    <script type="text/javascript">
+              
+        function adicionarProdutoCarrinho(codProduto, x) {
+            if(x === 2){
+                $.get("CarrinhoProduto?codProduto=" + codProduto, function (resposta) {
+                    let numeroCarrinho = 0;
+                    numeroCarrinho += 1;
+                    document.location.reload(true);
+                });
+            
+            } else {
+                $.get("CarrinhoProduto?codProduto=" + codProduto+" "+1, function (resposta) {
+                    let numeroCarrinho = 0;
+                    numeroCarrinho -= 1;
+                    document.location.reload(true);
+                });
+            }
+        }
+        
+    </script>
         </section>
     </body>
-    <!--
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        
-    </body>
-    -->
 </html>
