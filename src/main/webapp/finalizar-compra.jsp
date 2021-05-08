@@ -30,7 +30,7 @@
                 padding-bottom: 5em;
                 text-align: center;
             }
-            
+
             .informacoes-finalizar input,
             .informacoes-finalizar select {
                 background-color: #fff;
@@ -90,6 +90,28 @@
                 border: 1px solid black;
                 padding: 10px ;
             }
+            .cabecalho{
+                width: 100%;
+                height: 70px;
+                background-color: rgba(0, 255, 255, 0.103);
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 5005;
+
+                border-bottom: solid 1px white;
+            }
+            .logo{
+                float: left;
+
+                font-size: 40px;
+                letter-spacing: 13px;
+                color: aliceblue;
+                position:relative;
+                left:7%;
+                top:50%;
+                transform: translate(-50%, -50%);
+            }
             .menu-pagamento a {
                 text-decoration: none;
                 color: black;
@@ -104,6 +126,7 @@
             .informacoes-finalizar {
                 display: flex;
                 justify-content:space-around;
+                margin-top: 75px;
             }
             .div-endereco-entrega {
                 width: 40%;
@@ -111,10 +134,30 @@
             .div-resumo-compra {
                 width: 40%;
             }
+            .caminho-compra {
+                display: flex;
+                justify-content:space-around;
+                align-items: center;
+            }
+            .caminho-compra > div.hoje {
+                padding: 20px;
+                background: rgb(238, 106, 106);;
+                color: white;
+                border-radius: 15px;
+            }
         </style>
     </head>
 
+
     <body>
+        <nav class="cabecalho">
+            <h1 class="logo">FAVY</h1>
+            <div class="caminho-compra">
+                <div>Carrinho</div>
+                <div class="hoje">Pagamento</div>
+                <div>Obrigado, volte sempre!</div>
+            </div>
+        </nav>
         <div class="informacoes-finalizar">
             <div class="div-endereco-entrega">
                 <h3>Endereço Entrega</h3>
@@ -128,7 +171,7 @@
                 <h3>Resumo da Compra</h3>
                 <c:forEach items="${sessionScope.listaProdutos}" var="produto">       
                     <span><input disabled value="${produto.qntCarrinho}"><input disabled value="${produto.nomeProduto}"></span>             
-                </c:forEach>
+                    </c:forEach>
                 <span class="total">TOTAL: R$<input disabled value="${sessionScope.totalCompra}"></span>
             </div>
         </div>

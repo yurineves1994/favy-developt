@@ -21,18 +21,61 @@
             .inativo {
                 display: none;
             }
+            .cabecalho{
+                width: 100%;
+                height: 70px;
+                background-color: rgba(0, 255, 255, 0.103);
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 5005;
+
+                border-bottom: solid 1px white;
+            }
+            .logo{
+                float: left;
+                font-size: 40px;
+                letter-spacing: 13px;
+                color: aliceblue;
+                position:relative;
+                left:7%;
+                top:50%;
+                transform: translate(-50%, -50%);
+            }
+            .caminho-compra {
+                display: flex;
+                justify-content:center;
+                align-items: center;
+            }
+            .caminho-compra > div {
+               margin-left: 50px; 
+               margin-right:  50px; 
+            }
+            .caminho-compra > div.hoje {               
+                padding: 20px;
+                background: rgb(238, 106, 106);;
+                color: white;
+                border-radius: 15px;
+            }
+            
         </style>
     </head>
-
+    
     <body style="background-color: rgb(255, 255, 255);">
-
+        <nav class="cabecalho">
+            <h1 class="logo">FAVY</h1>
+            <div class="caminho-compra">
+                <div class="hoje">Carrinho</div>
+                <div>Pagamento</div>
+                <div>Obrigado, volte sempre!</div>
+            </div>
+        </nav>
         <section class="container" style="max-width: 1286px; margin-top: 150px;">
             <c:choose>
                 <c:when test="${sessionScope.listaProdutos != null}">
                     <div class="row">
                         <!-- Container Produtos do carrinho -->
                         <div class="col-md-8">
-
                             <table class="table">
                                 <thead>
                                     <tr>
