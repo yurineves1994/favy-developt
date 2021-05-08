@@ -51,11 +51,8 @@ public class CarrinhoProduto extends HttpServlet {
         if( action.equals("add") && produto.getQntCarrinho() < produto.getQtdProduto() ){
             if (sessao.getAttribute("totalCompra") == null) {
                 totalCompra = subTotal;
-             } else {
-                totalCompra = (double) sessao.getAttribute("totalCompra");
-                
-                produto.setQntCarrinho( produto.getQntCarrinho()+1 );
-                
+            } else {
+                totalCompra = (double) sessao.getAttribute("totalCompra");                
                 totalCompra += subTotal;
             }
             
@@ -68,9 +65,7 @@ public class CarrinhoProduto extends HttpServlet {
                 totalCompra -= subTotal;
             }  
         }
-        
-        System.out.println( produto.getQntCarrinho() );
-        
+                
         
         boolean jaExiste = false;
         for (Produto prod : listaProdutos) {
@@ -81,7 +76,10 @@ public class CarrinhoProduto extends HttpServlet {
                 if( prod.getQntCarrinho() < prod.getQtdProduto() ){
                     prod.setQntCarrinho(prod.getQntCarrinho() + 1);
                     break;
-                } 
+                } else if(prod.getQntCarrinho() >= prod.getQtdProduto()){
+                    totalCompra -= subTotal;
+                    break;
+                }
                 
                 
             } else if( prod.getCodProduto() == codProduto && action.equals("remove") ){
