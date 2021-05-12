@@ -176,34 +176,34 @@
         <div class="informacoes-finalizar-entrega">
             <c:if test="${sessionScope.email_cli.cepEnt1 != null}"> 
                 <form>
-                <input class="form-check-input" type="radio" id="entrega01" name="entrega01" value="entrega1">
-                <div class="div-endereco-entrega">
-                    <h3>Endereço Entrega</h3>      
-                    <input name="nomeCliente1" disabled value="${sessionScope.email_cli.nomeCliente}">
-                    <input name="cidadeEnt1" disabled value="${sessionScope.email_cli.cidadeEnt1}">
-                    <input name="ruaEnt1" disabled value="${sessionScope.email_cli.ruaEnt1}">
-                    <input name="bairroEnt1" disabled value="${sessionScope.email_cli.bairroEnt1}">
-                    <input name="ufEnt1" disabled value="${sessionScope.email_cli.ufEnt1}">
-                    <input name="numEnt1" disabled value="${sessionScope.email_cli.numEnt1}">
-                    <input name="complEnt1" disabled value="${sessionScope.email_cli.complEnt1}">
-                    <input name="cepEnt1" disabled value="${sessionScope.email_cli.cepEnt1}">  
-                </div>
+                    <input class="form-check-input" type="radio" id="entrega01" name="entrega01" value="entrega1">
+                    <div class="div-endereco-entrega">
+                        <h3>Endereço Entrega</h3>      
+                        <input name="nomeCliente1" disabled value="${sessionScope.email_cli.nomeCliente}">
+                        <input name="cidadeEnt1" disabled value="${sessionScope.email_cli.cidadeEnt1}">
+                        <input name="ruaEnt1" disabled value="${sessionScope.email_cli.ruaEnt1}">
+                        <input name="bairroEnt1" disabled value="${sessionScope.email_cli.bairroEnt1}">
+                        <input name="ufEnt1" disabled value="${sessionScope.email_cli.ufEnt1}">
+                        <input name="numEnt1" disabled value="${sessionScope.email_cli.numEnt1}">
+                        <input name="complEnt1" disabled value="${sessionScope.email_cli.complEnt1}">
+                        <input name="cepEnt1" disabled value="${sessionScope.email_cli.cepEnt1}">  
+                    </div>
                 </form>
             </c:if>
             <c:if test="${sessionScope.email_cli.cepEnt2 != null}">
                 <form>
-                <input class="form-check-input" type="radio" id="entrega02" name="entrega02" value="entrega2">
-                <div class="div-endereco-entrega2">                 
-                    <h3>Endereço Entrega 02</h3>
-                    <input name="nomeCliente2" disabled value="${sessionScope.email_cli.nomeCliente}">
-                    <input name="cidadeEnt2" disabled value="${sessionScope.email_cli.cidadeEnt2}">
-                    <input name="ruaEnt2" disabled value="${sessionScope.email_cli.ruaEnt2}">
-                    <input name="bairroEnt2" disabled value="${sessionScope.email_cli.bairroEnt2}">
-                    <input name="ufEnt2" disabled value="${sessionScope.email_cli.ufEnt2}">
-                    <input name="numEnt2" disabled value="${sessionScope.email_cli.numEnt2}">
-                    <input name="complEnt2" disabled value="${sessionScope.email_cli.complEnt2}">
-                    <input name="cepEnt2" disabled value="${sessionScope.email_cli.cepEnt2}">  
-                </div>
+                    <input class="form-check-input" type="radio" id="entrega02" name="entrega02" value="entrega2">
+                    <div class="div-endereco-entrega2">                 
+                        <h3>Endereço Entrega 02</h3>
+                        <input name="nomeCliente2" disabled value="${sessionScope.email_cli.nomeCliente}">
+                        <input name="cidadeEnt2" disabled value="${sessionScope.email_cli.cidadeEnt2}">
+                        <input name="ruaEnt2" disabled value="${sessionScope.email_cli.ruaEnt2}">
+                        <input name="bairroEnt2" disabled value="${sessionScope.email_cli.bairroEnt2}">
+                        <input name="ufEnt2" disabled value="${sessionScope.email_cli.ufEnt2}">
+                        <input name="numEnt2" disabled value="${sessionScope.email_cli.numEnt2}">
+                        <input name="complEnt2" disabled value="${sessionScope.email_cli.complEnt2}">
+                        <input name="cepEnt2" disabled value="${sessionScope.email_cli.cepEnt2}">  
+                    </div>
                 </form>
             </c:if>
         </div>
@@ -225,18 +225,15 @@
                 <legend>Cartão</legend>
                 <div class="row">
                     <div>
-                        <input type="text" placeholder="numero cartão">
+                        <input name="numerocartao" type="number" placeholder="numero cartão">
                     </div>
                     <div>
-                        <input type="text" placeholder="nome impresso no cartão">
+                        <input name="nomecartao" type="text" placeholder="nome impresso no cartão">
                     </div>
                     <div>
-                        <input type="text" placeholder="validade">
-                        <input type="text" placeholder="cvv">
-                    </div>
-                    <div>
-                        <input type="text" placeholder="número de parcelas">
-                    </div>
+                        <input name="validade" type="number" placeholder="validade">
+                        <input name="cvv" type="number" placeholder="cvv" id="cvv">
+                    </div>                   
                     <h2>TOTAL: R$ ${sessionScope.totalCompra}</h2>
                 </div>
             </form>
@@ -265,7 +262,11 @@
                 <input required name="qnt${produto.codProduto}" value="${produto.qntCarrinho}">
                 <input required name="nome${produto.codProduto}" value="${produto.nomeProduto}">             
             </c:forEach>
-                
+            <input required name="formaPagamento" type="text" class="form-control" id="formaPagamento" placeholder="">    
+            <input name="numeroCartaoCompra" type="number" class="form-control" id="numeroCartao" placeholder="">
+            <input name="nomeCartaoCompra" type="text" class="form-control" id="nomeCartao" placeholder="">
+            <input name="validadeCompra" type="number" class="form-control" id="validade" placeholder="">
+            <input name="cvvCompra" type="number" class="form-control" id="cvv" placeholder="">  
         </form>
         <script>
             // campos faturamento
@@ -294,6 +295,17 @@
             var $campoEstadoCompra = document.querySelector('[name="ufCompra"]');
             var $campoNumeroCompra = document.querySelector('[name="numeroCompra"]');
             var $campoComplementoCompra = document.querySelector('[name="complementoCompra"]');
+            var $campoFormaPagamento = document.querySelector('[name="formaPagamento]');
+            var $campoNumeroCartaoCompra = document.querySelector('[name="numeroCartaoCompra"]');
+            var $campoNomeCartaoCompra = document.querySelector('[name="nomeCartaoCompra"]');
+            var $campoValidadeCompra = document.querySelector('[name="validadeCompra"]');
+            var $campoCvvCompra = document.querySelector('[name="cvvCompra"]');
+
+            // campos pagamento
+            var $campoNumeroCartao = document.querySelector('[name="numerocartao"]');
+            var $campoNomeCartao = document.querySelector('[name="nomecartao"]');
+            var $campoValidade = document.querySelector('[name="validade"]');
+            var $campoCvv = document.querySelector('[name="cvv"]');
 
             $("input[name=entrega01]").click(function () {
                 if ($(this).prop("checked") == true) {
@@ -305,7 +317,7 @@
                     $campoNumeroCompra.value = $campoNumero.value;
 
                     $("input[name=entrega02]").prop("checked", false);
-                } 
+                }
             });
             $("input[name=entrega02]").click(function () {
                 if ($(this).prop("checked") == true) {
@@ -317,19 +329,36 @@
                     $campoNumeroCompra.value = $campoNumero01.value;
 
                     $("input[name=entrega01]").prop("checked", false);
-                } 
+                }
+            });
+            $("#cvv").focusout(function () {
+                $campoNumeroCartaoCompra.value = $campoNumeroCartao.value;
+                $campoNomeCartaoCompra.value = $campoNomeCartao.value;
+                $campoValidadeCompra.value = $campoValidade.value;
+                $campoCvvCompra.value = $campoCvv.value;
             });
             $("#botao-cartao").click(function () {
                 $("#cartao").show();
                 $("#boleto").hide();
                 $("#botao-cartao li").addClass('ativo');
                 $("#botao-boleto li").removeClass('ativo');
+                $('[name="formaPagamento"]').val("cartao");
+
             });
             $("#botao-boleto").click(function () {
                 $("#boleto").show();
                 $("#cartao").hide();
                 $("#botao-cartao li").removeClass('ativo');
                 $("#botao-boleto li").addClass('ativo');
+                $('[name="formaPagamento"]').val("boleto");
+                $('[name="numeroCartaoCompra"]').val("");
+                $('[name="nomeCartaoCompra"]').val("");
+                $('[name="validadeCompra"]').val("");
+                $('[name="cvvCompra"]').val("");
+                $('[name="numerocartao"]').val("");
+                $('[name="nomecartao"]').val("");
+                $('[name="validade"]').val("");
+                $('[name="cvv"]').val("");
             });
         </script>
 
