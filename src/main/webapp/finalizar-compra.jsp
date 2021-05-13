@@ -249,24 +249,30 @@
                 </ul>
             </div>
         </div>
-        <form action="<c:url value="/EfetuarVenda"/>" method="POST">
-            <input required name="nomeCliente" value="${sessionScope.email_cli.codCliente}" type="text" class="form-control" id="nome_cliente" placeholder="">
+        <form action="<c:url value="/PedidosServlet"/>" method="POST">
+            <input required name="codCliente" value="${sessionScope.email_cli.codCliente}" type="text" class="form-control" id="cod_cliente" placeholder="">
             <input required name="cepCompra" type="number" class="form-control" id="cepCompra" placeholder="">
             <input required name="logradouroCompra" type="text" class="form-control" id="logradouroCompra" placeholder="">
             <input required name="bairroCompra" type="text" class="form-control" id="bairroCompra" placeholder="">
             <input required name="localidadeCompra" type="text" class="form-control" id="localidadeCompra" placeholder="">
             <input required name="ufCompra" type="text" class="form-control" id="ufCompra" placeholder="">
             <input required name="numeroCompra" type="number" class="form-control" id="numero" placeholder="">
-            <input required name="totalCompra" type="text" value="${sessionScope.totalCompra}" class="form-control" id="complemento" placeholder="">           
-            <c:forEach items="${sessionScope.listaProdutos}" var="produto">       
-                <input required name="qnt${produto.codProduto}" value="${produto.qntCarrinho}">
-                <input required name="nome${produto.codProduto}" value="${produto.nomeProduto}">             
+            <input required name="complementoCompra" type="text" class="form-control" id="text" placeholder="">
+            <input required name="totalCompra" type="text" value="${sessionScope.totalCompra}" class="form-control" id="complemento" placeholder="">
+            <% int i = 1;%> 
+            <c:forEach items="${sessionScope.listaProdutos}" var="produto">
+                <input required name="qnt<%=i%>" value="${produto.qntCarrinho}">
+                <input required name="nome<%=i%>" value="${produto.nomeProduto}">
+                <input required name="preco<%=i%>" value="${produto.precoProduto}">
+                <%=i++%>
             </c:forEach>
+            <input required name="qtdProduto" value="<%=i%>">
             <input required name="formaPagamento" type="text" class="form-control" id="formaPagamento" placeholder="">    
             <input name="numeroCartaoCompra" type="number" class="form-control" id="numeroCartao" placeholder="">
             <input name="nomeCartaoCompra" type="text" class="form-control" id="nomeCartao" placeholder="">
             <input name="validadeCompra" type="number" class="form-control" id="validade" placeholder="">
-            <input name="cvvCompra" type="number" class="form-control" id="cvv" placeholder="">  
+            <input name="cvvCompra" type="number" class="form-control" id="cvv" placeholder="">
+            <input type="submit" value="Enviar">
         </form>
         <script>
             // campos faturamento
@@ -315,7 +321,7 @@
                     $campoCidadeCompra.value = $campoCidade.value;
                     $campoEstadoCompra.value = $campoEstado.value;
                     $campoNumeroCompra.value = $campoNumero.value;
-
+                    $campoComplementoCompra.value = $campoComplemento.value;
                     $("input[name=entrega02]").prop("checked", false);
                 }
             });
@@ -327,7 +333,7 @@
                     $campoCidadeCompra.value = $campoCidade01.value;
                     $campoEstadoCompra.value = $campoEstado01.value;
                     $campoNumeroCompra.value = $campoNumero01.value;
-
+                    $campoComplementoCompra.value = $campoComplemento01.value;
                     $("input[name=entrega01]").prop("checked", false);
                 }
             });
@@ -342,7 +348,7 @@
                 $("#boleto").hide();
                 $("#botao-cartao li").addClass('ativo');
                 $("#botao-boleto li").removeClass('ativo');
-                $('[name="formaPagamento"]').val("cartao");
+                $('[name="formaPagamento"]').val("c");
 
             });
             $("#botao-boleto").click(function () {
@@ -350,7 +356,7 @@
                 $("#cartao").hide();
                 $("#botao-cartao li").removeClass('ativo');
                 $("#botao-boleto li").addClass('ativo');
-                $('[name="formaPagamento"]').val("boleto");
+                $('[name="formaPagamento"]').val("b");
                 $('[name="numeroCartaoCompra"]').val("");
                 $('[name="nomeCartaoCompra"]').val("");
                 $('[name="validadeCompra"]').val("");
