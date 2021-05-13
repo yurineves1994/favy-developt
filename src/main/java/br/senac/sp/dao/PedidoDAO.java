@@ -1,10 +1,13 @@
 package br.senac.sp.dao;
 
 import br.senac.sp.db.ConexaoDB;
+import br.senac.sp.entidade.ItemVenda;
 import br.senac.sp.entidade.Pedido;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class PedidoDAO {
     
@@ -27,5 +30,27 @@ public class PedidoDAO {
         ps.setInt(13, pedidos.getCodCliente());
         ps.execute();
         ps.close();
+    }
+        
+    public static void addItemVenda(ArrayList<ItemVenda> itens) throws SQLException, ClassNotFoundException {
+        Connection con = ConexaoDB.obterConexao();
+        
+        String queryCod = "select max(cod_pedido) as cod_pedido from pedidos";
+        PreparedStatement ps = con.prepareStatement(queryCod);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        Integer codProduto = rs.getInt("cod_pedido");
+        
+        for (ItemVenda itensLista : itens) {
+            String query = "insert into itens_venda(nome_item, qtd_item, preco_unit, preco_total, cod_pedido) values (?,?,?,?,?)";
+            PreparedStatement psItem = con.prepareStatement(query);
+            psItem.setString(1, itensLista.getNomeItem());
+            psItem.setInt(2, itensLista.getQtdItem());
+            psItem.setDouble(3, itensLista.getPrecoUnitario());
+            psItem.setDouble(4, itensLista.getPrecoTotal());
+            psItem.setInt(5, codProduto);
+            psItem.execute();
+            psItem.close();
+        }
     }
 }

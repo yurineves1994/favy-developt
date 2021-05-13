@@ -266,7 +266,7 @@
                 <input required name="preco<%=i%>" value="${produto.precoProduto}">
                 <%=i++%>
             </c:forEach>
-            <input required name="qtdProduto" value="<%=i%>">
+            <input required name="qntProduto" value="<%=i%>">
             <input required name="formaPagamento" type="text" class="form-control" id="formaPagamento" placeholder="">    
             <input name="numeroCartaoCompra" type="number" class="form-control" id="numeroCartao" placeholder="">
             <input name="nomeCartaoCompra" type="text" class="form-control" id="nomeCartao" placeholder="">

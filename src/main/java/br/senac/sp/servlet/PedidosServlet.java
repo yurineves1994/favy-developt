@@ -1,10 +1,13 @@
 package br.senac.sp.servlet;
 
 import br.senac.sp.dao.PedidoDAO;
+import br.senac.sp.entidade.ItemVenda;
 import br.senac.sp.entidade.Pedido;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -38,10 +41,23 @@ public class PedidosServlet extends HttpServlet {
         String dataPedido = "2000/01/01";
         int codCliente = Integer.parseInt(request.getParameter("codCliente"));
         
+        ArrayList<ItemVenda> listaItens = new ArrayList<ItemVenda>();
+        
+        int qntProduto = Integer.parseInt(request.getParameter("qntProduto"));
+        double totalProduto;
+        for (int i = 1; i <= qntProduto - 1; i++) {
+            int qntItem = Integer.parseInt(request.getParameter("qnt" + i));
+            String nomeItem = request.getParameter("nome" + i);
+            double precoItem = Double.parseDouble(request.getParameter("preco" + i));
+            totalProduto = precoItem * qntItem;
+            listaItens.add(new ItemVenda(nomeItem, qntItem, precoItem, totalProduto));
+        }
+        
         Pedido pedido = new Pedido(cepEndereco,ruaEndereco,bairroEndereco,cidadeEndereco,ufEndereco,numEndereco,complementoCompra,valorFrete,formaPagamento,valorFinal,dataPedido,statusPedido,codCliente);
         
         try {
             PedidoDAO.addPedido(pedido);
+            PedidoDAO.addItemVenda(listaItens);
             response.sendRedirect("compra_finalizada.jsp");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
