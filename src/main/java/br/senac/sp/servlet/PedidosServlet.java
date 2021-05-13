@@ -4,12 +4,12 @@ import br.senac.sp.dao.PedidoDAO;
 import br.senac.sp.entidade.ItemVenda;
 import br.senac.sp.entidade.Pedido;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +21,13 @@ public class PedidosServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        List<Pedido> listaPedido = PedidoDAO.listarPedido();
+
+        request.setAttribute("listarPedido", listaPedido);
+        
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/compra_finalizada.jsp");
+        requestDispatcher.forward(request, response);
+    
     }
 
     @Override
@@ -38,7 +45,7 @@ public class PedidosServlet extends HttpServlet {
         String formaPagamento = request.getParameter("formaPagamento");
         char statusPedido = 'a';
         double valorFinal = Double.parseDouble(request.getParameter("totalCompra"));
-        String dataPedido = "2000/01/01";
+        String dataPedido = "2021/05/13";
         int codCliente = Integer.parseInt(request.getParameter("codCliente"));
         
         ArrayList<ItemVenda> listaItens = new ArrayList<ItemVenda>();

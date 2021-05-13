@@ -3,11 +3,16 @@ package br.senac.sp.dao;
 import br.senac.sp.db.ConexaoDB;
 import br.senac.sp.entidade.ItemVenda;
 import br.senac.sp.entidade.Pedido;
+import br.senac.sp.entidade.Produto;
+import br.senac.sp.servlet.ServletBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PedidoDAO {
     
@@ -53,4 +58,72 @@ public class PedidoDAO {
             psItem.close();
         }
     }
+    
+    public static List<Pedido> listarPedido() {
+        List<Pedido> listarPedido = new ArrayList();
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from pedidos where cod_pedido = (select max(cod_pedido) as cod_pedido from pedidos);";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String cepCompra = rs.getString("cep_end");
+                String logradouroCompra = rs.getString("rua_end");
+                String bairroCompra = rs.getString("bairro_end");
+                String localidadeCompra = rs.getString("cidade_end");
+                String ufCompra = rs.getString("estado_end");
+                String numeroCompra = rs.getString("numero_end");
+                String complementoCompra = rs.getString("compl_end");
+                double valorFrete = rs.getDouble("valor_frete");
+                String formaPagamento = rs.getString("formaPagamento");
+                double totalCompra = rs.getDouble("valor_final");
+                String dataPedido = rs.getString("data_pedido");
+                char statusPedido = rs.getString("status_pedido").charAt(0);
+                int codCliente = rs.getInt("codCliente");
+                listarPedido.add(new Pedido(cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return listarPedido;
+    }
+    
+    
+    public static Pedido exibirPedido() {
+        Pedido pedido = null;
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from pedidos where cod_pedido = (select max(cod_pedido) as cod_pedido from pedidos);";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String cepCompra = rs.getString("cep_end");
+                String logradouroCompra = rs.getString("rua_end");
+                String bairroCompra = rs.getString("bairro_end");
+                String localidadeCompra = rs.getString("cidade_end");
+                String ufCompra = rs.getString("estado_end");
+                String numeroCompra = rs.getString("numero_end");
+                String complementoCompra = rs.getString("compl_end");
+                double valorFrete = rs.getDouble("valor_frete");
+                String formaPagamento = rs.getString("formaPagamento");
+                double totalCompra = rs.getDouble("valor_final");
+                String dataPedido = rs.getString("data_pedido");
+                char statusPedido = rs.getString("status_pedido").charAt(0);
+                int codCliente = rs.getInt("codCliente");
+                pedido = new Pedido(cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return pedido;
+    }
+    
 }
