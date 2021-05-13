@@ -65,7 +65,7 @@ public class PedidosServlet extends HttpServlet {
         try {
             PedidoDAO.addPedido(pedido);
             PedidoDAO.addItemVenda(listaItens);
-            response.sendRedirect("compra_finalizada.jsp");
+            response.sendRedirect("ExibirPedido");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);
