@@ -50,18 +50,18 @@
                     <!-- Email -->
                     <div class="form-group" >
                         <label for="exampleFormControlSelect1"> Email </label>
-                        <input required name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="" value="${usuario.emailUsuario}">
+                        <input required readonly name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="" value="${usuario.emailUsuario}">
                     </div>
                     
                     <!-- Senha -->
                     <div class="form-group">
                         <label for="exampleFormControlSelect1"> Senha </label>
-                        <input id="senha2" required name="senha" type="password" class="form-control" id="exampleFormControlInput1" placeholder=" ">
+                        <input id="senha2" required name="senha" type="password" class="form-control" id="exampleFormControlInput1" placeholder=" " minlength="3">
                     </div>
                     <!-- *Senha -->
                     <div class="form-group">
                         <label for="exampleFormControlSelect1"> Confirme sua senha </label>
-                        <input id="senha2" required type="password" class="form-control" id="exampleFormControlInput1" placeholder=" ">
+                        <input id="senha2" required type="password" class="form-control" id="exampleFormControlInput1" placeholder=" " minlength="3">
                     </div>
                     
                     <div class="campo-right">

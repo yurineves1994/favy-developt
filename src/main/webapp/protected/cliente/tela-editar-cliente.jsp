@@ -27,30 +27,30 @@
                     <div class="form-group">
                         <label for="nome_cliente"> Nome </label>
                         <input style="display:none;" value="${cliente.codCliente}" required name="cod_cliente" type="text"  placeholder="">
-                        <input value="${cliente.nomeCliente}" required name="nome" type="text" class="form-control" id="nome_cliente" placeholder="">
+                        <input value="${cliente.nomeCliente}" required name="nome" type="text" class="form-control" id="nome_cliente" placeholder="" minlength="5">
                     </div>
 
                     <!-- Cpf -->
                     <div class="form-group">
                         <label for="cpf_cliente"> CPF </label>
-                        <input value="${cliente.cpfCliente}" required name="cpf" type="text" class="form-control" id="cpf_cliente" minlength="11" maxlength="11">
+                        <input value="${cliente.cpfCliente}" readonly required name="cpf" type="text" class="form-control" id="cpf_cliente" minlength="11" maxlength="11">
                     </div>
 
                     <!-- Email -->
-                    <div class="form-group" style="display: none;">
+                    <div class="form-group">
                         <label for="email_cliente"> E-mail </label>
-                        <input value="${cliente.emailCliente}" required name="email" type="email" class="form-control" id="email_cliente" placeholder="">
+                        <input value="${cliente.emailCliente}" readonly required name="email" type="email" class="form-control" id="email_cliente" placeholder="">
                     </div>
 
                     <!-- Senha -->
                     <div class="form-group">
                         <label for="senha1"> Senha </label>
-                        <input id="senha1" required name="senha" type="password" class="form-control" placeholder=" ">
+                        <input id="senha1" required name="senha" type="password" class="form-control" placeholder=" " minlength="3">
                     </div>
                     <!-- *Senha -->
                     <div class="form-group">
                         <label for="senha2"> Confirme sua senha </label>
-                        <input id="senha2" required type="password" class="form-control" placeholder=" ">
+                        <input id="senha2" required type="password" class="form-control" placeholder=" " minlength="3">
                     </div>
                     <fieldset class="row" id="endereco-faturamento">
                         <legend>Endereço Faturamento</legend>

@@ -18,6 +18,9 @@
         <link rel="stylesheet" href="estilos/estiloCarrinhoVendas.css">
         <%@include file="header-loja.jsp"%>
         <style>
+            .fretes {
+                display: none;
+            }
             .inativo {
                 display: none;
             }
@@ -48,8 +51,8 @@
                 align-items: center;
             }
             .caminho-compra > div {
-               margin-left: 50px; 
-               margin-right:  50px; 
+                margin-left: 50px; 
+                margin-right:  50px; 
             }
             .caminho-compra > div.hoje {               
                 padding: 20px;
@@ -57,10 +60,10 @@
                 color: white;
                 border-radius: 15px;
             }
-            
+
         </style>
     </head>
-    
+
     <body style="background-color: rgb(255, 255, 255);">
         <nav class="cabecalho">
             <h1 class="logo">FAVY</h1>
@@ -117,10 +120,24 @@
                                     </c:forEach> 
                                 </tbody>
                             </table>
-                            <fieldset>
-                                <label>Frete</label>
-                                <input name="cep" type="number" id="cep" placeholder="">
-                            </fieldset>
+                            <input name="cepfrete" type="number" id="cepfrete" placeholder="">
+                            <div class="fretes">
+                                 <fieldset>
+                                    <label>Frete 01</label>
+                                    <input name="frete1" type="number" id="frete1" placeholder="">
+                                    <span>19,00</span>
+                                </fieldset>
+                                <fieldset>
+                                    <label>Frete 02</label>
+                                    <input name="frete2" type="number" id="frete2" placeholder="">
+                                    <span>10,00</span>
+                                </fieldset>
+                                <fieldset>
+                                    <label>Frete 03</label>
+                                    <input name="frete3" type="number" id="frete3" placeholder="">
+                                    <span>13,00</span>
+                                </fieldset>
+                            </div>
                         </div>
 
                         <!-- Container Resumo do pedido -->
@@ -138,7 +155,7 @@
                                 </c:forEach>
                             </ul>
                             <div class="caixaTotal">
-                                <span class="txtTotal">Frete</span>
+                                <span class="txtTotal">SubTotal</span>
                                 <span class="txtTotal">R$ ${sessionScope.totalCompra} + $frete </span>
                             </div>
 
@@ -169,25 +186,30 @@
             <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
             <script>
+                var $campoCepFrete = document.querySelector('[name="cepfrete"]');
+                var $campoFrete1 = document.querySelector('[name="frete1"]');
+                var $campoFrete2 = document.querySelector('[name="frete2"]');
+                var $campoFrete3 = document.querySelector('[name="frete3"]');
 
-                                                            function adicionarProdutoCarrinho(codProduto, x) {
-                                                                if (x === 2) {
-                                                                    $.get("CarrinhoProduto?codProduto=" + codProduto, function (resposta) {
-                                                                        let numeroCarrinho = 0;
-                                                                        numeroCarrinho += 1;
-                                                                        document.location.reload(true);
-                                                                    });
+                $("#cepfrete").focusout(function () {
+                    $(".fretes").show();
+                });
+                function adicionarProdutoCarrinho(codProduto, x) {
+                    if (x === 2) {
+                        $.get("CarrinhoProduto?codProduto=" + codProduto, function (resposta) {
+                            let numeroCarrinho = 0;
+                            numeroCarrinho += 1;
+                            document.location.reload(true);
+                        });
 
-                                                                } else {
-                                                                    $.get("CarrinhoProduto?codProduto=" + codProduto + " " + 1, function (resposta) {
-                                                                        let numeroCarrinho = 0;
-                                                                        numeroCarrinho -= 1;
-                                                                        document.location.reload(true);
-                                                                    });
-                                                                }
-                                                            }
-
-
+                    } else {
+                        $.get("CarrinhoProduto?codProduto=" + codProduto + " " + 1, function (resposta) {
+                            let numeroCarrinho = 0;
+                            numeroCarrinho -= 1;
+                            document.location.reload(true);
+                        });
+                    }
+                }
             </script>
         </section>
     </body>
