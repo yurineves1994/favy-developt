@@ -21,11 +21,12 @@ public class PedidosServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Pedido> listaPedido = PedidoDAO.listarPedido();
+        Integer codCliente = Integer.parseInt(request.getParameter("codCliente"));
+        List<Pedido> listaPedido = PedidoDAO.listarPedido(codCliente);
 
         request.setAttribute("listarPedido", listaPedido);
         
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/compra_finalizada.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/cliente/tela-listar-pedido.jsp");
         requestDispatcher.forward(request, response);
     
     }

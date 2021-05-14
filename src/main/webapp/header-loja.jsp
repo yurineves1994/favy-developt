@@ -4,6 +4,7 @@
     Author     : yurin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -154,6 +155,9 @@
                                 <div class="menuItens" id="menuAparecer">
                                     <p class="linkFunc">
                                         <a class="editar_cliente" href="<c:url value="/EditarCliente?codCliente=${sessionScope.email_cli.codCliente}"/>">Editar</a>
+                                    </p>
+                                    <p class="linkFunc">
+                                        <a class="editar_cliente" href="<c:url value="/PedidosServlet?codCliente=${sessionScope.email_cli.codCliente}"/>">Editar</a>
                                     </p>
                                     <p class="linkFunc">
                                         <a class="editar_cliente" href="<c:url value="/Logout"/>">Logout</a>

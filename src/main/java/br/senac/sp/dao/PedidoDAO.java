@@ -59,12 +59,13 @@ public class PedidoDAO {
         }
     }
     
-    public static List<Pedido> listarPedido() {
+    public static List<Pedido> listarPedido(Integer codClient) {
         List<Pedido> listarPedido = new ArrayList();
         try {
             Connection con = ConexaoDB.obterConexao();
-            String query = "select * from pedidos where cod_pedido = (select max(cod_pedido) as cod_pedido from pedidos);";
+            String query = "select * from pedidos where cod_cliente = ?;";
             PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, codClient);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String cepCompra = rs.getString("cep_end");
@@ -75,11 +76,11 @@ public class PedidoDAO {
                 String numeroCompra = rs.getString("numero_end");
                 String complementoCompra = rs.getString("compl_end");
                 double valorFrete = rs.getDouble("valor_frete");
-                String formaPagamento = rs.getString("formaPagamento");
+                String formaPagamento = rs.getString("forma_pagamento");
                 double totalCompra = rs.getDouble("valor_final");
                 String dataPedido = rs.getString("data_pedido");
                 char statusPedido = rs.getString("status_pedido").charAt(0);
-                int codCliente = rs.getInt("codCliente");
+                int codCliente = rs.getInt("cod_cliente");
                 listarPedido.add(new Pedido(cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
             }
         } catch (ClassNotFoundException ex) {
