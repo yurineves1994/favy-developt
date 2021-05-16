@@ -10,6 +10,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+        
         <title>JSP Page</title>
         <style>
             body {
@@ -160,6 +164,66 @@
                 color: white;
                 border-radius: 15px;
             }
+
+
+            /*Nova Versão*/
+            .cxa_resumoComparCenterV2{
+                padding: 48px;
+            }
+            .cxa_tituloResumoCompraV2{
+                margin-bottom: 20px;
+                border-bottom: 1px solid #e6e6e6;
+            }
+            .textoTituloResumoCompraV2{
+                font-size: 16px;
+                font-weight: 600;
+                padding: 8px 0 12px;
+                display: inline-block;
+            }
+            .detalheV2{
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                padding: .4rem 0;
+            }
+
+
+            /*endereco*/
+            .cxa_selecioneEnderecoV2{
+                background-color: #f5f5f5;
+                padding: 20px 32px;
+                width: 100%;
+                text-align: left;
+                border-radius: 9px;
+            }
+
+            .iconEnderecoV2{
+                width: 21px;
+                padding-top: 14px;
+            }
+            .cxa_iconV2{
+                float: left;
+                padding-right: 24px;
+                text-align: center;
+                padding-top: 8px;
+            }
+            .cxa_estiloIconV2{
+                width: 60px;
+                height: 60px;
+                background-color: white;
+                border-radius: 100%;
+            }
+
+            .cxa_infoV2{
+                display: table-cell;
+                width: 100%;
+                
+            }
+            .txt_ruaENumeroV2{
+                font-size: 16px;
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
         </style>
     </head>
 
@@ -173,6 +237,113 @@
                 <div>Obrigado, volte sempre!</div>
             </div>
         </nav>
+
+
+
+        <section class="container" style="max-width: 1286px; margin-top: 150px;">
+            
+            <div class="row">
+                <div class="col-md-8">
+                    <h2> Endereço selecionado </h2>
+
+                    <div class="cxa_selecioneEnderecoV2">
+                        <div class="cxa_iconV2">
+                            <div class="cxa_estiloIconV2">
+                                <img src="icones/icon-endereco.png" class="iconEnderecoV2">
+                            </div>
+                        </div>
+
+                        <div class="cxa_infoV2">
+                            <span class="txt_ruaENumeroV2"> ${sessionScope.email_cli.ruaEnt1}&nbsp${sessionScope.email_cli.numEnt1} </span>
+                            <br>
+                            <p style="margin-bottom: 5px;"><span class="txt_enderecoV2"> ${sessionScope.email_cli.cidadeEnt1}, ${sessionScope.email_cli.ufEnt1} - CEP ${sessionScope.email_cli.cepEnt1}  </span></p>
+                            <span class="txt_enderecoV2"> ${sessionScope.email_cli.nomeCliente} </span>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <ul class="menu-pagamento">
+                        <a href="#" id="botao-cartao"><li class="ativo">Cartão de Credito</li></a>
+                        <a href="#" id="botao-boleto"><li>Boleto</li></a>
+                    </ul>
+                    <div id="cartao">
+                        <form class="pagamento" action="post">
+                            <legend>Cartão</legend>
+                            <div class="row">
+                                <div>
+                                    <input name="numerocartao" type="number" placeholder="numero cartão">
+                                </div>
+                                <div>
+                                    <input name="nomecartao" type="text" placeholder="nome impresso no cartão">
+                                </div>
+                                <div>
+                                    <input name="validade" type="number" placeholder="validade">
+                                    <input name="cvv" type="number" placeholder="cvv" id="cvv">
+                                </div>                   
+                                <h2>TOTAL: R$ ${sessionScope.totalCompra}</h2>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="boleto">
+                        <div class="pagamento">
+                            <h4>Boleto</h4>
+                            <ul>
+                                <li>-> o boleto e pague no banco</li>
+                                <li>-> ou pague pela internet utilizando o código de barras do boleto</li>
+                                <li>-> o prazo de validade do boleto é de 1 dia util</li>
+                                <h2>TOTAL: R$ ${sessionScope.totalCompra}</h2>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-6 col-md-4" style="background-color: #f8f8f8;">
+
+                    <div class="cxa_resumoComparCenterV2">
+                        <h3 class="cxa_tituloResumoCompraV2"> 
+                            <span class="textoTituloResumoCompraV2">Resumo da compra</span>
+                        </h3>
+                        
+                        <div>
+                            <c:forEach items="${sessionScope.listaProdutos}" var="produto">
+                                <li class="detalheV2">
+                                    <span> ${produto.nomeProduto}(${produto.qtdProduto}) </span>
+                                    <span> R$ ${produto.precoProduto} </span>
+                                </li>
+                            </c:forEach>
+                            <div class="cxa_tituloResumoCompraV2">
+                                <li class="detalheV2">
+                                    <span> Frete </span>
+                                    <span> R$  </span>
+                                </li>
+                            </div>
+                        </div>
+                        <div>
+                            <li class="detalheV2">
+                                <span> Total </span>
+                                <span> R$  ${sessionScope.totalCompra} </span>
+                            </li>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+
+
         <div class="informacoes-finalizar-entrega">
             <c:if test="${sessionScope.email_cli.cepEnt1 != null}"> 
                 <form>
@@ -207,6 +378,12 @@
                 </form>
             </c:if>
         </div>
+
+
+    <div style="display: none;">
+
+
+
         <div class="informacoes-finalizar">
             <div class="div-resumo-compra">
                 <h3>Resumo da Compra</h3>
@@ -249,7 +426,14 @@
                 </ul>
             </div>
         </div>
+
+    </div>
+
+
         <form action="<c:url value="/PedidosServlet"/>" method="POST">
+
+        <div style="display: none;">
+
             <input required name="codCliente" value="${sessionScope.email_cli.codCliente}" type="text" class="form-control" id="cod_cliente" placeholder="">
             <input required name="cepCompra" type="number" class="form-control" id="cepCompra" placeholder="">
             <input required name="logradouroCompra" type="text" class="form-control" id="logradouroCompra" placeholder="">
@@ -272,6 +456,9 @@
             <input name="nomeCartaoCompra" type="text" class="form-control" id="nomeCartao" placeholder="">
             <input name="validadeCompra" type="number" class="form-control" id="validade" placeholder="">
             <input name="cvvCompra" type="number" class="form-control" id="cvv" placeholder="">
+            
+        </div>    
+            
             <input type="submit" value="Enviar">
         </form>
         <script>
