@@ -171,6 +171,11 @@
                 T - Em transito		        Laranja
                 E - Entregue		        Verde
             */
+
+            var VERMELHO = "#F74A16";
+            var LARANJA = "#ff9942";
+            var VERDE = "#6DF789";
+
             var cont = Number(document.getElementById('contador').innerText);
 
             for(var i=1; i < cont; i++){
@@ -185,44 +190,44 @@
                 if(status == "a"){
                     txtStatus.innerHTML = "Aguardando pagamento";
 
-                    txtStatus.style.color="#ff9942";
-                    imgColor.style.color="#ff9942";
-                    circleColor.style.border= "solid 2px #ff9942";
+                    txtStatus.style.color= LARANJA;
+                    imgColor.style.color= LARANJA;
+                    circleColor.style.border= "solid 2px "+LARANJA;
                 
                 } else if(status == "p"){
                     txtStatus.innerHTML = "Pagamento Rejeitado";
 
-                    txtStatus.style.color="#F74A16";
-                    imgColor.style.color="#F74A16";
-                    circleColor.style.border= "solid 2px #F74A16";
+                    txtStatus.style.color= VERMELHO;
+                    imgColor.style.color= VERMELHO;
+                    circleColor.style.border= "solid 2px "+VERMELHO;
 
                 } else if(status == "s"){
                     txtStatus.innerHTML = "Pagamento com sucesso";
 
-                    txtStatus.style.color="#0cc532";
-                    imgColor.style.color="#0cc532";
-                    circleColor.style.border= "solid 2px #0cc532";
+                    txtStatus.style.color= VERDE;
+                    imgColor.style.color= VERDE;
+                    circleColor.style.border= "solid 2px "+VERDE;
                 
                 } else if(status == "r"){
                     txtStatus.innerHTML = "Aguardando retirada";
 
-                    txtStatus.style.color="#F74A16";
-                    imgColor.style.color="#F74A16";
-                    circleColor.style.border= "solid 2px #F74A16";
+                    txtStatus.style.color= VERMELHO;
+                    imgColor.style.color= VERMELHO;
+                    circleColor.style.border= "solid 2px "+VERMELHO;
                 
                 } else if(status == "t"){
                     txtStatus.innerHTML = "Em transito";
 
-                    txtStatus.style.color="#ff9942";
-                    imgColor.style.color="#ff9942";
-                    circleColor.style.border= "solid 2px #ff9942";
+                    txtStatus.style.color= LARANJA;
+                    imgColor.style.color= LARANJA;
+                    circleColor.style.border= "solid 2px "+LARANJA;
                 
                 } else if(status == "e"){
                     txtStatus.innerHTML = "Entregue";
 
-                    txtStatus.style.color="#0cc532";
-                    imgColor.style.color="#0cc532";
-                    circleColor.style.border= "solid 2px #0cc532";
+                    txtStatus.style.color= VERDE;
+                    imgColor.style.color= VERDE;
+                    circleColor.style.border= "solid 2px "+VERDE;
                 
                 }
             }
