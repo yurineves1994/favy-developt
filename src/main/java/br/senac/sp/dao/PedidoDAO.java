@@ -3,17 +3,12 @@ package br.senac.sp.dao;
 import br.senac.sp.db.ConexaoDB;
 import br.senac.sp.entidade.ItemVenda;
 import br.senac.sp.entidade.Pedido;
-import br.senac.sp.entidade.Produto;
 import br.senac.sp.servlet.ServletBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -101,6 +96,32 @@ public class PedidoDAO {
                     log(Level.SEVERE, null, ex);
         }
         return listarPedido;
+    }
+    public static List<ItemVenda> listarProdutosPedido(Integer codPedido){
+        List<ItemVenda> listarProdutosPedido = new ArrayList();
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from itens_venda where cod_pedido = ?;";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, codPedido);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int codItem = rs.getInt("cod_item");
+                String nomeItem = rs.getString("nome_item");
+                int qtdItem = rs.getInt("qtd_item");
+                double precoUnitario = rs.getDouble("preco_unit");
+                double precoTotal = rs.getDouble("preco_total");
+                
+                listarProdutosPedido.add(new ItemVenda(codItem,nomeItem, qtdItem, precoUnitario, precoTotal, codPedido));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return listarProdutosPedido;
     }
     
     

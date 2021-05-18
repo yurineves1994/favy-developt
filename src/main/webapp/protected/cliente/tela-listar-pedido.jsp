@@ -105,34 +105,36 @@
         <section>
             <% int i = 1;%> 
             <c:forEach items="${listarPedido}" var="pedido">
-                <div class="cxa_dadosDaCompra">
-                    <div class="cicloImg" id="circleColor<%=i%>">
-                        <span id="imgColor<%=i%>" class="material-icons centerImg" style="font-size: 2rem; color: #F79E2A; cursor: pointer;">
-                            shopping_cart
-                        </span>
-                    </div>
-
-                    <div class="cxa_codAndStatus">
-                        <span class="titulo" id="textPedido<%=i%>">...</span>
-                        <br>
-                        <br>
-                        <span class="info">Codigo da compra: 00${pedido.codPedido}</span>
-                    </div>
-
-                    <div class="cxa_dataAndTotal">
-                        <div style="display: none;">
-                            <span class="info" id="data<%=i%>">${pedido.dataPedido}</span>
+                <a href="ProdutosPedido?codPedido=${pedido.codPedido}">
+                    <div class="cxa_dadosDaCompra">
+                        <div class="cicloImg" id="circleColor<%=i%>">
+                            <span id="imgColor<%=i%>" class="material-icons centerImg" style="font-size: 2rem; color: #F79E2A; cursor: pointer;">
+                                shopping_cart
+                            </span>
                         </div>
-                        <span class="info" id="ajustaData<%=i%>">...</span>
-                        <br>
-                        <br>
-                        <span class="info">R$${pedido.valorFinal}</span>
+
+                        <div class="cxa_codAndStatus">
+                            <span class="titulo" id="textPedido<%=i%>">...</span>
+                            <br>
+                            <br>
+                            <span class="info">Codigo da compra: 00${pedido.codPedido}</span>
+                        </div>
+
+                        <div class="cxa_dataAndTotal">
+                            <div style="display: none;">
+                                <span class="info" id="data<%=i%>">${pedido.dataPedido}</span>
+                            </div>
+                            <span class="info" id="ajustaData<%=i%>">...</span>
+                            <br>
+                            <br>
+                            <span class="info">R$${pedido.valorFinal}</span>
+                        </div>
                     </div>
-                </div>
-                <div style="display: none;"> 
-                    <p id="status<%=i%>" >${pedido.statusPedido}</p> 
-                    <%=i++%>
-                </div>
+                    <div style="display: none;"> 
+                        <p id="status<%=i%>" >${pedido.statusPedido}</p> 
+                        <%=i++%>
+                    </div>
+                </a>              
             </c:forEach>
 
             <div style="display: none;"> 

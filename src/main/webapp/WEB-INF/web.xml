@@ -96,6 +96,10 @@
         <servlet-name>ExibirPedido</servlet-name>
         <servlet-class>br.senac.sp.servlet.ExibirPedido</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProdutosPedido</servlet-name>
+        <servlet-class>br.senac.sp.servlet.ProdutosPedido</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
@@ -183,6 +187,10 @@
     <servlet-mapping>
         <servlet-name>ExibirPedido</servlet-name>
         <url-pattern>/ExibirPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProdutosPedido</servlet-name>
+        <url-pattern>/ProdutosPedido</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
