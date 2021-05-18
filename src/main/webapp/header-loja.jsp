@@ -93,11 +93,12 @@
 
                 text-align: center;
                 margin-top: 3px;
-
+                
+                padding: 10px;
                 background-color: white;
 
-                width: 115px;
-                height: 65px;
+                width: 90px;
+                height: auto;
                 position: absolute;
                 border-radius: 9px;
             }

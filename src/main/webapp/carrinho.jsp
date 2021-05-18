@@ -120,6 +120,15 @@
                                     </c:forEach> 
                                 </tbody>
                             </table>
+                            
+                            <fieldset>
+                                <label>Frete</label>
+                                <input name="cep" type="number" id="cep" placeholder="">
+                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 3)">add</span> 20 Conto
+                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 4)">add</span> 30 Conto
+                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 5)">add</span> 40 Conto
+                            </fieldset>
+                            
                             <input name="cepfrete" type="number" id="cepfrete" placeholder="">
                             <div class="fretes">
                                  <fieldset>
@@ -156,12 +165,12 @@
                             </ul>
                             <div class="caixaTotal">
                                 <span class="txtTotal">SubTotal</span>
-                                <span class="txtTotal">R$ ${sessionScope.totalCompra} + $frete </span>
+                                <span class="txtTotal">R$ ${sessionScope.totalCompra} + ${sessionScope.frete} </span>
                             </div>
 
                             <div class="caixaTotal">
                                 <span class="txtTotal">Total</span>
-                                <span class="txtTotal">R$ ${sessionScope.totalCompra}</span>
+                                <span class="txtTotal">R$ ${sessionScope.totalCompra + sessionScope.frete}</span>
                             </div>
                             <c:choose>
                                 <c:when test="${sessionScope.email_cli.cliente}">
@@ -195,20 +204,15 @@
                     $(".fretes").show();
                 });
                 function adicionarProdutoCarrinho(codProduto, x) {
-                    if (x === 2) {
-                        $.get("CarrinhoProduto?codProduto=" + codProduto, function (resposta) {
-                            let numeroCarrinho = 0;
-                            numeroCarrinho += 1;
-                            document.location.reload(true);
-                        });
+                    console.log(x);
 
-                    } else {
-                        $.get("CarrinhoProduto?codProduto=" + codProduto + " " + 1, function (resposta) {
-                            let numeroCarrinho = 0;
-                            numeroCarrinho -= 1;
-                            document.location.reload(true);
-                        });
-                    }
+                                                                
+                    $.get("CarrinhoProduto?codProduto=" + codProduto + " " + x, function (resposta) {
+                        let numeroCarrinho = 0;
+                        numeroCarrinho -= 1;
+                        document.location.reload(true);
+                    });
+                                                                
                 }
             </script>
         </section>

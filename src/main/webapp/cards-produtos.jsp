@@ -79,7 +79,7 @@
                             <div class="card-body">
                                 <a class="link_nome_produto" href="VisualizarProduto?codProduto=${produto.codProduto}"><p class="card-title">${produto.nomeProduto}</p></a>
                                 <p>${produto.descricao}</p>
-                                <a class="btn btn-primary" onclick="adicionarProdutoCarrinho(${produto.codProduto})">ADICIONAR AO COMPRAR</a>      
+                                <a class="btn btn-primary" onclick="adicionarProdutoCarrinho(${produto.codProduto}, 2)">ADICIONAR AO COMPRAR</a>      
                             </div>
                         </div>
                     </div>
@@ -99,8 +99,8 @@
         });
               
         
-        function adicionarProdutoCarrinho(codProduto) {
-            $.get("CarrinhoProduto?codProduto=" + codProduto, function (resposta) {
+        function adicionarProdutoCarrinho(codProduto, x) {
+            $.get("CarrinhoProduto?codProduto=" + codProduto+" "+x, function (resposta) {
                 let numeroCarrinho = 0;
                 numeroCarrinho += 1;
                 document.location.reload(true);

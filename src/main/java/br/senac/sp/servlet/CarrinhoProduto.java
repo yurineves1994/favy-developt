@@ -20,17 +20,20 @@ public class CarrinhoProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession sessao = request.getSession();
+       HttpSession sessao = request.getSession();
         String codAndAction = request.getParameter("codProduto");
         String values[] = codAndAction.split(" ");
         
         // Variáveis de controle
         int codProduto = 0;
         String action = "";
-        if( values.length == 1 ){
+        
+        int validaFrete = Integer.parseInt(values[1]);
+        
+        if( validaFrete == 2 ){
             action = "add";
             codProduto = Integer.parseInt(values[0]);
-        } else {
+        } else if( validaFrete == 1 ) {
             action = "remove";
             codProduto = Integer.parseInt(values[0]);
         }                
@@ -38,7 +41,7 @@ public class CarrinhoProduto extends HttpServlet {
         Produto produto = ProdutosDAO.obterProduto(codProduto);
 
         double totalCompra = 0;
-        double subTotal = produto.getPrecoProduto();
+        //double subTotal = produto.getPrecoProduto();
         int qntProduto = 0;
         
         List<Produto> listaProdutos;
@@ -47,6 +50,25 @@ public class CarrinhoProduto extends HttpServlet {
         } else {
             listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
         }
+        
+        
+        if(validaFrete == 3 || validaFrete == 4 || validaFrete == 5){
+            double frete = 0;
+            System.out.println(validaFrete);
+            if( validaFrete == 3 ){
+                frete = 20.00;
+            } else if( validaFrete == 4 ){
+                frete = 30.00;
+            } else if( validaFrete == 5 ) {
+                frete = 40.00;
+            }
+            
+            sessao.setAttribute("frete", frete);
+            return;
+        }
+        double subTotal = produto.getPrecoProduto();
+        System.out.println(action);
+        
         
         if( action.equals("add") && produto.getQntCarrinho() < produto.getQtdProduto() ){
             if (sessao.getAttribute("totalCompra") == null) {
@@ -66,34 +88,35 @@ public class CarrinhoProduto extends HttpServlet {
             }  
         }
                 
-        
         boolean jaExiste = false;
-        for (Produto prod : listaProdutos) {
-            
-            if( prod.getCodProduto() == codProduto && action.equals("add")){
-                jaExiste = true;
-                
-                if( prod.getQntCarrinho() < prod.getQtdProduto() ){
-                    prod.setQntCarrinho(prod.getQntCarrinho() + 1);
+        if(action.equals("remove") || action.equals("add")){
+            for (Produto prod : listaProdutos) {
+
+                if( prod.getCodProduto() == codProduto && action.equals("add")){
+                    jaExiste = true;
+
+                    if( prod.getQntCarrinho() < prod.getQtdProduto() ){
+                        prod.setQntCarrinho(prod.getQntCarrinho() + 1);
+                        break;
+                    } else if(prod.getQntCarrinho() >= prod.getQtdProduto()){
+                        totalCompra -= subTotal;
+                        break;
+                    }
+
+
+                } else if( prod.getCodProduto() == codProduto && action.equals("remove") ){
+                    jaExiste = true;
+
+                    prod.setQntCarrinho(prod.getQntCarrinho() - 1);
+                    if(prod.getQntCarrinho() == 0){
+                        listaProdutos.remove(prod);
+                    }
                     break;
-                } else if(prod.getQntCarrinho() >= prod.getQtdProduto()){
-                    totalCompra -= subTotal;
-                    break;
+
+
                 }
-                
-                
-            } else if( prod.getCodProduto() == codProduto && action.equals("remove") ){
-                jaExiste = true;
-                
-                prod.setQntCarrinho(prod.getQntCarrinho() - 1);
-                if(prod.getQntCarrinho() == 0){
-                    listaProdutos.remove(prod);
-                }
-                break;
-                
-                
             }
-        }         
+        }
         
         if (!jaExiste) {
             listaProdutos.add(produto);
@@ -101,6 +124,5 @@ public class CarrinhoProduto extends HttpServlet {
         sessao.setAttribute("listaProdutos", listaProdutos);
         sessao.setAttribute("totalCompra", totalCompra);
         sessao.setAttribute("qntProduto", qntProduto);
-
     }
 }
