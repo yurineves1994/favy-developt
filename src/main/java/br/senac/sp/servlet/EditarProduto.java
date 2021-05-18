@@ -25,6 +25,8 @@ public class EditarProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
         Integer codProduto = Integer.parseInt(request.getParameter("codProduto"));
         Produto produto = ProdutosDAO.obterProduto(codProduto);
 
@@ -37,6 +39,8 @@ public class EditarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
         String nomeProduto = request.getParameter("nome_produto");
         String descricao = request.getParameter("descricao");
         int qtdEstrela = Integer.parseInt(request.getParameter("qtd_estrela"));

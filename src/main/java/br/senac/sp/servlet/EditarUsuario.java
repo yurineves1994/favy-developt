@@ -17,6 +17,8 @@ public class EditarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
         Integer codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
         Usuario usuario = UsuariosDAO.obterUsuario(codUsuario);
 
@@ -28,6 +30,8 @@ public class EditarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
         Integer codUsuario = Integer.parseInt(request.getParameter("cod_usuario"));
         String nome = request.getParameter("nome");
         String status = request.getParameter("status");

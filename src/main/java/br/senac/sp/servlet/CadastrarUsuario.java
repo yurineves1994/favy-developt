@@ -16,6 +16,8 @@ public class CadastrarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
         String nome = request.getParameter("nome");
         String status = request.getParameter("status");
         String cargo = request.getParameter("cargo");

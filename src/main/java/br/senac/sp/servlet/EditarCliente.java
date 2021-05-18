@@ -17,6 +17,8 @@ public class EditarCliente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
         Integer codCliente = Integer.parseInt(request.getParameter("codCliente"));
         Cliente cliente = ClienteDAO.obterCliente(codCliente);
 
@@ -28,6 +30,8 @@ public class EditarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
         Integer codCliente = Integer.parseInt(request.getParameter("cod_cliente"));
         String nome = request.getParameter("nome");
         String cpf = request.getParameter("cpf");

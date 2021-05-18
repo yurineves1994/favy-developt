@@ -20,6 +20,7 @@ public class PedidosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         
         Integer codCliente = Integer.parseInt(request.getParameter("codCliente"));
         List<Pedido> listaPedido = PedidoDAO.listarPedido(codCliente);
@@ -34,6 +35,7 @@ public class PedidosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         
         String cepEndereco = request.getParameter("cepCompra");
         String ruaEndereco = request.getParameter("logradouroCompra");

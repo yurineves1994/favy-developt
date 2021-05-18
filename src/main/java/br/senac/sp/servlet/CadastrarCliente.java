@@ -16,6 +16,8 @@ public class CadastrarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
         String nome = request.getParameter("nome");
         String cpf = request.getParameter("cpf");
         String cepFat = request.getParameter("cep");
