@@ -158,7 +158,7 @@
                                         <a class="editar_cliente" href="<c:url value="/EditarCliente?codCliente=${sessionScope.email_cli.codCliente}"/>">Editar</a>
                                     </p>
                                     <p class="linkFunc">
-                                        <a class="editar_cliente" href="<c:url value="/PedidosServlet?codCliente=${sessionScope.email_cli.codCliente}"/>">Editar</a>
+                                        <a class="Pedidos" href="<c:url value="/PedidosServlet?codCliente=${sessionScope.email_cli.codCliente}"/>">Pedidos</a>
                                     </p>
                                     <p class="linkFunc">
                                         <a class="editar_cliente" href="<c:url value="/Logout"/>">Logout</a>
