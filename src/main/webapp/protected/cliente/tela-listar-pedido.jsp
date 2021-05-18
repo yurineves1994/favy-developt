@@ -116,7 +116,10 @@
                     </div>
 
                     <div class="cxa_dataAndTotal">
-                        <span class="info">2020/05/20</span>
+                        <div style="display: none;">
+                            <span class="info" id="data<%=i%>">${pedido.dataPedido}</span>
+                        </div>
+                        <span class="info" id="ajustaData<%=i%>">...</span>
                         <br>
                         <br>
                         <span class="info">R$${pedido.valorFinal}</span>
@@ -185,7 +188,11 @@
                 let imgColor = document.getElementById('imgColor'+i);
                 let circleColor = document.getElementById('circleColor'+i);
 
-                console.log(status);
+                let data = document.getElementById('data'+i).innerText;
+                let ajustaData = document.getElementById('ajustaData'+i);
+                let dma = data.split('-');
+                console.log(dma);
+                ajustaData.innerHTML = dma[2]+"/"+dma[1]+"/"+dma[0];
 
                 if(status == "a"){
                     txtStatus.innerHTML = "Aguardando pagamento";

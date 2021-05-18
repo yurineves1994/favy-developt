@@ -9,7 +9,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,7 +63,7 @@ public class PedidoDAO {
         }
     }
     
-    public static List<Pedido> listarPedido(Integer codClient) {
+    public static List<Pedido> listarPedido(Integer codClient){
         List<Pedido> listarPedido = new ArrayList();
         try {
             Connection con = ConexaoDB.obterConexao();
@@ -79,9 +83,14 @@ public class PedidoDAO {
                 double valorFrete = rs.getDouble("valor_frete");
                 String formaPagamento = rs.getString("forma_pagamento");
                 double totalCompra = rs.getDouble("valor_final");
-                String dataPedido = rs.getString("data_pedido");
+              
+                String dataPedido = rs.getString("data_pedido") ;                
+                
                 char statusPedido = rs.getString("status_pedido").charAt(0);
                 int codCliente = rs.getInt("cod_cliente");
+                
+
+                
                 listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
             }
         } catch (ClassNotFoundException ex) {
