@@ -68,6 +68,7 @@ public class PedidoDAO {
             ps.setInt(1, codClient);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                int idCompra = rs.getInt("cod_pedido");
                 String cepCompra = rs.getString("cep_end");
                 String logradouroCompra = rs.getString("rua_end");
                 String bairroCompra = rs.getString("bairro_end");
@@ -81,7 +82,7 @@ public class PedidoDAO {
                 String dataPedido = rs.getString("data_pedido");
                 char statusPedido = rs.getString("status_pedido").charAt(0);
                 int codCliente = rs.getInt("cod_cliente");
-                listarPedido.add(new Pedido(cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
+                listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
