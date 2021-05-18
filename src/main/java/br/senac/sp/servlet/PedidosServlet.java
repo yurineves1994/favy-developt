@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class PedidosServlet extends HttpServlet {
 
     @Override
@@ -48,7 +51,11 @@ public class PedidosServlet extends HttpServlet {
         String formaPagamento = request.getParameter("formaPagamento");
         char statusPedido = 'a';
         double valorFinal = Double.parseDouble(request.getParameter("totalCompra"));
-        String dataPedido = "2021/05/13";
+        
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+        String dataPedido = df.format(date);
+        
         int codCliente = Integer.parseInt(request.getParameter("codCliente"));
         
         ArrayList<ItemVenda> listaItens = new ArrayList<ItemVenda>();

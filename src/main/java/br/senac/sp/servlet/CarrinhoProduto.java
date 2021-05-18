@@ -54,7 +54,6 @@ public class CarrinhoProduto extends HttpServlet {
         
         if(validaFrete == 3 || validaFrete == 4 || validaFrete == 5){
             double frete = 0;
-            System.out.println(validaFrete);
             if( validaFrete == 3 ){
                 frete = 20.00;
             } else if( validaFrete == 4 ){
@@ -67,7 +66,6 @@ public class CarrinhoProduto extends HttpServlet {
             return;
         }
         double subTotal = produto.getPrecoProduto();
-        System.out.println(action);
         
         
         if( action.equals("add") && produto.getQntCarrinho() < produto.getQtdProduto() ){

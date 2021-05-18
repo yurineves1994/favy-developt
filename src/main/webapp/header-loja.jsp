@@ -97,7 +97,7 @@
                 padding: 10px;
                 background-color: white;
 
-                width: 90px;
+                width: 110px;
                 height: auto;
                 position: absolute;
                 border-radius: 9px;
