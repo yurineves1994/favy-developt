@@ -60,6 +60,10 @@
                 transition-duration: 0.5s;
             }
             
+            .cxa_dadosDaCompra:hover > .cicloImg{
+                box-shadow: inset -7px 8px 5px #00000070;
+            }
+            
             .centerImg{
                 padding-top: 14px;
             }
