@@ -11,26 +11,135 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>DADOS COMPRA</h1>
-        <h2>PRODUTOS PEDIDO</h2>
-        <span>CODIGO DE RASTREIO ${sessionScope.email_cli.codCliente * 987654698908203832}</span>
-        <h2>codigo cliente: ${sessionScope.email_cli.codCliente}</h2>
-        <h2>codigo pedido: ${pedido.codPedido}</h2>
-            <span>${pedido.codPedido}</span>
-            <span>${pedido.cepEndereco}</span>
-            <span>${pedido.ruaEndereco}</span>
-            <span>${pedido.bairroEndereco}</span>
-            <span>${pedido.cidadeEndereco}</span>
-            <span>${pedido.ufEndereco}</span>
-            <span>${pedido.numEndereco}</span>
-            <span>${pedido.complEndereco}</span>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-image: linear-gradient(131deg, rgba(8, 110, 161, 0.8) 0%, #73b667 100%);
+            }
 
-        <h1>DADOS PAGAMENTO</h1>
-        <h2>PAGAMENTO</h2>
-            <span>${pedido.formaPagamento}</span>
-            <span>${pedido.valorFinal}</span>
-            <span>${pedido.statusPedido}</span>
+            .dados {
+                left: 50%;
+                top: 50%;
+                width: 80vw;
+                height: auto;
+                background: #d6c9c9;
+                z-index: 15;
+                padding: 15px 30px;
+                color: #003333;
+                border-radius: 15px;
+                border: #e5e5e5 2px solid;
+                border-top: #00d9ff 2px solid;
+                animation: rotacao .5s infinite ease-out;
+            }
+
+            .dados > span{
+                text-transform: uppercase;
+            }
+
+
+            .dados:hover {
+                transform: translateX(-3px);
+                box-shadow: 4px 15px 16px 0;
+            }
+
+            @keyframes rotacao {
+                25% {
+                    border: #e5e5e5 2px solid;
+                    border-top: #00d9ff 2px solid;
+                }
+
+                50% {
+                    border: #e5e5e5 2px solid;
+                    border-left: #00d9ff 2px solid;
+                }
+
+                75% {
+                    border: #e5e5e5 2px solid;
+                    border-bottom: #00d9ff 2px solid;
+                }
+
+                100% {
+                    border: #e5e5e5 2px solid;
+                    border-right: #00d9ff 2px solid;
+                }
+            }
+
+            .btn-voltar {
+                width: 150px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                border-radius: 50px;
+                background-image: linear-gradient(131deg, rgba(49, 81, 97, 0.8) 0%, #73b667 100%);
+                color: #d6d5d5;
+                text-decoration: none;
+                margin-top: 20px;
+            }
+
+            .btn-voltar:hover {
+                color: white;
+                background-image: linear-gradient(131deg, rgba(103, 178, 216, 0.8) 0%, #73b667 100%);
+            }
+
+            h1 {
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="container">
+            <h1>PARABEEEEENS, ${sessionScope.email_cli.nomeCliente}! </h1>
+            <h2>CODIGO DE RASTREIO - ${sessionScope.email_cli.codCliente * 987654698908203832}</h2>
+            <section>
+                <div class="dados">
+                    <span>codigo cliente: ${sessionScope.email_cli.codCliente}</span> /
+                    <span>codigo pedido: ${pedido.codPedido}</span>
+                    <h4>DADOS - PEDIDO</h4>
+                    <span>${pedido.codPedido}</span><br>
+                    <span>CEP ${pedido.cepEndereco} - </span>
+                    <span>${pedido.ruaEndereco} , </span>
+                    <span>${pedido.bairroEndereco} - </span>
+                    <span>${pedido.cidadeEndereco} / </span>
+                    <span>${pedido.ufEndereco}, </span>
+                    <span>${pedido.numEndereco}</span>
+                    <span>(${pedido.complEndereco})</span>
+                    <h4>DADOS - PAGAMENTO</h4>
+                    <c:choose>
+                        <c:when test="${pedido.formaPagamento} == 'b'}">
+                            <span>Boleto /</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span>Cartão /</span>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="${pedido.statusPedido} == 'a'}">
+                            <span>Aguardando Pedido/</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span>Entregue/</span>
+                        </c:otherwise>
+                    </c:choose>    
+                    <h2>R$ ${pedido.valorFinal}</h2>
+                </div>
+                <a href="#">
+                    <div class="btn-voltar">
+                        VOLTAR
+                    </div>
+                </a>
+
+            </section>
+            <div>
+
+            </div>
+        </div>
     </body>
+
 </html>
