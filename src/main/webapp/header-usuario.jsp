@@ -31,7 +31,6 @@
             .linha:hover{
                 background: #6383af
             }
-
             .centraliza_icone{
                 display: inline;
                 position:relative;
@@ -39,15 +38,12 @@
                 top:50%;
                 transform: translate(-50%, -50%);
             }
-
-
             /* Menu Principal */
             .menu_voltar{
                 width: auto;
                 height: 45px;
                 background-color: #6383af;
             }
-
             /* Formatação icone sair */
             .ajusta_icone_menu{
                 width: 55px;
@@ -57,9 +53,6 @@
             .menu_voltar_icon{
                 width: 30px;
             }
-
-
-
             /* Sub Menu */
             .menu_opcoes{
                 width: auto;
@@ -127,18 +120,11 @@
                     </div>
                 </div>
             </div>
-            <div class="linha" style="width:100%; height:7px; text-align: center;"><i style="width: 20px;border-radius: 5px; background: #6383af;" class="x fa fa-angle-down fa-1x"></i></div>
+            
         </header>
     </body>        
     <script>       
-        $(".linha").click(function () {
-            $(".menu-superior").show();
-            $(".x").hide();
-        });
-        $(".linha").dblclick(function () {
-            $(".menu-superior").hide();
-            $(".x").show();
-        });
+        
 
     </script>
 

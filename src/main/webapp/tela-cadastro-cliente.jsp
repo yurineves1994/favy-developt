@@ -16,6 +16,11 @@
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
               crossorigin="anonymous">
         <link rel="stylesheet" href="../estilos/estiloCadastroProduto.css">
+        <style>
+            .erro {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <section>
@@ -27,6 +32,7 @@
                     <div class="form-group">
                         <label for="nome_cliente"> Nome </label>
                         <input required name="nome" type="text" class="form-control" id="nome_cliente" placeholder="">
+                        <span class="erro" style='color:red;'>O NOME DEVE TER NO MINIMO 2 PALAVRAS!</span>
                     </div>
 
                     <!-- Cpf -->
@@ -288,6 +294,15 @@
         var $campoEstado02 = document.querySelector('[name="ufEntrega2"]');
         var $campoNumero02 = document.querySelector('[name="numeroEntrega2"]');
         var $campoComplemento02 = document.querySelector('[name="complementoEntrega2"]');
+        
+        $nome.addEventListener("blur", function () {
+            var palavraSplit = this.value.split(" ");
+            if(palavraSplit.length >= 2){
+                $(".erro").hide();
+            } else {
+                $(".erro").show();
+            }
+        });
 
         if ($("input[name=eigual]").val() == "sim") {
             $(".endereco-entrega01").hide();
