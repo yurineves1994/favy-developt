@@ -140,7 +140,8 @@
             <div style="display: none;"> 
                 <p id="contador" ><%=i%></p> 
             </div>
-
+            
+            <br><br><br><br>
         </section>
         
         <c:forEach items="${listarPedido}" var="pedido">
