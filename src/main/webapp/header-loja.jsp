@@ -45,7 +45,7 @@
             .cabecalho{
                 width: 100%;
                 height: 70px;
-                background-color: rgba(0, 255, 255, 0.103);
+                background-color: #ee6a6a9e;
                 position: fixed;
                 top: 0;
                 left: 0;

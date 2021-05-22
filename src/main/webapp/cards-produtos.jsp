@@ -18,6 +18,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <title>Listar Produto</title>
         <style>
+            *{
+                padding: 0px;
+            }
             .link_nome_produto {
                 font-size: 20px;
                 color: black;
@@ -29,10 +32,23 @@
             a:hover{
                 text-decoration: none; 
             }
+
+            .rowi{
+                width: 95%;
+                height: auto;
+                /* margin: auto; */
+                display: grid;
+                grid-gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(261px, 1fr));
+                justify-content: center;
+                /* justify-items: center; */
+                margin: auto;
+                margin-bottom: 10px;
+            }
         </style>
     </head>
 
-    <body style="background-color: #e7e7e7;">
+    <body style="background-color: #a7456347">
         <div class="cabecalhoCarrossel">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -55,7 +71,7 @@
             </div>
         
         <section class="container-fluid mt-4 ">
-            <div class="row cardsConfig">
+            <div class="rowi cardsConfig">
                 <c:forEach items="${listaProdutos}" var="produto">
                     <c:if test="${produto.statusProduto == 'a'}">
                         <div class="col-sm-3 mb-2 efeito3d">

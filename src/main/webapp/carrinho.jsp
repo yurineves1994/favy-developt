@@ -60,7 +60,25 @@
                 color: white;
                 border-radius: 15px;
             }
-
+            #enderecos-frete {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            #enderecos-frete > div {
+                margin-top: 30px;
+                width: 49%;
+                height: auto;
+                padding: 10px;
+                background: rgb(238, 106, 106);
+                color: white;
+                border-radius: 10px;
+                border-color: black;
+                cursor: pointer;
+            }
+            .escolhido {
+                background: red;
+            }
         </style>
     </head>
 
@@ -120,35 +138,16 @@
                                     </c:forEach> 
                                 </tbody>
                             </table>
-                            
-                            <fieldset>
-                                <label>Frete</label>
-                                <input name="cep" type="number" id="cep" placeholder="">
-                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 3)">add</span> 20 Conto
-                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 4)">add</span> 30 Conto
-                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 5)">add</span> 40 Conto
-                            </fieldset>
-                            
-                            <input name="cepfrete" type="number" id="cepfrete" placeholder="">
-                            <div class="fretes">
-                                 <fieldset>
-                                    <label>Frete 01</label>
-                                    <input name="frete1" type="number" id="frete1" placeholder="">
-                                    <span>19,00</span>
-                                </fieldset>
-                                <fieldset>
-                                    <label>Frete 02</label>
-                                    <input name="frete2" type="number" id="frete2" placeholder="">
-                                    <span>10,00</span>
-                                </fieldset>
-                                <fieldset>
-                                    <label>Frete 03</label>
-                                    <input name="frete3" type="number" id="frete3" placeholder="">
-                                    <span>13,00</span>
-                                </fieldset>
-                            </div>
-                        </div>
 
+                                                        <fieldset>
+                                                            <label>Frete</label>
+                                                            <input name="cep" type="number" id="cep" placeholder="">
+                                                            <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 3)">add</span> 20 Conto
+                                                            <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 4)">add</span> 30 Conto
+                                                            <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 5)">add</span> 40 Conto
+                                                        </fieldset> 
+                            
+                        </div>
                         <!-- Container Resumo do pedido -->
                         <div class="col-6 col-md-4" style="background-color: #f8f8f8;">
 
@@ -174,7 +173,7 @@
                             </div>
                             <c:choose>
                                 <c:when test="${sessionScope.email_cli.cliente}">
-                                    <a href="finalizar-compra.jsp" class="btnComprar">
+                                    <a href="finalizar-compra.jsp?EnderecoEscolhido" class="btnComprar">
                                         continuar
                                     </a>
                                 </c:when>
@@ -195,25 +194,18 @@
             <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
             <script>
-                var $campoCepFrete = document.querySelector('[name="cepfrete"]');
-                var $campoFrete1 = document.querySelector('[name="frete1"]');
-                var $campoFrete2 = document.querySelector('[name="frete2"]');
-                var $campoFrete3 = document.querySelector('[name="frete3"]');
 
-                $("#cepfrete").focusout(function () {
-                    $(".fretes").show();
-                });
-                function adicionarProdutoCarrinho(codProduto, x) {
-                    console.log(x);
+                                                function adicionarProdutoCarrinho(codProduto, x) {
+                                                    console.log(x);
 
-                                                                
-                    $.get("CarrinhoProduto?codProduto=" + codProduto + " " + x, function (resposta) {
-                        let numeroCarrinho = 0;
-                        numeroCarrinho -= 1;
-                        document.location.reload(true);
-                    });
-                                                                
-                }
+
+                                                    $.get("CarrinhoProduto?codProduto=" + codProduto + " " + x, function (resposta) {
+                                                        let numeroCarrinho = 0;
+                                                        numeroCarrinho -= 1;
+                                                        document.location.reload(true);
+                                                    });
+
+                                                }
             </script>
         </section>
     </body>
