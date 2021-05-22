@@ -20,7 +20,7 @@ public class CarrinhoProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       HttpSession sessao = request.getSession();
+        HttpSession sessao = request.getSession();
         String codAndAction = request.getParameter("codProduto");
         String values[] = codAndAction.split(" ");
         

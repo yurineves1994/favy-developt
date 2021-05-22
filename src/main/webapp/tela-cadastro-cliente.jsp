@@ -20,6 +20,9 @@
             .erro {
                 display: none;
             }
+            .erroSenha {
+                display: none;
+            }
         </style>
     </head>
     <body>
@@ -51,11 +54,13 @@
                     <div class="form-group">
                         <label for="senha1"> Senha </label>
                         <input id="senha1" required name="senha" type="password" class="form-control" placeholder=" ">
+                        <span class="erroSenha" style='color:red;'>SENHA E CONFIRMAR SENHA DIFERENTES!!</span>
                     </div>
                     <!-- *Senha -->
                     <div class="form-group">
                         <label for="senha2"> Confirme sua senha </label>
-                        <input id="senha2" required type="password" class="form-control" placeholder=" ">
+                        <input id="senha2" required name="senha2" type="password" class="form-control" placeholder=" ">
+                        <span class="erroSenha" style='color:red;'>SENHA E CONFIRMAR SENHA DIFERENTES!!</span>
                     </div>
                     <fieldset class="row" id="endereco-faturamento">
                         <legend>Endereço Faturamento</legend>
@@ -267,7 +272,9 @@
         var $nome = document.querySelector('[name="nome"]');
         var $cpf = document.querySelector('[name="cpf"]');
         var $email = document.querySelector('[name="email"]');
-    
+        var $senha = document.querySelector('[name="senha"]');
+        var $senha2 = document.querySelector('[name="senha2"]');
+        
         // campos faturamento
         var $campoCep = document.querySelector('[name="cep"]');
         var $campoRua = document.querySelector('[name="logradouro"]');
@@ -294,14 +301,40 @@
         var $campoEstado02 = document.querySelector('[name="ufEntrega2"]');
         var $campoNumero02 = document.querySelector('[name="numeroEntrega2"]');
         var $campoComplemento02 = document.querySelector('[name="complementoEntrega2"]');
-        
+
+        // validação numero de caracter nome
         $nome.addEventListener("blur", function () {
             var palavraSplit = this.value.split(" ");
-            if(palavraSplit.length >= 2){
-                $(".erro").hide();
+            if (palavraSplit.length >= 2) {
+                console.log("entrou primeiro if");
+                var palavra01 = palavraSplit[0];
+                var palavra02 = palavraSplit[1];
+                var primeiraPalavra = palavra01.split("");
+                var segundaPalavra = palavra02.split("");
+                if (primeiraPalavra.length > 2 && segundaPalavra.length > 2) {
+                    console.log("entrou segundo if");
+                    $(".erro").hide();
+                    $('input[type="submit"]').removeAttr('disabled');
+                } else {
+                    $(".erro").show();
+                    $('input[type="submit"]').prop('disabled', true);
+                }
             } else {
                 $(".erro").show();
+                $('input[type="submit"]').prop('disabled', true);
             }
+        });
+        
+        //validação senha
+        $senha2.addEventListener("blur", function () {
+            if($senha.value === $senha2.value){
+               $(".erroSenha").hide();
+               $('input[type="submit"]').removeAttr('disabled');
+            } else {
+               $(".erroSenha").show(); 
+               $('input[type="submit"]').prop('disabled', true);
+            }
+            
         });
 
         if ($("input[name=eigual]").val() == "sim") {
