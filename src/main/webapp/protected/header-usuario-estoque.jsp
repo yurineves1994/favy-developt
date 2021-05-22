@@ -60,6 +60,12 @@
                         <img src="../../icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Usuários">
                     </a>
                 </div>
+                <!-- Pedidos -->
+                <div class="menu_tabela_produtos">
+                    <a href="<c:url value="/ListarPedidos?numeroPagina=1"/>">
+                        Pedidos
+                    </a>
+                </div>
             </div>
         </header>
     </body>

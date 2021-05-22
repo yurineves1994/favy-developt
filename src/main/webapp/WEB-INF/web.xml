@@ -100,6 +100,14 @@
         <servlet-name>ProdutosPedido</servlet-name>
         <servlet-class>br.senac.sp.servlet.ProdutosPedido</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarPedidos</servlet-name>
+        <servlet-class>br.senac.sp.servlet.ListarPedidos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StatusPedido</servlet-name>
+        <servlet-class>br.senac.sp.servlet.StatusPedido</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
@@ -191,6 +199,14 @@
     <servlet-mapping>
         <servlet-name>ProdutosPedido</servlet-name>
         <url-pattern>/ProdutosPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarPedidos</servlet-name>
+        <url-pattern>/ListarPedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StatusPedido</servlet-name>
+        <url-pattern>/StatusPedido</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

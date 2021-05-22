@@ -3,6 +3,7 @@ package br.senac.sp.dao;
 import br.senac.sp.db.ConexaoDB;
 import br.senac.sp.entidade.ItemVenda;
 import br.senac.sp.entidade.Pedido;
+import br.senac.sp.entidade.Produto;
 import br.senac.sp.servlet.ServletBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -58,6 +59,48 @@ public class PedidoDAO {
         }
     }
     
+    public static void statusPedido(Integer codPedido, char status) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.obterConexao();
+        String query = "update pedidos set status_pedido=? where cod_pedido=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, String.valueOf(status));
+        ps.setInt(2, codPedido);
+        ps.execute();
+        ps.close();
+    }
+    
+    public static int quantidadePagina(){
+      int quantidadePagina = 1;
+      double totalPessoaPorPagina = 10.0;
+      try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select count(1) as totalPedido from pedidos";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+              double totalPedidos = rs.getDouble("totalPedido");
+              if(totalPedidos > totalPessoaPorPagina){                 
+                  double quantidadePessoaPorPaginaTemp = Float.parseFloat("" + (totalPedidos / totalPessoaPorPagina));
+                  
+                  if(!(quantidadePessoaPorPaginaTemp % 2 == 0)){
+                      quantidadePagina = new Double(quantidadePessoaPorPaginaTemp).intValue() + 1;
+                  } else {
+                      quantidadePagina = new Double(quantidadePessoaPorPaginaTemp).intValue();
+                  }
+              } else {
+                  quantidadePagina = 1;
+              }
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return quantidadePagina;
+    }
+    
     public static List<Pedido> listarPedido(Integer codClient){
         List<Pedido> listarPedido = new ArrayList();
         try {
@@ -78,14 +121,9 @@ public class PedidoDAO {
                 double valorFrete = rs.getDouble("valor_frete");
                 String formaPagamento = rs.getString("forma_pagamento");
                 double totalCompra = rs.getDouble("valor_final");
-              
-                String dataPedido = rs.getString("data_pedido") ;                
-                
+                String dataPedido = rs.getString("data_pedido") ;      
                 char statusPedido = rs.getString("status_pedido").charAt(0);
                 int codCliente = rs.getInt("cod_cliente");
-                
-
-                
                 listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
             }
         } catch (ClassNotFoundException ex) {
@@ -97,6 +135,50 @@ public class PedidoDAO {
         }
         return listarPedido;
     }
+    
+    
+    public static List<Pedido> listarPedidoEstoque(String numeroPagina){
+        List<Pedido> listarPedido = new ArrayList();
+        int totalPorPagina = 10;
+
+        int offset = (Integer.parseInt(numeroPagina) * totalPorPagina) - totalPorPagina;
+
+        if (offset < 0) {
+            offset = 0;
+        }
+
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from pedidos limit " + totalPorPagina + " offset " + offset + ";";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int idCompra = rs.getInt("cod_pedido");
+                String cepCompra = rs.getString("cep_end");
+                String logradouroCompra = rs.getString("rua_end");
+                String bairroCompra = rs.getString("bairro_end");
+                String localidadeCompra = rs.getString("cidade_end");
+                String ufCompra = rs.getString("estado_end");
+                String numeroCompra = rs.getString("numero_end");
+                String complementoCompra = rs.getString("compl_end");
+                double valorFrete = rs.getDouble("valor_frete");
+                String formaPagamento = rs.getString("forma_pagamento");
+                double totalCompra = rs.getDouble("valor_final");
+                String dataPedido = rs.getString("data_pedido") ;      
+                char statusPedido = rs.getString("status_pedido").charAt(0);
+                int codCliente = rs.getInt("cod_cliente");
+                listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return listarPedido;
+    }
+    
     public static List<ItemVenda> listarProdutosPedido(Integer codPedido){
         List<ItemVenda> listarProdutosPedido = new ArrayList();
         try {

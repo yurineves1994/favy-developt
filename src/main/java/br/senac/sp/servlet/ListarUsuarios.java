@@ -17,6 +17,9 @@ public class ListarUsuarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String numeroPagina = request.getParameter("numeroPagina");
+        if (numeroPagina == null) {
+            numeroPagina = "1";
+        }
         
         List<Usuario> listaUsuarios = UsuariosDAO.listarUsuarios(numeroPagina);
 
