@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <%@include file="../../header-loja.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
@@ -31,6 +32,7 @@
                 width: 91%;
                 padding: 20px 32px;
                 background-color: white;
+                color: black;
                 cursor: pointer;
                 margin-top: 15px;
                 box-shadow: -1px 2px 5px 0px #0000005c;
@@ -89,20 +91,16 @@
             .info{
                 font-family: Verdana;
             }
+            .cabecalho{
+                background-color: #ee6a6a;
+            }
         </style>
 
     </head>
     <body style="background-color: #e7e7e7;">
-        <h1>DADOS COMPRA</h1>
-        <br>
-        <h2>PRODUTOS PEDIDO</h2>
-        <br>
-        <span>CODIGO DE RASTREIO ${sessionScope.email_cli.codCliente * 987654698908203832}</span>
-        <br>
-        <h2>codigo cliente: ${sessionScope.email_cli.codCliente}</h2>
-        <br>
+
         
-        <section>
+        <section style="margin-top: 110px;">
             <% int i = 1;%> 
             <c:forEach items="${listarPedido}" var="pedido">
                 <a href="ProdutosPedido?codPedido=${pedido.codPedido}">

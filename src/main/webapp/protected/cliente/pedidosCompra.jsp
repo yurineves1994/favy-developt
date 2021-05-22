@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <%@include file="../../header-loja.jsp" %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>JSP Page</title>
     
@@ -56,6 +57,8 @@
             th{
                padding: 20px;
                width: 158px;
+
+               text-align: center;
             }
             td{
                 padding: 20px;
@@ -63,12 +66,20 @@
 
                 text-align: center;
             }
+
+            tr:hover{
+                background-color: #ee6a6a75;
+            }
+
+            .cabecalho{
+                background-color: #ee6a6a;
+            }
         </style>
     
 </head>
 <body>
     
-    <div class="cxa_tabela">
+    <div class="cxa_tabela" style="margin-top: 110px;">
             <table class="tituloTabela">
 
                 <thead>
