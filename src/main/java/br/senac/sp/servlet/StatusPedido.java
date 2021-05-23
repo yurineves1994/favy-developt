@@ -30,6 +30,7 @@ public class StatusPedido extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         
         Integer codPedido = Integer.parseInt(request.getParameter("codPedido"));
+        System.out.println( codPedido );
         char statusPedido = request.getParameter("status" + codPedido).charAt(0);
         try {
             PedidoDAO.statusPedido(codPedido, statusPedido);

@@ -148,8 +148,9 @@ public class PedidoDAO {
         }
 
         try {
-            Connection con = ConexaoDB.obterConexao();
-            String query = "select * from pedidos limit " + totalPorPagina + " offset " + offset + ";";
+            Connection con = ConexaoDB.obterConexao();// select pedidos.*, usuario.email_user from pedidos, usuario where pedidos.cod_cliente = usuario.cod_user order by cod_cliente limit 5 offset 5;
+
+            String query = "select pedidos.*, cliente.email_cli from pedidos, cliente where pedidos.cod_cliente = cliente.cod_cliente order by cod_cliente, data_pedido limit " + totalPorPagina + " offset " + offset + ";";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -167,7 +168,10 @@ public class PedidoDAO {
                 String dataPedido = rs.getString("data_pedido") ;      
                 char statusPedido = rs.getString("status_pedido").charAt(0);
                 int codCliente = rs.getInt("cod_cliente");
-                listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
+                
+                String emailCliente = rs.getString("email_cli");
+                
+                listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente, emailCliente));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

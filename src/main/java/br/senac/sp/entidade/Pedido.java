@@ -16,6 +16,8 @@ public class Pedido {
     private String dataPedido;
     private char statusPedido;
     private Integer codCliente;
+    
+    private String emailUser;
 
     public Pedido(Integer codPedido, String cepEndereco, String ruaEndereco, String bairroEndereco, String cidadeEndereco, String ufEndereco, String numEndereco, String complEndereco, double valorFrete, String formaPagamento, double valorFinal, String dataPedido, char statusPedido, Integer codCliente) {
         this.codPedido = codPedido;
@@ -33,7 +35,30 @@ public class Pedido {
         this.statusPedido = statusPedido;
         this.codCliente = codCliente;
     }
-
+    
+    
+    
+     public Pedido(Integer codPedido, String cepEndereco, String ruaEndereco, String bairroEndereco, String cidadeEndereco, String ufEndereco, String numEndereco, String complEndereco, double valorFrete, String formaPagamento, double valorFinal, String dataPedido, char statusPedido, Integer codCliente, String emailUser) {
+        this.codPedido = codPedido;
+        this.cepEndereco = cepEndereco;
+        this.ruaEndereco = ruaEndereco;
+        this.bairroEndereco = bairroEndereco;
+        this.cidadeEndereco = cidadeEndereco;
+        this.ufEndereco = ufEndereco;
+        this.numEndereco = numEndereco;
+        this.complEndereco = complEndereco;
+        this.valorFrete = valorFrete;
+        this.formaPagamento = formaPagamento;
+        this.valorFinal = valorFinal;
+        this.dataPedido = dataPedido;
+        this.statusPedido = statusPedido;
+        this.codCliente = codCliente;
+        
+        this.emailUser = emailUser;
+    }
+     
+     
+     
     public Pedido(String cepEndereco, String ruaEndereco, String bairroEndereco, String cidadeEndereco, String ufEndereco, String numEndereco, String complEndereco, double valorFrete, String formaPagamento, double valorFinal, String dataPedido, char statusPedido, Integer codCliente) {
         this.cepEndereco = cepEndereco;
         this.ruaEndereco = ruaEndereco;
@@ -49,6 +74,16 @@ public class Pedido {
         this.statusPedido = statusPedido;
         this.codCliente = codCliente;
     }
+    
+    
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
+    }
+    
 
     public double getValorFinal() {
         return valorFinal;

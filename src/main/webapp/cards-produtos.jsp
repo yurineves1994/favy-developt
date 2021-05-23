@@ -21,6 +21,15 @@
             *{
                 padding: 0px;
             }
+            
+            ::-webkit-scrollbar{
+                width: 10px;
+                border-radius: 5px;
+            }
+            ::-webkit-scrollbar-thumb{
+                -webkit-box-shadow: inset 0 0 20px #ee6a6a;
+            }
+            
             .link_nome_produto {
                 font-size: 20px;
                 color: black;
