@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="../../header-usuario.jsp" %>
+    <%@include file="../header-usuario-estoque.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
@@ -96,7 +96,14 @@
                         <tr>
                             <td>${pedido.codPedido}</td>
                             <td>${pedido.emailUser}</td>
-                            <td>${pedido.formaPagamento}</td>
+                            <c:choose>
+                                <c:when test="${pedido.formaPagamento == 'b'}">
+                                    <td><p>Boleto</p></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><p>Cartão de Crédito</p></td>
+                                </c:otherwise>
+                            </c:choose> 
                             <td>${pedido.dataPedido}</td>
                             <td>${pedido.valorFinal}</td>
                             <td> 
@@ -105,6 +112,7 @@
                                 <span id="textPedido<%=x%>">...</span>
                                 <form action="<c:url value="/StatusPedido?codPedido=${pedido.codPedido}"/>" method="POST" >
                                     <select name="status${pedido.codPedido}" id="status<%=x%>" value="${pedido.statusPedido}" title="Status">
+                                        <option value="a"> Status </option>
                                         <option value="a"> Aguardando Pagamento </option>
                                         <option value="p"> Pagamento Rejeitado </option>
                                         <option value="s"> Pagamento com Sucesso </option>
