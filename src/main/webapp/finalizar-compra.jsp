@@ -16,6 +16,14 @@
         
         <title>JSP Page</title>
         <style>
+            ::-webkit-scrollbar{
+                width: 10px;
+                border-radius: 5px;
+            }
+            ::-webkit-scrollbar-thumb{
+                -webkit-box-shadow: inset 0 0 20px #ee6a6a;
+            }
+
             body {
                 background-color: rgb(241, 240, 240);
                 margin: 0;
@@ -97,7 +105,7 @@
             .cabecalho{
                 width: 100%;
                 height: 70px;
-                background-color: rgba(0, 255, 255, 0.103);
+                background-color: rgb(238, 106, 106);
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -159,8 +167,13 @@
                 align-items: center;
             }
             .caminho-compra > div.hoje {
+                font-weight: 600;
+                font-size: 19px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+
                 padding: 20px;
-                background: rgb(238, 106, 106);;
+                background: rgb(238, 106, 106);
                 color: white;
                 border-radius: 15px;
             }

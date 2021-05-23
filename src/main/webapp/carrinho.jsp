@@ -16,8 +16,17 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="estilos/estiloCarrinhoVendas.css">
-        <%@include file="header-loja.jsp"%>
+        
         <style>
+            ::-webkit-scrollbar{
+                width: 10px;
+                border-radius: 5px;
+            }
+            ::-webkit-scrollbar-thumb{
+                -webkit-box-shadow: inset 0 0 20px #ee6a6a;
+            }
+
+
             .fretes {
                 display: none;
             }
@@ -27,7 +36,7 @@
             .cabecalho{
                 width: 100%;
                 height: 70px;
-                background-color: rgba(0, 255, 255, 0.103);
+                background-color: #ee6a6a;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -47,14 +56,20 @@
             }
             .caminho-compra {
                 display: flex;
-                justify-content:center;
+                justify-content: space-around;
                 align-items: center;
+                
             }
             .caminho-compra > div {
                 margin-left: 50px; 
                 margin-right:  50px; 
             }
             .caminho-compra > div.hoje {               
+                font-weight: 600;
+                font-size: 19px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+
                 padding: 20px;
                 background: rgb(238, 106, 106);;
                 color: white;
@@ -84,7 +99,11 @@
 
     <body style="background-color: rgb(255, 255, 255);">
         <nav class="cabecalho">
-            <h1 class="logo">FAVY</h1>
+
+            <a href="CardsProdutos">
+                <h1 class="logo">FAVY</h1>
+            </a>
+
             <div class="caminho-compra">
                 <div class="hoje">Carrinho</div>
                 <div>Pagamento</div>

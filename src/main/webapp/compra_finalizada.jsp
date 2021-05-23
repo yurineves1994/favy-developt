@@ -12,6 +12,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
+            ::-webkit-scrollbar{
+                width: 10px;
+                border-radius: 5px;
+            }
+            ::-webkit-scrollbar-thumb{
+                -webkit-box-shadow: inset 0 0 20px #ee6a6a;
+            }
+            
             body {
                 margin: 0;
                 padding: 0;
@@ -129,7 +137,7 @@
                     </c:choose>    
                     <h2>R$ ${pedido.valorFinal}</h2>
                 </div>
-                <a href="#">
+                <a href="CardsProdutos">
                     <div class="btn-voltar">
                         VOLTAR
                     </div>
