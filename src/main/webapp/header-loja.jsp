@@ -147,7 +147,11 @@
     <body>
         <header>
             <div class="cabecalho">
-                <h1 class="logo">FAVY</h1>
+
+                <a href="CardsProdutos">
+                    <h1 class="logo">FAVY</h1>
+                </a>
+                
                 <div class="caixaMenus">
                     <div class="cxalogin"> 
                         <c:choose>

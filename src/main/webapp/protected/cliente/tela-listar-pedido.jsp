@@ -20,6 +20,13 @@
                 margin: 0;
             }
 
+            ::-webkit-scrollbar{
+                width: 10px;
+            }
+            ::-webkit-scrollbar-thumb{
+                -webkit-box-shadow: inset 0 0 20px #ee6a6a;
+            }
+
             /* Centralizando o container das divs */
             section{
                 width: 80%;
@@ -71,7 +78,6 @@
             }
 
             .cxa_codAndStatus{
-                margin-left: 17px;
                 width: 70%;
                 height: 60px;
                 float: left;
@@ -87,6 +93,8 @@
                 font-family: Verdana;
                 font-weight: bolder;
                 color: #ff9942;
+                
+                
             }
             .info{
                 font-family: Verdana;
@@ -94,6 +102,15 @@
             .cabecalho{
                 background-color: #ee6a6a;
             }
+           
+            .linhaEF{
+                margin-top: 0;
+                margin-bottom: 0;
+
+                width: 80px;
+                position:absolute;
+            }
+
         </style>
 
     </head>
@@ -112,10 +129,11 @@
                         </div>
 
                         <div class="cxa_codAndStatus">
-                            <span class="titulo" id="textPedido<%=i%>">...</span>
+                            <span class="titulo" id="textPedido<%=i%>" style="margin-left: 16px;">...</span>
+                            <hr NOSHADE class="linhaEF" id="linhaText<%=i%>">
                             <br>
                             <br>
-                            <span class="info">Codigo da compra: 00${pedido.codPedido}</span>
+                            <span class="info" style="margin-left: 16px;">Codigo da compra: 00${pedido.codPedido}</span>
                         </div>
 
                         <div class="cxa_dataAndTotal">
@@ -180,9 +198,14 @@
                 E - Entregue		        Verde
             */
 
-            var VERMELHO = "#F74A16";
-            var LARANJA = "#ff9942";
-            var VERDE = "#6DF789";
+            var COMECO_V1 = "#F74A16";
+            var MEIO_V1 = "#ffb100";
+            var FIM_V1 = "#6DF789";
+
+            var COMECO_V2 = "#F74A16";
+            var MEIO_V2 = "#ffb100";
+
+            var NEUTRO = "#5d5757";
 
             var cont = Number(document.getElementById('contador').innerText);
 
@@ -199,47 +222,58 @@
                 console.log(dma);
                 ajustaData.innerHTML = dma[2]+"/"+dma[1]+"/"+dma[0];
 
+                let linha = document.getElementById('linhaText'+i);
+
                 if(status == "a"){
                     txtStatus.innerHTML = "Aguardando pagamento";
 
-                    txtStatus.style.color= LARANJA;
-                    imgColor.style.color= LARANJA;
-                    circleColor.style.border= "solid 2px "+LARANJA;
+                    linha.style.backgroundColor = MEIO_V1;
+                    txtStatus.style.color= NEUTRO;
+                    imgColor.style.color= NEUTRO;
+                    circleColor.style.border= "solid 2px "+MEIO_V1;
                 
                 } else if(status == "p"){
                     txtStatus.innerHTML = "Pagamento Rejeitado";
 
-                    txtStatus.style.color= VERMELHO;
-                    imgColor.style.color= VERMELHO;
-                    circleColor.style.border= "solid 2px "+VERMELHO;
+                    linha.style.backgroundColor = COMECO_V1;
+                    txtStatus.style.color= COMECO_V1;
+                    imgColor.style.color= COMECO_V1;
+                    circleColor.style.border= "solid 2px "+COMECO_V1;
 
                 } else if(status == "s"){
                     txtStatus.innerHTML = "Pagamento com sucesso";
 
-                    txtStatus.style.color= VERDE;
-                    imgColor.style.color= VERDE;
-                    circleColor.style.border= "solid 2px "+VERDE;
+                    linha.style.backgroundColor = FIM_V1;
+                    txtStatus.style.color= NEUTRO;
+                    imgColor.style.color= NEUTRO;
+                    circleColor.style.border= "solid 2px "+FIM_V1;
                 
                 } else if(status == "r"){
                     txtStatus.innerHTML = "Aguardando retirada";
 
-                    txtStatus.style.color= VERMELHO;
-                    imgColor.style.color= VERMELHO;
-                    circleColor.style.border= "solid 2px "+VERMELHO;
+                    linha.style.backgroundColor = FIM_V1;
+                    circleColor.style.border= "solid 2px "+FIM_V1;
+
+                    txtStatus.style.color= NEUTRO;
+                    imgColor.style.color= COMECO_V2;
                 
                 } else if(status == "t"){
                     txtStatus.innerHTML = "Em transito";
 
-                    txtStatus.style.color= LARANJA;
-                    imgColor.style.color= LARANJA;
-                    circleColor.style.border= "solid 2px "+LARANJA;
+                    linha.style.backgroundColor = FIM_V1;
+                    circleColor.style.border= "solid 2px "+FIM_V1;
+
+                    txtStatus.style.color= NEUTRO;
+                    imgColor.style.color= MEIO_V2;
                 
                 } else if(status == "e"){
                     txtStatus.innerHTML = "Entregue";
 
-                    txtStatus.style.color= VERDE;
-                    imgColor.style.color= VERDE;
-                    circleColor.style.border= "solid 2px "+VERDE;
+                    linha.style.backgroundColor = FIM_V1;
+                    circleColor.style.border= "solid 2px "+FIM_V1;
+
+                    txtStatus.style.color= FIM_V1;
+                    imgColor.style.color= FIM_V1;
                 
                 }
             }
