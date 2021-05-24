@@ -74,6 +74,17 @@
             .cabecalho{
                 background-color: #ee6a6a;
             }
+
+            button{
+                background: #ee6a6a;
+                color: white;
+                height: 40px;
+                width: 100px;
+            
+                margin-left: 50px;
+                border-radius: 5px;
+            }
+            
         </style>
     
 </head>
@@ -112,8 +123,11 @@
                                     <td>R$ ${produtos.precoUnitario}</td>    
                                     <td>R$${produtos.precoTotal}</td>
                                 <tr>
-                                <span id="valorSomar<%=i%>"> ${produtos.precoTotal} </span>
-                                <%=i++%>
+
+                                <div style="display: none;">
+                                    <span id="valorSomar<%=i%>"> ${produtos.precoTotal} </span>
+                                    <span><%=i++%></span>
+                                </div>
                         </c:forEach>
 
                         <span style="display: none;" id="contador"><%=i%></span>
@@ -135,7 +149,9 @@
                 </thead>
             </table>
         </div>
-    
+
+        <a class="Pedidos" href="<c:url value="/PedidosServlet?codCliente=${sessionScope.email_cli.codCliente}"/>"><button>VOLTAR</button></a>
+        
         <script>
             var tamanho = document.getElementById('contador').innerHTML;
             var valores = 1;
@@ -144,7 +160,7 @@
                 valores = Number( document.getElementById('valorSomar'+i).innerHTML );
                 soma += valores;
             }
-            
+
             document.getElementById('total').innerText = soma;
         </script>
 </body>
