@@ -243,7 +243,9 @@
 
     <body>
         <nav class="cabecalho">
-            <h1 class="logo">FAVY</h1>
+            <a href="CardsProdutos">
+                <h1 class="logo">FAVY</h1>
+            </a>
             <div class="caminho-compra">
                 <div>Carrinho</div>
                 <div class="hoje">Pagamento</div>
