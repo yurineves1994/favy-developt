@@ -99,6 +99,7 @@
             <div class="cxa_itens">
                 <table>
 
+                    <% int i = 1;%> 
                     <tbody>
                         <c:forEach items="${listarProdutosPedido}" var="produtos">
                                 <tr>
@@ -109,11 +110,15 @@
                                     <td>${produtos.nomeItem}</td>
                                     <td>${produtos.qtdItem}</td>
                                     <td>R$ ${produtos.precoUnitario}</td>    
-                                    <td>R$ ${produtos.precoTotal}</td>    
-                                <tr>                            
+                                    <td>R$${produtos.precoTotal}</td>
+                                <tr>
+                                <span id="valorSomar<%=i%>"> ${produtos.precoTotal} </span>
+                                <%=i++%>
                         </c:forEach>
-                    </tbody>
 
+                        <span style="display: none;" id="contador"><%=i%></span>
+
+                    </tbody>
                 </table>
             </div>
 
@@ -125,11 +130,22 @@
                         <th>Codigo Item</th>
                         -->
                         <th>Frete: R$20.00</th>
-                        <th>Valor Total: R$1.000</th>
+                        <th>Valor Total: R$<span id="total">...</span></th>
                     </tr>
                 </thead>
             </table>
         </div>
     
+        <script>
+            var tamanho = document.getElementById('contador').innerHTML;
+            var valores = 1;
+            var soma = 0;
+            for(var i=1; i < tamanho; i++){
+                valores = Number( document.getElementById('valorSomar'+i).innerHTML );
+                soma += valores;
+            }
+            
+            document.getElementById('total').innerText = soma;
+        </script>
 </body>
 </html>
