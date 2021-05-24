@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <%@include file="../header-usuario.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listar Produto</title>
@@ -72,7 +73,6 @@
         </style>
     </head>
     <body>
-        <script src="scripts/scriptListarProduto.js"></script>
         <section class="container">
             <form action="PesquisarNome" method="GET" class="buscar-registro">
                 <input name="nome_pesquisa" type="search" placeholder="Pesquisar" aria-label="Search">
@@ -151,7 +151,6 @@
                     %>
                 </ul>
             </nav>
-        </section>     
-        <script src="scripts/scriptListarProduto.js"></script>
+        </section>
     </body>
 </html>

@@ -93,7 +93,7 @@
             <div class="menu_voltar">
                 <div class="ajusta_icone_menu">
                     <a href="<c:url value="/CardsProdutos"/>">
-                        <img src="../icones/icon-sair.png" alt="sair" class="menu_voltar_icon centraliza_icone">
+                        <img src="https://image.flaticon.com/icons/png/512/151/151882.png" alt="sair" class="menu_voltar_icon centraliza_icone">
                     </a>
                 </div>
             </div>
@@ -104,14 +104,14 @@
                 <!-- Tabelas -->
                 <div class="menu_tabela_produtos">
                     <a href="<c:url value="/ListarProdutos?numeroPagina=1"/>" >
-                        <img src="../icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Produto">
+                        <img src="https://image.flaticon.com/icons/png/512/4336/4336906.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Produto">
                     </a>
                 </div>
 
                 <!-- Cadastro Produto -->
                 <div class="menu_cadastro_produtos">
                     <a href="<c:url value="/protected/estoque/tela_cadastro_produto.jsp"/>">
-                        <img src="../icones/icon-produto.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Produto">
+                        <img src="https://image.flaticon.com/icons/png/512/4337/4337026.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Produto">
                     </a>
                 </div>
 
@@ -119,14 +119,20 @@
                     <!-- Cadastro Cliente -->
                     <div class="menu_cadastro_produtos">
                         <a href="<c:url value="/protected/tela_cadastro_usuario.jsp"/>">
-                            <img src="../icones/icon-cliente.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Usuário">
+                            <img src="https://image.flaticon.com/icons/png/512/4337/4337056.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Cadastrar Usuário">
                         </a>
                     </div>
                 </c:if>
                 <!-- Tabelas -->
                 <div class="menu_tabela_produtos">
                     <a href="<c:url value="/ListarUsuarios?numeroPagina=1"/>">
-                        <img src="../icones/icon-tabela.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Usuários">
+                        <img src="https://image.flaticon.com/icons/png/512/4336/4336895.png" alt="tabela" class="icone_menu centraliza_icone link_tabelas" title="Listar Usuários">
+                    </a>
+                </div>
+                <!-- Pedidos -->
+                <div class="menu_tabela_produtos">
+                    <a href="<c:url value="/ListarPedidos?numeroPagina=1"/>">
+                        <img src="https://image.flaticon.com/icons/png/512/151/151914.png" alt="produto" class="icone_menu centraliza_icone link_produto" title="Pedidos">
                     </a>
                 </div>
             </div>
