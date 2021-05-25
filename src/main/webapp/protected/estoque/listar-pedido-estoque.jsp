@@ -77,6 +77,18 @@
     </head>
     <body>
 
+        <form action="PesquisarStatus" method="GET" class="buscar-registro">
+                <select name="status_pesquisa" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <option value="a"> Status </option>
+                    <option value="a"> Aguardando Pagamento </option>
+                    <option value="p"> Pagamento Rejeitado </option>
+                    <option value="s"> Pagamento com Sucesso </option>
+                    <option value="r"> Aguardando Retirada </option>
+                    <option value="t"> Em Trânsito </option>
+                    <option value="e"> Entregue </option>
+                </select>
+                <button type="submit">Pesquisar</button>
+        </form>
         <section>
             <table class="tabela-produtos">
                 <thead>

@@ -1,6 +1,8 @@
 package br.senac.sp.servlet;
 
+import br.senac.sp.dao.PedidoDAO;
 import br.senac.sp.dao.ProdutosDAO;
+import br.senac.sp.entidade.Pedido;
 import br.senac.sp.entidade.Produto;
 import java.io.IOException;
 import java.util.List;
@@ -10,15 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class PesquisarNome extends HttpServlet {
+public class PesquisarStatus extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nomePesquisa = request.getParameter("nome_pesquisa");
-        List<Produto> listaProdutos = ProdutosDAO.PesquisarProduto(nomePesquisa);
+        char statusPesquisa = request.getParameter("status_pesquisa").charAt(0);
+        List<Pedido> listaPedidoEstoque = PedidoDAO.filtraStatus(statusPesquisa);
 
-        request.setAttribute("listaProdutos", listaProdutos);
+        request.setAttribute("listaPedidoEstoque", listaPedidoEstoque);
         String numeroPagina = "1";
         if (numeroPagina == null) {
             numeroPagina = "1";
@@ -26,11 +28,10 @@ public class PesquisarNome extends HttpServlet {
 
         request.setAttribute("numeroPagina", (numeroPagina != null ? numeroPagina : 1));
         
-        int quantidadePagina = ProdutosDAO.quantidadePagina();
+        int quantidadePagina = PedidoDAO.quantidadePagina();
         request.setAttribute("quantidadePagina", quantidadePagina);
 
-
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/estoque/tela_listar_produto.jsp?quantidadePagina=" + quantidadePagina + "&numeroPagina=" + numeroPagina);
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/estoque/listar-pedido-estoque.jsp?quantidadePagina=" + quantidadePagina + "&numeroPagina=" + numeroPagina);
         requestDispatcher.forward(request, response);
     }
 }

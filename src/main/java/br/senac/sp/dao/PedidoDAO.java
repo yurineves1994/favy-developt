@@ -37,6 +37,41 @@ public class PedidoDAO {
         ps.close();
     }
         
+    public static List<Pedido> filtraStatus(char statusPesquisa) {
+        List<Pedido> listaPesquisaProduto = new ArrayList();
+        try {
+            Connection con = ConexaoDB.obterConexao();
+            String query = "select * from pedidos where status_pedido = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, String.valueOf(statusPesquisa));  
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int idCompra = rs.getInt("cod_pedido");
+                String cepCompra = rs.getString("cep_end");
+                String logradouroCompra = rs.getString("rua_end");
+                String bairroCompra = rs.getString("bairro_end");
+                String localidadeCompra = rs.getString("cidade_end");
+                String ufCompra = rs.getString("estado_end");
+                String numeroCompra = rs.getString("numero_end");
+                String complementoCompra = rs.getString("compl_end");
+                double valorFrete = rs.getDouble("valor_frete");
+                String formaPagamento = rs.getString("forma_pagamento");
+                double totalCompra = rs.getDouble("valor_final");
+                String dataPedido = rs.getString("data_pedido") ;      
+                char statusPedido = rs.getString("status_pedido").charAt(0);
+                int codCliente = rs.getInt("cod_cliente");
+                listaPesquisaProduto.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletBD.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        return listaPesquisaProduto;
+    }
+    
     public static void addItemVenda(ArrayList<ItemVenda> itens) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.obterConexao();
         

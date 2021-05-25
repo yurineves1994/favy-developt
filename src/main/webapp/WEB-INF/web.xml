@@ -41,6 +41,10 @@
         <servlet-class>br.senac.sp.servlet.PesquisarNome</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>PesquisarStatus</servlet-name>
+        <servlet-class>br.senac.sp.servlet.PesquisarStatus</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CardsProdutos</servlet-name>
         <servlet-class>br.senac.sp.servlet.CardsProdutos</servlet-class>
     </servlet>
@@ -139,6 +143,10 @@
     <servlet-mapping>
         <servlet-name>PesquisarNome</servlet-name>
         <url-pattern>/PesquisarNome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisarStatus</servlet-name>
+        <url-pattern>/PesquisarStatus</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CardsProdutos</servlet-name>
