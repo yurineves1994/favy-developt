@@ -94,11 +94,12 @@
                 <thead>
                     <tr>
                         <th>Id Pedido</th>
-                        <th>Email User</th>
+                        <th>Email do Usuário</th>
                         <th>Forma de Pagamento</th>
-                        <th>data do Pedido</th>
-                        <th>valor Final</th>
-                        <th>Status</th>
+                        <th>Data do Pedido</th>
+                        <th>Valor Final</th>
+                        <th>Status Atual</th>
+                        <th>Alterar Status</th>
                     </tr>
                 </thead>
 
@@ -117,11 +118,14 @@
                                 </c:otherwise>
                             </c:choose> 
                             <td>${pedido.dataPedido}</td>
-                            <td>${pedido.valorFinal}</td>
+                            <td>R$${pedido.valorFinal}0</td>
                             <td> 
                                 <span id="status<%=x%>" style="display: none;">${pedido.statusPedido}</span>
 
                                 <span id="textPedido<%=x%>">...</span>
+                            </td>
+                            <td>
+                            
                                 <form action="<c:url value="/StatusPedido?codPedido=${pedido.codPedido}"/>" method="POST" >
                                     <select name="status${pedido.codPedido}" id="status<%=x%>" value="${pedido.statusPedido}" title="Status">
                                         <option value="a"> Status </option>
@@ -172,14 +176,18 @@
              P - Pagamento Rejeitado	    Vermelho    test #F74A16
              S - Pagamento com sucesso	Verde	    test #6DF789
              
-             R - Aguardando retirada    	Vermelho
-             T - Em transito		        Laranja
-             E - Entregue		        Verde
+             R - Aguardando retirada    	Azul
+             T - Em transito		        AMARELO
+             E - Entregue		        ROSA
              */
 
-            var VERMELHO = "#000000";
-            var LARANJA = "#000000";
-            var VERDE = "#000000";
+            var VERMELHO = "#F74A16";
+            var LARANJA = "#ff9942";
+            var VERDE = "#6DF789";
+
+            var AZUL = "#4169E1";
+            var LILAS = "#c8a2c8";
+            var AMARELO = "#ffdb58";
 
             var cont = Number(document.getElementById('contador').innerText);
 
@@ -210,7 +218,6 @@
 
                     txtStatus.style.color = VERMELHO;
 
-
                 } else if (status == "s") {
                     txtStatus.innerHTML = "Pagamento com sucesso";
 
@@ -220,19 +227,19 @@
                 } else if (status == "r") {
                     txtStatus.innerHTML = "Aguardando retirada";
 
-                    txtStatus.style.color = VERMELHO;
+                    txtStatus.style.color = AZUL;
 
 
                 } else if (status == "t") {
                     txtStatus.innerHTML = "Em transito";
 
-                    txtStatus.style.color = LARANJA;
+                    txtStatus.style.color = AMARELO;
 
 
                 } else if (status == "e") {
                     txtStatus.innerHTML = "Entregue";
 
-                    txtStatus.style.color = VERDE;
+                    txtStatus.style.color = LILAS;
 
 
                 }

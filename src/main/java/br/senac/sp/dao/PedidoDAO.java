@@ -185,7 +185,7 @@ public class PedidoDAO {
         try {
             Connection con = ConexaoDB.obterConexao();// select pedidos.*, usuario.email_user from pedidos, usuario where pedidos.cod_cliente = usuario.cod_user order by cod_cliente limit 5 offset 5;
 
-            String query = "select pedidos.*, cliente.email_cli from pedidos, cliente where pedidos.cod_cliente = cliente.cod_cliente order by cod_cliente, data_pedido limit " + totalPorPagina + " offset " + offset + ";";
+            String query = "select pedidos.*, cliente.email_cli from pedidos, cliente where pedidos.cod_cliente = cliente.cod_cliente order by cod_pedido desc limit " + totalPorPagina + " offset " + offset + ";";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

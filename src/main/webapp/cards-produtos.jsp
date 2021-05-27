@@ -103,8 +103,8 @@
                             </a>
                             <div class="card-body">
                                 <a class="link_nome_produto" href="VisualizarProduto?codProduto=${produto.codProduto}"><p class="card-title">${produto.nomeProduto}</p></a>
-                                <p>${produto.descricao}</p>
-                                <a class="btn btn-primary" onclick="adicionarProdutoCarrinho(${produto.codProduto}, 2)">ADICIONAR AO COMPRAR</a>      
+                                <p>R$${produto.precoProduto},00</p>
+                                <a class="btn btn-primary" onclick="adicionarProdutoCarrinho(${produto.codProduto}, 2)">Adicionar ao carrinho</a>      
                             </div>
                         </div>
                     </div>

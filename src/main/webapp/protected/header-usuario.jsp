@@ -92,7 +92,7 @@
         <header>
             <div class="menu_voltar">
                 <div class="ajusta_icone_menu">
-                    <a href="<c:url value="/CardsProdutos"/>">
+                    <a href="<c:url value="/Logout"/>">
                         <img src="https://image.flaticon.com/icons/png/512/151/151882.png" alt="sair" class="menu_voltar_icon centraliza_icone">
                     </a>
                 </div>

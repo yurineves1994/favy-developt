@@ -7,7 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="../header-usuario.jsp" %>
+    <c:if test="${sessionScope.email_user.admin || sessionScope.email_user.estoque}">
+        <%@include file="../header-usuario.jsp" %> 
+    </c:if>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -77,7 +79,14 @@
                         <br>
                         <br>
                         <a class="btn btn-danger" href="#">Comprar</a>
-                        <a class="btn btn-dark" href="ListarProdutos">Voltar</a>
+                        <c:choose>
+                            <c:when test="${sessionScope.email_user.admin || sessionScope.email_user.estoque}">
+                                <a class="btn btn-dark" href="ListarProdutos">Voltar</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="btn btn-dark" href="CardsProdutos">Voltar</a>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </div>
             </div>         

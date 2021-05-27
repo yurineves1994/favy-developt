@@ -216,7 +216,7 @@
                     </div>
                 </c:when>
                 <c:otherwise>         
-                    <h1> TEM NADA AQUI </h1>
+                    <h1> Carrinho Vazio </h1>
                 </c:otherwise>
             </c:choose>
             <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
