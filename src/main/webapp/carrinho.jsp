@@ -94,6 +94,15 @@
             .escolhido {
                 background: red;
             }
+            .calcularFrete{
+                background-color: rgb(98, 63, 253);
+                text-transform: uppercase;
+                color: #fff;
+                cursor: pointer;
+                transition: .5s;
+                text-decoration: none;
+                
+            }
         </style>
     </head>
 
@@ -157,14 +166,15 @@
                                     </c:forEach> 
                                 </tbody>
                             </table>
-
-                                                        <fieldset>
-                                                            <label>Frete</label>
-                                                            <input name="cep" type="number" id="cep" placeholder="">
-                                                            <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 3)">add</span> 20 Conto
-                                                            <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 4)">add</span> 30 Conto
-                                                            <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 5)">add</span> 40 Conto
-                                                        </fieldset> 
+                            
+                            <fieldset>
+                                <label>Frete</label>
+                                <input name="cep" type="number" id="cepEntrega" placeholder="">
+                                <button class="calcularFrete" onclick="adicionarProdutoCarrinho(1, 3)">Calcular</button>
+<!--                            <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 3)">add</span> 20 Conto
+                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 4)">add</span> 30 Conto
+                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 5)">add</span> 40 Conto-->
+                            </fieldset> 
                             
                         </div>
                         <!-- Container Resumo do pedido -->
@@ -213,18 +223,25 @@
             <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
             <script>
+                $('.calcularFrete').hide();           
+                $('#cepEntrega').keyup(function(){
+                    var palavra01 = this.value.split("");
+                    if(palavra01.length >= 8){
+                        $('.calcularFrete').show();
+                    }
+                });
 
-                                                function adicionarProdutoCarrinho(codProduto, x) {
-                                                    console.log(x);
+                    function adicionarProdutoCarrinho(codProduto, x) {
+                        console.log(x);
 
 
-                                                    $.get("CarrinhoProduto?codProduto=" + codProduto + " " + x, function (resposta) {
-                                                        let numeroCarrinho = 0;
-                                                        numeroCarrinho -= 1;
-                                                        document.location.reload(true);
-                                                    });
+                        $.get("CarrinhoProduto?codProduto=" + codProduto + " " + x, function (resposta) {
+                            let numeroCarrinho = 0;
+                            numeroCarrinho -= 1;
+                            document.location.reload(true);
+                        });
 
-                                                }
+                    }
             </script>
         </section>
     </body>

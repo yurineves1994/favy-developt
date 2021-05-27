@@ -336,14 +336,14 @@
                             <div class="cxa_tituloResumoCompraV2">
                                 <li class="detalheV2">
                                     <span> Frete </span>
-                                    <span> R$  </span>
+                                    <span> R$ ${sessionScope.frete} </span>
                                 </li>
                             </div>
                         </div>
                         <div>
                             <li class="detalheV2">
                                 <span> Total </span>
-                                <span> R$  ${sessionScope.totalCompra} </span>
+                                <span> R$ ${sessionScope.totalCompra + sessionScope.frete} </span>
                             </li>
                         </div>
                         
@@ -353,17 +353,11 @@
             </div>
 
         </section>
-
-
-
-
-
-
         <div class="informacoes-finalizar-entrega">
             <c:if test="${sessionScope.email_cli.cepEnt1 != null}"> 
                 <form>
                     <input class="form-check-input" type="radio" id="entrega01" name="entrega01" value="entrega1">
-                    <div class="div-endereco-entrega">
+                    <div class="div-endereco-entrega" id="entrega01">
                         <h3>Endereço Entrega</h3>      
                         <input name="nomeCliente1" disabled value="${sessionScope.email_cli.nomeCliente}">
                         <input name="cidadeEnt1" disabled value="${sessionScope.email_cli.cidadeEnt1}">
@@ -375,6 +369,7 @@
                         <input name="cepEnt1" disabled value="${sessionScope.email_cli.cepEnt1}">  
                     </div>
                 </form>
+                    
             </c:if>
             <c:if test="${sessionScope.email_cli.cepEnt2 != null}">
                 <form>
@@ -394,11 +389,7 @@
             </c:if>
         </div>
 
-
     <div style="display: none;">
-
-
-
         <div class="informacoes-finalizar">
             <div class="div-resumo-compra">
                 <h3>Resumo da Compra</h3>

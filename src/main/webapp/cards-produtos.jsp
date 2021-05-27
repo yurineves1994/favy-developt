@@ -82,7 +82,7 @@
         <section class="container-fluid mt-4 ">
             <div class="rowi cardsConfig">
                 <c:forEach items="${listaProdutos}" var="produto">
-                    <c:if test="${produto.statusProduto == 'a'}">
+                    <c:if test="${produto.statusProduto == 'a' && produto.qtdProduto >= 1}">
                         <div class="col-sm-3 mb-2 efeito3d">
                             <a href="VisualizarProduto?codProduto=${produto.codProduto}">
                                 <div class="card" style="width: 18rem;">

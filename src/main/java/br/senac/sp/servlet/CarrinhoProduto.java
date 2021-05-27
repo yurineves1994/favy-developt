@@ -23,99 +23,91 @@ public class CarrinhoProduto extends HttpServlet {
         HttpSession sessao = request.getSession();
         String codAndAction = request.getParameter("codProduto");
         String values[] = codAndAction.split(" ");
-        
+
         // Variáveis de controle
         int codProduto = 0;
         String action = "";
-        
+
         int validaFrete = Integer.parseInt(values[1]);
-        
-        if( validaFrete == 2 ){
+
+        if (validaFrete == 2) {
             action = "add";
             codProduto = Integer.parseInt(values[0]);
-        } else if( validaFrete == 1 ) {
+        } else if (validaFrete == 1) {
             action = "remove";
             codProduto = Integer.parseInt(values[0]);
-        }                
-        
+        }
+
         Produto produto = ProdutosDAO.obterProduto(codProduto);
 
         double totalCompra = 0;
         //double subTotal = produto.getPrecoProduto();
         int qntProduto = 0;
-        
+
         List<Produto> listaProdutos;
         if (sessao.getAttribute("listaProdutos") == null) {
             listaProdutos = new ArrayList<>();
         } else {
             listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
         }
-        
-        
-        if(validaFrete == 3 || validaFrete == 4 || validaFrete == 5){
-            double frete = 0;
-            if( validaFrete == 3 ){
-                frete = 20.00;
-            } else if( validaFrete == 4 ){
-                frete = 30.00;
-            } else if( validaFrete == 5 ) {
-                frete = 40.00;
-            }
-            
+
+        double frete = 0;
+        if (validaFrete == 3) {  
+            do {
+                int random = 1 + (int) (Math.random() * 50);
+                frete = random;
+            } while (frete < 5);
             sessao.setAttribute("frete", frete);
             return;
         }
         double subTotal = produto.getPrecoProduto();
-        
-        
-        if( action.equals("add") && produto.getQntCarrinho() < produto.getQtdProduto() ){
+
+        if (action.equals("add") && produto.getQntCarrinho() < produto.getQtdProduto()) {
             if (sessao.getAttribute("totalCompra") == null) {
                 totalCompra = subTotal;
             } else {
-                totalCompra = (double) sessao.getAttribute("totalCompra");                
+                totalCompra = (double) sessao.getAttribute("totalCompra");
                 totalCompra += subTotal;
             }
-            
-        } else if( action.equals("remove") ){
+
+        } else if (action.equals("remove")) {
             if (sessao.getAttribute("totalCompra") == null) {
                 totalCompra = subTotal;
             } else {
                 //produto.setQntCarrinho( produto.getQntCarrinho()-1 );
                 totalCompra = (double) sessao.getAttribute("totalCompra");
                 totalCompra -= subTotal;
-            }  
+            }
         }
-                
+
         boolean jaExiste = false;
-        if(action.equals("remove") || action.equals("add")){
+        if (action.equals("remove") || action.equals("add")) {
             for (Produto prod : listaProdutos) {
 
-                if( prod.getCodProduto() == codProduto && action.equals("add")){
+                if (prod.getCodProduto() == codProduto && action.equals("add")) {
                     jaExiste = true;
 
-                    if( prod.getQntCarrinho() < prod.getQtdProduto() ){
+                    if (prod.getQntCarrinho() < prod.getQtdProduto()) {
                         prod.setQntCarrinho(prod.getQntCarrinho() + 1);
                         break;
-                    } else if(prod.getQntCarrinho() >= prod.getQtdProduto()){
+                    } else if (prod.getQntCarrinho() >= prod.getQtdProduto()) {
                         totalCompra -= subTotal;
                         break;
                     }
 
-
-                } else if( prod.getCodProduto() == codProduto && action.equals("remove") ){
+                } else if (prod.getCodProduto() == codProduto && action.equals("remove")) {
                     jaExiste = true;
 
                     prod.setQntCarrinho(prod.getQntCarrinho() - 1);
-                    if(prod.getQntCarrinho() == 0){
+                    if (prod.getQntCarrinho() == 0) {
                         listaProdutos.remove(prod);
                     }
                     break;
 
-
                 }
             }
         }
-        
+
         if (!jaExiste) {
             listaProdutos.add(produto);
         }
