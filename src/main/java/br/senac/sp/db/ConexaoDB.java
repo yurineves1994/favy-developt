@@ -24,7 +24,7 @@ public class ConexaoDB {
         //o usuario de acesso do banco ( estou usando mysql, geralmente é root)
         String user = "root";
         //senha do banco
-        String senha = "";
+        String senha = "admin";
 
         return DriverManager.getConnection(url, user, senha);
     }

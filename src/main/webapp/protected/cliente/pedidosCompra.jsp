@@ -30,7 +30,8 @@
                 
                 border: 1px solid black;
 
-                background-color: #fff8f87a;
+                font-weight: 600;
+                background-color: #fff8f8db;
                 height: auto;
                 
             }
@@ -88,7 +89,7 @@
         </style>
     
 </head>
-<body>
+<body background="img/parisFUNDO.jpg">
     
     <div class="cxa_tabela" style="margin-top: 110px;">
             <table class="tituloTabela">

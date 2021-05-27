@@ -114,7 +114,7 @@
         </style>
 
     </head>
-    <body style="background-color: #e7e7e7;">
+    <body  background="img/parisFUNDO.jpg">
 
         
         <section style="margin-top: 110px;">

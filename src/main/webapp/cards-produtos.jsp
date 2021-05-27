@@ -57,7 +57,7 @@
         </style>
     </head>
 
-    <body style="background-color: #a7456347">
+    <body background="img/parisFUNDO.jpg">
         <div class="cabecalhoCarrossel">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
