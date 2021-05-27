@@ -47,7 +47,7 @@ public class PedidosServlet extends HttpServlet {
         String ufEndereco = request.getParameter("ufCompra");
         String numEndereco = request.getParameter("numeroCompra");
         String complementoCompra = request.getParameter("complementoCompra");
-        double valorFrete = 2;
+        double valorFrete = Double.parseDouble(request.getParameter("frete"));
         String formaPagamento = request.getParameter("formaPagamento");
         char statusPedido = 'a';
         double valorFinal = Double.parseDouble(request.getParameter("totalCompra"));

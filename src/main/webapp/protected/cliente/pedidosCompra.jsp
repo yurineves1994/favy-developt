@@ -138,15 +138,15 @@
             </div>
 
             <table class="tituloTabela">
-                <thead>
-                    <tr>
-                        <!--
-                        <th>Codigo Pedido</th>
-                        <th>Codigo Item</th>
-                        -->
-                        <th>Frete: R$20.00</th>
-                        <th>Valor Total: R$<span id="total">...</span></th>
-                    </tr>
+                <thead>                    
+                        <tr>
+                            <!--
+                            <th>Codigo Pedido</th>
+                            <th>Codigo Item</th>
+                            -->
+                            <th>Frete: R$ ${listarProdutosPedido[0].freteTotal}</th>
+                            <th>Valor Total: R$<span id="total">...</span></th>
+                        </tr>
                 </thead>
             </table>
         </div>

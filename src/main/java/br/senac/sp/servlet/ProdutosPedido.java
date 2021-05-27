@@ -19,7 +19,7 @@ public class ProdutosPedido extends HttpServlet {
         
         Integer codPedido = Integer.parseInt(request.getParameter("codPedido"));
         List<ItemVenda> listarProdutosPedido = PedidoDAO.listarProdutosPedido(codPedido);
-
+        
         request.setAttribute("listarProdutosPedido", listarProdutosPedido);
 
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/cliente/pedidosCompra.jsp");

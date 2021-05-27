@@ -222,7 +222,7 @@ public class PedidoDAO {
         List<ItemVenda> listarProdutosPedido = new ArrayList();
         try {
             Connection con = ConexaoDB.obterConexao();
-            String query = "select * from itens_venda where cod_pedido = ?;";
+            String query = "select itens_venda.*, pedidos.valor_frete from itens_venda, pedidos where itens_venda.cod_pedido = pedidos.cod_pedido and  itens_venda.cod_pedido = ?;";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, codPedido);
             ResultSet rs = ps.executeQuery();
@@ -232,8 +232,8 @@ public class PedidoDAO {
                 int qtdItem = rs.getInt("qtd_item");
                 double precoUnitario = rs.getDouble("preco_unit");
                 double precoTotal = rs.getDouble("preco_total");
-                
-                listarProdutosPedido.add(new ItemVenda(codItem,nomeItem, qtdItem, precoUnitario, precoTotal, codPedido));
+                double freteCompra = rs.getDouble("valor_frete");
+                listarProdutosPedido.add(new ItemVenda(codItem,nomeItem, qtdItem, precoUnitario, precoTotal, codPedido, freteCompra));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

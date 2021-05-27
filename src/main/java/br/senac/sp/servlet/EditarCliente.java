@@ -88,7 +88,7 @@ public class EditarCliente extends HttpServlet {
         
         try {
             ClienteDAO.updateCliente(cliente);
-            response.sendRedirect("/ProjetoFavy/CardsProdutos");
+            response.sendRedirect("login_cliente.jsp");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);

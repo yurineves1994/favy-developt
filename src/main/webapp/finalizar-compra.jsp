@@ -343,7 +343,7 @@
                         <div>
                             <li class="detalheV2">
                                 <span> Total </span>
-                                <span> R$ ${sessionScope.totalCompra + sessionScope.frete} </span>
+                                <span> R$${sessionScope.totalCompra + sessionScope.frete} </span>
                             </li>
                         </div>
                         
@@ -449,6 +449,7 @@
             <input required name="numeroCompra" type="number" class="form-control" id="numero" placeholder="">
             <input required name="complementoCompra" type="text" class="form-control" id="text" placeholder="">
             <input required name="totalCompra" type="text" value="${sessionScope.totalCompra}" class="form-control" id="complemento" placeholder="">
+            <input required name="frete" type="text" value="${sessionScope.frete}" class="form-control" id="frete" placeholder="">
             <% int i = 1;%> 
             <c:forEach items="${sessionScope.listaProdutos}" var="produto">
                 <input required name="qnt<%=i%>" value="${produto.qntCarrinho}">
