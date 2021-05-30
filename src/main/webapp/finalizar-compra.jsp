@@ -329,7 +329,7 @@
                         <div>
                             <c:forEach items="${sessionScope.listaProdutos}" var="produto">
                                 <li class="detalheV2">
-                                    <span> ${produto.nomeProduto}(${produto.qtdProduto}) </span>
+                                    <span> ${produto.nomeProduto}(${produto.qntCarrinho}) </span>
                                     <span> R$ ${produto.precoProduto} </span>
                                 </li>
                             </c:forEach>
