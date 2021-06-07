@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  */
 public class CarrinhoProduto extends HttpServlet {
     
-    
+    // FUNÇÂO PARA ADICIONAR PRODUTO
     public static double adicionarProduto(List<Produto> produtos, int id, Produto produto, double subTotal, double totalCompra){
         totalCompra += subTotal;
         boolean jaExiste = false;
@@ -40,7 +40,7 @@ public class CarrinhoProduto extends HttpServlet {
         }
         return totalCompra;
     }
-    
+    // FUNÇÂO PARA REMOVER PRODUTO
     public static double removerProduto(List<Produto> produtos, int id, double subTotal, double totalCompra){
 
         totalCompra -= subTotal;
@@ -57,7 +57,7 @@ public class CarrinhoProduto extends HttpServlet {
         
         return totalCompra;
     }
-    
+    // FUNÇÂO PARA CALCULAR FRETE
     public static int calcularFrete(){
         int random;
         do {
@@ -74,8 +74,11 @@ public class CarrinhoProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // cria sessão
         HttpSession sessao = request.getSession();
+        // pega o codigo ação e o codigo produto
         String codAndAction = request.getParameter("codProduto");
+        // separa o cod produto do codigo ação
         String values[] = codAndAction.split(" ");
 
         // Variáveis de controle
@@ -90,6 +93,7 @@ public class CarrinhoProduto extends HttpServlet {
         
         int qntProduto = 0;
         
+        // CRIA UMA LISTA DE COMPRA  e SOMA O VALOR TOTAL DA COMPRA
         List<Produto> listaProdutos;
         if (sessao.getAttribute("listaProdutos") == null) {
             listaProdutos = new ArrayList<>();
@@ -103,16 +107,20 @@ public class CarrinhoProduto extends HttpServlet {
         }
                 
         switch(acao){
+            // CASO 01 - REMOVE PRODUTO
             case 1:
                 totalCompra = removerProduto(listaProdutos, codProduto, subTotal, totalCompra);
             break;
+            // CASO 02 - ADICIONA PRODUTO
             case 2:
                 totalCompra = adicionarProduto(listaProdutos, codProduto, produto, subTotal, totalCompra);
             break;
+            // CASO 03 - CALCULAR FRETE COMPRA
             case 3:
                 int frete = calcularFrete();
                 sessao.setAttribute("frete", frete);
             return;
+            // CASO 04 - LIMPAR CARRINHO
             case 4:
                 totalCompra = 0; 
                 listaProdutos = new ArrayList<>();

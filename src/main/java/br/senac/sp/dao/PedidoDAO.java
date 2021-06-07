@@ -3,7 +3,6 @@ package br.senac.sp.dao;
 import br.senac.sp.db.ConexaoDB;
 import br.senac.sp.entidade.ItemVenda;
 import br.senac.sp.entidade.Pedido;
-import br.senac.sp.entidade.Produto;
 import br.senac.sp.servlet.ServletBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +15,7 @@ import java.util.logging.Logger;
 
 public class PedidoDAO {
     
+    // adicionar novo pedido
     public static void addPedido(Pedido pedidos) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.obterConexao();
         String query = "insert into pedidos(cep_end, rua_end, bairro_end, cidade_end, estado_end, numero_end, compl_end, valor_frete, forma_pagamento, numero_cartao, valor_final, data_pedido, status_pedido, cod_cliente) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -37,7 +37,8 @@ public class PedidoDAO {
         ps.execute();
         ps.close();
     }
-        
+    
+    // filtrar status pedido
     public static List<Pedido> filtraStatus(char statusPesquisa) {
         List<Pedido> listaPesquisaProduto = new ArrayList();
         try {
