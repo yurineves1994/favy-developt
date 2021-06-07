@@ -18,7 +18,7 @@ public class PedidoDAO {
     
     public static void addPedido(Pedido pedidos) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.obterConexao();
-        String query = "insert into pedidos(cep_end, rua_end, bairro_end, cidade_end, estado_end, numero_end, compl_end, valor_frete, forma_pagamento, valor_final, data_pedido, status_pedido, cod_cliente) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String query = "insert into pedidos(cep_end, rua_end, bairro_end, cidade_end, estado_end, numero_end, compl_end, valor_frete, forma_pagamento, numero_cartao, valor_final, data_pedido, status_pedido, cod_cliente) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, pedidos.getCepEndereco());
         ps.setString(2, pedidos.getRuaEndereco());
@@ -29,10 +29,11 @@ public class PedidoDAO {
         ps.setString(7, pedidos.getComplEndereco());
         ps.setDouble(8, pedidos.getValorFrete());
         ps.setString(9, pedidos.getFormaPagamento());
-        ps.setDouble(10, pedidos.getValorFinal());
-        ps.setString(11, pedidos.getDataPedido());
-        ps.setString(12, String.valueOf(pedidos.getStatusPedido()));
-        ps.setInt(13, pedidos.getCodCliente());
+        ps.setString(10, pedidos.getNumeroCartaoCompra());
+        ps.setDouble(11, pedidos.getValorFinal());
+        ps.setString(12, pedidos.getDataPedido());
+        ps.setString(13, String.valueOf(pedidos.getStatusPedido()));
+        ps.setInt(14, pedidos.getCodCliente());
         ps.execute();
         ps.close();
     }
@@ -56,11 +57,12 @@ public class PedidoDAO {
                 String complementoCompra = rs.getString("compl_end");
                 double valorFrete = rs.getDouble("valor_frete");
                 String formaPagamento = rs.getString("forma_pagamento");
+                String numeroCartao = rs.getString("numero_cartao");
                 double totalCompra = rs.getDouble("valor_final");
                 String dataPedido = rs.getString("data_pedido") ;      
                 char statusPedido = rs.getString("status_pedido").charAt(0);
                 int codCliente = rs.getInt("cod_cliente");
-                listaPesquisaProduto.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
+                listaPesquisaProduto.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, numeroCartao, totalCompra, dataPedido, statusPedido, codCliente));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -155,11 +157,12 @@ public class PedidoDAO {
                 String complementoCompra = rs.getString("compl_end");
                 double valorFrete = rs.getDouble("valor_frete");
                 String formaPagamento = rs.getString("forma_pagamento");
+                String numeroCartao = rs.getString("numero_cartao");
                 double totalCompra = rs.getDouble("valor_final");
                 String dataPedido = rs.getString("data_pedido") ;      
                 char statusPedido = rs.getString("status_pedido").charAt(0);
                 int codCliente = rs.getInt("cod_cliente");
-                listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente));
+                listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, numeroCartao, totalCompra, dataPedido, statusPedido, codCliente));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -199,6 +202,7 @@ public class PedidoDAO {
                 String complementoCompra = rs.getString("compl_end");
                 double valorFrete = rs.getDouble("valor_frete");
                 String formaPagamento = rs.getString("forma_pagamento");
+                String numeroCartao = rs.getString("numero_cartao");
                 double totalCompra = rs.getDouble("valor_final");
                 String dataPedido = rs.getString("data_pedido") ;      
                 char statusPedido = rs.getString("status_pedido").charAt(0);
@@ -206,7 +210,7 @@ public class PedidoDAO {
                 
                 String emailCliente = rs.getString("email_cli");
                 
-                listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente, emailCliente));
+                listarPedido.add(new Pedido(idCompra,cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, numeroCartao, totalCompra, dataPedido, statusPedido, codCliente, emailCliente));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -263,11 +267,12 @@ public class PedidoDAO {
                 String complementoCompra = rs.getString("compl_end");
                 double valorFrete = rs.getDouble("valor_frete");
                 String formaPagamento = rs.getString("forma_pagamento");
+                String numeroCartao = rs.getString("numero_cartao");
                 double totalCompra = rs.getDouble("valor_final");
                 String dataPedido = rs.getString("data_pedido");
                 char statusPedido = rs.getString("status_pedido").charAt(0);
                 int codCliente = rs.getInt("cod_cliente");
-                pedido = new Pedido(cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, totalCompra, dataPedido, statusPedido, codCliente);
+                pedido = new Pedido(cepCompra, logradouroCompra, bairroCompra, localidadeCompra, ufCompra, numeroCompra, complementoCompra, valorFrete, formaPagamento, numeroCartao, totalCompra, dataPedido, statusPedido, codCliente);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

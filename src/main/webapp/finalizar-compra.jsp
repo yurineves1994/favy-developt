@@ -290,7 +290,7 @@
                             <legend>Cartão</legend>
                             <div class="row">
                                 <div>
-                                    <input name="numerocartao" type="number" placeholder="numero cartão">
+                                    <input name="numerocartao" type="text" placeholder="numero cartão">
                                 </div>
                                 <div>
                                     <input name="nomecartao" type="text" placeholder="nome impresso no cartão">
@@ -408,7 +408,7 @@
                 <legend>Cartão</legend>
                 <div class="row">
                     <div>
-                        <input name="numerocartao" type="number" placeholder="numero cartão">
+                        <input name="numerocartao" type="text" placeholder="numero cartão">
                     </div>
                     <div>
                         <input name="nomecartao" type="text" placeholder="nome impresso no cartão">
@@ -459,7 +459,7 @@
             </c:forEach>
             <input required name="qntProduto" value="<%=i%>">
             <input required name="formaPagamento" type="text" class="form-control" id="formaPagamento" placeholder="">    
-            <input name="numeroCartaoCompra" type="number" class="form-control" id="numeroCartao" placeholder="">
+            <input name="numeroCartaoCompra" type="text" class="form-control" id="numeroCartao" placeholder="">
             <input name="nomeCartaoCompra" type="text" class="form-control" id="nomeCartao" placeholder="">
             <input name="validadeCompra" type="number" class="form-control" id="validade" placeholder="">
             <input name="cvvCompra" type="number" class="form-control" id="cvv" placeholder="">

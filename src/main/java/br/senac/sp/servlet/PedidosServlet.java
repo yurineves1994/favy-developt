@@ -49,6 +49,8 @@ public class PedidosServlet extends HttpServlet {
         String complementoCompra = request.getParameter("complementoCompra");
         double valorFrete = Double.parseDouble(request.getParameter("frete"));
         String formaPagamento = request.getParameter("formaPagamento");
+        String numeroCartaoCompleto = request.getParameter("numeroCartaoCompra");
+        String numeroCartaoCompra = numeroCartaoCompleto.substring(12);
         char statusPedido = 'a';
         double valorFinal = Double.parseDouble(request.getParameter("totalCompra"));
         
@@ -70,7 +72,7 @@ public class PedidosServlet extends HttpServlet {
             listaItens.add(new ItemVenda(nomeItem, qntItem, precoItem, totalProduto));
         }
         
-        Pedido pedido = new Pedido(cepEndereco,ruaEndereco,bairroEndereco,cidadeEndereco,ufEndereco,numEndereco,complementoCompra,valorFrete,formaPagamento,valorFinal,dataPedido,statusPedido,codCliente);
+        Pedido pedido = new Pedido(cepEndereco,ruaEndereco,bairroEndereco,cidadeEndereco,ufEndereco,numEndereco,complementoCompra,valorFrete,formaPagamento,numeroCartaoCompra,valorFinal,dataPedido,statusPedido,codCliente);
         
         try {
             PedidoDAO.addPedido(pedido);

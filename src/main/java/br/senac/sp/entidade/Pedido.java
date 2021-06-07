@@ -12,6 +12,7 @@ public class Pedido {
     private String complEndereco;
     private double valorFrete;
     private String formaPagamento;
+    private String numeroCartaoCompra;
     private double valorFinal;
     private String dataPedido;
     private char statusPedido;
@@ -19,7 +20,7 @@ public class Pedido {
     
     private String emailUser;
 
-    public Pedido(Integer codPedido, String cepEndereco, String ruaEndereco, String bairroEndereco, String cidadeEndereco, String ufEndereco, String numEndereco, String complEndereco, double valorFrete, String formaPagamento, double valorFinal, String dataPedido, char statusPedido, Integer codCliente) {
+    public Pedido(Integer codPedido, String cepEndereco, String ruaEndereco, String bairroEndereco, String cidadeEndereco, String ufEndereco, String numEndereco, String complEndereco, double valorFrete, String formaPagamento, String numeroCartaoCompra, double valorFinal, String dataPedido, char statusPedido, Integer codCliente) {
         this.codPedido = codPedido;
         this.cepEndereco = cepEndereco;
         this.ruaEndereco = ruaEndereco;
@@ -30,6 +31,7 @@ public class Pedido {
         this.complEndereco = complEndereco;
         this.valorFrete = valorFrete;
         this.formaPagamento = formaPagamento;
+        this.numeroCartaoCompra = numeroCartaoCompra;
         this.valorFinal = valorFinal;
         this.dataPedido = dataPedido;
         this.statusPedido = statusPedido;
@@ -38,7 +40,7 @@ public class Pedido {
     
     
     
-     public Pedido(Integer codPedido, String cepEndereco, String ruaEndereco, String bairroEndereco, String cidadeEndereco, String ufEndereco, String numEndereco, String complEndereco, double valorFrete, String formaPagamento, double valorFinal, String dataPedido, char statusPedido, Integer codCliente, String emailUser) {
+     public Pedido(Integer codPedido, String cepEndereco, String ruaEndereco, String bairroEndereco, String cidadeEndereco, String ufEndereco, String numEndereco, String complEndereco, double valorFrete, String formaPagamento, String numeroCartaoCompra, double valorFinal, String dataPedido, char statusPedido, Integer codCliente, String emailUser) {
         this.codPedido = codPedido;
         this.cepEndereco = cepEndereco;
         this.ruaEndereco = ruaEndereco;
@@ -49,6 +51,7 @@ public class Pedido {
         this.complEndereco = complEndereco;
         this.valorFrete = valorFrete;
         this.formaPagamento = formaPagamento;
+        this.numeroCartaoCompra = numeroCartaoCompra;
         this.valorFinal = valorFinal;
         this.dataPedido = dataPedido;
         this.statusPedido = statusPedido;
@@ -59,7 +62,7 @@ public class Pedido {
      
      
      
-    public Pedido(String cepEndereco, String ruaEndereco, String bairroEndereco, String cidadeEndereco, String ufEndereco, String numEndereco, String complEndereco, double valorFrete, String formaPagamento, double valorFinal, String dataPedido, char statusPedido, Integer codCliente) {
+    public Pedido(String cepEndereco, String ruaEndereco, String bairroEndereco, String cidadeEndereco, String ufEndereco, String numEndereco, String complEndereco, double valorFrete, String formaPagamento, String numeroCartaoCompra, double valorFinal, String dataPedido, char statusPedido, Integer codCliente) {
         this.cepEndereco = cepEndereco;
         this.ruaEndereco = ruaEndereco;
         this.bairroEndereco = bairroEndereco;
@@ -69,6 +72,7 @@ public class Pedido {
         this.complEndereco = complEndereco;
         this.valorFrete = valorFrete;
         this.formaPagamento = formaPagamento;
+        this.numeroCartaoCompra = numeroCartaoCompra;
         this.valorFinal = valorFinal;
         this.dataPedido = dataPedido;
         this.statusPedido = statusPedido;
@@ -100,6 +104,14 @@ public class Pedido {
 
     public void setFormaPagamento(String formaPagamento) {
         this.formaPagamento = formaPagamento;
+    }
+
+    public String getNumeroCartaoCompra() {
+        return numeroCartaoCompra;
+    }
+
+    public void setNumeroCartaoCompra(String numeroCartaoCompra) {
+        this.numeroCartaoCompra = numeroCartaoCompra;
     }
 
     public Integer getCodPedido() {
