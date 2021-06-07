@@ -551,7 +551,7 @@
                 $("#botao-cartao li").removeClass('ativo');
                 $("#botao-boleto li").addClass('ativo');
                 $('[name="formaPagamento"]').val("b");
-                $('[name="numeroCartaoCompra"]').val("");
+                $('[name="numeroCartaoCompra"]').val("0000000000000000");
                 $('[name="nomeCartaoCompra"]').val("");
                 $('[name="validadeCompra"]').val("");
                 $('[name="cvvCompra"]').val("");
