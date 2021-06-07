@@ -171,9 +171,6 @@
                                 <label>Frete</label>
                                 <input name="cep" type="number" id="cepEntrega" placeholder="">
                                 <button class="calcularFrete" onclick="adicionarProdutoCarrinho(1, 3)">Calcular</button>
-<!--                            <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 3)">add</span> 20 Conto
-                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 4)">add</span> 30 Conto
-                                <span class="material-icons" id="add" style="font-size: 1rem; color: black; cursor: pointer;" onclick="adicionarProdutoCarrinho(1, 5)">add</span> 40 Conto-->
                             </fieldset> 
                             
                         </div>
@@ -212,6 +209,7 @@
                                     </a>
                                 </c:otherwise>
                             </c:choose>
+                            <button onclick="adicionarProdutoCarrinho(1, 4)"> LIMPAR </button>
                         </div>
                     </div>
                 </c:when>

@@ -138,7 +138,7 @@
                     <h2>R$ ${pedido.valorFinal}</h2>
                 </div>
                 <a href="CardsProdutos">
-                    <div class="btn-voltar">
+                    <div class="btn-voltar" onclick="adicionarProdutoCarrinho(1, 4)">
                         VOLTAR
                     </div>
                 </a>
@@ -148,6 +148,22 @@
 
             </div>
         </div>
+                <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
+        <script>
+            function adicionarProdutoCarrinho(codProduto, x) {
+                console.log(x);
+
+
+                $.get("CarrinhoProduto?codProduto=" + codProduto + " " + x, function (resposta) {
+                    let numeroCarrinho = 0;
+                    numeroCarrinho -= 1;
+                    document.location.reload(true);
+                });
+
+            }
+        </script>
     </body>
 
 </html>
