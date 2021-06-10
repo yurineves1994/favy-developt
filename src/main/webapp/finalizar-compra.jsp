@@ -684,7 +684,6 @@
 		</div>
 	</div>
         <script>
-<<<<<<< HEAD
             // campos faturamento
             var $campoCep = document.querySelector('[name="cepEnt1"]');
             var $campoRua = document.querySelector('[name="ruaEnt1"]');
@@ -778,7 +777,7 @@
                 $('[name="cvv"]').val("");
             });
         </script>
-=======
+        <script>
 		jQuery(function () {
 			$("#popup-pagamento .fechar").on("click", function () {
 				$("#popup-pagamento").fadeOut(250);
@@ -886,7 +885,6 @@
 			$("#popup-pagamento").show();
 		});
 	</script>
->>>>>>> 29f1b5b1c70601e70c9286b502fc49bca6971422
 
     </body>
 
