@@ -145,7 +145,7 @@
                                                             <img src="data:image/png;base64, ${produto.imagemProduto1}" class="imgProduto">
                                                         </div>
                                                         <div class="descricaoProduto">
-                                                            ${produto.descricao}
+                                                            ${produto.nomeProduto}
                                                         </div>
                                                     </div>
                                                 </td>

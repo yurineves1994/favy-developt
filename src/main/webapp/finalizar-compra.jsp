@@ -543,6 +543,7 @@
                 $("#botao-cartao li").addClass('ativo');
                 $("#botao-boleto li").removeClass('ativo');
                 $('[name="formaPagamento"]').val("c");
+                $('[name="numeroCartaoCompra"]').val("");
 
             });
             $("#botao-boleto").click(function () {

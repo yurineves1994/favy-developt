@@ -187,6 +187,28 @@
             <br><br><br><br>
             </div>
         </c:forEach>
+            
+            
+        <%
+            int quantidadePagina = Integer.parseInt(request.getParameter("quantidadePagina"));
+            int numeroPagina = Integer.parseInt(request.getParameter("numeroPagina"));
+            int codCliente = Integer.parseInt(request.getParameter("codCliente"));
+        %>
+        <nav>
+            <ul class="pagination justify-content-start">
+                <%
+                    if (numeroPagina <= quantidadePagina && (numeroPagina - 1) > 0) {
+                        out.println("<li class='page-item'><a class='page-link' href=PedidosServlet?codCliente=" + codCliente + "&numeroPagina=" + (numeroPagina - 1) + ">Anterior</a></li>");
+                    }
+                    out.println("<li class='page-item'><a class='page-link' href=PedidosServlet?codCliente=" + codCliente + "&numeroPagina=" + numeroPagina + ">" + numeroPagina + "</a></li>");
+
+                    if (quantidadePagina > numeroPagina) {
+                        out.println("<li class='page-item'><a class='page-link' href=PedidosServlet?codCliente=" + codCliente + "&numeroPagina=" + (numeroPagina + 1) + ">Proximo</a></li>");
+                    }
+                %>
+            </ul>
+        </nav>
+
         <script>
             /*
                 A - Aguardando pagamento    Laranja     test #ff9942

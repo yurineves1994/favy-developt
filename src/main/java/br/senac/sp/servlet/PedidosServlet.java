@@ -25,12 +25,21 @@ public class PedidosServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
+        String numeroPagina = request.getParameter("numeroPagina");
+        if (numeroPagina == null) {
+            numeroPagina = "1";
+        }
+
         Integer codCliente = Integer.parseInt(request.getParameter("codCliente"));
-        List<Pedido> listaPedido = PedidoDAO.listarPedido(codCliente);
+        List<Pedido> listaPedido = PedidoDAO.listarPedido(codCliente, numeroPagina);
 
         request.setAttribute("listarPedido", listaPedido);
+        request.setAttribute("numeroPagina", (numeroPagina != null ? numeroPagina : 1));
         
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/cliente/tela-listar-pedido.jsp");
+        int quantidadePagina = PedidoDAO.quantidadePagina();
+        request.setAttribute("quantidadePagina", quantidadePagina);
+
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/cliente/tela-listar-pedido.jsp?quantidadePagina=" + quantidadePagina + "&numeroPagina=" + numeroPagina);
         requestDispatcher.forward(request, response);
     
     }

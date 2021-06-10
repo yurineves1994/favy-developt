@@ -139,11 +139,19 @@ public class PedidoDAO {
         return quantidadePagina;
     }
     
-    public static List<Pedido> listarPedido(Integer codClient){
+    public static List<Pedido> listarPedido(Integer codClient, String numeroPagina){
         List<Pedido> listarPedido = new ArrayList();
+        int totalPorPagina = 10;
+
+        int offset = (Integer.parseInt(numeroPagina) * totalPorPagina) - totalPorPagina;
+
+        if (offset < 0) {
+            offset = 0;
+        }
+
         try {
             Connection con = ConexaoDB.obterConexao();
-            String query = "select * from pedidos where cod_cliente = ?;";
+            String query = "select * from pedidos where cod_cliente = ? order by cod_pedido desc limit " + totalPorPagina + " offset " + offset + ";";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, codClient);
             ResultSet rs = ps.executeQuery();
