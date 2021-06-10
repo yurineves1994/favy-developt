@@ -122,7 +122,7 @@
                                     <td>${produtos.nomeItem}</td>
                                     <td>${produtos.qtdItem}</td>
                                     <td>R$ ${produtos.precoUnitario}</td>    
-                                    <td>R$${produtos.precoTotal}</td>
+                                    <td>R$ ${produtos.precoTotal}</td>
                                 <tr>
 
                                 <div style="display: none;">
@@ -143,8 +143,9 @@
                             <!--
                             <th>Codigo Pedido</th>
                             <th>Codigo Item</th>
-                            -->
-                            <th>Frete: R$ ${listarProdutosPedido[0].freteTotal}</th>
+                            -->                            
+                            <th>Frete: R$ <span id="frete">${listarProdutosPedido[0].freteTotal}</span> </th>
+                            <th>Sub Total: R$<span id="subtotal">...</span></th>
                             <th>Valor Total: R$<span id="total">...</span></th>
                         </tr>
                 </thead>
@@ -155,14 +156,19 @@
         
         <script>
             var tamanho = document.getElementById('contador').innerHTML;
+            var frete = Number( document.getElementById('frete').innerHTML );
+            
+            console.log( frete );
+            
             var valores = 1;
             var soma = 0;
             for(var i=1; i < tamanho; i++){
                 valores = Number( document.getElementById('valorSomar'+i).innerHTML );
                 soma += valores;
             }
-
-            document.getElementById('total').innerText = soma;
+            
+            document.getElementById('total').innerText = soma+frete;
+            document.getElementById('subtotal').innerText = soma;
         </script>
 </body>
 </html>
