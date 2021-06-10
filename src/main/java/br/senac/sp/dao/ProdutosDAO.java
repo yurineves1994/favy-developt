@@ -28,11 +28,16 @@ public class ProdutosDAO {
                 long precoProduto = rs.getLong("preco_produto");
                 long qtdProduto = rs.getLong("qtd_produto");
                 int qtdEstrela = rs.getInt("qtd_estrela");
-                String imagemProduto1 = rs.getString("imagem_produto_1");
-                String imagemProduto2 = rs.getString("imagem_produto_2");
-                String imagemProduto3 = rs.getString("imagem_produto_3");
-                String imagemProduto4 = rs.getString("imagem_produto_4");
-                listaProdutos.add(new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto1, imagemProduto2, imagemProduto3, imagemProduto4));
+                
+                List<String> imgs = new ArrayList();
+                query = "select nomeImg from img where id = "+codProduto;
+                PreparedStatement ps2 = con.prepareStatement(query);
+                ResultSet sanp = ps2.executeQuery();
+                while(sanp.next()){
+                    imgs.add( sanp.getString("nomeImg") );
+                }
+                
+                listaProdutos.add(new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imgs));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -78,6 +83,7 @@ public class ProdutosDAO {
     
     public static List<Produto> listarProdutos(String numeroPagina) {
         List<Produto> listaProdutos = new ArrayList();
+        
         int totalPorPagina = 10;
 
         int offset = (Integer.parseInt(numeroPagina) * totalPorPagina) - totalPorPagina;
@@ -85,7 +91,9 @@ public class ProdutosDAO {
         if (offset < 0) {
             offset = 0;
         }
-
+        
+        // select nomeImg from img where id = ?
+        
         try {
             Connection con = ConexaoDB.obterConexao();
             String query = "select * from produtos limit " + totalPorPagina + " offset " + offset + ";";
@@ -99,12 +107,19 @@ public class ProdutosDAO {
                 long precoProduto = rs.getLong("preco_produto");
                 long qtdProduto = rs.getLong("qtd_produto");
                 int qtdEstrela = rs.getInt("qtd_estrela");
-                String imagemProduto1 = rs.getString("imagem_produto_1");
-                String imagemProduto2 = rs.getString("imagem_produto_2");
-                String imagemProduto3 = rs.getString("imagem_produto_3");
-                String imagemProduto4 = rs.getString("imagem_produto_4");
-                listaProdutos.add(new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto1, imagemProduto2, imagemProduto3, imagemProduto4));
+                
+                
+                List<String> imgs = new ArrayList();
+                query = "select nomeImg from img where id = "+codProduto;
+                PreparedStatement ps2 = con.prepareStatement(query);
+                ResultSet sanp = ps2.executeQuery();
+                while(sanp.next()){
+                    imgs.add( sanp.getString("nomeImg") );
+                }
+                
+                listaProdutos.add(new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imgs));
             }
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
                     log(Level.SEVERE, null, ex);
@@ -134,7 +149,7 @@ public class ProdutosDAO {
                 String imagemProduto2 = rs.getString("imagem_produto_2");
                 String imagemProduto3 = rs.getString("imagem_produto_3");
                 String imagemProduto4 = rs.getString("imagem_produto_4");
-                listaPesquisaProduto.add(new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto1, imagemProduto2, imagemProduto3, imagemProduto4));
+                //listaPesquisaProduto.add(new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto1, imagemProduto2, imagemProduto3, imagemProduto4));
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).
@@ -148,7 +163,7 @@ public class ProdutosDAO {
 
     public static void addProduto(Produto produtos) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.obterConexao();
-        String query = "insert into produtos(nome_produto, descricao, status_produto, preco_produto, qtd_produto, qtd_estrela, imagem_produto_1, imagem_produto_2, imagem_produto_3, imagem_produto_4) values (?,?,?,?,?,?,?,?,?,?)";
+        String query = "insert into produtos(nome_produto, descricao, status_produto, preco_produto, qtd_produto, qtd_estrela) values (?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, produtos.getNomeProduto());
         ps.setString(2, produtos.getDescricao());
@@ -156,17 +171,32 @@ public class ProdutosDAO {
         ps.setLong(4, produtos.getPrecoProduto());
         ps.setLong(5, produtos.getQtdProduto());
         ps.setInt(6, produtos.getQtdEstrela());
-        ps.setString(7, produtos.getImagemProduto1());
-        ps.setString(8, produtos.getImagemProduto2());
-        ps.setString(9, produtos.getImagemProduto3());
-        ps.setString(10, produtos.getImagemProduto4());
         ps.execute();
         ps.close();
     }
+    public static void addImagens(List<String> imagens) throws SQLException, ClassNotFoundException {
+        Connection con = ConexaoDB.obterConexao();
+        
+        String query = "select max(cod_produto) as cod_produto from produtos";
+        PreparedStatement ps = con.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        Integer codProduto = rs.getInt("cod_produto");
+        
+        for(String imgs: imagens) {
+            query = "insert into img(nomeImg, id) values(?, ?)";
+            PreparedStatement psItem = con.prepareStatement(query);
+            psItem.setString(1, imgs);
+            psItem.setInt(2, codProduto);
+            psItem.execute();
+            psItem.close();
+        }
+    }
 
+    // delete from img where id = 2;
     public static void updateProduto(Produto produtos) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.obterConexao();
-        String query = "update produtos set nome_produto=?, descricao=?, status_produto=?, preco_produto=?, qtd_produto=?, qtd_estrela=?, imagem_produto_1=?, imagem_produto_2=?, imagem_produto_3=?, imagem_produto_4=? where cod_produto=?";
+        String query = "update produtos set nome_produto=?, descricao=?, status_produto=?, preco_produto=?, qtd_produto=?, qtd_estrela=? where cod_produto=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, produtos.getNomeProduto());
         ps.setString(2, produtos.getDescricao());
@@ -174,13 +204,31 @@ public class ProdutosDAO {
         ps.setLong(4, produtos.getPrecoProduto());
         ps.setLong(5, produtos.getQtdProduto());
         ps.setInt(6, produtos.getQtdEstrela());
-        ps.setString(7, produtos.getImagemProduto1());
-        ps.setString(8, produtos.getImagemProduto2());
-        ps.setString(9, produtos.getImagemProduto3());
-        ps.setString(10, produtos.getImagemProduto4());
-        ps.setInt(11, produtos.getCodProduto());
+        ps.setInt(7, produtos.getCodProduto());
         ps.execute();
         ps.close();
+    }
+    
+    public static void deletarImagens(long id) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.obterConexao();
+        String query = "delete from img where id = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setLong(1, id);
+        ps.execute();
+        ps.close();
+    }
+    
+    public static void cadastrarImagens(long id, List<String> imagens) throws ClassNotFoundException, SQLException {
+        Connection con = ConexaoDB.obterConexao();
+        
+        for(String imgs: imagens) {
+            String query = "insert into img(nomeImg, id) values(?, ?)";
+            PreparedStatement psItem = con.prepareStatement(query);
+            psItem.setString(1, imgs);
+            psItem.setLong(2, id);
+            psItem.execute();
+            psItem.close();
+        }
     }
 
     public static void ativarProduto(Integer codProduto) throws ClassNotFoundException, SQLException {
@@ -216,11 +264,17 @@ public class ProdutosDAO {
                 long precoProduto = rs.getLong("preco_produto");
                 long qtdProduto = rs.getLong("qtd_produto");
                 int qtdEstrela = rs.getInt("qtd_estrela");
-                String imagemProduto1 = rs.getString("imagem_produto_1");
-                String imagemProduto2 = rs.getString("imagem_produto_2");
-                String imagemProduto3 = rs.getString("imagem_produto_3");
-                String imagemProduto4 = rs.getString("imagem_produto_4");
-                produto = new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imagemProduto1, imagemProduto2, imagemProduto3, imagemProduto4);
+                
+                List<String> imgs = new ArrayList();
+                query = "select nomeImg from img where id = "+codProduto;
+                PreparedStatement ps2 = con.prepareStatement(query);
+                ResultSet sanp = ps2.executeQuery();
+                while(sanp.next()){
+                    imgs.add( sanp.getString("nomeImg") );
+                }
+                           
+                
+                produto = new Produto(codProduto, nomeProduto, descricao, statusProduto, precoProduto, qtdProduto, qtdEstrela, imgs);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ServletBD.class.getName()).

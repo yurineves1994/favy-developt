@@ -38,18 +38,11 @@
             <div class="row">
                 <div class="col-sm-2">
                     <ul class="imagens-laterais">
-                        <c:if test="${produto.imagemProduto1 != null}">
-                          <li><img width="100" height="100" class="rounded mx-auto d-block img-lateral" src="data:image/png;base64, ${produto.imagemProduto1}" alt="Red dot" /></li>
-                        </c:if>
-                        <c:if test="${produto.imagemProduto2 != null}">
-                          <li><img width="100" height="100" class="rounded mx-auto d-block img-lateral" src="data:image/png;base64, ${produto.imagemProduto2}" alt="Red dot" /></li>
-                        </c:if>
-                        <c:if test="${produto.imagemProduto3 != null}">
-                          <li><img width="100" height="100" class="rounded mx-auto d-block img-lateral" src="data:image/png;base64, ${produto.imagemProduto3}" alt="Red dot" /></li>
-                        </c:if>
-                        <c:if test="${produto.imagemProduto4 != null}">
-                          <li><img width="100" height="100" class="rounded mx-auto d-block img-lateral" src="data:image/png;base64, ${produto.imagemProduto4}" alt="Red dot" /></li>
-                        </c:if>
+                        <c:forEach items="${produto.imagemProduto}" var="produt">
+                            <div>
+                                <img  width="100" height="100"  src = "data:image/png;base64, ${produt}" alt = "Red dot">
+                            </div>
+                        </c:forEach>
                     </ul>
                 </div>
                 <div class="col-sm-5 border">
@@ -58,18 +51,13 @@
                         <h4>Quantidade Estrela: ${produto.qtdEstrela}</h4>                               
                         <h3>R$:${produto.precoProduto} a vista</h3>
                         <div id="carousel-visualizar">
-                            <c:if test="${produto.imagemProduto1 != null}">
-                               <div><img width="400" height="400" class="rounded mx-auto d-block img-carousel" src="data:image/png;base64, ${produto.imagemProduto1}" alt="Red dot" /></div>
-                            </c:if>
-                            <c:if test="${produto.imagemProduto2 != null}">
-                               <div><img width="400" height="400" class="rounded mx-auto d-block img-carousel" src="data:image/png;base64, ${produto.imagemProduto2}" alt="Red dot" /></div>
-                            </c:if>
-                            <c:if test="${produto.imagemProduto3 != null}">
-                               <div><img width="400" height="400" class="rounded mx-auto d-block img-carousel" src="data:image/png;base64, ${produto.imagemProduto3}" alt="Red dot" /></div>
-                            </c:if>
-                            <c:if test="${produto.imagemProduto4 != null}">
-                               <div><img width="400" height="400" class="rounded mx-auto d-block img-carousel" src="data:image/png;base64, ${produto.imagemProduto4}" alt="Red dot" /></div>
-                            </c:if>
+                            
+                            <c:forEach items="${produto.imagemProduto}" var="produt">
+                                <div>
+                                    <img  width="400" height="400"  src = "data:image/png;base64, ${produt}" alt = "Red dot">
+                                </div>
+                            </c:forEach>
+                            
                         </div>
                     </div>
                 </div>               

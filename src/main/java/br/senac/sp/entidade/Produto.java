@@ -1,5 +1,7 @@
 package br.senac.sp.entidade;
 
+import java.util.List;
+
 public class Produto {
 
     private Integer codProduto;
@@ -9,10 +11,7 @@ public class Produto {
     private long precoProduto;
     private long qtdProduto;
     private int qtdEstrela;
-    private String imagemProduto1;
-    private String imagemProduto2;
-    private String imagemProduto3;
-    private String imagemProduto4;
+    private List<String> imagemProduto;
     
     private int qntCarrinho = 1;
     //private double subTotal = 0;
@@ -21,7 +20,7 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Integer codProduto, String nomeProduto, String descricao, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, String imagemProduto1, String imagemProduto2, String imagemProduto3, String imagemProduto4) {
+    public Produto(Integer codProduto, String nomeProduto, String descricao, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, List<String> imagens ) {
         this.codProduto = codProduto;
         this.nomeProduto = nomeProduto;
         this.descricao = descricao;
@@ -29,25 +28,39 @@ public class Produto {
         this.precoProduto = precoProduto;
         this.qtdProduto = qtdProduto;
         this.qtdEstrela = qtdEstrela;
-        this.imagemProduto1 = imagemProduto1;
-        this.imagemProduto2 = imagemProduto2;
-        this.imagemProduto3 = imagemProduto3;
-        this.imagemProduto4 = imagemProduto4;
+        this.imagemProduto = imagens;
     }
+    
 
-    public Produto(String nomeProduto, String descricao, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, String imagemProduto1, String imagemProduto2, String imagemProduto3, String imagemProduto4) {
+    //Cadastro com Imagem
+    public Produto(String nomeProduto, String descricao, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela, List<String> imagens ) {
         this.nomeProduto = nomeProduto;
         this.descricao = descricao;
         this.statusProduto = statusProduto;
         this.precoProduto = precoProduto;
         this.qtdProduto = qtdProduto;
         this.qtdEstrela = qtdEstrela;
-        this.imagemProduto1 = imagemProduto1;
-        this.imagemProduto2 = imagemProduto2;
-        this.imagemProduto3 = imagemProduto3;
-        this.imagemProduto4 = imagemProduto4;
+        this.imagemProduto = imagens;
+    }
+    
+    // Listagem dos produtos
+    public Produto(Integer codProduto, String nomeProduto, String descricao, String statusProduto, long precoProduto, long qtdProduto, int qtdEstrela ) {
+        this.nomeProduto = nomeProduto;
+        this.descricao = descricao;
+        this.statusProduto = statusProduto;
+        this.precoProduto = precoProduto;
+        this.qtdProduto = qtdProduto;
+        this.qtdEstrela = qtdEstrela;
+    }
+    
+    public List<String> getImagemProduto() {
+        return imagemProduto;
     }
 
+    public void setImagemProduto(List<String> imagemProduto) {
+        this.imagemProduto = imagemProduto;
+    }
+    
     // Getters e Setters
     public Integer getCodProduto() {
         return codProduto;
@@ -111,38 +124,6 @@ public class Produto {
 
     public void setQtdEstrela(int qtdEstrela) {
         this.qtdEstrela = qtdEstrela;
-    }
-
-    public String getImagemProduto1() {
-        return imagemProduto1;
-    }
-
-    public void setImagemProduto1(String imagemProduto1) {
-        this.imagemProduto1 = imagemProduto1;
-    }
-
-    public String getImagemProduto2() {
-        return imagemProduto2;
-    }
-
-    public void setImagemProduto2(String imagemProduto2) {
-        this.imagemProduto2 = imagemProduto2;
-    }
-
-    public String getImagemProduto3() {
-        return imagemProduto3;
-    }
-
-    public void setImagemProduto3(String imagemProduto3) {
-        this.imagemProduto3 = imagemProduto3;
-    }
-
-    public String getImagemProduto4() {
-        return imagemProduto4;
-    }
-
-    public void setImagemProduto4(String imagemProduto4) {
-        this.imagemProduto4 = imagemProduto4;
     }
 
 }

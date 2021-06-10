@@ -27,7 +27,7 @@
         <script src="scripts/scriptCadastrarProduto.js"></script>
         <section>
             <div class="container mt-5">
-                <form action="<c:url value="/EditarProduto"/>" method="POST">
+                <form action="<c:url value="/EditarProduto"/>" method="POST" enctype="multipart/form-data">
                     <h1>Alterar Produto - COD: ${produto.codProduto} / Nome: ${produto.nomeProduto}</h1>   
                     <div class="form-group"> 
                         <label for="nome_produto">Nome:</label>
@@ -39,6 +39,7 @@
                         <input required class="form-control" name="descricao" value="${produto.descricao}"></input>
                     </div>
                     <div class="row">
+                        
                         <div class="form-group col-sm-3"> 
                             <label for="qtd_estrela">Quantidada Estrela:</label>
                             <input required class="form-control" type="number" value="${produto.qtdEstrela}" name="qtd_estrela">
@@ -60,42 +61,34 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-
-                        <div class="form-group col-sm-3">
-                            <c:if test="${produto.imagemProduto1 != null}">
-                                <img width="200" height="200" src="data:image/png;base64, ${produto.imagemProduto1}" alt="Red dot" />
-                            </c:if>
-                            <input type="file" id="lupinha" name="imagem_produto_1" class="fa fa-search fa-2x">
+                        
+                        <div>
+                            <input type="button" onclick="addImg()" value="+">                
+                            <table id="myTable">
+                                <% int i = 1;%> 
+                                <c:forEach items="${produto.imagemProduto}" var="produt">
+                                    <tr>
+                                        <td>
+                                            <img  width = "200" height = "200" src = "data:image/png;base64, ${produt}" alt = "Red dot">      
+                                            <input type="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)">
+                                            <input type="file" name="addImg<%=i%>" src = "data:image/png;base64, ${produt}">
+                                        </td>
+                                    </tr>
+                                    
+                                    <div style="display: none;" >
+                                        <%=i++%>
+                                    </div>
+                                </c:forEach>
+                            </table>
                         </div>
-
-
-                        <div class="form-group col-sm-3">
-                            <c:if test="${produto.imagemProduto2 != null}">
-                                <img width="200" height="200" src="data:image/png;base64, ${produto.imagemProduto2}" alt="Red dot" />
-                            </c:if>
-                            <input type="file" id="lupinha" name="imagem_produto_2" class="fa fa-search fa-2x">
-                        </div>
-
-
-                        <div class="form-group col-sm-3">  
-                            <c:if test="${produto.imagemProduto3 != null}">
-                                <img width="200" height="200" src="data:image/png;base64, ${produto.imagemProduto3}" alt="Red dot" />
-                            </c:if>
-                            <input type="file" id="lupinha" name="imagem_produto_3" class="fa fa-search fa-2x">
-                        </div>
-
-
-                        <div class="form-group col-sm-3">     
-                            <c:if test="${produto.imagemProduto4 != null}">
-                                <img width="200" height="200" src="data:image/png;base64, ${produto.imagemProduto4}" alt="Red dot" />
-                            </c:if>
-                            <input type="file" id="lupinha" name="imagem_produto_4" class="fa fa-search fa-2x">
-                        </div>
-
+                        <input type="text" id="imgLenght" name="qtdImgs" value="<%=i-1%>" style="display: none;">
+            
+                        <input type="text" id="nomesImg" name="nomesImg" style="display: none;">
+                        
                     </div>                 
                     <div class="row ">
                         <a class="btn btn-dark mr-2" href="ListarProdutos">Cancelar</a>
-                        <button type="submit" class="btn btg-lg btn-dark">Enviar</button>
+                        <button type="submit" class="btn btg-lg btn-dark" onclick="pegarNomes()">Enviar</button>
                     </div>
                 </form>
 
@@ -103,9 +96,58 @@
         </section>
 
         <script>
-            var teste = document.querySelector("input#lupinha").value;
-            console.log(teste);
-        </script>
+            index = document.getElementById('imgLenght');
+            
+            nomes = [];
+            
+            for( let i = 1; i <= index.value; i++ ){
+                nomes.push( "addImg"+i );
+            }
+
+            function pegarNomes(){
+                document.getElementById("nomesImg").value = nomes;
+            }
+
+           function addImg(){
+                let tabela = document.getElementById("myTable");
+                let linha = document.createElement('tr');
+
+                index.value++;
+
+                let celula = document.createElement('td');
+
+                tabela.appendChild(linha);
+                linha.appendChild(celula);
+
+                celula.innerHTML = "<input type='button' value='Delete' onclick='deleteRow(this.parentNode.parentNode.rowIndex)'>Remover</button>\n\
+                <input type='file' name='addImg"+index.value+"'>";
+
+                //nomes += "addImg"+index.value+" ";
+                nomes.push( "addImg"+index.value );
+                console.log("----------CADASTRO-------------")
+                nomes.forEach( exibir );
+
+                celula.appendChild(myTable);                
+           }
+           
+           function exibir( e ){
+               console.log( e );
+           }
+           
+
+           function deleteRow(i){
+                console.log(i);
+
+                nomes.splice( i, 1 );
+                //nomes.splice( i+1, 1 ); se o de cima não funcionar eu funciono hehe
+                
+                console.log("---------DELETADOS--------------")
+                nomes.forEach( exibir );
+
+                document.getElementById('myTable').deleteRow(i);
+           }
+
+       </script>
     </body>
 
 

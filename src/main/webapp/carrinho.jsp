@@ -142,7 +142,7 @@
                                                 <td style="vertical-align: middle;">
                                                     <div class="cxaProduto">
                                                         <div>
-                                                            <img src="data:image/png;base64, ${produto.imagemProduto1}" class="imgProduto">
+                                                            <img src="data:image/png;base64, ${produto.imagemProduto.get(0)}" class="imgProduto">
                                                         </div>
                                                         <div class="descricaoProduto">
                                                             ${produto.descricao}

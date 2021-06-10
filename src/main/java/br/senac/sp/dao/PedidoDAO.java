@@ -37,6 +37,28 @@ public class PedidoDAO {
         ps.execute();
         ps.close();
     }
+
+    public static void addItemVenda(ArrayList<ItemVenda> itens) throws SQLException, ClassNotFoundException {
+        Connection con = ConexaoDB.obterConexao();
+        
+        String queryCod = "select max(cod_pedido) as cod_pedido from pedidos";
+        PreparedStatement ps = con.prepareStatement(queryCod);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        Integer codProduto = rs.getInt("cod_pedido");
+        
+        for (ItemVenda itensLista : itens) {
+            String query = "insert into itens_venda(nome_item, qtd_item, preco_unit, preco_total, cod_pedido) values (?,?,?,?,?)";
+            PreparedStatement psItem = con.prepareStatement(query);
+            psItem.setString(1, itensLista.getNomeItem());
+            psItem.setInt(2, itensLista.getQtdItem());
+            psItem.setDouble(3, itensLista.getPrecoUnitario());
+            psItem.setDouble(4, itensLista.getPrecoTotal());
+            psItem.setInt(5, codProduto);
+            psItem.execute();
+            psItem.close();
+        }
+    }
     
     // filtrar status pedido
     public static List<Pedido> filtraStatus(char statusPesquisa) {
@@ -73,28 +95,6 @@ public class PedidoDAO {
                     log(Level.SEVERE, null, ex);
         }
         return listaPesquisaProduto;
-    }
-    
-    public static void addItemVenda(ArrayList<ItemVenda> itens) throws SQLException, ClassNotFoundException {
-        Connection con = ConexaoDB.obterConexao();
-        
-        String queryCod = "select max(cod_pedido) as cod_pedido from pedidos";
-        PreparedStatement ps = con.prepareStatement(queryCod);
-        ResultSet rs = ps.executeQuery();
-        rs.next();
-        Integer codProduto = rs.getInt("cod_pedido");
-        
-        for (ItemVenda itensLista : itens) {
-            String query = "insert into itens_venda(nome_item, qtd_item, preco_unit, preco_total, cod_pedido) values (?,?,?,?,?)";
-            PreparedStatement psItem = con.prepareStatement(query);
-            psItem.setString(1, itensLista.getNomeItem());
-            psItem.setInt(2, itensLista.getQtdItem());
-            psItem.setDouble(3, itensLista.getPrecoUnitario());
-            psItem.setDouble(4, itensLista.getPrecoTotal());
-            psItem.setInt(5, codProduto);
-            psItem.execute();
-            psItem.close();
-        }
     }
     
     public static void statusPedido(Integer codPedido, char status) throws ClassNotFoundException, SQLException {
