@@ -60,18 +60,19 @@
                             
                         </div>
                     </div>
-                </div>               
+                </div>
                 <div class="col-sm-4 border">
                     <div>
                         <h4>Descrição do Produto</h4><br>${produto.descricao}
                         <br>
                         <br>
-                        <a class="btn btn-danger" href="#">Comprar</a>
                         <c:choose>
                             <c:when test="${sessionScope.email_user.admin || sessionScope.email_user.estoque}">
+                                <a class="btn btn-danger">Adicionar ao carrinho</a>
                                 <a class="btn btn-dark" href="ListarProdutos">Voltar</a>
                             </c:when>
                             <c:otherwise>
+                                <a class="btn btn-primary" onclick="adicionarProdutoCarrinho(${produto.codProduto}, 2)">Adicionar ao carrinho</a>      
                                 <a class="btn btn-dark" href="CardsProdutos">Voltar</a>
                             </c:otherwise>
                         </c:choose>
@@ -90,6 +91,14 @@
             slidesToShow: 1,
             slidesToScroll: 1
         });
+        
+        function adicionarProdutoCarrinho(codProduto, x) {
+            $.get("CarrinhoProduto?codProduto=" + codProduto+" "+x, function (resposta) {
+                let numeroCarrinho = 0;
+                numeroCarrinho += 1;
+                document.location.reload(true);
+            });
+        }
     </script>
 </body>
 
