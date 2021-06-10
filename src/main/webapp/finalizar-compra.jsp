@@ -423,7 +423,7 @@
                             <legend>Cartão</legend>
                             <div class="row">
                                 <div>
-                                    <input name="numerocartao" type="text" placeholder="numero cartão">
+                                    <input name="numerocartao" type="text" placeholder="numero cartão" maxlength="16" minlength="16">
                                 </div>
                                 <div>
                                     <input name="nomecartao" type="text" placeholder="nome impresso no cartão">
