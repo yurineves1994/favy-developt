@@ -609,73 +609,73 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<input required name="codCliente" value="${sessionScope.email_cli.codCliente}" type="text"
-								id="cod_cliente" placeholder="" disabled>
+								id="cod_cliente" placeholder="" readonly>
 						</div>
 						<div class="col-sm-6">
-							<input required name="cepCompra" type="number" id="cepCompra" placeholder="" disabled>
+                                                    <input required name="cepCompra" type="number" id="cepCompra" placeholder="" readonly>
 						</div>
 						<div class="col-sm-6">
 							<input required name="logradouroCompra" type="text" id="logradouroCompra" placeholder=""
-								disabled>
+								readonly>
 						</div>
 						<!-- fim da primeira linha-->
 						<div class="col-sm-6">
-							<input required name="bairroCompra" type="text" id="bairroCompra" placeholder="" disabled>
+							<input required name="bairroCompra" type="text" id="bairroCompra" placeholder="" readonly>
 						</div>
 						<div class="col-sm-6">
 							<input required name="localidadeCompra" type="text" id="localidadeCompra" placeholder=""
-								disabled>
+								readonly>
 						</div>
 						<div class="col-sm-6">
-							<input required name="ufCompra" type="text" id="ufCompra" placeholder="" disabled>
+							<input required name="ufCompra" type="text" id="ufCompra" placeholder="" readonly>
 						</div>
 						<!-- fim da segunda linha-->
 						<div class="col-sm-6">
-							<input required name="numeroCompra" type="number" id="numero" placeholder="" disabled>
+							<input required name="numeroCompra" type="number" id="numero" placeholder="" readonly>
 						</div>
 						<div class="col-sm-6">
-							<input required name="complementoCompra" type="text" id="text" placeholder="" disabled>
+							<input required name="complementoCompra" type="text" id="text" placeholder="" readonly>
 						</div>
 						<div class="col-sm-6">
 							<input required name="totalCompra" type="text" value="${sessionScope.totalCompra}"
-								id="complemento" placeholder="" disabled>
+								id="complemento" placeholder="" readonly>
 						</div>
 						<!-- fim da terceira linha-->
 						<div class="col-sm-6">
 							<input required name="frete" type="text" value="${sessionScope.frete}" id="frete"
-								placeholder="" disabled>
+								placeholder="" readonly>
 						</div>
 						<div class="col-sm-6">
 							<!-- <% int i = 1;%> -->
 							<!-- <c:forEach items="${sessionScope.listaProdutos}" var="produto"> -->
-							<input required name="qnt<%=i%>" value="${produto.qntCarrinho}" disabled>
+							<input required name="qnt<%=i%>" value="${produto.qntCarrinho}" readonly>
 						</div>
 						<div class="col-sm-6">
-							<input required name="nome<%=i%>" value="${produto.nomeProduto}" disabled>
+							<input required name="nome<%=i%>" value="${produto.nomeProduto}" readonly>
 						</div>
 						<div class="col-sm-6">
-							<input required name="preco<%=i%>" value="${produto.precoProduto}" disabled>
+							<input required name="preco<%=i%>" value="${produto.precoProduto}" readonly>
 							<!-- <%=i++%>
 							</c:forEach> -->
 						</div>
 						<div class="col-sm-6">
-							<input required name="qntProduto" value="<%=i%>" disabled>
+							<input required name="qntProduto" value="<%=i%>" readonly>
 						</div>
 						<div class="col-sm-6">
 							<input required name="formaPagamento" type="text" id="formaPagamento" placeholder=""
-								disabled>
+								readonly>
 						</div>
 						<div class="col-sm-6">
-							<input name="numeroCartaoCompra" type="text" id="numeroCartao" placeholder="" disabled>
+							<input name="numeroCartaoCompra" type="text" id="numeroCartao" placeholder="" readonly>
 						</div>
 						<div class="col-sm-6">
-							<input name="nomeCartaoCompra" type="text" id="nomeCartao" placeholder="" disabled>
+							<input name="nomeCartaoCompra" type="text" id="nomeCartao" placeholder="" readonly>
 						</div>
 						<div class="col-sm-6">
-							<input name="validadeCompra" type="number" id="validade" placeholder="" disabled>
+							<input name="validadeCompra" type="number" id="validade" placeholder="" readonly>
 						</div>
 						<div class="col-sm-6">
-							<input name="cvvCompra" type="number" id="cvv" placeholder="" disabled>
+							<input name="cvvCompra" type="number" id="cvv" placeholder="" readonly>
 						</div>
 					</div>
 					<input type="submit" value="Confirmar Pedido">
