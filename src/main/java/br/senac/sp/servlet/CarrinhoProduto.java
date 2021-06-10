@@ -89,7 +89,7 @@ public class CarrinhoProduto extends HttpServlet {
         Produto produto = ProdutosDAO.obterProduto(codProduto);
 
         double subTotal = produto.getPrecoProduto();
-        double totalCompra;
+        double totalCompra = 0;
         
         int qntProduto = 0;
         
@@ -101,7 +101,7 @@ public class CarrinhoProduto extends HttpServlet {
             listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
         }
         if (sessao.getAttribute("totalCompra") == null) {
-            totalCompra = subTotal;
+            
         } else {
             totalCompra = (double) sessao.getAttribute("totalCompra");
         }

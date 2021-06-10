@@ -143,7 +143,7 @@
                             <span class="info" id="ajustaData<%=i%>">...</span>
                             <br>
                             <br>
-                            <span class="info">R$${pedido.valorFinal}</span>
+                            <span class="info">R$${pedido.valorFinal + pedido.valorFrete}</span>
                         </div>
                     </div>
                     <div style="display: none;"> 

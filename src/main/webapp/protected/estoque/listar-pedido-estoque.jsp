@@ -118,7 +118,7 @@
                                 </c:otherwise>
                             </c:choose> 
                             <td>${pedido.dataPedido}</td>
-                            <td>R$${pedido.valorFinal}0</td>
+                            <td>R$ ${pedido.valorFinal + pedido.valorFrete}0</td>
                             <td> 
                                 <span id="status<%=x%>" style="display: none;">${pedido.statusPedido}</span>
 
