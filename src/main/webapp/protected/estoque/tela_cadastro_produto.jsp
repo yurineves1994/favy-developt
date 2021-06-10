@@ -13,7 +13,7 @@
         <script src="scripts/scriptCadastrarProduto.js"></script>
         <section class="container">
         <!-- enctype="multipart/form-data" -->
-        <form class="formulario cadastro_produto" action="<c:url value="/CadastrarProduto"/>" method="POST">
+        <form class="formulario cadastro_produto" action="<c:url value="/CadastrarProduto"/>" method="POST" enctype="multipart/form-data">
             <!-- Nome produto -->
             <input required name="nome_produto" type="text" placeholder=" Nome do Produto ">
             <!-- Descrição -->
@@ -37,31 +37,73 @@
             <!-- Preço -->
             <input required name="preco_produto" type="number" placeholder="Preço (MAX - 99 / Double)" min="1">
             <!-- Grupo Imagem -->
-            <div class="grupo-imagem">
-                <!--  Imagem -->
-                <label for="imagem_produto_1">Caminho Imagem 01:</label>
-                <input type="file" name="imagem_produto_1" id="lupinha" class="fa fa-search fa-2x">
-                <!--  Imagem -->
-                <label for="imagem_produto_2">Caminho Imagem 02:</label>
-                <input type="file" name="imagem_produto_2" id="lupinha" class="fa fa-search fa-2x">
-                <!--  Imagem -->
-                <label for="imagem_produto_3">Caminho Imagem 03:</label>
-                <input type="file" name="imagem_produto_3" id="lupinha" class="fa fa-search fa-2x">
-                <!--  Imagem -->
-                <label for="imagem_produto_4">Caminho Imagem 04:</label>
-                <input type="file" name="imagem_produto_4" id="lupinha" class="fa fa-search fa-2x">
+            <div>
+                <input type="button" onclick="addImg()" value="+">                
+                <table id="myTable">
+
+                </table>
             </div>
+            <input type="text" id="imgLenght" name="qtdImgs" value="0" style="display: none;">
+            
+            <input type="text" id="nomesImg" name="nomesImg" style="display: none;">
+
+            
             
             <div class="grupo-botoes">
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Enviar" onclick="pegarNomes()">
                 <input type="reset" value="Cancelar">
             </div>
         </form>
     </section>
         <script>
-            var teste = document.querySelector("input#lupinha").value;
-            console.log(teste);
-        </script>
+            index = document.getElementById('imgLenght');
+
+            nomes = [];
+
+            function pegarNomes(){
+                document.getElementById("nomesImg").value = nomes;
+            }
+
+           function addImg(){
+                let tabela = document.getElementById("myTable");
+                let linha = document.createElement('tr');
+
+                index.value++;
+
+                let celula = document.createElement('td');
+
+                tabela.appendChild(linha);
+                linha.appendChild(celula);
+
+                celula.innerHTML = "<input type='button' value='Delete' onclick='deleteRow(this.parentNode.parentNode.rowIndex)'>Remover</button>\n\
+                <input type='file' name='addImg"+index.value+"'>";
+
+                //nomes += "addImg"+index.value+" ";
+                nomes.push( "addImg"+index.value );
+                console.log("----------CADASTRO-------------")
+                nomes.forEach( exibir );
+
+                celula.appendChild(myTable);                
+           }
+           
+           function exibir( e ){
+               console.log( e );
+           }
+           
+
+           function deleteRow(i){
+                console.log(i);
+
+                nomes.splice( i, 1 );
+                //nomes.splice( i+1, 1 ); se o de cima não funcionar eu funciono hehe
+                
+                console.log("---------DELETADOS--------------")
+                nomes.forEach( exibir );
+
+                document.getElementById('myTable').deleteRow(i);
+           }
+
+       </script>
     </body>
 
 </html>

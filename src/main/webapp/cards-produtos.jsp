@@ -54,6 +54,12 @@
                 margin: auto;
                 margin-bottom: 10px;
             }
+            
+            .imgFormat{
+                height: 200px;
+                width: 100%;
+            }
+            
         </style>
     </head>
 
@@ -87,18 +93,11 @@
                             <a href="VisualizarProduto?codProduto=${produto.codProduto}">
                                 <div class="card" style="width: 18rem;">
                                     <div class="carousel-visualizar">
-                                        <c:if test="${produto.imagemProduto1 != null}">
-                                            <div><img width="200" height="200" class="rounded mx-auto d-block img-carousel" src="data:image/png;base64, ${produto.imagemProduto1}" alt="Red dot" /></div>
-                                            </c:if>
-                                            <c:if test="${produto.imagemProduto2 != null}">
-                                            <div><img width="200" height="200" class="rounded mx-auto d-block img-carousel" src="data:image/png;base64, ${produto.imagemProduto2}" alt="Red dot" /></div>
-                                            </c:if>
-                                            <c:if test="${produto.imagemProduto3 != null}">
-                                            <div><img width="200" height="200" class="rounded mx-auto d-block img-carousel" src="data:image/png;base64, ${produto.imagemProduto3}" alt="Red dot" /></div>
-                                            </c:if>
-                                            <c:if test="${produto.imagemProduto4 != null}">
-                                            <div><img width="200" height="200" class="rounded mx-auto d-block img-carousel" src="data:image/png;base64, ${produto.imagemProduto4}" alt="Red dot" /></div>
-                                            </c:if>
+                                        <c:forEach items="${produto.imagemProduto}" var="produt"> 
+                                            <div>
+                                                <img class="imgFormat" src = "data:image/png;base64, ${produt}" alt = "Red dot">
+                                            </div>
+                                        </c:forEach>
                                     </div>
                             </a>
                             <div class="card-body">

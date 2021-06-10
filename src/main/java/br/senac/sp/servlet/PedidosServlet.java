@@ -56,12 +56,12 @@ public class PedidosServlet extends HttpServlet {
         String ufEndereco = request.getParameter("ufCompra");
         String numEndereco = request.getParameter("numeroCompra");
         String complementoCompra = request.getParameter("complementoCompra");
-        double valorFrete = Double.parseDouble(request.getParameter("frete"));
+        double valorFrete = 20;// Double.parseDouble(request.getParameter("frete"));
         String formaPagamento = request.getParameter("formaPagamento");
         String numeroCartaoCompleto = request.getParameter("numeroCartaoCompra");
-        String numeroCartaoCompra = numeroCartaoCompleto.substring(12);
+        String numeroCartaoCompra = "20";// numeroCartaoCompleto.substring(12);
         char statusPedido = 'a';
-        double valorFinal = Double.parseDouble(request.getParameter("totalCompra"));
+        double valorFinal = 20;// Double.parseDouble(request.getParameter("totalCompra"));
         
         Date date = new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
