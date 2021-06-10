@@ -128,9 +128,9 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" style="width: 480px;">produto</th>
-                                        <th scope="col">qtd.</th>
-                                        <th scope="col">preço</th>
+                                        <th scope="col" style="width: 480px;">Produto</th>
+                                        <th scope="col">Quantidade</th>
+                                        <th scope="col">Preço</th>
                                     </tr>
                                 </thead>
 
@@ -177,7 +177,7 @@
                         <!-- Container Resumo do pedido -->
                         <div class="col-6 col-md-4" style="background-color: #f8f8f8;">
 
-                            <h3 class="resumoTitulo">resumo do pedido</h3>
+                            <h3 class="resumoTitulo">Resumo do Pedido</h3>
                             <ul class="sumario-detalhes">
                                 <c:forEach items="${sessionScope.listaProdutos}" var="produto">
                                     <li class="detalhe">

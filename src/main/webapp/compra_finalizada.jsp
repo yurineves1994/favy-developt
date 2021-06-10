@@ -28,7 +28,7 @@
                 justify-content: center;
                 align-items: center;
                 min-height: 100vh;
-                background-image: linear-gradient(131deg, rgba(8, 110, 161, 0.8) 0%, #73b667 100%);
+                background-image: linear-gradient(131deg, rgba(255, 184, 182, 0.8) 0%, #ff8dd1 100%);
             }
 
             .dados {
@@ -84,31 +84,31 @@
                 text-align: center;
                 line-height: 50px;
                 border-radius: 50px;
-                background-image: linear-gradient(131deg, rgba(49, 81, 97, 0.8) 0%, #73b667 100%);
-                color: #d6d5d5;
+                background-image: linear-gradient(131deg, rgba(192, 141, 209, 0.8) 0%, #ff8dd1 100%);
+                color: #000000;
                 text-decoration: none;
                 margin-top: 20px;
             }
 
             .btn-voltar:hover {
                 color: white;
-                background-image: linear-gradient(131deg, rgba(103, 178, 216, 0.8) 0%, #73b667 100%);
+                background-image: linear-gradient(131deg, rgba(255, 184, 182, 0.8) 0%, #ff8dd1 100%);
             }
 
             h1 {
-                color: white;
+                color: black;
             }
         </style>
     </head>
 
     <body>
         <div id="container">
-            <h1>PARABEEEEENS, ${sessionScope.email_cli.nomeCliente}! </h1>
+            <h1>PARABÉNS, ${sessionScope.email_cli.nomeCliente}! </h1>
             <h2>CODIGO DE RASTREIO - ${sessionScope.email_cli.codCliente * 987654698908203832}</h2>
             <section>
                 <div class="dados">
-                    <span>codigo cliente: ${sessionScope.email_cli.codCliente}</span> /
-                    <span>codigo pedido: ${pedido.codPedido}</span>
+                    <span>Código Cliente: ${sessionScope.email_cli.codCliente}</span> /
+                    <span>Código Pedido: ${pedido.codPedido}</span>
                     <h4>DADOS - PEDIDO</h4>
                     <span>${pedido.codPedido}</span><br>
                     <span>CEP ${pedido.cepEndereco} - </span>
@@ -135,7 +135,7 @@
                             <span>Entregue/</span>
                         </c:otherwise>
                     </c:choose>    
-                    <h2>R$ ${pedido.valorFinal}</h2>
+                    <h2>R$ ${pedido.valorFinal + pedido.valorFrete}</h2>
                 </div>
                 <a href="CardsProdutos">
                     <div class="btn-voltar" onclick="adicionarProdutoCarrinho(1, 4)">

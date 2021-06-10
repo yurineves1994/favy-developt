@@ -589,9 +589,9 @@
             <div class="pagamento">
                 <h4>Boleto</h4>
                 <ul>
-                    <li>-> o boleto e pague no banco</li>
-                    <li>-> ou pague pela internet utilizando o código de barras do boleto</li>
-                    <li>-> o prazo de validade do boleto é de 1 dia util</li>
+                    <li>-> O boleto e pague no banco</li>
+                    <li>-> Ou pague pela internet utilizando o código de barras do boleto</li>
+                    <li>-> O prazo de validade do boleto é de 1 dia util</li>
                     <h2>TOTAL: R$ ${sessionScope.totalCompra}</h2>
                 </ul>
             </div>
