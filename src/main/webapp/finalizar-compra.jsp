@@ -423,7 +423,7 @@
                             <legend>Cartão</legend>
                             <div class="row">
                                 <div>
-                                    <input name="numerocartao" type="text" placeholder="numero cartão">
+                                    <input name="numerocartao" type="text" placeholder="numero cartão" maxlength="16" minlength="16">
                                 </div>
                                 <div>
                                     <input name="nomecartao" type="text" placeholder="nome impresso no cartão">
@@ -572,7 +572,7 @@
                 <legend>Cartão</legend>
                 <div class="row">
                     <div>
-                        <input name="numerocartao" type="text" placeholder="numero cartão">
+                        <input name="numerocartao" type="text" placeholder="numero cartão" maxlength="16" minlength="16">
                     </div>
                     <div>
                         <input name="nomecartao" type="text" placeholder="nome impresso no cartão">
@@ -631,7 +631,7 @@
 						</div>
 						<!-- fim da segunda linha-->
 						<div class="col-sm-6">
-							<input required name="numeroCompra" type="number" id="numero" placeholder="" readonly>
+							<input required name="numeroCompra" type="number" id="numero" placeholder="" readonly maxlength="16" minlength="16">
 						</div>
 						<div class="col-sm-6">
 							<input required name="complementoCompra" type="text" id="text" placeholder="" readonly>

@@ -133,7 +133,13 @@
                             <hr NOSHADE class="linhaEF" id="linhaText<%=i%>">
                             <br>
                             <br>
-                            <span class="info" style="margin-left: 16px;">Codigo da compra: 00${pedido.codPedido}</span>
+                            
+                            <span class="info" style="margin-left: 16px;">Codigo da compra: 00${pedido.codPedido} -
+                                <c:choose>
+                                    <c:when test="${pedido.formaPagamento == 'b'}"> Boleto  </c:when>
+                                    <c:otherwise>Cartão de Crédito **** **** **** ${pedido.numeroCartaoCompra}</c:otherwise>
+                                </c:choose>
+                            </span>
                         </div>
 
                         <div class="cxa_dataAndTotal">
